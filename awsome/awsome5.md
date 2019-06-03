@@ -1,0 +1,1 @@
+props、$emit、vuex，eventBus（事件总线，这个很少用到）

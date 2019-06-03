@@ -1,0 +1,23 @@
+{
+  "name": "awsome-interview-front-end",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000a\u0000w\u0000s\u0000o\u0000m\u0000e\u0000-\u0000i\u0000n\u0000t\u0000e\u0000r\u0000v\u0000i\u0000e\u0000w\u0000-\u0000f\u0000r\u0000o\u0000n\u0000t\u0000-\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000\r\u0000 \u0000-\u0000 \u0000\"kΏ'Y�[\u0006\\@b\tgb�Ջ�����S�N>eۏeg\f��e�O;`�~�T�S\u001d`\u00020\r\u0000 \u0000\r\u0000 \u0000-\u0000 \u0000\"kΏ'Y�[��eg\u000bw\u000bw\f��c�O\u0004T*N6��k�vMR�z1r}Y\u0005�f[`N�Tb�Ջ�v�_\u0007Y���^\u00020\r\u0000 \u0000\r\u0000 \u0000-\u0000 \u0000\"kΏ'Y�[\u0006\\��]b�Ǐ�v���v\u0016b\u000bw0R�k���~xQ�v!�.s�Qeg\f�\u0017O�N�b�gkp0qؚ\f��v�O\tg�_\u001aY�N��\u001aO�S0Rq_�T�T.^�R\u00020",
+  "main": "index.js",
+  "dependencies": {
+    "commitizen": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awsome-interview/awsome-interview-front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awsome-interview/awsome-interview-front-end/issues"
+  },
+  "homepage": "https://github.com/awsome-interview/awsome-interview-front-end#readme"
+}

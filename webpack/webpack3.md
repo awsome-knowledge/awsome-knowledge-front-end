@@ -1,0 +1,1 @@
+没啥区别。dev-server也是一个轻量级的node.js express服务器，实际上相当于是一个封装好的express的http服务器+调用webpack-dev-middleware

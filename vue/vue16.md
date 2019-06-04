@@ -1,3 +1,4 @@
+# 获取vue-router两种形式的参数，query、params，这两种有什么区别
 params：/router1/:id ，/router1/123，/router1/789 ,这里的id叫做params
 query：/router1?id=123 ,/router1?id=456 ,这里的id叫做query
 传参是this.$router,接收参数是this.$route

@@ -1,0 +1,46 @@
+# 请实现，鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓。
+   
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .tit {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="tit">div</div>
+<p class="tit">p</p>
+<a class="tit" href="www.baidu.com" alt="www.baidu.com">a</a>
+<script>
+    function mouseBorder(t) {
+        var c = t.childNodes
+
+        for (let i = 0; i < c.length; i++) {
+            var d = c[i];
+
+            if (d.nodeType == 1) {
+                d.onmouseover = function () {
+                    this.style.border = '1px solid red'
+                }
+                d.onmouseout = function () {
+                    this.style.border = ''
+                }
+                mouseBorder(d);
+            }
+        }
+
+    }
+
+    mouseBorder(document.body);
+</script>
+</body>
+</html>
+```

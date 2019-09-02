@@ -1,5 +1,6 @@
 
 ## 防抖
+
 防抖（debounce）
 所谓防抖，就是指触发事件后在n秒内函数只能执行一次，如果在n秒内又触发了事件，则会重新计算函数执行时间。
 防抖函数分为非立即执行版和立即执行版。
@@ -23,6 +24,8 @@
 那么timeout没有值，那么就执行加一操作。
 
 获取this和参数，为了让debounce函数最终返回的函数this指向不变以及依旧能接受参数。
+
+
 完整版：
 ```html
 <!DOCTYPE html>
@@ -77,6 +80,9 @@
 </html>
 
 ```
+
+[在线预览](https://codepen.io/qiufeihong2018/pen/BaBdXvK)
+
 - 立即执行：触发事件后函数会立即执行，然后n秒后不触发事件才能继续执行函数。
 ```javascript
     function debounce(func, wait) {
@@ -154,6 +160,8 @@
 
 ```
 
+[在线预览](https://codepen.io/qiufeihong2018/pen/RwbZXvb)
+
 ### 双剑合璧
 需要立即执行，则加上第三个参数，否则不加。
 ```html
@@ -217,6 +225,23 @@
 </html>
 
 ```
+
+
+### 应用场景
+
+#### 窗口大小变化，调整样式
+```
+window.addEventListener('resize', debounce(handleResize, 200));
+```
+#### 搜索框，输入后1000毫秒搜索
+```
+debounce(fetchSelectData, 300);
+```
+#### 表单验证，输入1000毫秒后验证
+```
+debounce(validator, 1000);
+```
+
 ## 节流
 连续触发事件，但是在n秒中只执行一次。节流会稀释函数的执行频率。
 
@@ -294,6 +319,9 @@
 </html>
 
 ```
+
+[在线预览](https://codepen.io/qiufeihong2018/pen/xxKLvNQ)
+
 定时器版：
 ```javascript
     function throttle(func, wait) {
@@ -372,6 +400,9 @@
 </body>
 </html>
 ```
+
+[在线预览](https://codepen.io/qiufeihong2018/pen/aboyegQ)
+
 
 双剑合璧版：
 ```html

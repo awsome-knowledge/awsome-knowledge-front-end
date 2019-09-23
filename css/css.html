@@ -1,0 +1,69 @@
+<html>
+
+<body>
+    <section class="main-container">
+        <div class="child one">
+            内部虚线边框
+        </div>
+        <div class="child two">
+            边框的实现
+        </div>
+        <div class="child three">
+            模糊边框的实现
+        </div>
+        
+        <div class="child four">
+            条纹背景与进度条
+            线性渐变由一个轴 (梯度线) 定义，其上的每个点具有两种或多种的颜色，且轴上的每个点都具有独立的颜色。为了构建出平滑的渐变，linear-gradient() 函数构建一系列垂直于渐变线的着色线，每一条着色线的颜色则取决于与之垂直相交的渐变线上的色点渐变线由包含渐变图形的容器的中心点和一个角度来定义的。渐变线上的颜色值是由不同的点来定义，包括起始点，终点，以及两者之间的可选的中间点（中间点可以有多个）。起始点是渐变线上代表起始颜色值的点。
+        </div>
+    </section>
+</body>
+<script></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    .main-container {
+        width: 100%;
+        height: 100%;
+        background-color: black
+    }
+
+    .child {
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+
+    /* 实现内部虚线边框 */
+    .one {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        outline: 1px dashed #ff0000;
+        outline-offset: -23px;
+    }
+
+    /* 边框的实现 */
+    .two {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        box-shadow: 0 0 0 10px #ff0000;
+    }
+
+    /* 模糊边框的实现 */
+    .three {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        box-shadow: 0 0 11px 18px #ff0000;
+    }
+
+    .four {
+        background: linear-gradient(to right, #fb3 50%, #58a 0)
+    }
+</style>
+
+</html>

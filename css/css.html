@@ -81,7 +81,8 @@
             自适应下划线实现
         </div>
         <div class="child bg-line">i have your big apple.you have a too? hi hi hi.</div>
-
+        <div class="child analysis boring-text">这是些无聊的文字</div>
+        <div class="child analysis exciting-text">这是些有趣的文字</div>
     </section>
 </body>
 <script></script>
@@ -410,6 +411,21 @@
         background-size: 100% 1px;
         background-position: 0 0.9em;
         text-shadow: .05em 0 #fff, -.05em 0 #fff;
+    }
+
+    .boring-text{
+        background-color: #0000ff
+    }
+
+    .boring-text::after {
+        content: '!!!!!';
+        color: #ff0000;
+        
+    }
+
+    .exciting-text::after {
+        content: '.....';
+        color: #00ff00
     }
 </style>
 

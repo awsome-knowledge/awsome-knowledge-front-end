@@ -83,6 +83,15 @@
         <div class="child bg-line">i have your big apple.you have a too? hi hi hi.</div>
         <div class="child analysis boring-text">这是些无聊的文字</div>
         <div class="child analysis exciting-text">这是些有趣的文字</div>
+        <div class="child analysis">看看<span data-descr="hello world">提示</span>内容</div>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item6</li>
+        </ul>
     </section>
 </body>
 <script></script>
@@ -95,7 +104,7 @@
     .main-container {
         width: 100%;
         height: 1000%;
-        background-color: black
+        background-color: rgb(219, 146, 146)
     }
 
     .child {
@@ -413,20 +422,75 @@
         text-shadow: .05em 0 #fff, -.05em 0 #fff;
     }
 
-    .boring-text{
-        background-color: #0000ff
+    .boring-text {
+        background-color: #91ff00
     }
 
     .boring-text::after {
         content: '!!!!!';
         color: #ff0000;
-        
+        background-color: #00b7ff;
+        border: 1px #eee dotted;
+
+    }
+
+    .exciting-text::before {
+        content: 'before';
+        color: #ff0000;
+        border: 1px #eee dotted;
+        background-color: #00b7ff
     }
 
     .exciting-text::after {
-        content: '.....';
-        color: #00ff00
+        content: 'after';
+        color: #ff0000
+    }
+
+    span[data-descr] {
+        position: relative;
+        text-decoration: underline;
+        color: #ff0000;
+        cursor: help;
+    }
+
+    span[data-descr]:hover::after {
+        content: attr(data-descr);
+        position: absolute;
+        left: 0;
+        top: 25px;
+        min-width: 100px;
+        border: 2px #00ff00 dotted;
+        border-radius: 10px;
+        background-color: rgb(198, 243, 0);
+        padding: 10px;
+        color: #ff0000;
+        font-size: 10px;
+        z-index: 1;
+    }
+    li{
+        list-style-type: none;
+        position: relative;
+        margin: 2px;
+        padding: 0.5em 0.5em 0.5em 2em;
+        background-color: #91ff00;
+        font-size: 20px
+    }
+    li.done{
+        background-color: #ff0000;
+    }
+    li.done::before{
+        content: '';
+        position: absolute;
+        border-color: #df4;
+        border-style: solid;
+        border-width: 0 0.3em 0.25em 0;
     }
 </style>
+<script>
+let li=document.getElementsByTagName('li')
+console.log(li)
+li.addEventListener('click',function(e){
 
+})
+</script>
 </html>

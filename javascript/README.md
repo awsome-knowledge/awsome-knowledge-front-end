@@ -193,9 +193,6 @@
 
 1. ####  数组问题1
 为什么["1","2","3"].map(parseInt) 返回[1,NaN,NaN]
-
-<details><summary><b>答案</b></summary>
-
 ##### 开始
 ![Screenshot from 2019-04-18 09-48-49](https://user-images.githubusercontent.com/36500514/56331706-124a8700-61c0-11e9-9ed6-8dac78d596ae.png)
 
@@ -295,7 +292,6 @@ a.map(part(parseInt))
 5. 最后返回的值就是[1,2,3]
 ##### 参考文献
 [为什么["1","2","3"].map(parseInt) 返回[1,NaN,NaN]？](https://juejin.im/post/5b7298de51882561126f0389)
-</details>
 
 ---
 
@@ -1159,6 +1155,7 @@ alert("再打个招呼。这里演示了" + "\n" + "如何在消息框中添加�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 10. ####  判断字符串是否是这样组成的第一个必须是字母后面可以是字母数字下划线总长度为5到20
+
 ```js
 var reg = /^[a-zA-Z][a-zA-Z_0-9]{4,19}$/
 console.log(reg.test("11a__a1a__a1a__a1a__"))
@@ -1169,6 +1166,7 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 11. #### <a id="js_parsequerystring_url_toobj"></a> 请编写一个JavaScript函数parseQueryString，他的用途是把URL参数解析为一个对象，如：var url=“http://witmax.cn/index.php?key0=0&key1=1&key2=2”
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -1199,14 +1197,13 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 </script>
 </body>
 </html>
-
-
 ```
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 12. #### <a id="html_js_span"></a> 在页面中有如下html，要求用闭包方式写一个JS从文本框中取出值，并在标签span中显示出来
+
 在页面中有如下html:
 ```html
 <div id="field">
@@ -1445,6 +1442,7 @@ console.log('b', b)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 17. #### js中如何定义class如何扩展protope
+
 js中如何定义class，如何扩展protope？
 ```html
 Ele.className = “***”; //***在css中定义，形式如下：.*** {…}
@@ -1462,6 +1460,7 @@ C是想要定义的属性的值
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 18. #### ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题
+
 题目： ajax是什么？ajax的交互模型？同步和异步的区别？如何解决跨域问题？
 #####  ajax是什么
 Ajax是多种技术组合起来的一种浏览器和服务器交互技术，基本思想是允许一个互联网浏览器向一个远程页面/服务做异步的http调用，并且用收到的数据来更新一个当前web页面而不必刷新整个页面。该技术能够改进客户端的体验。包含的技术：
@@ -1984,6 +1983,7 @@ mc.addEventListener('message', event => {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 19.  #### 请给出异步加载js方案不少于两种
+
 请给出异步加载js方案，不少于两种？
 
 默认情况javascript是同步加载的，也就是javascript的加载时阻塞的，后面的元素要等待javascript加载完毕后才能进行再加载，对于一些意义不是很大的javascript，如果放在页头会导致加载很慢的话，是会严重影响用户体验的。
@@ -2032,6 +2032,7 @@ document.body.appendChild(script);
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 20.   #### 多浏览器检测通过什么
+
 ```html
 Navigator  对象
 
@@ -2046,6 +2047,7 @@ navigator.userAgent     用户代理
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 21.  #### <a id="window_onload"></a> 关于window.onload()了解多少
+
 当文档内容加载完成后，会触发window.onload方法。
 
 可以为此事件注册事件处理函数，可以把要执行的脚本代码放在事件处理函数中，于是就可以避免获取不到对象的情况。
@@ -2243,6 +2245,7 @@ navigator.userAgent     用户代理
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 22.  #### <a id="generator_auto_next"></a> 如何让generator自动next（不通过next.next.next）
+
 参考自[冴羽](https://github.com/mqyqingfeng/Blog)
 ##### 单个异步任务
 ```js
@@ -3172,6 +3175,7 @@ Promise 的值的填充过程都被日志记录（logged）下来，这些日志
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 24. #### 变量提升
+
 ```javascript
 function sayHi() {
   console.log(name);
@@ -3201,6 +3205,7 @@ D
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 25. ####  let和const的闭包
+
 ```javascript
 for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
@@ -3228,6 +3233,7 @@ C
 
 
 26. #### this的指向
+
 ```javascript
 const shape = {
   radius: 10,
@@ -3291,6 +3297,7 @@ mouse[bird["size"]] = true
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 28. #### 对象赋值之内存地址不变
+
 ```javascript
 let c = { greeting: "Hey!" };
 let d;
@@ -3316,6 +3323,7 @@ A
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 29. #### <a id="new_number"></a> new Number、==和===
+
 ```javascript
 let a = 3;
 let b = new Number(3);
@@ -3342,6 +3350,7 @@ new Number()是一个内置函数构造函数。虽然它看起来像一个数�
 
 
 30. #### 静态方法
+
 ```javascript
 class Chameleon {
   static colorChange(newColor) {
@@ -3374,6 +3383,7 @@ colorChange函数是静态的。静态方法被设计为仅存在于创建它们
 
 
 31. #### 输出什么7
+
 ```javascript
 let greeting;
 greetign = {}; // Typo!
@@ -3394,6 +3404,7 @@ A
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 32. #### 当我们做这些会发生什么
+
 ```javascript
 function bark() {
   console.log("Woof!");
@@ -3418,6 +3429,7 @@ A
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 33. #### 输出什么8
+
 ```javascript
 function Person(firstName, lastName) {
   this.firstName = firstName;
@@ -3452,6 +3464,7 @@ Person.prototype.getFullName = function() {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 34. #### 输出什么9
+
 ```javascript
 function Person(firstName, lastName) {
   this.firstName = firstName
@@ -3482,6 +3495,7 @@ A
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 35. ####  事件传播的三个阶段是什么
+
 ```javascript
 A: Target > Capturing > Bubbling
 B: Bubbling > Target > Capturing
@@ -3502,6 +3516,7 @@ D
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 36. ####  输出什么10
+
 ```javascript
 function sum(a, b) {
   return a + b
@@ -3526,6 +3541,7 @@ JavaScript 是一种动态类型语言：我们不指定某些变量的类型。
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 37. ####  输出什么11
+
 ```javascript
 let number = 0
 console.log(number++)
@@ -3608,6 +3624,7 @@ str.split('').join(',');
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 39. ####  对象判断相等
+
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
@@ -3639,6 +3656,7 @@ C: Hmm.. You don't have an age I guess
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 40. ####  输出什么14
+
 ```javascript
 function getAge(...args) {
   console.log(typeof args)
@@ -3830,6 +3848,7 @@ console.log(obj)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 48. #### JavaScript全局执行上下文为你做了两件事全局对象和this关键字
+
 JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关键字。
 - A: true
 - B: false
@@ -3909,6 +3928,7 @@ name.giveLydiaPizza()
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 51. ####  输出什么22
+
 ```javascript
 const a = {}
 const b = { key: 'b' }
@@ -3944,6 +3964,7 @@ console.log(a[b])
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 52. ####  事件循环
+
 - 题目一
 ```javascript
 const foo = () => console.log('First')
@@ -4043,6 +4064,7 @@ setTimeout
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 53. ####  <a id="click_button_event_target"></a> 当点击按钮时，event.target是什么
+
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
@@ -4073,6 +4095,7 @@ setTimeout
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 54. ####  当您单击该段落时日志输出是什么
+
 当您单击该段落时，日志输出是什么？
 ```html
 <div onclick="console.log('div')">
@@ -4304,20 +4327,19 @@ console.log(numbers)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 61. ####  自己开发的框架或者库如何使用原型
-<details><summary><b>答案</b></summary>
 
 对于 JavaScript 原型的考察，应该算是基础知识的一部分。但是，基础知识考察的只是原型的理论，而高级知识考察的是原型的实际使用。我们使用的绝大部分第三方框架或者库，源码中都有原型的使用。如果你不能熟练使用原型，你能自己写框架或者库
 
 所以，这里要考察的是原型如何在实际的框架和库中去使用。对于这个问题，如果你没有亲自写过框架和库，且对原型不是很熟悉，那么我建议你看一下 jQuery zepto 中是如何使用原型的。这也算是站在巨人的肩膀上吧，毕竟都是如此优秀的库。
 
 jQuery 的资料自己上网去找找吧，给大家推荐一个免费的讲解 zepto 原型的视频资料 [《zepto设计和源码分析》](https://www.imooc.com/learn/745)。
-</details>
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 62.  ####  目前JS对于异步的解决方案有哪些
+
 <details><summary><b>答案</b></summary>
 异步是 JS 永恒的话题，自动 web 2.0 有了 Ajax 开始，到现在 nodejs 盛行，人们就一直没有停止对异步的讨论。大家有没有考虑过为何异步这么受欢迎？—— 因为异步和业务场景的结合实在太紧密了。在复杂的业务场景中，你要能一眼就识别出来哪些是异步，而且要找到最佳的解决方案，否则这里就是一个坑。
 
@@ -4570,6 +4592,7 @@ ES6 对 Promise 有了原生的支持，一个 Promise 是一个等待被异步�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 64. ####  vue如何解析模板
+
 <details><summary><b>答案</b></summary>
 简单来说，模板解析分位三步
 
@@ -4583,6 +4606,7 @@ ES6 对 Promise 有了原生的支持，一个 Promise 是一个等待被异步�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 65. ####  React的setState为何是异步渲染
+
 <details><summary><b>答案</b></summary>
 这个问题其实很简单，只是很多同学没有考虑到。答案就是：为了防止一次性执行多次setState而带来的渲染性能问题。即，你如果连续不断执行 100 次setState的话，那么 React 是否有必要渲染 100 次？—— 肯定没必要。第一，浏览器会卡死；第二，用户只需要看到最后的结果即可，不用关心前 99 次的过程。
 </details>
@@ -4629,6 +4653,7 @@ JavaScript 只有基本类型和对象。
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 68. ####  输出什么29
+
 ``` js
 [[0, 1], [2, 3]].reduce(
   (acc, cur) => {
@@ -4656,6 +4681,7 @@ D: [1, 2, 6]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 69. ####  输出什么30
+
 ```
 !!null
 !!''
@@ -4686,6 +4712,7 @@ null 是 falsy。 !null 的值是 true。 !true 的值是 false。
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 70. ####  setInterval方法的返回值是什么
+
 ```js
 setInterval(() => console.log('Hi'), 1000)
 ```
@@ -4711,6 +4738,7 @@ setInterval 返回一个唯一的 id。此 id 可被用于 clearInterval 函数�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 71. ####  输出什么31
+
 ```js
 [...'Lydia']
 ```
@@ -4736,6 +4764,7 @@ string 类型是可迭代的。扩展运算符将迭代的每个字符映射成�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 72. ####  输出什么32
+
 ```js
 function* generator(i) {
   yield i;
@@ -4773,6 +4802,7 @@ D: 0, 10 and 10, 20
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 73. ####  返回值是什么
+
 ```js
 const firstPromise = new Promise((res, rej) => {
   setTimeout(res, 500, "one");
@@ -4806,6 +4836,7 @@ D: "one" "two"
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 74. ####  输出什么33
+
 ```js
 let person = { name: "Lydia" };
 const members = [person];
@@ -4846,6 +4877,7 @@ D: [{ name: "Lydia" }]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 75. #### 输出什么34
+
 ```js
 const person = {
   name: "Lydia",
@@ -4878,6 +4910,7 @@ D: ["name", "Lydia"], ["age", 21]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 76. ####  输出什么35
+
 ```js
 console.log(3 + 4 + "5");
 ```
@@ -4905,6 +4938,7 @@ D: "12"
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 77. #### 输出什么36
+
 ```js
 const num = parseInt("7*6", 10);
 ```
@@ -4929,6 +4963,7 @@ D: NaN
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 78. #### 输出什么37
+
 ```js
 [1, 2, 3].map(num => {
   if (typeof num === "number") return;
@@ -4956,6 +4991,7 @@ D: [ 3 x empty ]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 79. #### 输出什么38
+
 ```js
 
 function getInfo(member, year) {
@@ -4994,6 +5030,7 @@ D: { name: "Sarah" }, "1997"
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 80. #### 输出什么39
+
 ```js
 function greeting() {
   throw "Hello world!";
@@ -5030,6 +5067,7 @@ D: "Oh no an error: Hello world!
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 81. #### 输出什么40
+
 ```js
 function Car() {
   this.make = "Lamborghini";
@@ -5059,6 +5097,7 @@ D: TypeError
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 82. #### 输出什么41
+
 ```js
 (() => {
   let x = (y = 10);
@@ -5093,6 +5132,7 @@ let x = y;
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 83. #### 输出什么42
+
 ```js
 class Dog {
   constructor(name) {
@@ -5132,6 +5172,7 @@ D: TypeError, TypeError
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 84. #### 输出什么43
+
 ```js
 const set = new Set([1, 1, 2, 3, 4]);
 
@@ -5155,6 +5196,7 @@ Set可以去重
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 85. #### 输出什么44
+
 ```js
 // counter.js
 let counter = 10;
@@ -5191,6 +5233,7 @@ D: NaN
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 86. #### 输出什么45
+
 ```js
 const name = "Lydia";
 age = 21;
@@ -5218,6 +5261,7 @@ name变量由const关键字声明，所以删除不成功:返回 false. 而我�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 87. #### 输出什么46
+
 ```js
 const numbers = [1, 2, 3, 4, 5];
 const [y] = numbers;
@@ -5250,6 +5294,7 @@ a的值现在是1，b的值现在是2.而在题目中，我们是这么做的:
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 88. #### 输出什么47
+
 ```js
 const user = { name: "Lydia", age: 21 };
 const admin = { admin: true, ...user };
@@ -5274,6 +5319,7 @@ D: { admin: true }
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 89. #### 输出什么48
+
 ```js
 const person = { name: "Lydia" };
 
@@ -5302,6 +5348,7 @@ D: { name: "Lydia"}, ["age"]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 90. #### 输出什么49
+
 ```js
 const settings = {
   username: "lydiahallie",
@@ -5334,6 +5381,7 @@ JSON.stringify的第二个参数是 替代者(replacer). 替代者(replacer)可�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 91. #### 输出什么50
+
 ```js
 let num = 10;
 
@@ -5366,6 +5414,7 @@ num2是10因为我们将 num1传入increasePassedNumber. number等于10（num1�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 92. #### 输出什么51
+
 ```js
 const value = { number: 10 };
 
@@ -5402,6 +5451,7 @@ D: NaN, NaN, 20, 40
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 93. #### 输出什么52
+
 ```js
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 A: 1 2 and 3 3 and 6 4
@@ -5439,6 +5489,7 @@ reducer 函数还有一个可选参数initialValue, 该参数将作为第一次�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 94. #### 使用哪个构造函数可以成功继承Dog类
+
 ```js
 class Dog {
   constructor(name) {
@@ -5492,6 +5543,7 @@ Labrador类接收两个参数，name参数是由于它继承了Dog，size作为L
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 95. #### 输出什么53
+
 ```js
 // index.js
 console.log('running index.js');
@@ -5522,6 +5574,7 @@ import命令是编译阶段执行的，在代码运行之前。因此这意味�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 96. #### 输出什么54
+
 ```js
 console.log(Number(2) === Number(2))
 console.log(Boolean(false) === Boolean(false))
@@ -5545,6 +5598,7 @@ D: true, true, true
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 97. #### 输出什么55
+
 ```js
 const name = "Lydia Hallie"
 console.log(name.padStart(13))
@@ -5571,6 +5625,7 @@ D: "Lydia Hallie", "Lyd"
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 98. #### 输出什么56
+
 ```js
 console.log("🥑" + "💻");
 A: "🥑💻"
@@ -5593,6 +5648,7 @@ D: Error
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 99. #### 如何能打印出consolelog语句后注释掉的值
+
 如何能打印出console.log语句后注释掉的值
 ```js
 function* startGame() {
@@ -5873,6 +5929,7 @@ add函数是一个记忆函数。 通过记忆化，我们可以缓存函数的�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 107. #### 输出什么63
+
 ```js
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
 
@@ -5935,7 +5992,6 @@ D: [1, 1, 1]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 109. #### 输出什么65
-
 
 ```js
 function sayHi(name) {
@@ -6008,6 +6064,7 @@ this关键字的指向取决于使用它的位置。 在函数中，比如getSta
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 111. ####  输出什么67
+
 ```js
 const person = {
   name: "Lydia",
@@ -6043,6 +6100,7 @@ D: "Amsterdam"
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 112. #### 输出什么68
+
 ```js
 function checkAge(age) {
   if (age < 18) {
@@ -6099,6 +6157,7 @@ D: 总是undefined
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 114. #### <a id="hasName_true_params"></a>  哪个选项是将hasName设置为true的方法，前提是不能将true作为参数传递
+
 ```js
 fetch('https://www.website.com/api/user/1')
   .then(res => res.json())
@@ -6132,6 +6191,7 @@ name.length返回传递的参数的长度，而不是布尔值true。
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 115. ####  实现一个函数判断输入是不是回文字符串
+
 ##### 题目：实现一个函数，判断输入是不是回文字符串。
 <details><summary><b>答案</b></summary>
 <pre>
@@ -6149,9 +6209,8 @@ console.log(BackToString('abccba'))
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 116. #### <a id="stotage_single_setitem_getitem"></a> 实现Storage，使得该对象为单例，并对localStorage进行封装设置值setItem(key,value)和getItem(key)
-<details><summary><b>答案</b></summary>
-<pre>
 
+```js
 var instance = null;
 
 class Storage {
@@ -6164,14 +6223,14 @@ class Storage {
     setItem = (key, value) => localStorage.setItem(key, value)
     getItem = key => localStorage.getItem(key)
 }
-</pre>
-</details>
+```
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 117. #### <a id="parse_string_compute"></a> 解析字符串的值使之变成算式如‘1-10*2+1/4’（知衣科技）
+
 当时想的是乘除等高级运算符、加减等低级运算符和数字分别放在三个数组中
 
 先遍历高级数组进行运算操作，然后遍历低级数组进行运算操作。
@@ -6187,6 +6246,7 @@ console.log(eval(str))
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 118. #### <a id="event"></a>  说说事件流（字节跳动）
+
 <details><summary><b>答案</b></summary>
 事件流分为两种，捕获事件流和冒泡事件流。
 捕获事件流从根节点开始执行，一直往子节点查找执行，直到查找执行到目标节点。
@@ -6199,6 +6259,7 @@ DOM事件流分为三个阶段，一个是捕获节点，一个是处于目标�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 119. #### <a id="process_font_over_color_change"></a>  现在有一个进度条，进度条中间有一串文字，当我的进度条覆盖了文字之后，文字要与进度条反色，怎么实现
+
 <details><summary><b>答案</b></summary>
 <pre>
 当时我给的是js的方案，在进度条宽度变化的时候，计算盖过每一个文字的50%，如果超过，设置文字相反颜色。
@@ -6210,6 +6271,7 @@ DOM事件流分为三个阶段，一个是捕获节点，一个是处于目标�
 ---
 
 120. #### <a id="a_b_inherit"></a> 有一个函数A和函数B请你实现B继承A分别说说他们的优缺点
+
 <details><summary><b>答案</b></summary>
 <pre>
 // 方式1
@@ -6246,6 +6308,7 @@ function B(){
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 121. #### <a id="描述一下this"></a>  描述一下this（有赞）
+
 <details><summary><b>答案</b></summary>
 <pre>
 this：函数执行的上下文，可以通过apply，call，bind改变this的指向。对于匿名函数或者直接调用的函数来说，this指向全局上下文（浏览器为window，nodejs为global），剩下的函数调用，那就是谁调用它，this就指向谁。当然还有es6的箭头函数，箭头函数的指向取决于该箭头函数声明的位置，在哪里声明，this就指向哪里。
@@ -6257,6 +6320,7 @@ this：函数执行的上下文，可以通过apply，call，bind改变this的�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 122. ####  图片懒加载
+
 先将img标签的src链接设为同一张图片（比如空白图片），然后给img标签设置自定义属性（比如 data-src）,然后将真正的图片地址存储在data-src中，当JS监听到该图片元素进入可视窗口时，将自定义属性中的地址存储到src属性中。达到懒加载的效果。
 这样做能防止页面一次性向服务器发送大量请求，导致服务器响应面，页面卡顿崩溃等。
 
@@ -6364,6 +6428,7 @@ this：函数执行的上下文，可以通过apply，call，bind改变this的�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 123. ####  实现页面加载进度条
+
 网页进度条能够更好的反应当前网页的加载进度情况，loading进度条可用动画的形式从开始0%到100%完成网页加载这一过程。但是目前的浏览器并没有提供页面加载进度方面的接口，也就是说页面还无法准确返回页面实际加载的进度，本文中我们使用jQuery来实现页面加载进度条效果。
 
 HTML
@@ -6639,6 +6704,7 @@ HTML
 
 
 124. ####  事件委托
+
 <details><summary><b>答案</b></summary>
 <pre>
 事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？就是事件从最深的节点开始，然后逐步向上传播事件，举个例子：页面上有这么一个节点树，div>ul>li>a;比如给最里面的a加一个click点击事件，那么这个事件就会一层一层的往外执行，执行顺序a>li>ul>div，有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候，都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。
@@ -6654,6 +6720,7 @@ https://www.cnblogs.com/liugang-vip/p/5616484.html
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 125. ####  实现extend函数
+
 具体思路： 使用Object.defineProperty()对属性的特性进行设置，然后通过Object.getOwnPropertyDescriptor()获取到属性描述符，并赋值给新创建的对象
 ```js
   Object.defineProperty(Object.prototype,
@@ -6704,6 +6771,7 @@ https://www.cnblogs.com/liugang-vip/p/5616484.html
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 126. #### <a id="为什么会有跨域的问题以及解决方式"></a> 为什么会有跨域的问题以及解决方式(大搜车)
+
 <details><summary><b>答案</b></summary>
 跨域跨的是域名、协议和端口
 
@@ -6987,6 +7055,7 @@ window.onmessage = function(e) {
 
 
 127. ####  jsonp原理postMessage原理
+
 <details><summary><b>答案</b></summary>
 
 ```text
@@ -7017,6 +7086,7 @@ PostMessage函数将一个消息放入与创建这个窗口的消息队列相关
 
 
 128. ####  实现拖拽功能比如把5个兄弟节点中的最后一个节点拖拽到节点1和节点2之间
+
 <details><summary><b>答案</b></summary>
 
 </details>
@@ -7028,6 +7098,7 @@ PostMessage函数将一个消息放入与创建这个窗口的消息队列相关
 
 
 129. ####  动画setTimeout何时执行requestAnimationFrame的优点
+
 <details><summary><b>答案</b></summary>
 在到期时间(delay毫秒)之后执行
 
@@ -7045,6 +7116,7 @@ window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 130. #### <a id="parseint_no_number"></a> 手写parseInt的实现：要求简单一些，把字符串型的数字转化为真正的数字即可，但不能使用JS原生的字符串转数字的API，比如Number
+
 <details><summary><b>答案</b></summary>
 <pre>
 function _parseInt(str, radix) {
@@ -7088,6 +7160,7 @@ function _parseInt(str, radix) {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 131. ####  编写分页器组件的时候为了减少服务端查询次数点击下一页怎样能确保还有数据可以加载请求数据不会为空
+
 编写分页器组件的时候，为了减少服务端查询次数，点击“下一页”怎样能确保还有数据可以加载（请求数据不会为空）？
 <details><summary><b>答案</b></summary>
 后端每次查询完之后,给你个标记,hasMore true 就还有 false 就说明这是最后一页了,如果针对那种列表总数可变的情况,就只能根据total 来判断了
@@ -7099,6 +7172,7 @@ function _parseInt(str, radix) {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 132. #### <a id="es6_feature"></a>  ES6新增了哪些特性使用过哪些也有当场看代码说输出结果的
+
 <details><summary><b>答案</b></summary>
 Let和const关键字
 
@@ -7119,6 +7193,7 @@ for...of
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 133. ####  JS模块化的实践
+
 <details><summary><b>答案</b></summary>
 模块化开发是 JS 项目开发中的必备技能，它如同面向对象、设计模式一样，可以兼顾提升软件项目的可维护性和开发效率。模块之间通常以全局对象维系通讯。在小游戏中，GameGlobal 是全局对象。在小程序中，App 是全局对象，任何页面都可以使用 getApp() 获取这个全局对象。在 NodeJS 中，global 是全局对象。在传统浏览器宿主中，window 是全局对象。
 
@@ -7134,6 +7209,7 @@ for...of
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 134. ####  requirejs的实现原理如果使用过webpack进一步会问两者打包的异同及优缺点
+
   require.js的实现原理（如果使用过webpack，进一步会问，两者打包的异同及优缺点）
 <details><summary><b>答案</b></summary>
 　　requirejs 加载模块的核心思想是利用了动态加载脚本的异步性以及 onload 事件以毒攻毒，关于脚本的加载，我们需要注意一下几点：
@@ -7153,6 +7229,7 @@ https://blog.csdn.net/ai52011/article/details/77113611
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 136. ####  实现gulp的功能
+
 <details><summary><b>答案</b></summary>
 
 </details>
@@ -7162,6 +7239,7 @@ https://blog.csdn.net/ai52011/article/details/77113611
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 137. ####  使用前端框架angularvuereact带来哪些好处相对于使用jQuery
+
 使用前端框架（angular/vue/react）带来哪些好处，相对于使用jQuery
 <details><summary><b>答案</b></summary>
 前者是数据驱动，写出的代码模块化。后者是会频繁操作DOM，写出面条式的代码
@@ -7173,6 +7251,7 @@ https://blog.csdn.net/ai52011/article/details/77113611
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 138. ####  vue双向数据绑定的实现
+
 <details><summary><b>答案</b></summary>
 类似于设计模式中的观察者模式
 我们已经知道实现数据的双向绑定，首先要对数据进行劫持监听，所以我们需要设置一个监听器Observer，用来监听所有属性。如果属性上发生变化了，就需要告诉订阅者Watcher看是否需要更新。因为订阅者是有很多个，所以我们需要有一个消息订阅器Dep来专门收集这些订阅者，然后在监听器Observer和订阅者Watcher之间进行统一管理的。接着，我们还需要有一个指令解析器Compile，对每个节点元素进行扫描和解析，将相关指令对应初始化成一个订阅者Watcher，并替换模板数据或者绑定相应的函数，此时当订阅者Watcher接收到相应属性的变化，就会执行对应的更新函数，从而更新视图。因此接下去我们执行以下3个步骤，实现数据的双向绑定：
@@ -7190,6 +7269,7 @@ https://blog.csdn.net/ai52011/article/details/77113611
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 139. ####  单页应用如何实现其路由功能
+
 <details><summary><b>答案</b></summary>
 　　目前来说，无论是vue，还是react，spa的路由实现方式无非就是以下两者：
 
@@ -7204,6 +7284,7 @@ history api。使用html5的history api实现，主要就是popState事件等。
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 140. ####  手动实现callapplybind
+
 <details><summary><b>答案</b></summary>
 
 
@@ -7373,6 +7454,7 @@ console.log(boundGetX());
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 141. #### 观察者模式
+
 <details><summary><b>答案</b></summary>
 
 就类似于在某虎直播平台上订阅了某某主播，你不需要隔三差五去上平台瞧瞧那货开播了没。只要订阅了，他开播平台就会向你发布开播信息。这就是一个栗子。
@@ -7937,6 +8019,7 @@ console.log(res6)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 144.   #### 如何实现一个倒计时功能类似于蘑菇街中的秒杀
+
 如何实现一个倒计时功能，类似于蘑菇街中的秒杀（蘑菇街）
 <details><summary><b>答案</b></summary>
 
@@ -7947,6 +8030,7 @@ console.log(res6)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 145.   #### <a id="es6_this_function_this"></a> 怎么理解es6箭头函数中的this，它和一般函数的this指向有什么区别呢？（蘑菇街）
+
 <details><summary><b>答案</b></summary>
 
 普通函数中的this:
@@ -7973,7 +8057,8 @@ console.log(res6)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 146.   #### 说一下同源策略
- 说一下同源策略（蘑菇街）
+
+说一下同源策略（蘑菇街）
 <details><summary><b>答案</b></summary>
 同源策略，它是由Netscape提出的一个著名的安全策略。
 
@@ -7996,6 +8081,7 @@ console.log(res6)
 
 
 147.   #### <a id="dom_two_node"> 一个DOM树，其中有两个节点，找出这两个节点公共的父节点？ (有赞)
+
 <details><summary><b>答案</b></summary>
 这个问题可以分为三种情况来考虑：
 
@@ -8059,6 +8145,7 @@ BinaryTreeNode* findLowestCommonAncestor(BinaryTreeNode* root , BinaryTreeNode* 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 148. #### <a id="strong_cache_negotiate_cache"></a> 说一下强缓存和协商缓存？ （浏览器的缓存机制也需要很清楚） (有赞) 
+
 <details><summary><b>答案</b></summary>
 浏览器的协商缓存与强缓存
 2017-04-0710841View0
@@ -8148,7 +8235,8 @@ Ctrl+F5强制刷新	无效	无效
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 149. #### 为什么数据库使用的是mongodb而不是mysql
- 为什么数据库使用的是mongodb而不是mysql (有赞)
+
+为什么数据库使用的是mongodb而不是mysql (有赞)
 <details><summary><b>答案</b></summary>
 过去几年，使用NoSQL数据库的网站和应用数量激增。 MongoDB无处不在。 现代网络如何偏离传统的基于SQL的数据库确实令人着迷。 MongoDB和其他NoSQL数据库在存储和检索数据方面有一种新方法。 那么让我们来看看MongoDB与MySQL不同的一些关键因素。
 
@@ -8184,8 +8272,9 @@ MongoDB致力于集合的思想。 这些集合类似于表，但没有任何固
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 150. #### 什么是xss如何防止xss
- 什么是xss，如何防止xss？ (有赞)
-【前端安全】JavaScript防XSS攻击
+
+什么是xss，如何防止xss？ (有赞)
+前端安全】JavaScript防XSS攻击
 什么是XSS
 
 XSS（Cross Site Scripting），跨站脚本攻击，是一种允许攻击者在另外一个用户的浏览器中执行恶意代码脚本的脚本注入式攻击。本来缩小应该是CSS，但为了和层叠样式（Cascading Style Sheet,CSS）有所区分，故称XSS。
@@ -8316,6 +8405,7 @@ https://mp.weixin.qq.com/s/Pz7gS9_7J16wZGrR8zgR8g
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 151. #### 作用域
+
 function person() { return this.name; } var someOne = { name: 'Jenny', age: 18 }; // 此处如何输出 'Jenny'
 <details><summary><b>答案</b></summary>
 person.call(someOne)
@@ -8326,6 +8416,7 @@ person.call(someOne)
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 152. #### 语法题
+
 有一个合法的 JSON 对象（即不包含函数等值的对象），设计一个函数，取出该对象内所有 key 为 "id" 并且其值不为对象、数组的值，装入一个数组并返回。 
 
 ```js
@@ -8361,6 +8452,7 @@ return ret ;
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 153. #### 闭包
+
 下面五段代码分别输出什么？并且什么时候输出什么？
 ```js
 for (var i = 0; i < 5; i++) {
@@ -8463,6 +8555,7 @@ axios用Promise封装请求拦截 处理异常问题 原理没答上来 返回�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 155. #### 正则题
+
 var string = "我的账户余额：2,235,467.20"; console.log(?); // 请用js计算出我到底有多少钱（输出Number类型数字，代码尽量简洁，考虑通用情况）
 <details><summary><b>答案</b></summary>
 
@@ -8538,6 +8631,7 @@ for (let i = 1; i <= 5; i++) {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 157. #### 原始类型有哪几种null是对象嘛
+
 ##### 题目：原始类型有哪几种？null 是对象嘛？
 <details><summary><b>答案</b></summary>
 在 JS 中，存在着 6 种原始值，分别是：
@@ -8566,6 +8660,7 @@ symbol
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 158. #### 对象类型和原始类型的不同之处函数参数是对象会发生什么问题
+
 对象类型和原始类型的不同之处？函数参数是对象会发生什么问题？
 <details><summary><b>答案</b></summary>
 在 JS 中，除了原始类型那么其他的都是对象类型了。对象类型和原始类型不同的是，原始类型存储的是值，对象类型存储的是地址（指针）。当你创建了一个对象类型的时候，计算机会在内存中帮我们开辟一个空间来存放值，但是我们需要找到这个空间，这个空间会拥有一个地址（指针）。
@@ -8612,6 +8707,7 @@ console.log(p2) // -> ?
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 159. #### typeof是否能正确判断类型instanceof能正确判断对象的原理是什么
+
 typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？
 <details><summary><b>答案</b></summary>
 typeof 对于原始类型来说，除了 null 都可以显示正确的类型
@@ -8653,6 +8749,7 @@ console.log('hello world' instanceof PrimitiveString) // true
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 160. #### ==和===有什么区别
+
 == 和 === 有什么区别？
 <details><summary><b>答案</b></summary>
 对于 == 来说，如果对比双方的类型不一样的话，就会进行类型转换
@@ -8687,6 +8784,7 @@ console.log('hello world' instanceof PrimitiveString) // true
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 161. #### 如何正确判断this箭头函数的this是什么
+
 ##### 题目： 如何正确判断 this？箭头函数的 this 是什么？
 
 <details><summary><b>答案</b></summary>
@@ -8762,6 +8860,7 @@ foo.bind(a)() // => 'yck'
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 162. #### 如何理解原型如何理解原型链
+
 如何理解原型？如何理解原型链？
 <details><summary><b>答案</b></summary>
 本文不会过多介绍基础知识，而是把重点放在原型的各个难点上。
@@ -8870,6 +8969,7 @@ Function.prototype 和 Object.prototype 是两个特殊的对象，他们由引�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 163. #### 什么是提升什么是暂时性死区varlet及const区别
+
 ##### 题目：什么是提升？什么是暂时性死区？var、let 及 const 区别？
 <details><summary><b>答案</b></summary>
 对于这个问题，我们应该先来了解提升（hoisting）这个概念。
@@ -8949,6 +9049,7 @@ let 和 const 作用基本一致，但是后者声明的变量不能再次赋值
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 164. #### 原型如何实现继承Class如何实现继承Class本质是什么
+
 ##### 题目：原型如何实现继承？Class 如何实现继承？Class 本质是什么？
 <details><summary><b>答案</b></summary>
 首先先来讲下 class，其实在 JS 中并不存在类，class 只是语法糖，本质还是函数。
@@ -9039,6 +9140,7 @@ class 实现继承的核心在于使用 extends 表明继承自哪个父类，�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 165. #### 为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点
+
 ##### 题目：为什么要使用模块化？都有哪几种方式可以实现模块化，各有什么特点？
 <details><summary><b>答案</b></summary>
 使用一个技术肯定是有原因的，那么使用模块化可以给我们带来以下好处
@@ -9130,6 +9232,7 @@ export default function() {}
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 166. #### Proxy可以实现什么功能
+
 ##### 题目：Proxy 可以实现什么功能？
 
 <details><summary><b>答案</b></summary>
@@ -9188,6 +9291,7 @@ get(target, property, receiver) {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 167. #### mapfilterreduce各自有什么作用
+
 ##### 题目：map, filter, reduce 各自有什么作用？
 <details><summary><b>答案</b></summary>
 map 作用是生成一个新数组，遍历原数组，将每个元素拿出来做一些变换然后放入到新的数组中。
@@ -9258,6 +9362,7 @@ console.log(mapArray, reduceArray) // [2, 4, 6]
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 169. #### 什么是回调函数回调函数有什么缺点如何解决回调地狱问题
+
 ##### 题目：什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？
 <details><summary><b>答案</b></summary>
 回调函数应该是大家经常使用到的，以下代码就是一个回调函数的例子：
@@ -9346,6 +9451,7 @@ let result3 = it.next()
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 172. #### async及await的特点它们的优点和缺点分别是什么await原理是什么
+
  async 及 await 的特点，它们的优点和缺点分别是什么？await 原理是什么？
 <details><summary><b>答案</b></summary>
 一个函数如果加上 async ，那么该函数就会返回一个 Promise
@@ -9391,6 +9497,7 @@ console.log('1', a) // -> '1' 1
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 173. #### setTimeoutsetIntervalrequestAnimationFrame各有什么特点
+
 ##### 题目：setTimeout、setInterval、requestAnimationFrame 各有什么特点？
 
 <details><summary><b>答案</b></summary>
@@ -9573,6 +9680,7 @@ new MyPromise((resolve, reject) => {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 175. #### 异步代码执行顺序解释一下什么是EventLoop坚果云
+
 ##### 题目：异步代码执行顺序？解释一下什么是 Event Loop ？(坚果云)
 <details><summary><b>答案</b></summary>
 
@@ -9712,6 +9820,7 @@ new Promise((resolve, reject) => {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 176. #### 进程与线程区别JS单线程带来的好处
+
 ##### 题目：进程与线程区别？JS 单线程带来的好处？
 <details><summary><b>答案</b></summary>
 相信大家经常会听到 JS 是单线程执行的，但是你是否疑惑过什么是线程？
@@ -9768,6 +9877,7 @@ bar()
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 178. #### Node中的EventLoop和浏览器中的有什么区别processnexttick执行顺序
+
  Node 中的 Event Loop 和浏览器中的有什么区别？process.nexttick 执行顺序？
 <details><summary><b>答案</b></summary>
 Node 中的 Event Loop 和浏览器中的是完全不相同的东西。
@@ -9874,6 +9984,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 179. #### 使用正则表达式验证邮箱格式
+
 ##### 题目：使用正则表达式验证邮箱格式(大搜车)
 <details><summary><b>答案</b></summary>
 
@@ -9884,6 +9995,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 180. #### 判断数组
+
 ##### 题目：判断数组(大搜车)
 <details><summary><b>答案</b></summary>
 
@@ -9894,6 +10006,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 181. #### 实现indexof
+
 实现indexof(大搜车)
 <details><summary><b>答案</b></summary>
 
@@ -9905,6 +10018,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 
 
 182. #### promiseall如果三个请求中第一个发生错误是会继续执行吗
+
 ##### 题目：promise.all 如果三个请求中第一个发生错误是会继续执行吗（海康）
 
 Promise.all(iterable) 方法返回一个 Promise 实例，此实例在 iterable 参数内所有的 promise 都“完成（resolved）”或参数中不包含 promise 时回调完成（resolve）；如果参数中  promise 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 promise 的结果。
@@ -9916,6 +10030,7 @@ Promise.all 在任意一个传入的 promise 失败时返回失败。例如，�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 183. #### 取消promise
+
 取消promise（海康）
 
 概述
@@ -10054,6 +10169,7 @@ https://blog.csdn.net/function__/article/details/79321540
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 184. #### 后端的MVC
+
 ##### 题目：后端的MVC(海康二面)
 
 MVC是开发所有软件所必须涉及的基本几个划分
@@ -10098,6 +10214,7 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 185. #### 简单讲讲适配器模式
+
 ##### 题目：简单讲讲适配器模式(海康二面)
 
 ---
@@ -10105,6 +10222,7 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 186. #### rustful接口原则
+
 ##### 题目：rustful接口原则(海康二面)
 
 ---
@@ -10112,6 +10230,7 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 187. #### 执行上下文变量声明和函数声明
+
 ##### 题目：执行上下文，变量声明和函数声明(字节跳动)
 
 ```js
@@ -10147,6 +10266,7 @@ new Byte().getName();
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 188. #### _.get()实现
+
 ##### 题目：_.get()实现(字节跳动)
 
 
@@ -10155,6 +10275,7 @@ new Byte().getName();
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 189. #### lodash 的 深克隆实现
+
 ##### 题目：lodash 的 深克隆实现(字节跳动)
 ```js
 深克隆
@@ -10257,6 +10378,7 @@ child2 = cloneDeep(parent2);
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 190. #### ts和js的区别，为什么要选择使用ts？
+
 ##### 题目：ts和js的区别，为什么要选择使用ts？(字节跳动)
 javascript和typescript的区别一：概念对比
 
@@ -10325,6 +10447,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 191. #### 讲讲订阅-发布模式，有几种实现方式
+
 ##### 题目：讲讲订阅-发布模式，有几种实现方式(字节跳动)
 关键词：listener、Object.defineProperty
 
@@ -10333,6 +10456,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 事件是如何实现的
+
 ##### 题目：事件是如何实现的(字节跳动)
 关键词：订阅-发布模式
 
@@ -10341,6 +10465,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 许多if的优化
+
 ##### 题目：许多if的优化(个推一面)
 关键词：1. map 2. weakmap 3. switch 4. generate 5. 函数编程 6. 洋葱模型
 
@@ -10359,6 +10484,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 输出什么
+
 ##### 题目：[]+13(个推一面)
 ##### 答案：13
 
@@ -10369,6 +10495,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 浏览器的新特性和js的新特性
+
 ##### 题目：浏览器的新特性和js的新特性(个推一面)
 
 ---
@@ -10376,6 +10503,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 在两个上万的数组中找出重复的数据
+
 ##### 题目：在两个上万的数组中找出重复的数据(个推一面)
 方法一：
 1. 申明第三个数组
@@ -10395,6 +10523,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### set是如何实现的
+
 ##### 题目：set是如何实现的(个推一面)
 
 ---
@@ -10402,6 +10531,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 执行结果
+
 ##### 题目：let {...a}=[1,2,3](个推一面)
 ##### 答案：{0: 1, 1: 2, 2: 3}
 ---
@@ -10409,6 +10539,7 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 执行结果
+
 ##### 题目：let {...a}={a:1,a:2,a:3}(个推一面)
 ##### 答案：{a: 3}
 ---

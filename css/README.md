@@ -1562,3 +1562,54 @@ getBoundingClientRect()
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+24. #### 你对前端的异步编程有哪些了解呢
+1. 传统的定时器，异步编程：
+```
+setTimeout(),setInterval()等。
+
+缺点：当同步的代码比较多的时候，不确定异步定时器的任务时候能在指定的时间执行。
+
+例如：
+
+在第100行执行代码 setTimeout(()=>{console.log(1)},1000)//1s后执行里面函数
+
+但是后面可能有10000行代码+很多计算的任务，例如循环遍历，那么1s后就无法输出console.log(1)
+
+可能要到2s甚至更久
+
+setInterval跟上面同理 当同步代码比较多时，不确保每次能在一样的间隔执行代码，
+
+如果是动画，那么可能会掉帧
+```
+2. `ES6` 的异步编程：
+- `promise:new promise((resolve,reject)=>{ resolve() }).then()....`
+- 缺点： 仍然没有摆脱回掉函数，虽然改善了回掉地狱;
+- `generator` 函数 调用 `next()` 执行到下一个 `yeild` 的代码内容，如果传入参数则作为上一个 `yield` 的返回值
+- 缺点：不够自动化;
+- `async await` :只有 `async` 函数内部可以用 `await` ,将异步代码变成同步书写，但是由于 `async` 函数本身返回一个 `promise` ,也很容易产生 `async` 嵌套地狱。
+
+3. `requestAnimationFrame` 和 `requestIdleCallback` 
+传统的 `javascript` 动画是通过定时器  `setTimeout` 或者 `setInterval` 实现的。但是定时器动画一直存在两个问题:
+- 第一个就是动画的循时间环间隔不好确定，设置长了动画显得不够平滑流畅，设置短了浏览器的重绘频率会达到瓶颈，推荐的最佳循环间隔是 `17ms`（大多数电脑的显示器刷新频率是 `60Hz` ， `1000ms/60` ）；
+- 第二个问题是定时器第二个时间参数只是指定了多久后将动画任务添加到浏览器的 `UI` 线程队列中，如果 `UI` 线程处于忙碌状态，那么动画不会立刻执行。为了解决这些问题， `H5` 中加入了 `requestAnimationFrame` 以及 `requestIdleCallback`；
+- `requestAnimationFrame` 会把每一帧中的所有 `DOM` 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率；
+- 在隐藏或不可见的元素中， `requestAnimationFrame` 将不会进行重绘或回流，这当然就意味着更少的 `CPU` 、 `GPU` 和内存使用量；
+- `requestAnimationFrame` 是由浏览器专门为动画提供的 `API` ，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了 `CPU` 开销。
+
+##### 性能对比
+![avatar](./front-end.png)
+`requestAnimationFrame` 的回调会在每一帧确定执行，属于高优先级任务，而 `requestIdleCallback` 的回调则不一定，属于低优先级任务。
+
+
+我们所看到的网页，都是浏览器一帧一帧绘制出来的，通常认为 `FPS` 为 `60` 的时候是比较流畅的，而 `FPS` 为个位数的时候就属于用户可以感知到的卡顿了，那么在一帧里面浏览器都要做哪些事情呢，如下所示：
+![avatar](./front-end2.png)
+- 图中一帧包含了用户的交互、 `js` 的执行、以及 `requestAnimationFrame` 的调用，布局计算以及页面的重绘等工作。
+- 假如某一帧里面要执行的任务不多，在不到 `16ms（1000/60)` 的时间内就完成了上述任务的话，那么这一帧就会有一定的空闲时间，这段时间就恰好可以用来执行 `requestIdleCallback` 的回调，如下图所示：
+![avatar](./front-end3.png)
+##### 参考文献
+[](https://juejin.im/post/6857800782276902919)
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)

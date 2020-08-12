@@ -695,15 +695,17 @@ function compose (middleware) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-28.  #### koa原理清楚吗
-##### 题目： koa原理清楚吗（个推一面）
-
+29.  #### 简述浏览器的Eventloop和Node.js的Eventloop
+- 浏览器的Eventloop
+![avatar](./front-end4.png)
+- Node.js的Eventloop
+![avatar](./front-end5.png)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-28.  #### 
+28.  #### 用过nodejs中的EventEmitter吗？详细讲讲
 ##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
 
 

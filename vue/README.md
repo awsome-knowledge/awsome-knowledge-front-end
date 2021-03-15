@@ -1,7 +1,7 @@
 # awsome-knowledge-front-end
 ## 目录
-1. [v-for中key的作用是什么](#vfor中key的作用是什么)
-2. [vue组件之间通信你用到的有哪些](#vue组件之间通信你用到的有哪些)
+1. [v-for中key的作用是什么](#v-for中key的作用是什么)
+2. [vue组件之间通信](#vue组件之间通信)
 3. [eventBus事件总线进行通信](#eventBus事件总线进行通信)
 4. [父组件直接调子组件里的方法子组件直接调父组件里的方法怎么实现](#父组件直接调子组件里的方法子组件直接调父组件里的方法怎么实现)
 5. [hash模式和history模式的区别](#hash模式和history模式的区别)
@@ -33,30 +33,34 @@
 
 ### Vue.js
 
-1. ####  vfor中key的作用是什么
+1. ####  v-for中key的作用是什么
 ##### 题目：v-for中key的作用是什么
-key代表每一项中的唯一性
-key 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用 key，它会基于 key 的变化重新排列元素顺序，并且会移除 key 不存在的元素。
+`key` 代表每一项中的唯一性，`key` 的特殊属性主要用在 `Vue` 的虚拟 `DOM` 算法，在新旧 `nodes` 对比时辨识 `VNodes`。如果不使用 `key`，`Vue` 会使用一种最大限度减少动态元素并且尽可能的尝试修复或者再利用相同类型元素的算法。使用 `key`，它会基于 `key` 的变化重新排列元素顺序，并且会移除 `key` 不存在的元素。
 
-有相同父元素的子元素必须有独特的 key。重复的 key 会造成渲染错误。
+有相同父元素的子元素必须有独特的 `key`。重复的 `key` 会造成渲染错误。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-2. #### vue组件之间通信你用到的有哪些
-##### 题目：vue组件之间通信，你用到的有哪些
+2. #### vue组件之间通信
+##### 题目：vue组件之间通信
 ###### props
-这个应该非常常见,就是父传子的属性;
-props 值可以是一个数组或对象;
+这个应该非常常见,就是父传子的属性。
+`props` 值可以是一个数组或对象。
+优缺点很明显，写数组很方便，但是不能限制类型和设置默认值，写对象虽然复杂，优点很多：
+1. 限定类型
+2. 必须校验
+3. 默认值
+4. 数据校验
 ```js
 // 数组:不建议使用
 props:[]
 
-// 对象
+// 对象:建议
 props:{
- inpVal:{
+ val:{
   type:Number, //传入值限定类型
   // type 值可为String,Number,Boolean,Array,Object,Date,Function,Symbol
   // type 还可以是一个自定义的构造函数，并且通过 instanceof 来进行检查确认
@@ -70,33 +74,31 @@ props:{
 }
 ```
 ###### $emit
-这个也应该非常常见,触发子组件的自定义事件,其实就是子传父的方法
+这个也应该非常常见，触发父组件中子组件的自定义事件，其实就是子传父的方法。
 ```js
 // 父组件
-<home @title="title">
+<template>
+  <child @onCloseDialog="onCloseDialog"/>
+</template>
 // 子组件
-this.$emit('title',[{title:'这是title'}])
+this.$emit('onCloseDialog',true)
 ```
 ###### vuex
-1. 这个也是很常用的,vuex 是一个状态管理器 
-2. 是一个独立的插件,适合数据共享多的项目里面,因为如果只是简单的通讯,使用起来会比较重
-3. API
-
+1. 这个也是很常用的，`vuex` 是一个状态管理器；
+2. 是一个独立的插件，适合数据共享多的项目里面，因为如果只是简单的通讯，使用起来会比较重。一般两层以上或兄弟组件就可以用起来啦；
+3. API如下
 ```text
-state:定义存贮数据的仓库 ,可通过this.$store.state 或mapState访问
-getter:获取 store 值,可认为是 store 的计算属性,可通过this.$store.getter 或
-       mapGetters访问
-mutation:同步改变 store 值,为什么会设计成同步,因为mutation是直接改变 store 值,
-         vue 对操作进行了记录,如果是异步无法追踪改变.可通过mapMutations调用
-action:异步调用函数执行mutation,进而改变 store 值,可通过 this.$dispatch或mapActions
-       访问
+state:定义存贮数据的仓库，可通过this.$store.state或mapState访问；
+getter:获取store值,可认为是store的计算属性，可通过this.$store.getter或mapGetters（语法糖）访问；
+mutation:同步改变store值,为什么会设计成同步,因为mutation是直接改变store值，vue对操作进行了记录，如果是异步无法追踪改变，可通过mapMutations调用；
+action:异步调用函数执行mutation，进而改变 store值,可通过this.$dispatch或mapActions访问；
 modules:模块,如果状态过多,可以拆分成模块,最后在入口通过...解构引入
 ```
 ###### attrs和listeners
-2.4.0 新增 这两个是不常用属性,但是高级用法很常见; 
-1. attrs
-场景:如果父传子有很多值,那么在子组件需要定义多个 props
-解决:attrs获取子传父中未在 props 定义的值
+`vue2.4.0` 新增的两个不常用的属性，但是高级用法很常见。
+1. $attrs
+场景:如果父传子有很多值,那么在子组件需要定义多个 `props`。
+解决: `attrs` 获取子传父中未在 `props` 定义的值
 
 ```js
 // 父组件
@@ -107,7 +109,7 @@ mounted() {
   console.log(this.$attrs) //{title: "这是标题", width: "80", height: "80", imgUrl: "imgUrl"}
 },
 ```
-相对应的如果子组件定义了 props,打印的值就是剔除定义的属性
+相对应的如果子组件定义了 `props`，打印的值就是剔除定义的属性：
 ```js
 props: {
   width: {
@@ -119,9 +121,9 @@ mounted() {
   console.log(this.$attrs) //{title: "这是标题", height: "80", imgUrl: "imgUrl"}
 },
 ```
-2. listeners
+2. $listeners
 场景:子组件需要调用父组件的方法
-解决:父组件的方法可以通过 v-on="listeners" 传入内部组件——在创建更高层次的组件时非常有用
+解决:父组件的方法可以通过 `v-on="listeners"` 传入内部组件——在创建更高层次的组件时非常有用。
 ```js
 // 父组件
 <home @change="change"/>
@@ -147,11 +149,7 @@ mounted() {
 // 如果设置为 false 就会隐藏
 ```
 ######  provide和inject
-2.2.0 新增
-描述:
-provide 和 inject 主要为高阶插件/组件库提供用例。并不推荐直接用于应用程序代码中;
-并且这对选项需要一起使用;
-以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。
+`vue2.2.0` 新增的两个属性。`provide` 和 `inject` 主要为高阶插件和组件库提供用例。并不推荐直接用于应用程序代码中（可能其不响应属性会对您的项目造成不必要的损失），并且这对选项需要一起使用，以允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。
 ```js
 //父组件:
 provide: { //provide 是一个对象,提供一个属性或方法
@@ -169,7 +167,7 @@ mounted() {
 }
 //在父组件下面所有的子组件都可以利用inject
 ```
-provide 和 inject 绑定并不是可响应的。这是官方刻意为之的。 然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的,对象是因为是引用类型
+`provide` 和 `inject` 绑定并不是可响应的。这是官方刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的，对象是因为是引用类型。
 
 ```js
 //父组件:
@@ -186,13 +184,14 @@ mounted() {
   console.log(this.foo) //子组件打印的还是'这是 foo'
 }
 ```
-###### parent和children
-parent:父实例children:子实例
+###### $parent和$children
+`parent`:父实例；
+`children`:子实例
 ```js
 //父组件
 mounted(){
   console.log(this.$children) 
-  //可以拿到 一级子组件的属性和方法
+  //可以拿到一级子组件的属性和方法
   //所以就可以直接改变 data,或者调用 methods 方法
 }
 
@@ -220,7 +219,7 @@ mounted(){
 }
 ```
 ######  .sync
-在 vue@1.x 的时候曾作为双向绑定功能存在，即子组件可以修改父组件中的值; 在 vue@2.0 的由于违背单项数据流的设计被干掉了; 在 vue@2.3.0+ 以上版本又重新引入了这个 .sync 修饰符;
+在 `vue@1.x` 的时候曾作为双向绑定功能存在，即子组件可以修改父组件中的值；在 `vue@2.0` 的由于违背单项数据流的设计被干掉了；在 `vue@2.3.0+` 以上版本又重新引入了这个 `.sync` 修饰符。
 ```js
 // 父组件
 <home :title.sync="title" />
@@ -234,7 +233,9 @@ mounted(){
 }
 ```
 ######  v-slot
-2.6.0 新增 1.slot,slot-cope,scope 在 2.6.0 中都被废弃,但未被移除 2.作用就是将父组件的 template 传入子组件 3.插槽分类: A.匿名插槽(也叫默认插槽): 没有命名,有且只有一个;
+1. `vue2.6.0` 新增，`slot,slot-cope,scope` 在 `vue2.6.0` 中都被废弃，但未被移除；
+2. 作用就是将父组件的 `template` 传入子组件；
+3. 插槽分类: A.匿名插槽(也叫默认插槽): 没有命名,有且只有一个。
 ```js
 // 父组件
 <todo-list> 
@@ -288,9 +289,9 @@ data() {
 // {{ user.lastName }}是默认数据  v-slot:todo 当父页面没有(="slotProps")
 ```
 ###### EventBus
-1. 就是声明一个全局Vue实例变量 EventBus , 把所有的通信数据，事件监听都存储到这个变量上; 
-2. 类似于 Vuex。但这种方式只适用于极小的项目
-3. 原理就是利用on和emit 并实例化一个全局 vue 实现数据共享
+1. 就是声明一个全局 `Vue` 实例变量 `EventBus` , 把所有的通信数据，事件监听都存储到这个变量上；
+2. 类似于 `Vuex`，但这种方式只适用于极小的项目；
+3. 原理就是利用 `on` 和 `emit` 并实例化一个全局 `vue` 实现数据共享。
 ```js
 // 在 main.js
 Vue.prototype.$eventBus=new Vue()
@@ -304,15 +305,18 @@ this.$eventBus.$on("eventTarget",v=>{
 })
 ```
 ###### broadcast和dispatch
-vue 1.x 有这两个方法,事件广播和派发,但是 vue 2.x 删除了 下面是对两个方法进行的封装
+`vue1.x` 有这两个方法，事件广播和派发，但是 `vue2.x` 删除了。下面是对两个方法进行的封装，在很多组件库中都应用了。
 ```js
 function broadcast(componentName, eventName, params) {
+  // 遍历子组件
   this.$children.forEach(child => {
     var name = child.$options.componentName;
-
+// 找到对应的组件
     if (name === componentName) {
+      // 绑定事件
       child.$emit.apply(child, [eventName].concat(params));
     } else {
+      // 递归
       broadcast.apply(child, [componentName, eventName].concat(params));
     }
   });
@@ -391,13 +395,20 @@ this.$router.push({
 // 页面获取
 this.$route.query.id
 ```
-4. 三种方案对比 方案二后面参数页面刷新会丢失 方案一参数拼接在后面,丑,而且暴露了信息 方案三不会在后面拼接参数,刷新参数也不会丢失
+> 三种方案对比
+
+方案一参数拼接在后面，不美观，而且暴露了信息；
+方案二后面参数页面刷新会丢失；
+方案三不会在后面拼接参数，刷新参数也不会丢失。
 ###### Vue.observable
-2.6.0 新增
-用法:让一个对象可响应。Vue 内部会用它来处理 data 函数返回的对象;
-返回的对象可以直接用于渲染函数和计算属性内，并且会在发生改变时触发相应的更新;
-也可以作为最小化的跨组件状态存储器，用于简单的场景。
-通讯原理实质上是利用Vue.observable实现一个简易的 vuex
+`vue2.6.0` 新增的一个属性。
+
+用法:
+1. 让一个对象可响应。`Vue` 内部会用它来处理 `data` 函数返回的对象；
+2. 返回的对象可以直接用于渲染函数和计算属性内，并且会在发生改变时触发相应的更新；
+3. 也可以作为最小化的跨组件状态存储器，用于简单的场景。
+
+通讯原理实质上是利用 `Vue.observable` 实现一个简易的 `vuex`
 ```js
 // 文件路径 - /store/store.js
 import Vue from 'vue'
@@ -445,7 +456,7 @@ export default {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-3. ####  eventBus事件总线进行通信
+1. ####  eventBus事件总线进行通信
 ##### 题目：eventBus（事件总线）进行通信
 
 能够简化各组件间的通信

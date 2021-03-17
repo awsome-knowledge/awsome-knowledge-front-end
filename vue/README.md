@@ -600,16 +600,19 @@ Vue.prototype.$myMethod = function (options) {
 
 15. #### 定义一个动态路由怎么去获取路由的参数
 ##### 题目：定义一个动态路由，怎么去获取路由的参数？
-动态路由的创建，主要是使用 path 属性过程中，使用动态路径参数，以冒号开头
+动态路由的创建，主要是使用 `path` 属性过程中，使用动态路径参数，以冒号开头。
+```js
 {
     path: /user/:id
     component: User
 }
-参数值会被设置到 this.$route.params 下，所以通过这个属性可以获取到动态参数
+```
+参数值会被设置到 `this.$route.params` 下，所以通过这个属性可以获取到动态参数。
+```js
 const User = {
     template: '<div>User {{ $route.params.id }}</div>'
 }
-
+```
 
 ---
 
@@ -617,11 +620,16 @@ const User = {
 
 16. #### 获取vuerouter两种形式的参数query和params这两种有什么区别
  ##### 题目：获取vue-router两种形式的参数，query、params，这两种有什么区别
-params：/router1/:id ，/router1/123，/router1/789 ,这里的id叫做params
-query：/router1?id=123 ,/router1?id=456 ,这里的id叫做query
-传参是this.$router,接收参数是this.$route
-$router为VueRouter实例，想要导航到不同URL，则使用$router.push方法
-$route为当前router跳转对象，里面可以获取name、path、query、params等
+`params：/router1/:id ，/router1/123，/router1/789` ,这里的 `id` 叫做 `params`。
+
+`query：/router1?id=123 ,/router1?id=456` ,这里的 `id` 叫做 `query`。
+
+传参是 `this.$router`，接收参数是 `this.$router`。
+
+`$router` 为 `VueRouter` 实例，想要导航到不同 `URL`，则使用 `$router.push` 方法。
+
+`$route` 为当前 `router` 跳转对象，里面可以获取`name、path、query、params` 等。
+```js
 this.$router.push({
        path:'/openAccount',
        query:{id:id}
@@ -632,37 +640,128 @@ this.$router.push({
        id: id
      }
    })
-params传参，push里面只能是 name:'xxxx',不能是path:'/xxx',因为params只能用name来引入路由，
-如果这里写成了path，接收参数页面会是undefined！！！
-query相当于get请求，页面跳转的时候，可以在地址栏看到请求参数，
-而params相当于post请求，参数不会再地址栏中显示
+```
+`params` 传参，`push` 里面只能是 `name:'xxxx'`,不能是 `path:'/xxx'`,因为 `params` 只能用 `name` 来引入路由，
+如果这里写成了 `path`，接收参数页面会是`undefined`。
 
+`query` 相当于 `get` 请求，页面跳转的时候，可以在地址栏看到请求参数，
+而 `params` 相当于post请求，参数不会再地址栏中显示。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 17.  #### 路由有哪几种导航钩子
-全局、单个路由独享的导航钩子、组件内
-全局：beforeEach（to, from, next）
-单独：它是在路由配置上直接进行定义的
- routes: [
-   {
-    path: '/file',
- 
-component: File,
+`vue-router` 的导航钩子，主要用来作用是拦截导航，让他完成跳转或取消。
 
- beforeEnter: (to, from ,next) => {
- // do someting
-  }
-  }
- ]
+有三种方式可以植入路由导航过程中：
+
+1. 全局导航钩子：
+全局导航钩子主要有两种钩子：前置守卫、后置钩子，
+注册一个全局前置守卫：
+```js
+const router = new VueRouter({ ... });
+router.beforeEach((to, from, next) => {
+    // do someting
+});
+```
+这三个参数 `to` 、`from` 、`next` 分别的作用：
+
+- to: Route，代表要进入的目标，它是一个路由对象
+
+- from: Route，代表当前正要离开的路由，同样也是一个路由对象
+
+- next: Function，这是一个必须需要调用的方法，而具体的执行效果则依赖 next 方法调用的参数
+
+1. next()：进入管道中的下一个钩子，如果全部的钩子执行完了，则导航的状态就是 confirmed（确认的）
+2. next(false)：这代表中断掉当前的导航，即 to 代表的路由对象不会进入，被中断，此时该表 URL 地址会被重置到 from 路由对应的地址
+3. next(‘/’) 和 next({path: ‘/’})：在中断掉当前导航的同时，跳转到一个不同的地址
+4. next(error)：如果传入参数是一个 Error 实例，那么导航被终止的同时会将错误传递给 router.onError() 注册过的回调
+注意：`next` 方法必须要调用，否则钩子函数无法 `resolved`。
+
+对于全局后置钩子：
+```js
+router.afterEach((to, from) => {
+    // do someting
+});
+```
+不同于前置守卫，后置钩子并没有 `next` 函数，也不会改变导航本身
+
+2. 路由独享的钩子
+顾名思义，即单个路由独享的导航钩子，它是在路由配置上直接进行定义的：
+```js
+cont router = new VueRouter({
+    routes: [
+        {
+            path: '/file',
+            component: File,
+            beforeEnter: (to, from ,next) => {
+                // do someting
+            }
+        }
+    ]
+});
+```
+至于他的参数的使用，和全局前置守卫是一样的
+
+3. 组建内的导航钩子
+组件内的导航钩子主要有这三种：`beforeRouteEnter`、 `beforeRouteUpdate`、`beforeRouteLeave`。他们是直接在路由组件内部直接进行定义的。
+```js
+const File = {
+    template: `<div>This is file</div>`,
+    beforeRouteEnter(to, from, next) {
+        // do someting
+        // 在渲染该组件的对应路由被 confirm 前调用
+    },
+    beforeRouteUpdate(to, from, next) {
+        // do someting
+        // 在当前路由改变，但是依然渲染该组件是调用
+    },
+    beforeRouteLeave(to, from ,next) {
+        // do someting
+        // 导航离开该组件的对应路由时被调用
+    }
+}
+```
+需要注意是：
+
+`beforeRouteEnter` 不能获取组件实例 `this`，因为当守卫执行前，组件实例被没有被创建出来，剩下两个钩子则可以正常获取组件实例 `this`。
+但是并不意味着在 `beforeRouteEnter` 中无法访问组件实例，我们可以通过给 `next` 传入一个回调来访问组件实例。在导航被确认是，会执行这个回调，这时就可以访问组件实例了，如：
+```js
+beforeRouteEnter(to, from, next) {
+    next (vm => {
+        // 这里通过 vm 来访问组件实例解决了没有 this 的问题
+    })
+}
+```
+注意，仅仅是 `beforRouteEnter` 支持给 `next` 传递回调，其他两个并不支持。因为归根结底，支持回调是为了解决 `this` 问题，而其他两个钩子的 `this` 可以正确访问到组件实例，所有没有必要使用回调。
+
+最后是完整的导航解析流程：
+```text
+1、导航被触发
+2、在失活的组件里调用离开守卫
+3、调用全局的 beforeEach 守卫
+4、在重用的组件里调用 beforeRouteUpdate 守卫
+5、在路由配置里调用 beforEnter
+6、解析异步路由组件
+7、在被激活的组件里调用 beforeRouteEnter
+8、调用全局的 beforeResolve 守卫
+9、导航被确认
+10、调用全局的 afterEach 钩子
+11、触发 DOM 更新
+12、在创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数
+```
+
+作者：world_7735
+链接：https://www.jianshu.com/p/5528c30f866b
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-18. #### 在组件里设计导航钩子组件内的导航钩子用到的有哪些
+1.  #### 在组件里设计导航钩子组件内的导航钩子用到的有哪些
 ##### 题目：在组件里设计导航钩子，组件内的导航钩子用到的有哪些？
 beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave。他们是直接在路由组件内部直接进行定义的
 

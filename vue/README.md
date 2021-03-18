@@ -761,47 +761,36 @@ beforeRouteEnter(to, from, next) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### 在组件里设计导航钩子组件内的导航钩子用到的有哪些
-##### 题目：在组件里设计导航钩子，组件内的导航钩子用到的有哪些？
-beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave。他们是直接在路由组件内部直接进行定义的
+1.   #### MVVM框架的原理
+用 `object.defineProtery` 把对象转化为 `get` 和 `set`，改变数据会触发 `set` 函数，`set` 改变数据源后，会通知一个叫观察者（`watch`）的东西，`watch` 收到通知后，再进行视图渲染，局部更新。
+`get` 和 `set` 也可以监听到属性什么时候被改过。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-19.  #### MVVM框架的原理
-用object.defineProtery把对象转化为get和set，改变数据会触发set函数，set改变数据源后，
-会通知一个叫观察者（watch）的东西，watch收到通知后，再进行视图渲染，局部更新。
-get和set也可以监听到属性什么时候被改过。
+1.  #### vue生命周期
+`beforeCreate`：此时获取不到 `prop` 和 `data` 中的数据；
+`created`：可以获取到 `prop` 和 `data` 中的数据；
+`beforeMount`：获取到了 `VDOM`;
+`mounted`：`VDOM`解析成了真实 `DOM`;
+`beforeUpdate`：在更新之前调用；
+`updated`：在更新之后调用；
+`keep-alive`：切换组件之后，组件放进 `activated`，之前的组件放进`deactivated`；
+`beforeDestory`：在组件销毁之前调用，可以解决内存泄露的问题，如 `setTimeout` 和 `setInterval` 造成的问题。
+`destory`：组件销毁之后调用。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
-
-20. #### vue生命周期
-beforeCreate：此时获取不到prop和data中的数据；
-created：可以获取到prop和data中的数据；
-beforeMount：获取到了VDOM;
-mounted：VDOM解析成了真实DOM;
-beforeUpdate：在更新之前调用；
-updated：在更新之后调用；
-keep-alive：切换组件之后，组件放进activated，之前的组件放进deactivated；
-beforeDestory：在组件销毁之前调用，可以解决内存泄露的问题，如setTimeout和setInterval造成的问题。
-destory：组件销毁之后调用。
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
 
 21. #### NextTick原理分析
 
-<details><summary><b>答案</b></summary>
-nexttick可以让我们在下次DOM更新循环结束之后执行延迟回调,用于获得更新后的DOM
+`nexttick` 可以让我们在下次 `DOM` 更新循环结束之后执行延迟回调,用于获得更新后的 `DOM`。
 
-在 Vue 2.4 之前都是使用的 microtasks(微任务)，但是 microtasks(微任务) 的优先级过高，在某些情况下可能会出现比事件冒泡更快的情况，但如果都使用 macrotasks(宏任务) 又可能会出现渲染的性能问题。所以在新版本中，会默认使用 microtasks(微任务)，但在特殊情况下会使用 macrotasks(宏任务)，比如 v-on。
+在 `Vue2.4` 之前都是使用的 `microtasks`(微任务)，但是 `microtasks`(微任务) 的优先级过高，在某些情况下可能会出现比事件冒泡更快的情况，但如果都使用 `macrotasks`(宏任务) 又可能会出现渲染的性能问题。所以在新版本中，会默认使用 `microtasks`(微任务)，但在特殊情况下会使用 `macrotasks`(宏任务)，比如 `v-on`。
 
-对于实现 macrotasks(宏任务) ，会先判断是否能使用 setImmediate ，不能的话降级为 MessageChannel ，以上都不行的话就使用 setTimeout
+对于实现 `macrotasks`(宏任务) ，会先判断是否能使用 `setImmediate`，不能的话降级为 `MessageChannel`，以上都不行的话就使用 `setTimeout`。
 
 ```js
 if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
@@ -828,7 +817,7 @@ if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
 }
 ```
 
-nextTick 同时也支持 Promise 的使用，会判断是否实现了 Promise
+`nextTick` 同时也支持 `Promise` 的使用，会判断是否实现了 `Promise`。
 
 ```js
 export function nextTick(cb?: Function, ctx?: Object) {
@@ -863,7 +852,6 @@ export function nextTick(cb?: Function, ctx?: Object) {
   }
 }
 ```
-</details>
 
 ---
 
@@ -871,12 +859,10 @@ export function nextTick(cb?: Function, ctx?: Object) {
 
 22. ####  生命周期分析
 
-<details><summary><b>答案</b></summary>
-
 ![avatar](../public/lifecycle.png)
 
 
-在初始化时，会调用以下代码，生命周期就是通过 callHook 调用的
+在初始化时，会调用以下代码，生命周期就是通过 `callHook` 调用的。
 
 ```js
 Vue.prototype._init = function(options) {
@@ -892,7 +878,7 @@ Vue.prototype._init = function(options) {
 
 ```
 
-可以发现在以上代码中，beforeCreate 调用的时候，是获取不到 props 或者 data 中的数据的，因为这些数据的初始化都在 initState 中。
+可以发现在以上代码中，`beforeCreate` 调用的时候，是获取不到 `props` 或者 `data` 中的数据的，因为这些数据的初始化都在 `initState` 中。
 
 接下来会执行挂载函数
 
@@ -908,7 +894,7 @@ export function mountComponent {
 
 ```
 
-beforeMount 就是在挂载前执行的，然后开始创建 VDOM 并替换成真实 DOM，最后执行 mounted 钩子。这里会有个判断逻辑，如果是外部 new Vue({}) 的话，不会存在 $vnode ，所以直接执行 mounted 钩子了。如果有子组件的话，会递归挂载子组件，只有当所有子组件全部挂载完毕，才会执行根组件的挂载钩子。
+`beforeMount` 就是在挂载前执行的，然后开始创建 `VDOM` 并替换成真实 `DOM`，最后执行 `mounted` 钩子。这里会有个判断逻辑，如果是外部 `new Vue({})` 的话，不会存在 `$vnode` ，所以直接执行 `mounted` 钩子了。如果有子组件的话，会递归挂载子组件，只有当所有子组件全部挂载完毕，才会执行根组件的挂载钩子。
 
 接下来是数据更新时会调用的钩子函数
 
@@ -952,7 +938,7 @@ function callUpdatedHooks(queue) {
   }
 }
 ```
-上图还有两个生命周期没有说，分别为 activated 和 deactivated ，这两个钩子函数是 keep-alive 组件独有的。用 keep-alive 包裹的组件在切换时不会进行销毁，而是缓存到内存中并执行 deactivated 钩子函数，命中缓存渲染后会执行 actived 钩子函数。
+上图还有两个生命周期没有说，分别为 `activated` 和 `deactivated` ，这两个钩子函数是 `keep-alive` 组件独有的。用 `keep-alive` 包裹的组件在切换时不会进行销毁，而是缓存到内存中并执行 `deactivated` 钩子函数，命中缓存渲染后会执行 `actived` 钩子函数。
 
 最后就是销毁组件的钩子函数了
 ```js
@@ -996,16 +982,12 @@ Vue.prototype.$destroy = function() {
   }
 }
 ```
-在执行销毁操作前会调用 beforeDestroy 钩子函数，然后进行一系列的销毁操作，如果有子组件的话，也会递归销毁子组件，所有子组件都销毁完毕后才会执行根组件的 destroyed 钩子函数。
-
-</details>
+在执行销毁操作前会调用 `beforeDestroy` 钩子函数，然后进行一系列的销毁操作，如果有子组件的话，也会递归销毁子组件，所有子组件都销毁完毕后才会执行根组件的 `destroyed` 钩子函数。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 23. #### VueRouter源码解析
-
-<details><summary><b>答案</b></summary>
 
 1. 重要函数思维导图
 
@@ -1014,9 +996,9 @@ Vue.prototype.$destroy = function() {
 
 2.  路由注册
 
-在开始之前，推荐大家 clone 一份源码对照着看。因为篇幅较长，函数间的跳转也很多。
+在开始之前，推荐大家 `clone` 一份源码对照着看。因为篇幅较长，函数间的跳转也很多。
 
-使用路由之前，需要调用 Vue.use(VueRouter)，这是因为让插件可以使用 Vue
+使用路由之前，需要调用 `Vue.use(VueRouter)`，这是因为让插件可以使用 `Vue`
 
 ```js
 export function initUse(Vue: GlobalAPI) {
@@ -1043,7 +1025,7 @@ export function initUse(Vue: GlobalAPI) {
 }
 ```
 
-接下来看下 install 函数的部分实现
+接下来看下 `install` 函数的部分实现
 ```js
 export function install(Vue) {
   // 确保 install 调用一次
@@ -1093,7 +1075,7 @@ export function install(Vue) {
 ```
 3. VueRouter 实例化
 
-在安装插件后，对 VueRouter 进行实例化。
+在安装插件后，对 `VueRouter` 进行实例化。
 
 ```js
 const Home = { template: '<div>home</div>' }
@@ -1112,7 +1094,7 @@ const router = new VueRouter({
 })
 ```
 
-来看一下 VueRouter 的构造函数
+来看一下 `VueRouter` 的构造函数
 ```js
 constructor(options: RouterOptions = {}) {
     // ...
@@ -1177,9 +1159,9 @@ export function createMatcher(
   }
 }
 ```
-createMatcher 函数的作用就是创建路由映射表，然后通过闭包的方式让 addRoutes 和 match 函数能够使用路由映射表的几个对象，最后返回一个 Matcher 对象。
+`createMatcher` 函数的作用就是创建路由映射表，然后通过闭包的方式让 `addRoutes` 和 `match` 函数能够使用路由映射表的几个对象，最后返回一个 `Matcher` 对象。
 
-接下来看 createMatcher 函数时如何创建映射表的
+接下来看 `createMatcher` 函数时如何创建映射表的
 ```js
 export function createRouteMap(
   routes: Array<RouteConfig>,
@@ -1300,7 +1282,7 @@ function addRouteRecord(
 
 
 5. 路由初始化
-当根组件调用 beforeCreate 钩子函数时，会执行以下代码
+当根组件调用 `beforeCreate` 钩子函数时，会执行以下代码
 
 ```js
 beforeCreate () {
@@ -1504,7 +1486,7 @@ function formatMatch(record: ?RouteRecord): Array<RouteRecord> {
   return res
 }
 ```
-至此匹配路由已经完成，我们回到 transitionTo 函数中，接下来执行 confirmTransition
+至此匹配路由已经完成，我们回到 `transitionTo` 函数中，接下来执行 `confirmTransition`
 
 ```js
 transitionTo (location: RawLocation, onComplete?: Function, onAbort?: Function) {
@@ -1723,7 +1705,7 @@ export function flatMapComponents(
   )
 }
 ```
-第二步执行全局 beforeEach 钩子函数
+第二步执行全局 `beforeEach` 钩子函数
 
 ```js
 beforeEach(fn: Function): Function {
@@ -1738,11 +1720,11 @@ function registerHook(list: Array<any>, fn: Function): Function {
 }
 ```
 
-在 VueRouter 类中有以上代码，每当给 VueRouter 实例添加 beforeEach 函数时就会将函数 push 进 beforeHooks 中。
+在 `VueRouter` 类中有以上代码，每当给 `VueRouter` 实例添加 `beforeEach` 函数时就会将函数 `push` 进 `beforeHooks` 中。
 
-第三步执行 beforeRouteUpdate 钩子函数，调用方式和第一步相同，只是传入的函数名不同，在该函数中可以访问到 this 对象。
+第三步执行 `beforeRouteUpdate` 钩子函数，调用方式和第一步相同，只是传入的函数名不同，在该函数中可以访问到 `this` 对象。
 
-第四步执行 beforeEnter 钩子函数，该函数是路由独享的钩子函数。
+第四步执行 `beforeEnter` 钩子函数，该函数是路由独享的钩子函数。
 
 第五步是解析异步组件。
 
@@ -1812,7 +1794,7 @@ export function resolveAsyncComponents(matched: Array<RouteRecord>): Function {
   }
 }
 ```
-以上就是第一个 runQueue 中的逻辑，第五步完成后会执行第一个 runQueue 中回调函数
+以上就是第一个 `runQueue` 中的逻辑，第五步完成后会执行第一个 `runQueue` 中回调函数
 ```js
 // 该回调用于保存 `beforeRouteEnter` 钩子中的回调函数
 const postEnterCbs = []
@@ -1837,7 +1819,7 @@ runQueue(queue, iterator, () => {
   }
 })
 ```
-第六步是执行 beforeRouteEnter 导航守卫钩子，beforeRouteEnter 钩子不能访问 this 对象，因为钩子在导航确认前被调用，需要渲染的组件还没被创建。但是该钩子函数是唯一一个支持在回调中获取 this 对象的函数，回调会在路由确认执行。
+第六步是执行 `beforeRouteEnter` `导航守卫钩子，beforeRouteEnter` 钩子不能访问 `this` 对象，因为钩子在导航确认前被调用，需要渲染的组件还没被创建。但是该钩子函数是唯一一个支持在回调中获取 `this` 对象的函数，回调会在路由确认执行。
 
 ```js
 
@@ -1848,7 +1830,7 @@ beforeRouteEnter (to, from, next) {
 }
 ```
 
-下面来看看是如何支持在回调中拿到 this 对象的
+下面来看看是如何支持在回调中拿到 `this` 对象的
 
 ```js
 function extractEnterGuards(
@@ -1909,9 +1891,9 @@ function poll(
 }
 ```
 
-第七步是执行 beforeResolve 导航守卫钩子，如果注册了全局 beforeResolve 钩子就会在这里执行。
+第七步是执行 `beforeResolve` 导航守卫钩子，如果注册了全局 `beforeResolve` 钩子就会在这里执行。
 
-第八步就是导航确认，调用 afterEach 导航守卫钩子了。
+第八步就是导航确认，调用 `afterEach` 导航守卫钩子了。
 
 以上都执行完成后，会触发组件的渲染
 
@@ -1923,7 +1905,7 @@ history.listen(route => {
 })
 ```
 
-以上回调会在 updateRoute 中调用
+以上回调会在 `updateRoute` 中调用
 ```js
 updateRoute(route: Route) {
     const prev = this.current
@@ -1934,8 +1916,7 @@ updateRoute(route: Route) {
     })
 }
 ```
-至此，路由跳转已经全部分析完毕。核心就是判断需要跳转的路由是否存在于记录中，然后执行各种导航守卫函数，最后完成 URL 的改变和组件的渲染。
-</details>
+至此，路由跳转已经全部分析完毕。核心就是判断需要跳转的路由是否存在于记录中，然后执行各种导航守卫函数，最后完成 `URL` 的改变和组件的渲染。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)

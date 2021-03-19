@@ -2130,27 +2130,25 @@ updateRoute(route: Route) {
 
 28.  #### vshow和vif指令之间的区别是什么
 ##### 题目：v-show和v-if指令之间的区别是什么?
-<details><summary><b>答案</b></summary>
-下面是v-show和v-if指令之间的一些主要区别，
-1. v-if只在表达式传递时将元素呈现给DOM，而v-show将所有元素呈现给DOM，然后使用CSS display属性根据表达式显示/隐藏元素。
-2. v-if支持v-else和v-else-if指令，而v-show不支持else指令。
-3. v-if具有较高的切换成本，而v-show具有较高的初始呈现成本。如果元素频繁地开关，v-show具有性能优势，而在初始呈现时间方面，v-if具有优势。
-4. v-if支持"template"选项卡，但v-show不支持。
-   
-</details>
+下面是 `v-show` 和 `v-if` 指令之间的一些主要区别：
+1. `v-if` 只在表达式传递时将元素呈现给 `DOM`，而 `v-show` 将所有元素呈现给 `DOM`，然后使用 `CSS display` 属性根据表达式显示或者隐藏元素。
+2. `v-if` 支持 `v-else` 和 `v-else-if` 指令，而 `v-show` 不支持 `else` 指令。
+3. `v-if` 具有较高的切换成本，而 `v-show` 具有较高的初始呈现成本。如果元素频繁地开关，`v-show` 具有性能优势，而在初始呈现时间方面，`v-if` 具有优势。`v-if` 会造成页面重绘和回流，性能较差。
+4. `v-if` 支持"`template`"选项卡，但 `v-show` 不支持。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 29. #### vfor指令的目的是什么
 ##### 题目：v-for指令的目的是什么
-<details><summary><b>答案</b></summary>
-内置的v-for指令允许我们循环数组或对象中的项。您可以迭代数组或对象中的每个元素。
+内置的 `v-for` 指令允许我们循环数组或对象中的项。
 
-1. Array usage:
+可以迭代数组或对象中的每个元素。
+
+1. 数组的用法:
 ```js
 <ul id="list">
-  <li v-for="(item, index) in items">
+  <li v-for="(item, index) in items" :key="index">
     {{ index }} - {{ item.message }}
   </li>
 </ul>
@@ -2165,12 +2163,12 @@ var vm = new Vue({
   }
 })
 ```
-您还可以使用of作为分隔符，而不是in，类似于javascript迭代器。
+您还可以使用 `of` 作为分隔符，而不是 `in`，类似于 `javascript` 迭代器。
 
-2. Object usage:
+2. 对象用法:
 ```js
 <div id="object">
-  <div v-for="(value, key, index) in user">
+  <div v-for="(value, key, index) in user" :key="index">
     {{ index }}. {{ key }}: {{ value }}
   </div>
 </div>
@@ -2186,22 +2184,19 @@ var vm = new Vue({
   }
 })
 ```
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 30. #### 什么是vue实例
 
-<details><summary><b>答案</b></summary>
-每个Vue应用程序都使用Vue函数创建一个新的Vue实例。通常，变量vm (ViewModel的缩写)用于引用Vue实例。您可以创建如下的vue实例，
+每个 `Vue` 应用程序都使用 `Vue` 函数创建一个新的 `Vue` 实例。通常，变量 `vm` (`ViewModel` 的缩写)用于引用 `Vue` 实例。您可以创建如下的 `vue` 实例：
 ```js
 var vm = new Vue({
   // options
 })
 ```
-如上面的代码段所述，您需要传递options对象。您可以在API引用中找到完整的选项列表。
-</details>
+如上面的代码段所述，您需要传递 `options` 对象。您可以在 `API` 引用中找到完整的选项列表。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)

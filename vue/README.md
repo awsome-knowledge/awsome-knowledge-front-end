@@ -2203,8 +2203,9 @@ var vm = new Vue({
 
 31. #### 如何实现条件元素组
 
-<details><summary><b>答案</b></summary>
-您可以通过在"template"元素上应用v-if指令来实现条件元素组(一次切换多个元素)，该指令作为元素组的不可见包装器(没有呈现)工作。例如，您可以根据有效的用户条件有条件地对用户详细信息进行分组。
+您可以通过在"`template`"元素上应用 `v-if` 指令来实现条件元素组(一次切换多个元素)，该指令作为元素组的不可见包装器(没有呈现)工作。例如，您可以根据有效的用户条件，有条件地对用户详细信息进行分组。
+
+`tempalte` 元素不会像其他元素如 `div` 会出现在 `dom` 中。
 
 ```js
 <template v-if="condition">
@@ -2213,16 +2214,13 @@ var vm = new Vue({
   <p>Contact Details</p>
 </template>
 ```
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 32. #### 如何使用key属性重用元素
 
-<details><summary><b>答案</b></summary>
-Vue总是尽可能高效地呈现元素。因此，它试图重用这些元素，而不是从头开始构建它们。但这种行为在少数情况下可能会导致问题。例如，如果您试图在v-if和v-else块中呈现相同的输入元素，那么它将保留前面的值，如下所示，
-
+`Vue` 总是尽可能高效地呈现元素。因此，它试图重用这些元素，而不是从头开始构建它们。但这种行为在少数情况下可能会导致问题。例如，如果您试图在 `v-if` 和 `v-else` 块中呈现相同的输入元素，那么它将保留前面的值。如下所示：
 ```js
 <template v-if="loginType === 'Admin'">
   <label>Admin</label>
@@ -2234,8 +2232,7 @@ Vue总是尽可能高效地呈现元素。因此，它试图重用这些元素�
 </template>
 ```
 
-
-在这种情况下，它不应该重用。我们可以通过应用下面的key属性使两个输入元素分离，
+在这种情况下，它不应该重用。我们可以通过应用下面的 `key` 属性使两个输入元素分离，
 ```js
     <template v-if="loginType === 'Admin'">
       <label>Admin</label>
@@ -2247,16 +2244,14 @@ Vue总是尽可能高效地呈现元素。因此，它试图重用这些元素�
     </template>
 ```
 上面的代码确保两个输入都是独立的，不会相互影响。
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-33. #### 为什么不应该在同一元素上同时使用if和for指令
+33. #### 为什么不应该在同一元素上同时使用v-if和v-for指令
 
-<details><summary><b>答案</b></summary>
-建议不要在与v-for相同的元素上使用v-if。因为v-for指令比v-if具有更高的优先级。开发人员尝试使用这种组合的情况有两种，
-i. 例如，要过滤列表中的项，如果您尝试使用v-if标记过滤列表，
+建议不要在与 `v-for` 相同的元素上使用 `v-if`。因为 `v-for` 指令比 `v-if` 具有更高的优先级。开发人员尝试使用这种组合的情况有两种：
+i. 例如，要过滤列表中的项，如果您尝试使用 `v-if` 标记过滤列表：
 ```js
 <ul>
   <li
@@ -2268,8 +2263,7 @@ i. 例如，要过滤列表中的项，如果您尝试使用v-if标记过滤列�
   <li>
 </ul>
 ```
-
-可以通过在初始列表上使用computed属性准备过滤列表来避免这种情况
+可以通过在初始列表上使用 `computed` 属性准备过滤列表来避免这种情况：
 ```js
 computed: {
   activeUsers: function () {
@@ -2278,8 +2272,7 @@ computed: {
     })
   }
 }
-...... //
-...... //
+
 <ul>
   <li
     v-for="user in activeUsers"
@@ -2288,8 +2281,7 @@ computed: {
   <li>
 </ul>
 ```
-ii. 为了避免在应该隐藏列表的情况下呈现列表，例如，如果您尝试有条件地检查是否要显示或隐藏用户
-
+ii. 为了避免在应该隐藏列表的情况下呈现列表。例如，如果您尝试有条件地检查是否要显示或隐藏用户：
 ```js
 <ul>
   <li
@@ -2301,8 +2293,7 @@ ii. 为了避免在应该隐藏列表的情况下呈现列表，例如，如果�
   <li>
 </ul>
 ```
-
-这可以通过将条件移动到父节点来解决，方法是避免对每个用户进行这种检查
+这可以通过将条件移动到父节点来解决，方法是避免对每个用户进行这种检查：
 ```js
 <ul v-if="shouldShowUsers">
   <li
@@ -2313,29 +2304,23 @@ ii. 为了避免在应该隐藏列表的情况下呈现列表，例如，如果�
   <li>
 </ul>
 ```
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 34. #### 为什么需要使用key属性作为指令
-
-<details><summary><b>答案</b></summary>
-为了跟踪每个节点的标识，从而重用和重新排序现有元素，您需要在v-for迭代中为每个项目提供一个惟一的键属性。key的理想值是每个条目的惟一id。让我们举个例子，
+为了跟踪每个节点的标识，从而重用和重新排序现有元素，您需要在 `v-for` 迭代中为每个项目提供一个惟一的键属性。`key` 的理想值是每个条目的惟一 `id`。让我们举个例子：
 ```js
 <div v-for="item in items" :key="item.id">
   {{item.name}}
 </div>
 ```
-因此，总是建议在可能的情况下为v-for提供一个键，除非迭代的DOM内容很简单。注意:不应该使用对象和数组等非基本值作为v-for键。而是使用字符串或数值。
-</details>
+因此，总是建议在可能的情况下为 `v-for` 提供一个键，除非迭代的 `DOM` 内容很简单。注意:不应该使用对象和数组等非基本值作为 `v-for` 键。而是使用字符串或数值。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 35. #### 数组检测突变的方法有哪些
-
-<details><summary><b>答案</b></summary>
 顾名思义，变异方法修改原始数组。下面是触发视图更新的数组变异方法列表。
 1. push()
 2. pop()
@@ -2345,19 +2330,20 @@ ii. 为了避免在应该隐藏列表的情况下呈现列表，例如，如果�
 6. sort()
 7. reverse()
 
-如果在列表上执行上述任何一个变异方法，那么它将触发视图更新。例如，数组中名为“items”的push方法触发视图更新，
+如果在列表上执行上述任何一个变异方法，那么它将触发视图更新。例如，数组中名为“`items`”的 `push` 方法触发视图更新，
 ```js
-vm.todos.push({ message: 'Baz' })
+vm.todos.push({ message: 'feihongjiang' })
 ```
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-36. #### 什么是数组检测非变异方法
+1.  #### 什么是数组检测非变异方法
+不改变原始数组，
 
-<details><summary><b>答案</b></summary>
-不改变原始数组但总是返回新数组的方法称为非突变方法。 以下是非突变方法列表，
+但总是返回新数组的方法称为非突变方法。 
+
+以下是非突变方法列表：
 1. filter()
 2. concat()
 3. slice()
@@ -2369,16 +2355,13 @@ vm.todos = vm.todos.filter(function (todo) {
   return todo.status.match(/Completed/)
 })
 ```
-由于VueJS实现，此方法不会重新呈现整个列表。
-</details>
+由于 `VueJS` 实现，此方法不会重新呈现整个列表。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 37.  #### 数组变化检测的注意事项是什么
-
-<details><summary><b>答案</b></summary>
-在以下两种情况下，Vue无法检测到数组的变化，
+在以下两种情况下，`Vue` 无法检测到数组的变化，
 1. 直接使用索引设置项目时，例如，
 ```js
 vm.todos[indexOfTodo] = newTodo
@@ -2388,7 +2371,7 @@ vm.todos[indexOfTodo] = newTodo
 vm.todos.length = todosLength
 ```
 
-您可以使用set和splice方法克服这两个警告，让我们看一下示例中的解决方案，
+您可以使用 `set` 和 `splice` 方法克服这两个警告，让我们看一下示例中的解决方案，
 
 1. 第一个用例解决方案
 ```js
@@ -2403,50 +2386,46 @@ vm.todos.splice(indexOfTodo, 1, newTodoValue)
 ```js
 vm.todos.splice(todosLength)
 ```
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 38.  #### 对象变化检测的注意事项是什么
 
-<details><summary><b>答案</b></summary>
-Vue无法检测属性添加或删除中对象的更改。让我们举一个用户数据更改的示例，
+`Vue` 无法检测属性添加或删除中对象的更改。让我们举一个用户数据更改的示例，
 
 ```js
 var vm = new Vue({
   data: {
     user: {
-      name: 'John'
+      name: 'feihongjiang'
     }
   }
 })
 
 // `vm.name` is now reactive
 
-vm.email = john@email.com // `vm.email` is NOT reactive
+vm.email = feihongjiang@email.com // `vm.email` is NOT reactive
 
 ```
 
-您可以使用Vue.set（object，key，value）方法或Object.assign（）来克服这种情况，
+您可以使用 `Vue.set`（`object`，`key`，`value`）方法或 `Object.assign()` 来克服这种情况，
 
 ```js
-Vue.set(vm.user, 'email', john@email.com);
+Vue.set(vm.user, 'email', feihongjiang@email.com);
 (or)
 vm.user = Object.assign({}, vm.user, {
-  email: john@email.com
+  email: feihongjiang@email.com
 })
 
 ```
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 39. #### 你如何使用范围的v-for指令
 
-<details><summary><b>答案</b></summary>
-您还可以对v-for指令使用整数类型（比如'n'），该指令多次重复该元素。
+您还可以对 `v-for` 指令使用整数类型（比如'`n`'），该指令多次重复该元素。
 
 ```js
 <div>
@@ -2455,37 +2434,28 @@ vm.user = Object.assign({}, vm.user, {
 
 ```
 
-他显示了1-20个数字
-</details>
+他显示了 `1-20` 个数字
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 40. #### 你如何在模板上使用v-for指令
 ##### 题目：你如何在模板上使用v-for指令
-<details><summary><b>答案</b></summary>
-与模板上的v-if指令类似，您也可以使用带有v-for指令的"template"标记来呈现多个元素的块。 我们来看一个todo的例子，
-<pre>
-
+与模板上的 `v-if` 指令类似，您也可以使用带有 `v-for` 指令的"`template`"标记来呈现多个元素的块。 我们来看一个 `todo` 的例子，
+```js
 <ul>
   <template v-for="todo in todos">
     <li>{{ todo.title }}</li>
     <li class="divider"></li>
   </template>
 </ul>
-
-</pre>
-</details>
+```
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 41. #### 请简单实现双向数据绑定mvvm
-
-
-<details><summary><b>答案</b></summary>
-<pre>
-
+```js
 <input id="input"/>
 
 const data = {};
@@ -2500,19 +2470,14 @@ input.onchange = function(e) {
   data.text = e.target.value;
   console.log('data',data)
 }
-
-</pre>
-</details>
+```
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 42. ####  你如何使用事件处理程序
-
-<details><summary><b>答案</b></summary>
-您可以在vue中使用类似于普通javascript的事件处理程序。 方法调用还支持特殊的$ event变量。
-<pre>
-
+您可以在 `vue` 中使用类似于普通 `javascript` 的事件处理程序。方法调用还支持特殊的 `$event` 变量。
+```js
 <button v-on:click="show('Welcome to VueJS world', $event)">
   Submit
 </button>
@@ -2524,30 +2489,20 @@ methods: {
     console.log(message);
   }
 }
-
-</pre>
-</details>
+```
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 43. ####  vue提供的事件修饰符是什么
 
-答案
-
-通常，javascript在事件处理程序中提供event.preventDefault（）或event.stopPropagation（）。 您可以使用vue提供的方法，但这些方法适用于数据逻辑，而不是处理DOM事件。 Vue为v-on提供了以下事件修饰符，这些修饰符是由点表示的指令后缀。
-
+通常，`javascript` 在事件处理程序中提供 `event.preventDefault()` 或 `event.stopPropagation()`。 您可以使用 `vue` 提供的方法，但这些方法适用于数据逻辑，而不是处理 `DOM` 事件。 `Vue` 为 `v-on` 提供了以下事件修饰符，这些修饰符是由点表示的指令后缀。
 
 - .stop
-
 - .prevent
-
 - .capture
-
 - .self
-
 - .once
-
 - .passive
 
 我们来看一个停止修饰符的例子，
@@ -2567,19 +2522,15 @@ methods: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-44. ####   什么是关键修饰符
+44. ####  什么是关键修饰符
 
-答案
-
-Vue支持v-on上的键修饰符，用于处理键盘事件。 让我们以enter keycode为例说明keyup事件。
+`Vue` 支持 `v-on` 上的键修饰符，用于处理键盘事件。 让我们以 `enter keycode` 为例说明 `keyup` 事件。
 
 ```html
 <!-- only call `vm.show()` when the `keyCode` is 13 -->
 <input v-on:keyup.13="show">
 ```
-
-
-记住所有关键代码真的很难。 它支持key代码别名的完整列表
+记住所有关键代码真的很难。它支持 `key` 代码别名的完整列表
 
 i .enter
 
@@ -2600,7 +2551,7 @@ viii .left
 ix .right
 
 
-现在上面的keyup代码片段可以用别名编写，如下所示，
+现在上面的 `keyup` 代码片段可以用别名编写，如下所示，
 
 ```html
 <input v-on:keyup.enter="submit">

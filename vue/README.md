@@ -3866,34 +3866,34 @@ iii. 它有更简单的 `javascript` 语法，无需学习 `JSX`
 
 101. ####  ReactJS相对于VueJS的优势是什么
 
-与Vue相比，React具有以下优势
-i. ReactJS在大型应用程序开发中提供了更大的灵活性
-ii. 易于测试
-iii. 非常适合创建移动应用程序
-iv. 生态系统规模大，成熟度高。
+与 `Vue` 相比，`React` 具有以下优势
+1. `ReactJS` 在大型应用程序开发中提供了更大的灵活性
+2.  易于测试
+3.  非常适合创建移动应用程序
+4.  生态系统规模大，成熟度高。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-102. ####  AngularJS和VueJS的不同之处
+1.   ####  AngularJS和VueJS的不同之处
 
-Vue和Angular的语法在某些地方很常见，因为Angular是Vuejs开发的基础。但是Vuejs和Angular之间有很多不同之处，
+`Vue` 和 `Angular` 的语法在某些地方很常见，因为 `Angular` 是 `Vuejs` 开发的基础。但是 `Vuejs` 和 `Angular` 之间有很多不同之处，
 
 Feature|VueJS|AngularJS
 --|--|--
-复杂度|容易学习，简单的API和设计|这个框架有点庞大，需要一些typescript等方面的学习曲线。
+复杂度|容易学习，简单的 `API` 和设计|这个框架有点庞大，需要一些 `typescript` 等方面的学习曲线。
 数据绑定|单向绑定|双向绑定
 学习曲线|学习曲线陡峭，需要渊博的知识|学习曲线陡峭，需要渊博的知识
 首次发布|February 2014|September 2016
-模型|基于虚拟DOM（文档对象模型）|基于MVC（模型-视图-控制器）
+模型|基于虚拟 `DOM`（文档对象模型）|基于 `MVC`（模型-视图-控制器）
 写|javascript|typescript
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-103. ####  什么是动态组件
-动态组件用于使用元素在多个组件之间动态切换，并将数据传递给v-bind:is attribute。让我们创建一个动态组件来在网站的不同页面之间切换，
-```
+1.   ####  什么是动态组件
+动态组件用于使用元素在多个组件之间动态切换，并将数据传递给 `v-bind:is attribute`。让我们创建一个动态组件来在网站的不同页面之间切换，
+```js
 new Vue({
   el: '#app',
   data: {
@@ -3912,10 +3912,8 @@ new Vue({
   }
 })
 ```
-
 现在您可以使用保存当前页面的动态组件，
-
-```
+```js
 <div id="app">
    <component v-bind:is="currentPage">
        <!-- component changes when currentPage changes! -->
@@ -3927,48 +3925,45 @@ new Vue({
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-104. ####   keepalive标签的目的是什么
+1.   ####   keepalive标签的目的是什么
 ##### 题目：keep-alive标签的目的是什么
 
-Keep-Alive标记是一个抽象组件，用于保留组件状态或避免重新呈现。当您将标记包装在动态组件上时，它会缓存不活动的组件实例，而不会破坏它们。让我们看看它的示例用法，
-```
+`keep-alive` 标记是一个抽象组件，用于保留组件状态或避免重新呈现。当您将标记包装在动态组件上时，它会缓存不活动的组件实例，而不会破坏它们。让我们看看它的示例用法，
+```js
 <!-- Inactive components will be cached! -->
 <keep-alive>
   <component v-bind:is="currentTabComponent"></component>
 </keep-alive>
 ```
 当存在多个条件子级时，要求一次只呈现一个子级。
-```
+```js
 <!-- multiple conditional children -->
 <keep-alive>
   <comp-a v-if="a > 1"></comp-a>
   <comp-b v-else></comp-b>
 </keep-alive>
 ```
-注意：记住keep-alive标记不会呈现DOM元素本身，也不会显示在组件父链中。
+注意：记住 `keep-alive` 标记不会呈现 `DOM` 元素本身，也不会显示在组件父链中。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-105.   ####  什么是异步组件
-在大型应用程序中，我们可能需要将应用程序划分为较小的块，并且仅在需要时从服务器加载组件。为了实现这一点，Vue允许您将组件定义为异步解析组件定义的工厂函数。这些组件称为异步组件。让我们来看一个使用Webpack代码拆分功能的异步组件示例，
-```
+1. ####  什么是异步组件
+在大型应用程序中，我们可能需要将应用程序划分为较小的块，并且仅在需要时从服务器加载组件。为了实现这一点，`Vue` 允许您将组件定义为异步解析组件定义的工厂函数。这些组件称为异步组件。让我们来看一个使用 `Webpack` 代码拆分功能的异步组件示例，
+```js
 Vue.component('async-webpack-example', function (resolve, reject) {
   // Webpack automatically split your built code into bundles which are loaded over Ajax requests.
   require(['./my-async-component'], resolve)
 })
 ```
-Vue将仅在需要呈现组件时触发工厂函数，并缓存结果以备将来重新呈现。
-
+`Vue` 将仅在需要呈现组件时触发工厂函数，并缓存结果以备将来重新呈现。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-106.   ####  异步组件工厂的结构是什么
-
+1. ####  异步组件工厂的结构是什么
 异步组件工厂对于异步解析组件很有用。异步组件工厂可以返回以下格式的对象。
-
-```
+```js
 const AsyncComponent = () => ({
   // The component to load (should be a Promise)
   component: import('./MyComponent.vue'),
@@ -3987,9 +3982,9 @@ const AsyncComponent = () => ({
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-107.   ####  什么是内联模板
+1. ####  什么是内联模板
 如果在子组件上保留`inline-template`，那么它将使用其内部内容作为模板，而不是将其视为可重用的独立内容。
-```
+```js
 <my-component inline-template>
    <div>
        <h1>Inline templates</h1>
@@ -3997,21 +3992,20 @@ const AsyncComponent = () => ({
    </div>
 </my-component>
 ```
-注意：尽管此内联模板为模板创作提供了更大的灵活性，但建议使用template属性或.vue组件内的标记来定义模板。
+注意：尽管此内联模板为模板创作提供了更大的灵活性，但建议使用 `template` 属性或 `.vue` 组件内的标记来定义模板。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-108.    #### 什么是XTemplates
+1. #### 什么是XTemplates
 ##### 题目：什么是X-Templates
-
-除了常规模板和内联模板外，您还可以使用带有类型text/x-template的脚本元素定义模板，然后通过ID引用模板。让我们为简单用例创建一个x-template，如下所示：
-```
+除了常规模板和内联模板外，您还可以使用带有类型 `text/x-template` 的脚本元素定义模板，然后通过 `ID` 引用模板。让我们为简单用例创建一个 `x-template`，如下所示：
+```js
 <script type="text/x-template" id="script-template">
   <p>Welcome to X-Template feature</p>
 </script>
 ```
-现在可以使用引用ID定义模板，
+现在可以使用引用 `ID` 定义模板，
 
 Vue.component('x-template-example', {
   template: '#script-template'
@@ -4021,9 +4015,9 @@ Vue.component('x-template-example', {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-109.   #### 什么是递归组件
+1. #### 什么是递归组件
 可以在自己的模板中递归调用自己的组件称为递归组件。
-```
+```js
 Vue.component('recursive-component', {
   template: `<!--Invoking myself!-->
              <recursive-component></recursive-component>`
@@ -4031,38 +4025,37 @@ Vue.component('recursive-component', {
 
 ```
 递归组件对于在博客、嵌套菜单或基本上父级和子级相同的任何内容（尽管内容不同）上显示注释非常有用。
-注意：请记住，递归组件可能导致最大堆栈大小超过错误的无限循环，因此请确保递归调用是有条件的（例如，v-if指令）。
-
+注意：请记住，递归组件可能导致最大堆栈大小超过错误的无限循环，因此请确保递归调用是有条件的（例如，`v-if` 指令）。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-110.   #### 如何解决组件之间的循环依赖关系
-在复杂的应用程序中，Vue组件实际上是渲染树中彼此的后代和祖先。假设componenta和componentb包含在各自的模板中，这两个模板形成了循环依赖关系，
-```
+1.  #### 如何解决组件之间的循环依赖关系
+在复杂的应用程序中，`Vue` 组件实际上是渲染树中彼此的后代和祖先。假设 `componenta` 和 `componentb` 包含在各自的模板中，这两个模板形成了循环依赖关系，
+```js
 //ComponentA
 <div>
   <component-b >
 </div>
 ```
-```
+```js
 //ComponentB
 <div>
   <component-b >
 </div>
 ```
-这可以通过在beforecreate hook中注册（或等到）子组件或在注册组件时使用Webpack的异步导入来解决。
+这可以通过在 `beforecreate hook` 中注册（或等到）子组件或在注册组件时使用 `Webpack` 的异步导入来解决。
 
 方案一：
 
-```
+```js
 beforeCreate: function () {
  this.$options.components.componentB = require('./component-b.vue').default
 }
 ```
 
 方案二：
-```
+```js
 components: {
  componentB: () => import('./component-b.vue')
 }
@@ -4071,29 +4064,27 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-111.   #### 如何确保Vue应用程序是CSP投诉
+1. #### 如何确保Vue应用程序是CSP投诉
+`Communication Sequential Process` （简称 `CSP`）是著名计算机科学家 `C.A.R.Hoare` 为解决并发现象而提出的代数理论，是一个专为描述并发系统中通过消息交换进行交互通信实体行为而设计的一种抽象语言。 
 
-Communication Sequential Process （简称CSP）是著名计算机科学家C.A.R.Hoare为解决并发现象而提出的代数理论，是一个专为描述并发系统中通过消息交换进行交互通信实体行为而设计的一种抽象语言。 
-
-
-某些环境（Google Chrome应用程序）禁止使用new function（）来计算表达式，而Vue应用程序的完整构建依赖于此功能来编译模板。因此，VueJS应用程序的完整版本不属于CSP投诉。在这种情况下，只能使用带有Webpack+Vue加载器或browserify+vueify技术堆栈的运行时生成，通过这些技术堆栈，模板将预编译为呈现函数。这样，您就可以确保VueJS应用程序100%受到CSP投诉。
+某些环境（`Google Chrome`应用程序）禁止使用 `new function()`来计算表达式，而 `Vue` 应用程序的完整构建依赖于此功能来编译模板。因此，`VueJS` 应用程序的完整版本不属于 `CSP` 投诉。在这种情况下，只能使用带有` Webpack+Vue` 加载器或 `browserify+vueify` 技术堆栈的运行时生成，通过这些技术堆栈，模板将预编译为呈现函数。这样，您就可以确保 `VueJS` 应用程序 `100%` 受到 `CSP` 投诉。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-112.   #### 完整版本和仅运行时版本之间的区别是什么
+1. #### 完整版本和仅运行时版本之间的区别是什么
 
-Vuejs提供了两种类型的构建，
+`Vuejs` 提供了两种类型的构建，
 
 **1. Full:** 完整：这些是同时包含编译器和运行时的构建。
 
-**2. Runtime Only:** 这些构建不包括编译器，但代码负责创建Vue实例、呈现和修补虚拟DOM。这些是大约6KB或者更小+gzip。
+**2. Runtime Only:** 这些构建不包括编译器，但代码负责创建 `Vue` 实例、呈现和修补虚拟 `DOM`。这些是大约 `6KB` 或者更小 `+gzip`。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-113.   #### 列出不同的vuejs打包
-以下是基于构建类型的Vuejs不同版本的列表，
+1. #### 列出不同的vuejs打包
+以下是基于构建类型的 `Vuejs` 不同版本的列表，
 
 
    | Type | UMD | CommonJS | ES Module (for bundlers) | ES Module (for browsers) |
@@ -4106,11 +4097,10 @@ Vuejs提供了两种类型的构建，
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-114.   #### 如何在Webpack中配置Vuejs
+1. #### 如何在Webpack中配置Vuejs
+可以使用以下别名在 `Webpack` 中配置 `Vuejs`，
 
-可以使用以下别名在Webpack中配置Vuejs，
-
-    ```javascript
+```js
         module.exports = {
           // ...
           resolve: {
@@ -4119,15 +4109,13 @@ Vuejs提供了两种类型的构建，
             }
           }
         }
-    ```
+```
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-115.   #### VueJS编译器的目的是什么
-
-编译器负责将模板字符串编译成JavaScript呈现函数。例如，下面的代码片段显示了需要编译器的模板与不需要编译器的模板的区别，
-
+1. #### VueJS编译器的目的是什么
+编译器负责将模板字符串编译成 `JavaScript` 呈现函数。例如，下面的代码片段显示了需要编译器的模板与不需要编译器的模板的区别，
  ```javascript
      // this requires the compiler
      new Vue({
@@ -4144,55 +4132,49 @@ Vuejs提供了两种类型的构建，
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-116.   #### DevTools及其目的是什么
+1. #### DevTools及其目的是什么
 ##### 题目：Dev-Tools及其目的是什么
-DevTools是一个浏览器扩展，允许您在更加用户友好的界面中检查和调试Vue应用程序。 您可以在不同的浏览器或环境中找到以下扩展程序，
-      1. Chrome扩展程序
-      2. Firefox Addon
-      3.独立Electron程序（适用于任何环境）
+`DevTools` 是一个浏览器扩展，允许您在更加用户友好的界面中检查和调试 `Vue` 应用程序。 您可以在不同的浏览器或环境中找到以下扩展程序，
 
-      可以使用DevTools插件，如下面的快照所示，
+1. Chrome扩展程序
+2. Firefox Addon
+3. 独立Electron程序（适用于任何环境）
+
+可以使用 `DevTools` 插件，如下面的快照所示，
 
  <img src="https://github.com/sudheerj/vuejs-interview-questions/blob/master/images/DevTools.png" width="700" height="500">
 
 **注意：**
-      1.如果页面使用Vue.js的生产/缩小版本，则默认情况下禁用devtools检查，因此Vue窗格不会显示。
-      2.要使其适用于通过`file：//`协议打开的页面，您需要在Chrome的扩展管理面板中选中此扩展程序的“允许访问文件URL”。
+1. 如果页面使用Vue.js的生产/缩小版本，则默认情况下禁用devtools检查，因此Vue窗格不会显示。
+2. 要使其适用于通过`file：//`协议打开的页面，您需要在Chrome的扩展管理面板中选中此扩展程序的“允许访问文件URL”。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 117. #### VueJS的浏览器支持是什么
-
-它支持所有ECMAScript5 complaint浏览器，如[url]（https://caniuse.com/#feat=es5）中所述。 VueJS不支持IE8浏览器及以下版本，因为它在IE8中使用了不可调整的ECMAScript 5功能（需要来自底层JS引擎的支持）。
+它支持所有 `ECMAScript5 complaint` 浏览器，如[url]（https://caniuse.com/#feat=es5）中所述。 `VueJS` 不支持 `IE8` 浏览器及以下版本，因为它在 `IE8` 中使用了不可调整的 `ECMAScript 5` 功能（需要来自底层 `JS` 引擎的支持）。
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 118. #### 你如何使用各种CDN
-
-VueJS可用于jsdelivr，unpkg和cdnjs等CDN。 通常，您可以将它们用于原型设计或学习目的。 例如，你可以使用jsdelivr和最新版本使用它们，如下所示，
-
+`VueJS` 可用于 `jsdelivr`，`unpkg` 和 `cdnjs` 等 `CDN`。 通常，您可以将它们用于原型设计或学习目的。 例如，你可以使用 `jsdelivr` 和最新版本使用它们，如下所示，
 ```javascript
      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
 ```
-
-您可以将它用于本机ES模块，如下所示，
+您可以将它用于本机 `ES` 模块，如下所示，
 ```javascript
      <script type="module">
        import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.esm.browser.js'
      </script>
 ```
-
 **注意：**您可以删除版本号以获取最新版本。
-
     
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 119. #### 你如何强制更新
-
-尽管没有反应数据发生变化，但极其罕见的情况是必须手动强制更新。 即，强制Vue实例手动重新渲染。 您可以使用 **vm.$forceUpdate()**  API方法强制更新。
+尽管没有反应数据发生变化，但极其罕见的情况是必须手动强制更新。 即，强制 `Vue` 实例手动重新渲染。 您可以使用 **vm.$forceUpdate()**  `API` 方法强制更新。
 
 **注意：** 它不会影响所有子组件，只会影响实例本身和插入插槽内容的子组件。
 
@@ -4200,9 +4182,7 @@ VueJS可用于jsdelivr，unpkg和cdnjs等CDN。 通常，您可以将它们用�
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 120. #### vuejs中once指令的目的是什么
-
-如果你想渲染“很多静态内容”，那么你需要确保它只评估一次，然后再缓存。 在这种情况下，您可以通过在根级别包装来使用`v-once`指令。 v-once指令的示例用法如下，
-
+如果你想渲染“很多静态内容”，那么你需要确保它只评估一次，然后再缓存。在这种情况下，您可以通过在根级别包装来使用`v-once`指令。 `v-once` 指令的示例用法如下，
 ```javascript
      Vue.component('legal-terms', {
        template: `

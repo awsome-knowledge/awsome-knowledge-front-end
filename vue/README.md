@@ -452,7 +452,7 @@ export default {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 父子组件互相调用对方的方法
+3. #### 父子组件互相调用对方的方法
 ##### 题目：父子组件互相调用对方的方法
 拿到对方组件的实例对象后，对它实例的方法进行调用，经常用到。
 ```js
@@ -481,7 +481,7 @@ this.$emit('openDialog', ...)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### hash模式和history模式的区别
+4. #### hash模式和history模式的区别
 
 `hash` 模式的 `url` 地址有 `#`，底层是监听 `onhashchange` 事件。默认就是 `hash` 模式。
 `history` 模式包括 `back`,`forward`,`go` 三个方法。但 `history` 模式需要后台支持，否则会有`404`。
@@ -490,14 +490,14 @@ this.$emit('openDialog', ...)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-6. #### history模式刷新就会404是怎么造成的呢
+5. #### history模式刷新就会404是怎么造成的呢
 因为本地路径中没有这个真实资源存在，这些访问资源都是在 `js` 里渲染的，可以通过后端去做重定向，服务器配置如果 `URL` 匹配不到任何静态资源，就跳转到默认的 `index.html`。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 工作中怎么解决代码复用的问题
+6. #### 工作中怎么解决代码复用的问题
 
 抽取公共组件、封装方法、`mixin`（`vue` 高阶用法，混入，是 `vue` 里对代码复用的解决方案）
 
@@ -505,7 +505,7 @@ this.$emit('openDialog', ...)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-9. #### 在vue项目中filter一般是怎么用的
+7. #### 在vue项目中filter一般是怎么用的
 ##### 题目：在vue项目中，filter一般是怎么用的
 用于格式化数据，比如： 价格，日期等
 ```js
@@ -521,7 +521,7 @@ filters:{
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-10. #### filter是在组件里注册还是提取到一个公共的文件然后全局注册
+8. #### filter是在组件里注册还是提取到一个公共的文件然后全局注册
 ##### 题目：filter是在组件里注册还是提取到一个公共的文件，然后全局注册
 如果每个组件中都用到就抽，单次用到写到单个组件中。
 
@@ -529,7 +529,7 @@ filters:{
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### filter传的function带了两个形参代表什么意思呢它这个参数是从哪里传进来的filter第二个形参在使用的时候从哪里传过来
+9.   #### filter传的function带了两个形参代表什么意思呢它这个参数是从哪里传进来的filter第二个形参在使用的时候从哪里传过来
 ##### 题目：filter传的function带了两个形参，代表什么意思呢？它这个参数是从哪里传进来的？filter第二个形参在使用的时候从哪里传过来？
 
 在`Vue.filter(name, options)`中，第一个参数是过滤器名称，第二个是回调函数，
@@ -542,7 +542,7 @@ filters:{
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 有没有了解过vue的插件想写插件的时候怎么去定义
+10.   #### 有没有了解过vue的插件想写插件的时候怎么去定义
 ##### 题目：有没有了解过vue的插件，想写插件的时候怎么去定义
 
 1. 通过全局方法 Vue.use() 使用插件
@@ -590,14 +590,14 @@ Vue.prototype.$myMethod = function (options) {
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
-1.  #### 有一些数据直接存在vue的实例原型链上和通过vuex存有什么本质的区别
+11.  #### 有一些数据直接存在vue的实例原型链上和通过vuex存有什么本质的区别
 `Vue` 实例一般只是用来挂在视图，把数据放在原型链上会造成原型污染。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-15. #### 定义一个动态路由怎么去获取路由的参数
+12. #### 定义一个动态路由怎么去获取路由的参数
 ##### 题目：定义一个动态路由，怎么去获取路由的参数？
 动态路由的创建，主要是使用 `path` 属性过程中，使用动态路径参数，以冒号开头。
 ```js
@@ -617,7 +617,7 @@ const User = {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-16. #### 获取vuerouter两种形式的参数query和params这两种有什么区别
+13. #### 获取vuerouter两种形式的参数query和params这两种有什么区别
  ##### 题目：获取vue-router两种形式的参数，query、params，这两种有什么区别
 `params：/router1/:id ，/router1/123，/router1/789` ,这里的 `id` 叫做 `params`。
 
@@ -650,7 +650,7 @@ this.$router.push({
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-17.  #### 路由有哪几种导航钩子
+14.  #### 路由有哪几种导航钩子
 `vue-router` 的导航钩子，主要用来作用是拦截导航，让他完成跳转或取消。
 
 有三种方式可以植入路由导航过程中：
@@ -760,7 +760,7 @@ beforeRouteEnter(to, from, next) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### MVVM框架的原理
+15.   #### MVVM框架的原理
 用 `object.defineProtery` 把对象转化为 `get` 和 `set`，改变数据会触发 `set` 函数，`set` 改变数据源后，会通知一个叫观察者（`watch`）的东西，`watch` 收到通知后，再进行视图渲染，局部更新。
 `get` 和 `set` 也可以监听到属性什么时候被改过。
 
@@ -768,7 +768,7 @@ beforeRouteEnter(to, from, next) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### vue生命周期
+16.  #### vue生命周期
 `beforeCreate`：此时获取不到 `prop` 和 `data` 中的数据；
 `created`：可以获取到 `prop` 和 `data` 中的数据；
 `beforeMount`：获取到了 `VDOM`;
@@ -783,7 +783,7 @@ beforeRouteEnter(to, from, next) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-21. #### NextTick原理分析
+17. #### NextTick原理分析
 
 `nexttick` 可以让我们在下次 `DOM` 更新循环结束之后执行延迟回调,用于获得更新后的 `DOM`。
 
@@ -856,6 +856,232 @@ export function nextTick(cb?: Function, ctx?: Object) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
+18.   #### spa路由实现的两种方式
+##### 题目：spa路由实现的两种方式(大搜车)
+`SPA` 是 `single page application` 的缩写，直译为单页面应用。简单来说就是一个 `web` 应用程序只有`1`个页面（`1`个`html`）。
+
+在传统的 `web` 程序（多页面应用）中，用户每次进入新的页面都要向服务器发起请求，以获取整个页面的所有代码，几乎每一个响应动作都会刷新整个页面，不但浪费带宽，也影响了用户体验。
+
+而 `SPA` 只需要请求一次页面代码，切换功能模块时，通过 `javascript` 控制渲染不同的内容，避免了请求新的页面（仅仅需要向服务端请求必要的数据），切换“页面”的时候速度很快。
+
+- `SPA` 应该具有的特征
+`SPA` 核心是前端路由，路由表示 `URL` 与资源的对应关系，前端路由简单说就是通过前端 `js` 代码处理不同 `URL` 与不同组件模块的对应关系。这些不同的 `URL` 在后端获取的都是整个页面资源，而在浏览器端， `js` 通过判断不同的 `URL` 代表的具体功能模块，从而渲染不同的组件模块。
+
+`1`个 `SPA` 应用具备的特征有：
+- 切换组件不刷新页面
+- 浏览器的前进后退按钮有效
+- URL与组件的一一对应关系
+
+- SPA的两种实现方式
+接下来我们通过 `hash` 与 `history API` 两种方式实现一个简单的 `SPA` 页面。
+
+`html` 结构
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<style>
+  #router-nav {
+    width: 300px;
+    height: 50px;
+    border: 1px solid red;
+    padding: 0;
+    margin: 0 auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #e9a;
+    list-style: none;
+    float: left;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  #router-view {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #555;
+    margin: 20px auto;
+  }
+</style>
+<body>
+  <div id="router-nav">
+    <ul>
+    <li class="nav-item" data-id="page1">page1</li>
+    <li class="nav-item" data-id="page2">page2</li>
+    <li class="nav-item" data-id="page3">page3</li>
+    </ul>
+  </div>
+  <div id="router-view">
+
+  </div>
+  <!-- <script src="./router1_hash.js"></script> -->
+  <script src="./router2_history.js"></script>
+</body>
+</html>
+```
+1. 利用hash实现SPA
+原理：
+
+- 向通过 `URL` 中的 `hash` 部分（`#`后的锚点值）来映射不同的组件；
+- 改变 `hash` ，也不会向服务端重新请求页面，也不会刷新页面；
+- 改变 `hash` ，会向浏览器的历史记录压入新的记录，使得浏览器的前进后退按钮可以像传统多页面应用一样正常工作；
+- `hash` 部分不会影响 `URL` 在服务端请求的资源，而前端可以通过 `js` 判断需要渲染的组件，从而实现 `URL` 与组件的一一对应。
+  
+`router_hash.js` 代码如下：
+```js
+;(function () {
+  var navItems = document.querySelectorAll('#router-nav .nav-item')
+  var view = document.getElementById('router-view')
+  
+  window.addEventListener('load', function () {
+    if (! location.hash) {location.hash = navItems[0].dataset.id}
+    view.innerHTML = location.hash.slice(1)
+  })
+
+  for (var navItem of navItems) {
+    console.log(navItem)
+    navItem.addEventListener('click', function () {
+      location.hash = this.dataset.id
+    })
+  }
+  window.addEventListener('hashchange', function () {
+    view.innerHTML = location.hash.slice(1)
+    // ajax here
+  })
+})()
+```
+在 `Http` 和 `File` 协议均能正常运行，效果如图：
+![avatar](./1.gif)
+
+1. 利用history API 实现SPA
+原理：
+
+通过 `history.replaceState` 和 `history.pushState` 改变历史记录和 `url`
+
+如果改变的不仅仅是 `hash` （如果仅仅改变 `hash` ，那可以直接用 `hash` 的方式实现 `SPA` ，何必用 `history API` 呢），那么实现 `URL` 和组件的一一对应，需要服务端配合。
+
+`router_history.js` 代码如下
+```js
+;(function () {
+  var navItems = document.querySelectorAll('#router-nav .nav-item')
+  var view = document.getElementById('router-view')
+  
+  window.addEventListener('load', function () {
+    view.innerHTML = navItems[0].dataset.id
+    history.replaceState(navItems[0].dataset.id, null, navItems[0].dataset.id)
+  })
+
+  for (var navItem of navItems) {
+    console.log(navItem)
+    navItem.addEventListener('click', function () {
+      history.pushState(this.dataset.id, null, this.dataset.id)
+      view.innerHTML = this.dataset.id
+      // ajax here
+    })
+  }
+
+  window.addEventListener('popstate', function (e) {
+    if (e.state) {view.innerHTML = e.state}
+  })
+
+})()
+
+```
+仅能在 `Http` 协议下有效， `File` 协议修改 `url` 会报错，效果如图：
+![avatar](./2.gif)
+
+虽然通过 `history API` 修改了 `url` ，但实际上最开始请求服务端的并不是这个 `url` ，所以直接刷新会找不到资源。如下图
+![avatar](./3.gif)
+
+如果想要用户刷新没毛病，或者直接通过某个 `url` 渲染对应的组件，需要服务端配合，为这一系列 `URL` 设置同样的后端路由，都响应该 `SPA` 页面。然后前端代码再添加相应的逻辑，即可渲染指定的组件。
+
+个人感觉。使用 `hash` 实现的 `SPA` 比较容易理解，也好实现。
+
+————————————————
+版权声明：本文为CSDN博主「晔晔炅萤」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_18369669/article/details/106672046
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+19.   #### vue3.0的变化
+##### 题目：vue3.0的变化（海康）
+全面改革：解读 `vue3.0` 的变化
+9月30日，尤雨溪在 `medium` 个人博客上发布了 `vue3.0` 的开发思路，国内有翻译的版本，见文章最后的参考链接。`3.0` 带了了很大的变化，他讲了一些改进的思路以及整个开发流程的规划。
+
+###### vue3.0的改进思路
+vue最主要的特点就是响应式机制、模板、以及对象式的组件声明语法，而3.0对这三部分都做了更改。
+
+
+响应式
+2.x的响应式是基于Object.defineProperty实现的代理，兼容主流浏览器和ie9以上的ie浏览器，能够监听数据对象的变化，但是监听不到对象属性的增删、数组元素和长度的变化，同时会在vue初始化的时候把所有的Observer都建立好，才能观察到数据对象属性的变化。
+
+针对上面的问题，3.0进行了革命性的变更，采用了ES2015的Proxy来代替Object.defineProperty，可以做到监听对象属性的增删和数组元素和长度的修改，还可以监听Map、Set、WeakSet、WeakMap，同时还实现了惰性的监听，不会在初始化的时候创建所有的Observer，而是会在用到的时候才去监听。但是，虽然主流的浏览器都支持Proxy，ie系列却还是不兼容，所以针对ie11，vue3.0决定做单独的适配，暴露出来的api一样，但是底层实现还是Object.defineProperty，这样导致了ie11还是有2.x的问题。但是绝大部分情况下，3.0带来的好处已经能够体验到了。
+
+响应式方面，vue3.0做了实现机制的变更，采用ES2015的Proxy，不但解决了vue2.x中的问题，还是得性能有了进一步提升。虽然有一些兼容问题，但是通过适配的方式解决掉了。此外，还暴露了observable的api来创建响应式对象，可以替代掉event bus，来做一些跨组件的通信。
+
+2.模板
+模板方面没有大的变更，只改了作用域插槽，2.x的机制导致作用域插槽变了，父组件会重新渲染，而3.0把作用于插槽改成了函数的方式，这样只会影响子组件的重新渲染，提升了渲染的性能。
+
+同时，对于render函数的方面，vue3.0也会进行一系列更改来方便习惯直接使用api来生成vdom的开发者。
+
+对象式的组件声明方式
+
+vue2.x中的组件是通过声明的方式传入一系列option，和TypeScript的结合需要通过一些装饰器的方式来做，虽然能实现功能，但是比较麻烦。
+
+3.0修改了组件的声明方式，改成了类式的写法，这样使得和TypeScript的结合变得很容易。
+
+此外，vue的源码也改用了TypeScript来写。其实当代码的功能复杂之后，必须有一个静态类型系统来做一些辅助管理，如React使用的Flow，Angular使用的TypeScript。现在vue3.0也全面改用TypeScript来重写了，更是使得对外暴露的api更容易结合TypeScript。静态类型系统对于复杂代码的维护确实很有必要。
+
+其他的一些东西
+vue3.0的改变是全面的，上面只涉及到主要的3个方面，还有一些其他的更改：
+
+支持自定义渲染器，从而使得weex可以通过自定义渲染器的方式来扩展，而不是直接fork源码来改的方式。
+支持Fragment（多个根节点）和Protal（在dom其他部分渲染组建内容）组件，针对一些特殊的场景做了处理。
+基于treeshaking优化，提供了更多的内置功能。
+vue3.0的开发流程规划
+vue的开发思路是公开的，尤雨溪说主要的特性会听取一些主要库的开发者的反馈，有比较确定的方案以后公布RFC收集公众的反馈意见，之后才进入开发，同时会同步生态内相关的库和工具的更新。
+
+虽然vue不如react和angular那样有大公司维护，但是借助开源的力量，整个流程都是开源社区参与的，这样vue的稳定程度和开发思路自然也就不会有什么大的问题。
+
+总结
+vue3.0对vue的主要3个特点：响应式、模板、对象式的组件声明方式，进行了全面的更改，底层的实现和上层的api都有了明显的变化，基于Proxy重新实现了响应式，基于treeshaking内置了更多功能，提供了类式的组件声明方式。而且源码全部用typescript重写。以及进行了一系列的性能优化。
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+20.   #### 响应式原理
+##### 题目： 响应式原理（海康）
+Vue.js 最显著的功能就是响应式系统，它是一个典型的 MVVM 框架，模型（Model）只是普通的 JavaScript 对象，修改它则视图（View）会自动更新。这种设计让状态管理变得非常简单而直观，不过理解它的原理也很重要，可以避免一些常见问题。下面让我们深挖 Vue.js 响应式系统的细节，来看一看 Vue.js 是如何把模型和视图建立起关联关系的。
+
+图中的模型（Model）就是 data 方法返回的{times:1}，视图（View）是最终在浏览器中显示的 DOM。模型通过 Observer、Dep、Watcher、Directive 等一系列对象的关联，最终和视图建立起关系。归纳起来，Vue.js 在这里主要做了三件事：
+
+通过 Observer 对 data 做监听，并且提供了订阅某个数据项变化的能力。
+把 template 编译成一段 document fragment，然后解析其中的 Directive，得到每一个 Directive 所依赖的数据项和 update 方法。
+通过 Watcher 把上述两部分结合起来，即把 Directive 中的数据依赖通过 Watcher 订阅在对应数据的 Observer 的 Dep 上。当数据变化时，就会触发 Observer 的 Dep 上的 notify 方法通知对应的 Watcher 的 update，进而触发 Directive 的 update 方法来更新 DOM 视图，最后达到模型和视图关联起来。
+接下来我们就结合 Vue.js 的源码来详细介绍这三个过程。
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+21.   #### vuerouter的钩子
+##### 题目： vue-router的钩子（海康）
+
+---
 22. ####  生命周期分析
 
 ![avatar](../public/lifecycle.png)
@@ -2337,7 +2563,7 @@ vm.todos.push({ message: 'feihongjiang' })
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### 什么是数组检测非变异方法
+36.  #### 什么是数组检测非变异方法
 不改变原始数组，
 
 但总是返回新数组的方法称为非突变方法。 
@@ -2722,7 +2948,7 @@ Vue.component('todo-item', {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### 如何在自定义输入组件上实现v-model
+53.  #### 如何在自定义输入组件上实现v-model
 自定义事件还可用于创建与 `v-model` 一起使用的自定义输入。 组件内部必须遵循以下规则：
 1. 将 `value` 属性绑定到值 `prop`；
 2. 在输入时，使用新值发出自己的自定义输入事件。
@@ -2748,7 +2974,7 @@ Vue.component('custom-input', {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### slots是什么
+54.  #### slots是什么
 
 `Vue` 使用该元素实现内容分发 `API`，作为在当前 `Web Components` 规范草案之后创建的内容的分发出口。让我们创建一个带有内容插入插槽的警报组件：
 ```js
@@ -3366,7 +3592,7 @@ birthday | dateFormat | uppercase
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  ####  如何创建插件
+79.  ####  如何创建插件
 插件是通过公开一个安装方法创建的，该方法将 `Vue` 构造函数作为第一个参数和选项。 具有功能的 `VueJS` 插件的结构如下，
 ```js
 MyPlugin.install = function (Vue, options) {
@@ -3874,7 +4100,7 @@ iii. 它有更简单的 `javascript` 语法，无需学习 `JSX`
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   ####  AngularJS和VueJS的不同之处
+102.   ####  AngularJS和VueJS的不同之处
 
 `Vue` 和 `Angular` 的语法在某些地方很常见，因为 `Angular` 是 `Vuejs` 开发的基础。但是 `Vuejs` 和 `Angular` 之间有很多不同之处，
 
@@ -3890,7 +4116,7 @@ Feature|VueJS|AngularJS
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   ####  什么是动态组件
+103.   ####  什么是动态组件
 动态组件用于使用元素在多个组件之间动态切换，并将数据传递给 `v-bind:is attribute`。让我们创建一个动态组件来在网站的不同页面之间切换，
 ```js
 new Vue({
@@ -3924,7 +4150,7 @@ new Vue({
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   ####   keepalive标签的目的是什么
+104.   ####   keepalive标签的目的是什么
 ##### 题目：keep-alive标签的目的是什么
 
 `keep-alive` 标记是一个抽象组件，用于保留组件状态或避免重新呈现。当您将标记包装在动态组件上时，它会缓存不活动的组件实例，而不会破坏它们。让我们看看它的示例用法，
@@ -3947,7 +4173,7 @@ new Vue({
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. ####  什么是异步组件
+105. ####  什么是异步组件
 在大型应用程序中，我们可能需要将应用程序划分为较小的块，并且仅在需要时从服务器加载组件。为了实现这一点，`Vue` 允许您将组件定义为异步解析组件定义的工厂函数。这些组件称为异步组件。让我们来看一个使用 `Webpack` 代码拆分功能的异步组件示例，
 ```js
 Vue.component('async-webpack-example', function (resolve, reject) {
@@ -3960,7 +4186,7 @@ Vue.component('async-webpack-example', function (resolve, reject) {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. ####  异步组件工厂的结构是什么
+106. ####  异步组件工厂的结构是什么
 异步组件工厂对于异步解析组件很有用。异步组件工厂可以返回以下格式的对象。
 ```js
 const AsyncComponent = () => ({
@@ -3981,7 +4207,7 @@ const AsyncComponent = () => ({
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. ####  什么是内联模板
+107. ####  什么是内联模板
 如果在子组件上保留`inline-template`，那么它将使用其内部内容作为模板，而不是将其视为可重用的独立内容。
 ```js
 <my-component inline-template>
@@ -3996,7 +4222,7 @@ const AsyncComponent = () => ({
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 什么是XTemplates
+108. #### 什么是XTemplates
 ##### 题目：什么是X-Templates
 除了常规模板和内联模板外，您还可以使用带有类型 `text/x-template` 的脚本元素定义模板，然后通过 `ID` 引用模板。让我们为简单用例创建一个 `x-template`，如下所示：
 ```js
@@ -4014,7 +4240,7 @@ Vue.component('x-template-example', {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 什么是递归组件
+109. #### 什么是递归组件
 可以在自己的模板中递归调用自己的组件称为递归组件。
 ```js
 Vue.component('recursive-component', {
@@ -4029,7 +4255,7 @@ Vue.component('recursive-component', {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### 如何解决组件之间的循环依赖关系
+110.  #### 如何解决组件之间的循环依赖关系
 在复杂的应用程序中，`Vue` 组件实际上是渲染树中彼此的后代和祖先。假设 `componenta` 和 `componentb` 包含在各自的模板中，这两个模板形成了循环依赖关系，
 ```js
 //ComponentA
@@ -4063,7 +4289,7 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 如何确保Vue应用程序是CSP投诉
+111. #### 如何确保Vue应用程序是CSP投诉
 `Communication Sequential Process` （简称 `CSP`）是著名计算机科学家 `C.A.R.Hoare` 为解决并发现象而提出的代数理论，是一个专为描述并发系统中通过消息交换进行交互通信实体行为而设计的一种抽象语言。 
 
 某些环境（`Google Chrome`应用程序）禁止使用 `new function()`来计算表达式，而 `Vue` 应用程序的完整构建依赖于此功能来编译模板。因此，`VueJS` 应用程序的完整版本不属于 `CSP` 投诉。在这种情况下，只能使用带有` Webpack+Vue` 加载器或 `browserify+vueify` 技术堆栈的运行时生成，通过这些技术堆栈，模板将预编译为呈现函数。这样，您就可以确保 `VueJS` 应用程序 `100%` 受到 `CSP` 投诉。
@@ -4071,7 +4297,7 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 完整版本和仅运行时版本之间的区别是什么
+112. #### 完整版本和仅运行时版本之间的区别是什么
 
 `Vuejs` 提供了两种类型的构建，
 
@@ -4082,7 +4308,7 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 列出不同的vuejs打包
+113. #### 列出不同的vuejs打包
 以下是基于构建类型的 `Vuejs` 不同版本的列表，
 
 
@@ -4096,7 +4322,7 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### 如何在Webpack中配置Vuejs
+114. #### 如何在Webpack中配置Vuejs
 可以使用以下别名在 `Webpack` 中配置 `Vuejs`，
 
 ```js
@@ -4113,7 +4339,7 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### VueJS编译器的目的是什么
+115. #### VueJS编译器的目的是什么
 编译器负责将模板字符串编译成 `JavaScript` 呈现函数。例如，下面的代码片段显示了需要编译器的模板与不需要编译器的模板的区别，
  ```javascript
      // this requires the compiler
@@ -4131,7 +4357,7 @@ components: {
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1. #### DevTools及其目的是什么
+116. #### DevTools及其目的是什么
 ##### 题目：Dev-Tools及其目的是什么
 `DevTools` 是一个浏览器扩展，允许您在更加用户友好的界面中检查和调试 `Vue` 应用程序。 您可以在不同的浏览器或环境中找到以下扩展程序，
 
@@ -4282,232 +4508,6 @@ const store = new Vuex.Store({
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### spa路由实现的两种方式
-##### 题目：spa路由实现的两种方式(大搜车)
-`SPA` 是 `single page application` 的缩写，直译为单页面应用。简单来说就是一个 `web` 应用程序只有`1`个页面（`1`个`html`）。
-
-在传统的 `web` 程序（多页面应用）中，用户每次进入新的页面都要向服务器发起请求，以获取整个页面的所有代码，几乎每一个响应动作都会刷新整个页面，不但浪费带宽，也影响了用户体验。
-
-而 `SPA` 只需要请求一次页面代码，切换功能模块时，通过 `javascript` 控制渲染不同的内容，避免了请求新的页面（仅仅需要向服务端请求必要的数据），切换“页面”的时候速度很快。
-
-- `SPA` 应该具有的特征
-`SPA` 核心是前端路由，路由表示 `URL` 与资源的对应关系，前端路由简单说就是通过前端 `js` 代码处理不同 `URL` 与不同组件模块的对应关系。这些不同的 `URL` 在后端获取的都是整个页面资源，而在浏览器端， `js` 通过判断不同的 `URL` 代表的具体功能模块，从而渲染不同的组件模块。
-
-`1`个 `SPA` 应用具备的特征有：
-- 切换组件不刷新页面
-- 浏览器的前进后退按钮有效
-- URL与组件的一一对应关系
-
-- SPA的两种实现方式
-接下来我们通过 `hash` 与 `history API` 两种方式实现一个简单的 `SPA` 页面。
-
-`html` 结构
-```html
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<title></title>
-</head>
-<style>
-  #router-nav {
-    width: 300px;
-    height: 50px;
-    border: 1px solid red;
-    padding: 0;
-    margin: 0 auto;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  ul li {
-    width: 80px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #e9a;
-    list-style: none;
-    float: left;
-    margin: 10px;
-    text-align: center;
-    cursor: pointer;
-  }
-  #router-view {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #555;
-    margin: 20px auto;
-  }
-</style>
-<body>
-  <div id="router-nav">
-    <ul>
-    <li class="nav-item" data-id="page1">page1</li>
-    <li class="nav-item" data-id="page2">page2</li>
-    <li class="nav-item" data-id="page3">page3</li>
-    </ul>
-  </div>
-  <div id="router-view">
-
-  </div>
-  <!-- <script src="./router1_hash.js"></script> -->
-  <script src="./router2_history.js"></script>
-</body>
-</html>
-```
-1. 利用hash实现SPA
-原理：
-
-- 向通过 `URL` 中的 `hash` 部分（`#`后的锚点值）来映射不同的组件；
-- 改变 `hash` ，也不会向服务端重新请求页面，也不会刷新页面；
-- 改变 `hash` ，会向浏览器的历史记录压入新的记录，使得浏览器的前进后退按钮可以像传统多页面应用一样正常工作；
-- `hash` 部分不会影响 `URL` 在服务端请求的资源，而前端可以通过 `js` 判断需要渲染的组件，从而实现 `URL` 与组件的一一对应。
-  
-`router1_hash.js` 代码如下：
-```js
-;(function () {
-  var navItems = document.querySelectorAll('#router-nav .nav-item')
-  var view = document.getElementById('router-view')
-  
-  window.addEventListener('load', function () {
-    if (! location.hash) {location.hash = navItems[0].dataset.id}
-    view.innerHTML = location.hash.slice(1)
-  })
-
-  for (var navItem of navItems) {
-    console.log(navItem)
-    navItem.addEventListener('click', function () {
-      location.hash = this.dataset.id
-    })
-  }
-  window.addEventListener('hashchange', function () {
-    view.innerHTML = location.hash.slice(1)
-    // ajax here
-  })
-})()
-```
-在 `Http` 和 `File` 协议均能正常运行，效果如图：
-![avatar](./1.gif)
-
-1. 利用history API 实现SPA
-原理：
-
-通过 `history.replaceState` 和 `history.pushState` 改变历史记录和 `url`
-
-如果改变的不仅仅是 `hash` （如果仅仅改变 `hash` ，那可以直接用 `hash` 的方式实现 `SPA` ，何必用 `history API` 呢），那么实现 `URL` 和组件的一一对应，需要服务端配合。
-
-`router2_history.js` 代码如下
-```js
-;(function () {
-  var navItems = document.querySelectorAll('#router-nav .nav-item')
-  var view = document.getElementById('router-view')
-  
-  window.addEventListener('load', function () {
-    view.innerHTML = navItems[0].dataset.id
-    history.replaceState(navItems[0].dataset.id, null, navItems[0].dataset.id)
-  })
-
-  for (var navItem of navItems) {
-    console.log(navItem)
-    navItem.addEventListener('click', function () {
-      history.pushState(this.dataset.id, null, this.dataset.id)
-      view.innerHTML = this.dataset.id
-      // ajax here
-    })
-  }
-
-  window.addEventListener('popstate', function (e) {
-    if (e.state) {view.innerHTML = e.state}
-  })
-
-})()
-
-```
-仅能在 `Http` 协议下有效， `File` 协议修改 `url` 会报错，效果如图：
-![avatar](./2.gif)
-
-虽然通过 `history API` 修改了 `url` ，但实际上最开始请求服务端的并不是这个 `url` ，所以直接刷新会找不到资源。如下图
-![avatar](./3.gif)
-
-如果想要用户刷新没毛病，或者直接通过某个 `url` 渲染对应的组件，需要服务端配合，为这一系列 `URL` 设置同样的后端路由，都响应该 `SPA` 页面。然后前端代码再添加相应的逻辑，即可渲染指定的组件。
-
-个人感觉。使用 `hash` 实现的 `SPA` 比较容易理解，也好实现。
-
-————————————————
-版权声明：本文为CSDN博主「晔晔炅萤」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/qq_18369669/article/details/106672046
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-1.   #### vue3.0的变化
-##### 题目：vue3.0的变化（海康）
-全面改革：解读vue3.0的变化
-9月30日，尤雨溪在medium个人博客上发布了vue3.0的开发思路，国内有翻译的版本，见文章最后的参考链接。3.0带了了很大的变化，他讲了一些改进的思路以及整个开发流程的规划。
-
-vue3.0的改进思路
-vue最主要的特点就是响应式机制、模板、以及对象式的组件声明语法，而3.0对这三部分都做了更改。
-
-
-响应式
-2.x的响应式是基于Object.defineProperty实现的代理，兼容主流浏览器和ie9以上的ie浏览器，能够监听数据对象的变化，但是监听不到对象属性的增删、数组元素和长度的变化，同时会在vue初始化的时候把所有的Observer都建立好，才能观察到数据对象属性的变化。
-
-针对上面的问题，3.0进行了革命性的变更，采用了ES2015的Proxy来代替Object.defineProperty，可以做到监听对象属性的增删和数组元素和长度的修改，还可以监听Map、Set、WeakSet、WeakMap，同时还实现了惰性的监听，不会在初始化的时候创建所有的Observer，而是会在用到的时候才去监听。但是，虽然主流的浏览器都支持Proxy，ie系列却还是不兼容，所以针对ie11，vue3.0决定做单独的适配，暴露出来的api一样，但是底层实现还是Object.defineProperty，这样导致了ie11还是有2.x的问题。但是绝大部分情况下，3.0带来的好处已经能够体验到了。
-
-响应式方面，vue3.0做了实现机制的变更，采用ES2015的Proxy，不但解决了vue2.x中的问题，还是得性能有了进一步提升。虽然有一些兼容问题，但是通过适配的方式解决掉了。此外，还暴露了observable的api来创建响应式对象，可以替代掉event bus，来做一些跨组件的通信。
-
-2.模板
-模板方面没有大的变更，只改了作用域插槽，2.x的机制导致作用域插槽变了，父组件会重新渲染，而3.0把作用于插槽改成了函数的方式，这样只会影响子组件的重新渲染，提升了渲染的性能。
-
-同时，对于render函数的方面，vue3.0也会进行一系列更改来方便习惯直接使用api来生成vdom的开发者。
-
-对象式的组件声明方式
-
-vue2.x中的组件是通过声明的方式传入一系列option，和TypeScript的结合需要通过一些装饰器的方式来做，虽然能实现功能，但是比较麻烦。
-
-3.0修改了组件的声明方式，改成了类式的写法，这样使得和TypeScript的结合变得很容易。
-
-此外，vue的源码也改用了TypeScript来写。其实当代码的功能复杂之后，必须有一个静态类型系统来做一些辅助管理，如React使用的Flow，Angular使用的TypeScript。现在vue3.0也全面改用TypeScript来重写了，更是使得对外暴露的api更容易结合TypeScript。静态类型系统对于复杂代码的维护确实很有必要。
-
-其他的一些东西
-vue3.0的改变是全面的，上面只涉及到主要的3个方面，还有一些其他的更改：
-
-支持自定义渲染器，从而使得weex可以通过自定义渲染器的方式来扩展，而不是直接fork源码来改的方式。
-支持Fragment（多个根节点）和Protal（在dom其他部分渲染组建内容）组件，针对一些特殊的场景做了处理。
-基于treeshaking优化，提供了更多的内置功能。
-vue3.0的开发流程规划
-vue的开发思路是公开的，尤雨溪说主要的特性会听取一些主要库的开发者的反馈，有比较确定的方案以后公布RFC收集公众的反馈意见，之后才进入开发，同时会同步生态内相关的库和工具的更新。
-
-虽然vue不如react和angular那样有大公司维护，但是借助开源的力量，整个流程都是开源社区参与的，这样vue的稳定程度和开发思路自然也就不会有什么大的问题。
-
-总结
-vue3.0对vue的主要3个特点：响应式、模板、对象式的组件声明方式，进行了全面的更改，底层的实现和上层的api都有了明显的变化，基于Proxy重新实现了响应式，基于treeshaking内置了更多功能，提供了类式的组件声明方式。而且源码全部用typescript重写。以及进行了一系列的性能优化。
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-
-1.   #### 响应式原理
-##### 题目： 响应式原理（海康）
-Vue.js 最显著的功能就是响应式系统，它是一个典型的 MVVM 框架，模型（Model）只是普通的 JavaScript 对象，修改它则视图（View）会自动更新。这种设计让状态管理变得非常简单而直观，不过理解它的原理也很重要，可以避免一些常见问题。下面让我们深挖 Vue.js 响应式系统的细节，来看一看 Vue.js 是如何把模型和视图建立起关联关系的。
-
-图中的模型（Model）就是 data 方法返回的{times:1}，视图（View）是最终在浏览器中显示的 DOM。模型通过 Observer、Dep、Watcher、Directive 等一系列对象的关联，最终和视图建立起关系。归纳起来，Vue.js 在这里主要做了三件事：
-
-通过 Observer 对 data 做监听，并且提供了订阅某个数据项变化的能力。
-把 template 编译成一段 document fragment，然后解析其中的 Directive，得到每一个 Directive 所依赖的数据项和 update 方法。
-通过 Watcher 把上述两部分结合起来，即把 Directive 中的数据依赖通过 Watcher 订阅在对应数据的 Observer 的 Dep 上。当数据变化时，就会触发 Observer 的 Dep 上的 notify 方法通知对应的 Watcher 的 update，进而触发 Directive 的 update 方法来更新 DOM 视图，最后达到模型和视图关联起来。
-接下来我们就结合 Vue.js 的源码来详细介绍这三个过程。
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-1.   #### vuerouter的钩子
-##### 题目： vue-router的钩子（海康）
-
----
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 

@@ -4532,22 +4532,25 @@ const store = new Vuex.Store({
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲下MVVM和MVC区别什么场景下适合用
+123.   #### 讲下MVVM和MVC区别什么场景下适合用
 ##### 题目： 讲下 MVVM 和 MVC区别，什么场景下适合用(字节跳动)
+请阅读[MVC、MVP、MVVM三种区别及适用场合](https://blog.csdn.net/victoryzn/article/details/78392128)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### new一个构造函数如果构造函数返回会出现什么情况
+124.   #### new一个构造函数如果构造函数返回会出现什么情况
 ##### 题目：new 一个构造函数，如果构造函数返回 return {}、return null，会出现什么情况(字节跳动)
-关键词：还可以试试 return 1; return true; 会出现什么情况
+关键词：还可以试试 `return 1; return true`; 会出现什么情况
+
+如果函数返回一个对象，那么 `new` 这个函数调用返回这个函数的返回对象，否则返回 `new` 创建的新对象
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter路由懒加载
+125.   #### 讲一讲VueRouter路由懒加载
 [路由懒加载](https://router.vuejs.org/zh/guide/advanced/lazy-loading.html)
 
 ---

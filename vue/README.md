@@ -4557,100 +4557,91 @@ const store = new Vuex.Store({
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter滚动行为
+126.   #### 讲一讲VueRouter滚动行为
 [滚动行为](https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter路由元信息
+127.   #### 讲一讲VueRouter路由元信息
 [路由元信息](https://router.vuejs.org/zh/guide/advanced/meta.html)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter导航守卫
+128.   #### 讲一讲VueRouter导航守卫
 [导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter过渡动效
+129.   #### 讲一讲VueRouter过渡动效
 [过渡动效](https://router.vuejs.org/zh/guide/advanced/transitions.html)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter数据获取
+130.   #### 讲一讲VueRouter数据获取
 [数据获取](https://router.vuejs.org/zh/guide/advanced/data-fetching.html)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### data为什么是一个function而不是对象
+131.   #### data为什么是一个function而不是对象
 ##### 题目：data为什么是一个function，而不是对象(个推一面)
+因为 `vue` 程序的内部组件都是有各自的作用域，如果 `data` 是对象，那么各自的独立性就无从保证，数据产生污染。因为 `data` 是一个 `function` ，利用闭包制造了一个个独立的数据空间，所以数据不会遭到污染。
+
+根实例对象 `data` 可以是对象也可以是函数（根实例是单例），不会产生数据污染情况
+组件实例对象 `data` 必须为函数，目的是为了防止多个组件实例对象之间共用一个 `data` ，产生数据污染。采用函数的形式， `initData` 时会将其作为工厂函数都会返回全新 `data` 对象
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 修饰符lazy的使用场景
+132.   #### 修饰符lazy的使用场景
 ##### 题目：修饰符lazy的使用场景(个推一面)
+在默认情况下，`v-model` 在每次 `input` 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。你可以添加 `lazy` 修饰符，从而转为在 `change` 事件_之后_进行同步：
+```js
+<!-- 在“change”时而非“input”时更新 -->
+<input v-model.lazy="msg">
+```
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### v-model绑定在哪一个事件上
+133.   #### v-model绑定在哪一个事件上
 ##### 题目：v-model绑定在哪一个事件上(个推一面)
+猜测是 `@input`
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### computed和methods定义一个东西有什么区别吗
+134.   #### computed和methods定义一个东西有什么区别吗
 ##### 题目：computed和methods定义一个东西，有什么区别吗(个推一面)
-计算属性的特性，惰性计算
+计算属性的特性:惰性计算
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### computed和watch的区别
+135.   #### computed和watch的区别
 ##### 题目：computed和watch的区别(个推一面)
+阅读[计算属性 vs 侦听属性](https://cn.vuejs.org/v2/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-vs-%E4%BE%A6%E5%90%AC%E5%B1%9E%E6%80%A7)
+
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-1.   #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-1.   #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-1.   #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
+1.   #### xxxxxx
+##### 题目：xxxxx
 
 ---
 

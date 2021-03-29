@@ -87,46 +87,45 @@
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 4. #### const定义的Array中间元素能否被修改如果可以那const修饰对象的意义是
-const 定义的 Array 中间元素能否被修改? 如果可以, 那 const 修饰对象的意义是? 
-<details><summary><b>答案</b></summary>
-其中的值可以被修改. 意义上, 主要保护引用不被修改 (如用 Map 等接口对引用的变化很敏感, 使用 const 保护引用始终如一是有意义的), 也适合用在 immutable 的场景.
+#### 题目：const 定义的 Array 中间元素能否被修改? 如果可以, 那 const 修饰对象的意义是? 
+其中的值可以被修改。意义上，主要保护引用不被修改 (如用 `Map` 等接口对引用的变化很敏感, 使用 `const` 保护引用始终如一是有意义的), 也适合用在 `immutable` 的场景。
 
-能修改，const相当于把栈里的数据锁死了，Array是个引用数据类型，只是锁死了地址，堆里面的数据依然可以随便改
-</details>
+能修改，`const` 相当于把栈里的数据锁死了，`Array` 是个引用数据类型，只是锁死了地址，堆里面的数据依然可以随便改。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 5. #### JavaScript中不同类型以及不同环境下变量的内存都是何时释放 
-
-<details><summary><b>答案</b></summary>
-引用类型是在没有引用之后, 通过 v8 的 GC 自动回收, 值类型如果是处于闭包的情况下, 要等闭包没有引用才会被 GC 回收, 非闭包的情况下等待 v8 的新生代 (new space) 切换的时候回收.
-你需要了解哪些操作一定会导致内存泄漏, 或者可以崩掉内存. 比如如下代码能否爆掉 V8 的内存?
-
+引用类型是在没有引用之后, 通过 `v8` 的 `GC` 自动回收, 值类型如果是处于闭包的情况下, 要等闭包没有引用才会被 `GC` 回收, 非闭包的情况下等待 `v8` 的新生代 (`new space`) 切换的时候回收.
+你需要了解哪些操作一定会导致内存泄漏, 或者可以崩掉内存。比如如下代码能否爆掉 `V8` 的内存?
+```js
 let arr = [];
 while(true)
   arr.push(1);
+``` 
 然后上述代码与下方的情况有什么区别?
-
+```js
 let arr = [];
 while(true)
   arr.push();
-如果 push 的是 Buffer 情况又会有什么区别?
-
+```
+如果 `push` 的是 `Buffer` 情况又会有什么区别?
+```js
 let arr = [];
 while(true)
   arr.push(new Buffer(1000));
-思考完之后可以尝试找找别的情况如何爆掉 V8 的内存. 以及来聊聊内存泄漏?
-
+```
+思考完之后可以尝试找找别的情况如何爆掉 `V8` 的内存. 以及来聊聊内存泄漏?
+```js
 function out() {
   const bigData = new Buffer(100);
   inner = function () {
     void bigData;
   }
 }
-闭包会引用到父级函数中的变量，如果闭包未释放，就会导致内存泄漏。上面例子是 inner 直接挂在了 root 上，从而导致内存泄漏（bigData 不会释放）。详见[《如何分析 Node.js 中的内存泄漏》](https://zhuanlan.zhihu.com/p/25736931)
-</details>
+```
+闭包会引用到父级函数中的变量，如果闭包未释放，就会导致内存泄漏。上面例子是 `inner` 直接挂在了 `root` 上，从而导致内存泄漏（`bigData` 不会释放）。详见[《如何分析 Node.js 中的内存泄漏》](https://zhuanlan.zhihu.com/p/25736931)
 
 ---
 

@@ -221,19 +221,18 @@ vm.runInThisContext(code)(require);
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.  #### Promise中then的第二参数与catch有什么区别
-Promise 中 .then 的第二参数与 .catch 有什么区别?
-<details><summary><b>答案</b></summary>
-Promise.prototype.catch(onRejected)
+11.  #### Promise中then的第二参数与catch有什么区别
+#### 题目：Promise 中 .then 的第二参数与 .catch 有什么区别?
+`Promise.prototype.catch(onRejected)`
 
-添加一个拒绝(rejection) 回调到当前 promise, 返回一个新的promise。当这个回调函数被调用，新 promise 将以它的返回值来resolve，否则如果当前promise 进入fulfilled状态，则以当前promise的完成结果作为新promise的完成结果.
+添加一个拒绝(`rejection`) 回调到当前 `promise`, 返回一个新的 `promise`。当这个回调函数被调用，新 `promise` 将以它的返回值来 `resolve`，否则如果当前 `promise` 进入 `fulfilled` 状态，则以当前 `promise` 的完成结果作为新 `promise` 的完成结果。
 
-Promise.prototype.then(onFulfilled, onRejected)
+`Promise.prototype.then(onFulfilled, onRejected)`
 
-添加解决(fulfillment)和拒绝(rejection)回调到当前 promise, 返回一个新的 promise, 将以回调的返回值来resolve.
+添加解决(`fulfillment`)和拒绝(`rejection`)回调到当前 `promise`, 返回一个新的 `promise`, 将以回调的返回值来 `resolve`。
 
-1、异常捕获
-```
+- 异常捕获
+```js
 getJSON("/post/1.json").then(function(post) {
   return getJSON(post.commentURL);
 }).then(function funcA(comments) {
@@ -244,10 +243,9 @@ getJSON("/post/1.json").then(function(post) {
 });
 
 ```
-2、冒泡性质
-
-Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。
-```
+- 冒泡性质
+`Promise` 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 `catch` 语句捕获。
+```js
 getJSON('/post/1.json').then(function(post) {
   return getJSON(post.commentURL);
 }).then(function(comments) {
@@ -256,25 +254,20 @@ getJSON('/post/1.json').then(function(post) {
   // 处理前面三个Promise产生的错误
 });
 ```
+上面代码中，一共有三个 `Promise` 对象：一个由 `getJSON` 产生，两个由 `then` 产生。它们之中任何一个抛出的错误，都会被最后一个 `catch` 捕获。
 
-上面代码中，一共有三个 Promise 对象：一个由getJSON产生，两个由then产生。它们之中任何一个抛出的错误，都会被最后一个catch捕获。
-
-这也是then的第二个参数处理不了的。
-</details>
+这也是 `then` 的第二个参数处理不了的。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-12. #### Eventemitter的emit是同步还是异步
-Eventemitter 的 emit 是同步还是异步?
-<details><summary><b>答案</b></summary>
+12.  #### Eventemitter的emit是同步还是异步(难)
+`Node.js` 中 `Eventemitter` 的 `emit` 是同步的. 在官方文档中有说明:
 
-Node.js 中 Eventemitter 的 emit 是同步的. 在官方文档中有说明:
+`EventListener` 按注册顺序同步调用所有侦听器。这对于确保事件的正确顺序和避免竞争条件或逻辑错误很重要。
 
-EventListener按注册顺序同步调用所有侦听器。这对于确保事件的正确顺序和避免竞争条件或逻辑错误很重要。
-
-另外, 可以讨论如下的执行结果是输出 hi 1 还是 hi 2?
+另外, 可以讨论如下的执行结果是输出 `hi 1` 还是 `hi 2`?
 ```js
 const EventEmitter = require('events');
 
@@ -316,46 +309,42 @@ emitter.on('myEvent', function sth () {
 
 emitter.emit('myEvent');
 ```
-使用 emitter 处理问题可以处理比较复杂的状态场景, 比如 TCP 的复杂状态机, 做多项异步操作的时候每一步都可能报错, 这个时候 .emit 错误并且执行某些 .once 的操作可以将你从泥沼中拯救出来.
+使用 `emitter` 处理问题可以处理比较复杂的状态场景, 比如 `TCP` 的复杂状态机, 做多项异步操作的时候每一步都可能报错, 这个时候 `.emit` 错误并且执行某些 `.once` 的操作可以将你从泥沼中拯救出来。
 
-另外可以注意一下的是, 有些同学喜欢用 emitter 来监控某些类的状态, 但是在这些类释放的时候可能会忘记释放 emitter, 而这些类的内部可能持有该 emitter 的 listener 的引用从而导致内存泄漏.
-
-
-</details>
+另外可以注意一下的是, 有些同学喜欢用 `emitter` 来监控某些类的状态, 但是在这些类释放的时候可能会忘记释放 `emitter`, 而这些类的内部可能持有该 `emitter` 的 `listener` 的引用从而导致内存泄漏。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-13. #### 如何判断接口是否异步是否只要有回调函数就是异步
-如何判断接口是否异步? 是否只要有回调函数就是异步?
-<details><summary><b>答案</b></summary>
-开放性问题, 每个写 node 的人都有一套自己的判断方式.
+13. #### 如何判断接口是否异步是否只要有回调函数就是异步(难)
+开放性问题, 每个写 `node` 的人都有一套自己的判断方式.
 
 - 看文档
 - console.log 打印看看
 - 看是否有 IO 操作
 
-单纯使用回调函数并不会异步, IO 操作才可能会异步, 除此之外还有使用 setTimeout 等方式实现异步.
-</details>
+单纯使用回调函数并不会异步, `IO` 操作才可能会异步, 除此之外还有使用 `setTimeout` 等方式实现异步。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-14. #### nextTicksetTimeout以及setImmediate三者有什么区别
-nextTick, setTimeout 以及 setImmediate 三者有什么区别?
-<details><summary><b>答案</b></summary>
+14. #### nextTicksetTimeout以及setImmediate三者有什么区别(难)
+结论：
+`process.nextTick()`，效率最高，消费资源小，但会阻塞CPU的后续调用；
+`setTimeout()`，精确度不高，可能有延迟执行的情况发生，且因为动用了红黑树，所以消耗资源大；
+`setImmediate()`，消耗的资源小，也不会造成阻塞，但效率也是最低的。
 
-</details>
+————————————————
+版权声明：本文为CSDN博主「hkh_1012」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/hkh_1012/article/details/53453138
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-15. #### 如何实现一个sleep函数
-
-<details><summary><b>答案</b></summary>
+15.  #### 如何实现一个sleep函数
 ```js
 function sleep(ms) {
   var start = Date.now(), expire = start + ms;
@@ -363,20 +352,17 @@ function sleep(ms) {
   return;
 }
 ```
-而异步, 是使用 libuv 来实现的 (C/C++的同学可以参见 libev 和 libevent) 另一个线程里的事件队列.
+而异步, 是使用 `libuv` 来实现的 (`C/C++`的同学可以参见 `libev` 和 `libevent`) 另一个线程里的事件队列.
 
-如果在线上的网站中出现了死循环的逻辑被触发, 整个进程就会一直卡在死循环中, 如果没有多进程部署的话, 之后的网站请求全部会超时, js 代码没有结束那么事件队列就会停下等待不会执行异步, 整个网站无法响应.
-</details>
+如果在线上的网站中出现了死循环的逻辑被触发, 整个进程就会一直卡在死循环中, 如果没有多进程部署的话, 之后的网站请求全部会超时, `js` 代码没有结束那么事件队列就会停下等待不会执行异步, 整个网站无法响应.
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-16. #### 如何实现一个异步的reduce注不是异步完了之后同步reduce
-如何实现一个异步的 reduce? (注:不是异步完了之后同步 reduce)
-<details><summary><b>答案</b></summary>
-需要了解 reduce 的情况, 是第 n 个与 n+1 的结果异步处理完之后, 在用新的结果与第 n+2 个元素继续依次异步下去. 
-</details>
+16. #### 如何实现一个异步的reduce注不是异步完了之后同步reduce(难)
+#### 题目：如何实现一个异步的 reduce? (注:不是异步完了之后同步 reduce)
+需要了解 `reduce` 的情况, 是第 `n` 个与 `n+1` 的结果异步处理完之后, 在用新的结果与第 `n+2` 个元素继续依次异步下去. 
 
 ---
 

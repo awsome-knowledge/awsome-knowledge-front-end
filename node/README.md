@@ -20,12 +20,6 @@
       - [题目：父进程或子进程的死亡是否会影响对方? 什么是孤儿进程?](#题目父进程或子进程的死亡是否会影响对方-什么是孤儿进程)
       - [题目：在 IPC 通道建立之前, 父进程与子进程是怎么通信的? 如果没有通信, 那 IPC 是怎么建立的?](#题目在-ipc-通道建立之前-父进程与子进程是怎么通信的-如果没有通信-那-ipc-是怎么建立的)
         - [题目：koa洋葱模型（字节跳动）](#题目koa洋葱模型字节跳动)
-        - [题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）](#题目-用过nodejs中的eventemitter吗详细讲讲-字节跳动)
-        - [题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）](#题目-用过nodejs中的eventemitter吗详细讲讲-字节跳动-1)
-        - [题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）](#题目-用过nodejs中的eventemitter吗详细讲讲-字节跳动-2)
-        - [题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）](#题目-用过nodejs中的eventemitter吗详细讲讲-字节跳动-3)
-        - [题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）](#题目-用过nodejs中的eventemitter吗详细讲讲-字节跳动-4)
-        - [题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）](#题目-用过nodejs中的eventemitter吗详细讲讲-字节跳动-5)
 
 
 ## 题目
@@ -663,59 +657,11 @@ function compose (middleware) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-29.  #### 简述浏览器的Eventloop和Node.js的Eventloop
+29. #### 简述浏览器的Eventloop和Node.js的Eventloop
 - 浏览器的Eventloop
 ![avatar](./front-end4.png)
 - Node.js的Eventloop
 ![avatar](./front-end5.png)
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 用过nodejs中的EventEmitter吗？详细讲讲
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 用过nodejs中的EventEmitter吗
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 用过nodejs中的EventEmitter吗
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 用过nodejs中的EventEmitter吗
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 用过nodejs中的EventEmitter吗
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 用过nodejs中的EventEmitter吗
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
 
 ---
 

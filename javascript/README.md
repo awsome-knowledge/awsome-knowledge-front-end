@@ -296,14 +296,12 @@ a.map(part(parseInt))
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 2. ####  手写节流和防抖
-
 ##### 防抖
-
-防抖（debounce）
-所谓防抖，就是指触发事件后在n秒内函数只能执行一次，如果在n秒内又触发了事件，则会重新计算函数执行时间。
+- 防抖（`debounce`）
+所谓防抖，就是指触发事件后在 `n` 秒内函数只能执行一次，如果在 `n` 秒内又触发了事件，则会重新计算函数执行时间。
 防抖函数分为非立即执行版和立即执行版。
 - 非立即执行：触发事件后函数不会立即执行，而是在n秒后执行，如果在n秒内又触发了事件，则会重新计算函数执行时间。
-```javascript
+```js
     function debounce(func, wait) {
         let timeout
         return function () {
@@ -316,13 +314,12 @@ a.map(part(parseInt))
         }
     }
 ```
-背景：产生事件时，首先执行立即执行函数setTimeout。
-当鼠标移动时，会产生setTimeout，每移动一次就timeout增加一次，
-当timeout有值时，就销毁定时器。如果停止移动，就不触发定时器，
-那么timeout没有值，那么就执行加一操作。
+背景：产生事件时，首先执行立即执行函数 `setTimeout`。
+当鼠标移动时，会产生 `setTimeout`，每移动一次就 `timeout` 增加一次，
+当 `timeout` 有值时，就销毁定时器。如果停止移动，就不触发定时器，
+那么 `timeout` 没有值，那么就执行加一操作。
 
-获取this和参数，为了让debounce函数最终返回的函数this指向不变以及依旧能接受参数。
-
+获取 `this` 和参数，为了让 `debounce` 函数最终返回的函数 `this` 指向不变以及依旧能接受参数。
 
 完整版：
 ```html
@@ -398,8 +395,8 @@ a.map(part(parseInt))
         }
     }
 ```
-当鼠标移动触发事件，进入debounce方法中。当执行setTimeout方法时，timeout为null，等一秒后再执行。在回到context/args赋值，如果此时timeout为null则不清除定时器。
-并且callNow为ture，callNow为ture，那么执行加一操作。
+当鼠标移动触发事件，进入 `debounce` 方法中。当执行 `setTimeout` 方法时，`timeout` 为 `null`，等一秒后再执行。在回到 `context/args` 赋值，如果此时 `timeout` 为 `null` 则不清除定时器。
+并且 `callNow` 为 `ture`，`callNow` 为 `ture`，那么执行加一操作。
 
 完整版本：
 ```html
@@ -523,8 +520,6 @@ a.map(part(parseInt))
 </html>
 
 ```
-
-
 ###### 应用场景
 
 - 窗口大小变化，调整样式
@@ -582,7 +577,7 @@ setTimeout(handle, 10000)
 
 [Jest unit test for a debounce function](https://stackoverflow.com/questions/52224447/jest-unit-test-for-a-debounce-function)
 
-可以通过jest来测试
+可以通过 `jest` 来测试
 ```js
 const _ = require('lodash');
 import * as sinon from 'sinon';
@@ -618,9 +613,10 @@ test('debounce', () => {
 });
 ```
 ##### 节流
-连续触发事件，但是在n秒中只执行一次。节流会稀释函数的执行频率。
+连续触发事件，但是在 `n` 秒中只执行一次。节流会稀释函数的执行频率。
 
 对于节流，一般有两种方式可以实现，分别是时间戳版和定时器版。
+
 时间戳版：
 ```javascript
     function throttle(func, wait) {
@@ -636,9 +632,9 @@ test('debounce', () => {
         }
     }
 ```
-在持续触发事件过程中，函数会立即执行，并且每1秒执行一次。
+在持续触发事件过程中，函数会立即执行，并且每`1`秒执行一次。
 
-当时间每过去n秒后，执行加一事件。
+当时间每过去`n`秒后，执行加一事件。
 完整版
 ```html
 <!DOCTYPE html>
@@ -713,10 +709,10 @@ test('debounce', () => {
         }
     }
 ```
-持续触发事件时，每当n秒后执行一次，timeout设为空。当为空又开始执行。
+持续触发事件时，每当 `n` 秒后执行一次，`timeout` 设为空。当为空又开始执行。
 
+在持续触发事件的过程中，函数不会立即执行，并且每 `1s` 执行一次，在停止触发事件后，函数还会再执行一次。
 
-在持续触发事件的过程中，函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。
 我们应该可以很容易的发现，其实时间戳版和定时器版的节流函数的区别就是，时间戳版的函数触发是在时间段内开始的时候，而定时器版的函数触发是在时间段内结束的时候。
 
 

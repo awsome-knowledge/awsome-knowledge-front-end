@@ -1042,6 +1042,7 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 5. ####  编写一个JavaScript函数实时显示当前时间格式如年月日时分秒
+因为 `getMonth()` 方法返回值 `0-11` 的正整数，是从 `0` 开始的，获取的月份比正常月份少 `1`，所以需要加 `1`。
 ```js
 <!DOCTYPE html>
 <html lang="en">
@@ -1075,8 +1076,10 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 
 6. ####  如何显示隐藏一个DOM元素
 ```css
-显示：object.style.display="block";
-隐藏：object.style.display="none";
+/* 显示： */
+object.style.display="block";
+/* 隐藏： */
+object.style.display="none";
 ```
 
 ---
@@ -1084,29 +1087,26 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 7. ####  如何添加html元素的事件处理有几种方法
- ```text
- html的元素的事件就只有组件自带的的那么几个，
- 如onclick,onmousedown等等都是调用脚本执行
+`html` 的元素的事件就只有组件自带的的那么几个，
+如 `onclick,onmousedown` 等等都是调用脚本执行。
 
- 方法：
- 1. 在组件上直接激发事件
- 2. 在页面加载的时候就调用脚本激发组件的某个事件
- 3. 在后台利用后台代码强行执行组件的事件。
-   或：
- 4. 为HTML元素的事件属性赋值 
- 5. 在JS中使用el.on*** = function() {…}
- 6. 使用DOM2的添加事件的方法 addEventListener或attachEvent
-```
+方法：
+1. 在组件上直接激发事件；
+2. 在页面加载的时候就调用脚本激发组件的某个事件；
+3. 在后台利用后台代码强行执行组件的事件；
+4. 为HTML元素的事件属性赋值；
+5. 在JS中使用el.on*** = function() {…}；
+6. 使用DOM2的添加事件的方法 addEventListener或attachEvent。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 8. ####  如何控制alert中的换行
-如何控制alert中的换行
-```text
-\n alert("text\ntext");
-alert("再打个招呼。这里演示了" + "\n" + "如何在消息框中添加换行。")
+如何控制 `alert` 中的换行
+```js
+// \n 
+alert("text\ntext");
 ```
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
@@ -1142,6 +1142,7 @@ alert("再打个招呼。这里演示了" + "\n" + "如何在消息框中添加�
 </body>
 </html>
 ```
+
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
@@ -1196,13 +1197,13 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 
 12. #### <a id="html_js_span"></a> 在页面中有如下html，要求用闭包方式写一个JS从文本框中取出值，并在标签span中显示出来
 
-在页面中有如下html:
+在页面中有如下 `html`:
 ```html
 <div id="field">
 <input type="text" value="User Name"/>
 </div><span class="red"></span>
 ```
-要求用闭包方式写一个JS从文本框中取出值并在标签span中显示出来。
+要求用闭包方式写一个 `JS` 从文本框中取出值并在标签 `span` 中显示出来。
 
 ```html
 <!DOCTYPE html>
@@ -1239,11 +1240,11 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 13. #### <a id="ie6_position_fixed_div"></a> 在IE6.0下面是不支持position：fixed的，请写一个JS使用<div id="box"></div>固定在页面的右下角
 ##### 前提知识
 1. window.onscroll
-为当前页面的页面滚动事件添加事件处理函数.
+为当前页面的页面滚动事件添加事件处理函数
 2. window.onresize
-用来获取或设置当前窗口的resize事件的事件处理函数
+用来获取或设置当前窗口的 `resize` 事件的事件处理函数
 3. window.onload
-用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。
+用于在网页加载完毕后立刻执行的操作，即当 `HTML` 文档加载完毕后，立刻执行某个方法
 4. document.documentElement.scrollTop
 获取滚动条位置
 5. document.documentElement.clientWidth
@@ -1251,9 +1252,9 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 6. document.documentElement.clientHeight
 获取浏览器窗口文档显示区域的高度，不包括滚动条。
 7. document.documentElement.offsetWidth
-获取DOM文档的根节点html元素对象的宽度，即offsetWidth=width+padding+border，不包括margin。
+获取 `DOM` 文档的根节点 `html` 元素对象的宽度，即 `offsetWidth=width+padding+border`，不包括 `margin`。
 8. document.documentElement.offsetHeight
-获取DOM文档的根节点html元素对象的高度，即offsetHeight=height+padding+border，不包括margin。
+获取 `DOM` 文档的根节点 `html` 元素对象的高度，即 `offsetHeight=height+padding+border`，不包括 `margin`。
 ##### 解析
 1. 当前页面的页面滚动、更改当前页面的大小和加载完成时执行下面方法
 2. 获取div，获取滚动条位置
@@ -1290,17 +1291,17 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 ```
 ##### 课外知识
 1. document.documentElement.scrollWidth
-获取html元素对象内容的实际宽度，即html元素对象的滚动宽度。
+获取 `html` 元素对象内容的实际宽度，即 `html` 元素对象的滚动宽度。
 2. document.documentElement.scrollHeight
-获取html元素对象内容的实际高度，即html元素对象的滚动高度。
+获取 `html` 元素对象内容的实际高度，即 `html` 元素对象的滚动高度。
 3. document.documentElement.clientLeft
-获取html元素对象的左边框的宽度。
+获取 `html` 元素对象的左边框的宽度。
 4. document.documentElement.clientTop
-获取html元素对象的上边框的宽度。
+获取 `html` 元素对象的上边框的宽度。
 5. document.doucmentElement.offsetLeft
-获取html元素对象相对于整个页面文档的位置，也就是html元素的margin。
+获取 `html` 元素对象相对于整个页面文档的位置，也就是 `html` 元素的 `margin`。
 6. document.documentElement.offsetTop
-获取html元素对象相对于整个页面文档的位置，也就是html元素的margin。
+获取 `html` 元素对象相对于整个页面文档的位置，也就是 `html` 元素的 `margin`。
 7. document.documentElement.scrollLeft
 设置或获取页面文档向右滚动过的像素数。
 8. document.documentElement.scrollTop
@@ -1314,11 +1315,11 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 请实现，鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓。
 
 ##### 先前知识
-1. document.body返回当前文档中的<body>元素或者<frameset>元素.
+1. document.body返回当前文档中的 `<body>` 元素或者 `<frameset>` 元素.
 2. nodeType 属性返回以数字值返回指定节点的节点类型。
-如果节点是元素节点，则 nodeType 属性将返回 1。
-如果节点是属性节点，则 nodeType 属性将返回 2。
-如果节点是文本节点，则 nodeType 属性将返回 3。
+如果节点是元素节点，则 `nodeType` 属性将返回 `1`。
+如果节点是属性节点，则 `nodeType` 属性将返回 `2`。
+如果节点是文本节点，则 `nodeType` 属性将返回 `3`。
 3. onmouseover 事件会在鼠标指针移动到指定的对象上时发生。
 ##### 解析
 1. 获取body中的节点

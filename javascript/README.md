@@ -19,7 +19,7 @@
 16. [JavaScript中如何对一个对象进行深度clone](#JavaScript中如何对一个对象进行深度clone)
 17. [js中如何定义class?如何扩展protope](#class_prototype)
 18. [ajax是什么?ajax的交互模型?同步和异步的区别?如何解决跨域问题](#ajax_async_sync)
-19. [请给出异步加载js方案不少于两种](#请给出异步加载js方案不少于两种)
+19. [请给出异步加载js方案，不少于两种](#async_js)
 20. [多浏览器检测通过什么](#多浏览器检测通过什么)
 21. [关于window.onload()了解多少](#window_onload)
 22. [如何让generator自动next（不通过next.next.next）](#generator_auto_next)
@@ -1845,48 +1845,43 @@ export default {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-19.  #### 请给出异步加载js方案不少于两种
-
-请给出异步加载js方案，不少于两种？
-
-默认情况javascript是同步加载的，也就是javascript的加载时阻塞的，后面的元素要等待javascript加载完毕后才能进行再加载，对于一些意义不是很大的javascript，如果放在页头会导致加载很慢的话，是会严重影响用户体验的。
-
+19.  #### <div id="async_js"></div>请给出异步加载js方案，不少于两种？
+默认情况 `javascript` 是同步加载的，也就是 `javascript` 的加载时阻塞的，后面的元素要等待 `javascript` 加载完毕后才能进行再加载，对于一些意义不是很大的 `javascript`，如果放在页头会导致加载很慢的话，是会严重影响用户体验的。
 ##### 1. defer（只支持IE）
-defer属性规定是否对脚本执行进行延迟，直到页面加载为止。
-有的javascript脚本document.write方法来创建当前的文档内容，不会改变文档的内容
+`defer` 属性规定是否对脚本执行进行延迟，直到页面加载为止。
+有的 `javascript` 脚本 `document.write` 方法来创建当前的文档内容，不会改变文档的内容
 
 ##### 2. async
-async的定义和用法(是HTML5的属性)
-async 属性规定一旦脚本可用，则会异步执行。
+`async` 属性规定一旦脚本可用，则会异步执行。
 
 ##### 3. 创建script，插入到DOM中，加载完毕后callBack，见代码：
 复制代码 代码如下:
 ```js
-function loadScript(url, callback){
-var script = document.createElement_x("script")
-script.type = "text/javascript";
-if (script.readyState){ //IE
-script.onreadystatechange = function(){
-if (script.readyState == "loaded" ||
-script.readyState == "complete"){
-script.onreadystatechange = null;
-callback();
-}
-};
-} else { //Others: Firefox, Safari, Chrome, and Opera
-script.onload = function(){
-callback();
-};
-}
-script.src = url;
-document.body.appendChild(script);
+function loadScript(url, callback) {
+    var script = document.createElement_x("script")
+    script.type = "text/javascript";
+    if (script.readyState) { //IE
+        script.onreadystatechange = function () {
+            if (script.readyState == "loaded" ||
+                script.readyState == "complete") {
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else { //Others: Firefox, Safari, Chrome, and Opera
+        script.onload = function () {
+            callback();
+        };
+    }
+    script.src = url;
+    document.body.appendChild(script);
 }
 ```
 注释：有多种执行外部脚本的方法：
-•async 属性仅适用于外部脚本（只有在使用 src 属性时）。
-•如果 async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
-•如果不使用 async 且 defer="defer"：脚本将在页面完成解析时执行
-•如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本
+- async 属性仅适用于外部脚本（只有在使用 src 属性时）。
+- 如果 async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
+- 如果不使用 async 且 defer="defer"：脚本将在页面完成解析时执行
+- 如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本
 
 有关链接：[异步加载js的几种方式](https://www.cnblogs.com/1314-/p/6561475.html)
 
@@ -1895,16 +1890,11 @@ document.body.appendChild(script);
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 20.   #### 多浏览器检测通过什么
+- Navigator  对象
+- navigator.appName     保存浏览器类型
+- navigator.appVersion   存有浏览器的版本信息
+- navigator.userAgent     用户代理
 
-```html
-Navigator  对象
-
-navigator.appName     保存浏览器类型
-
-navigator.appVersion   存有浏览器的版本信息
-
-navigator.userAgent     用户代理
-```
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)

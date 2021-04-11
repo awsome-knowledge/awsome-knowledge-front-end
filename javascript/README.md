@@ -15,10 +15,10 @@
 12. [在页面中有如下html，要求用闭包方式写一个JS从文本框中取出值，并在标签span中显示出来](#html_js_span)
 13. [在IE6.0下面是不支持position：fixed的，请写一个JS使用<div id="box"></div>固定在页面的右下角](#ie6_position_fixed_div)
 14. [请实现鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓](#mouse_move_label)
-15. [js的基础对象有哪些window和document的常用的方法和属性列出来](#js的基础对象有哪些window和document的常用的方法和属性列出来)
+15. [js的基础对象有哪些?window和document的常用的方法和属性列出来](#js_basic_object)
 16. [JavaScript中如何对一个对象进行深度clone](#JavaScript中如何对一个对象进行深度clone)
-17. [js中如何定义class如何扩展protope](#js中如何定义class如何扩展protope)
-18. [ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题](#ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题)
+17. [js中如何定义class?如何扩展protope](#class_prototype)
+18. [ajax是什么?ajax的交互模型?同步和异步的区别?如何解决跨域问题](#ajax_async_sync)
 19. [请给出异步加载js方案不少于两种](#请给出异步加载js方案不少于两种)
 20. [多浏览器检测通过什么](#多浏览器检测通过什么)
 21. [关于window.onload()了解多少](#window_onload)
@@ -1374,36 +1374,33 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-15. #### js的基础对象有哪些window和document的常用的方法和属性列出来
-js的基础对象有哪些，window和document的常用的方法和属性列出来
+15. #### <div id="js_basic_object"></div>js的基础对象有哪些?window和document的常用的方法和属性列出来
 
-```html
-  String,Number,Boolean
+`String,Number,Boolean`
 
-Window:
+- Window:
 
-方法：setInterval,setTimeout,clearInterval,clearTimeout,alert,confirm,open
+方法：`setInterval,setTimeout,clearInterval,clearTimeout,alert,confirm,open`
 
-属性：name,parent,screenLeft,screenTop,self,top,status
+属性：`name,parent,screenLeft,screenTop,self,top,status`
 
-Document
+- Document
 
-方法：createElement,execCommand,getElementById,getElementsByName,getElementByTagName,write,writeln
+方法：`createElement,execCommand,getElementById,getElementsByName,getElementByTagName,write,writeln`
 
-属性：cookie,doctype,domain,documentElement,readyState,URL,
-```
+属性：`cookie,doctype,domain,documentElement,readyState,URL`
+
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 16. #### JavaScript中如何对一个对象进行深度clone
-
 ##### 解析
 1. 为空且不为object类型返回自身
 2. 根据原始值的类型创建同样类型的值
 3. 遍历原始值，将原始值中的对象和属性拷贝到新值，并返回
 
-不反对用Ext.ux.clone，但是最好还是递归
+不反对用 `Ext.ux.clone`，但是最好还是递归
 ```js
 function cloneObject(o) {
     // 1. 是否是object,是否为空
@@ -1434,9 +1431,7 @@ console.log('b', b)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-17. #### js中如何定义class如何扩展protope
-
-js中如何定义class，如何扩展protope？
+17. #### <div id="class_prototype"></div>js中如何定义class，如何扩展prototype？
 ```html
 Ele.className = “***”; //***在css中定义，形式如下：.*** {…}
 
@@ -1452,61 +1447,51 @@ C是想要定义的属性的值
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-18. #### ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题
-
-题目： ajax是什么？ajax的交互模型？同步和异步的区别？如何解决跨域问题？
+18. #### <div id="ajax_async_sync"></div>ajax是什么？ajax的交互模型？同步和异步的区别？如何解决跨域问题？
 #####  ajax是什么
-Ajax是多种技术组合起来的一种浏览器和服务器交互技术，基本思想是允许一个互联网浏览器向一个远程页面/服务做异步的http调用，并且用收到的数据来更新一个当前web页面而不必刷新整个页面。该技术能够改进客户端的体验。包含的技术：
+`Ajax` 是多种技术组合起来的一种浏览器和服务器交互技术，基本思想是允许一个互联网浏览器向一个远程页面/服务做异步的 `http` 调用，并且用收到的数据来更新一个当前 `web` 页面而不必刷新整个页面。该技术能够改进客户端的体验。包含的技术：
 
-XHTML：对应W3C的XHTML规范，目前是XHTML1.0。
-
-CSS：对应W3C的CSS规范，目前是CSS2.0
-
-DOM：这里的DOM主要是指HTML DOM，XML DOM包括在下面的XML中
-
-JavaScript：对应于ECMA的ECMAScript规范
-
-XML：对应W3C的XML DOM、XSLT、XPath等等规范
-
-XMLHttpRequest：对应WhatWG的Web Applications1.0规范（http://whatwg.org/specs/web-apps/current-work/）
+- XHTML：对应W3C的XHTML规范，目前是XHTML1.0。
+- CSS：对应W3C的CSS规范，目前是CSS2.0
+- DOM：这里的DOM主要是指HTML DOM，XML DOM包括在下面的XML中
+- JavaScript：对应于ECMA的ECMAScript规范
+- XML：对应W3C的XML DOM、XSLT、XPath等等规范
+- XMLHttpRequest：对应WhatWG的Web Applications1.0规范（http://whatwg.org/specs/web-apps/current-work/）
 
 #####  ajax的交互模型
-AJAX交互模型
+`AJAX` 交互模型
 
 同步：脚本会停留并等待服务器发送回复然后再继续
 
 异步：脚本允许页面继续其进程并处理可能的回复
 
 #####  同步和异步的区别
-
-跨域问题简单的理解就是因为JS同源策略的限制，a.com域名下的JS无法操作b.com或c.a.com下的对象，具体场景如下：
+跨域问题简单的理解就是因为 `JS` 同源策略的限制，`a.com` 域名下的 `JS` 无法操作 `b.com` 或 `c.a.com` 下的对象，具体场景如下：
 
 1. 如果是端口或者协议造成的跨域问题前端是无能为力的
-
 2. 在跨域问题上，域仅仅通过URL的首部来识别而不会尝试判断相同的IP地址对应的域或者两个域是否对应一个IP
 
 #####  没有同源策略限制的两大危险场景
-据我了解，浏览器是从两个方面去做这个同源策略的，一是针对接口的请求，二是针对Dom的查询。试想一下没有这样的限制上述两种动作有什么危险。
+据我了解，浏览器是从两个方面去做这个同源策略的，一是针对接口的请求，二是针对 `Dom` 的查询。试想一下没有这样的限制上述两种动作有什么危险。
 
 ###### 没有同源策略限制的接口请求
-有一个小小的东西叫cookie大家应该知道，一般用来处理登录等场景，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入Set-Cookie字段，然后下次再发请求的时候，浏览器会自动将cookie附加在HTTP请求的头字段Cookie中，服务端就能知道这个用户已经登录过了。知道这个之后，我们来看场景：
+有一个小小的东西叫 `cookie` 大家应该知道，一般用来处理登录等场景，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入 `Set-Cookie` 字段，然后下次再发请求的时候，浏览器会自动将 `cookie` 附加在 `HTTP` 请求的头字段 `Cookie` 中，服务端就能知道这个用户已经登录过了。知道这个之后，我们来看场景：
 
 1. 你登陆了安全的网站www.yinhang.com,准备转账;
 2. 突然右下脚跳出弹框;
 3. 你没注意点了进去，然后由于没有同源策略的限制，它向www.yinhang.com发起了请求！ 很不幸你的银行账户被第三方恶意登录转账，等你回过神来，钱没了。
 
-这就是CSRF攻击方式。
+这就是 `CSRF` 攻击方式。
 
-看了这波CSRF攻击我在想，即使有了同源策略限制，但cookie是明文的，还不是一样能拿下来。于是我看了一些cookie相关的文章聊一聊 cookie、Cookie/Session的机制与安全，知道了服务端可以设置httpOnly，使得前端无法操作cookie，如果没有这样的设置，像XSS攻击就可以去获取到cookieWeb安全测试之XSS；设置secure，则保证在https的加密通信中传输以防截获。
+看了这波 `CSRF` 攻击我在想，即使有了同源策略限制，但 `cookie` 是明文的，还不是一样能拿下来。服务端可以设置  `httpOnly`，使得前端无法操作 `cookie`，如果没有这样的设置，像 `XSS` 攻击就可以去获取到 `cookieWeb` 安全测试之 `XSS`；设置 `secure`，则保证在 `https` 的加密通信中传输以防截获。
 
 ###### 没有同源策略限制的Dom查询
-
 1. 有一天你刚睡醒，收到一封邮件，说是你的银行账号有风险，赶紧点进www.yinghang.com改密码。你吓尿了，赶紧点进去，还是熟悉的银行登录界面，你果断输入你的账号密码，登录进去看看钱有没有少了。
 2. 睡眼朦胧的你没看清楚，平时访问的银行网站是www.yinhang.com，而现在访问的是www.yinghang.com，这个钓鱼网站做了什么呢？
 ```html
 <iframe name="yinhang" src="www.yinhang.com"></iframe>
 ```
-由于没有同源策略的限制，钓鱼网站可以直接拿到别的网站的Dom
+由于没有同源策略的限制，钓鱼网站可以直接拿到别的网站的 `Dom`
 ```js
 const iframe = window.frames['yinhang']
 const node = iframe.document.getElementById('你输入账号密码的Input')
@@ -1517,7 +1502,7 @@ console.log(`拿到了这个${node}，我还拿不到你刚刚输入的账号密
 ##### 前端对于跨域的解决办法
 同源策略限制下接口请求的正确打开方式
 ###### 1. JSONP
-在HTML标签里，一些标签比如script、img这样的获取资源的标签是没有跨域限制的，利用这一点，我们可以这样干：
+在 `HTML` 标签里，一些标签比如 `script、img` 这样的获取资源的标签是没有跨域限制的，利用这一点，我们可以这样干：
 
 后端写个小接口
 ```js
@@ -1597,7 +1582,7 @@ request({
 })
 ```
 ###### 2. 空iframe加form
-细心的朋友可能发现，JSONP只能发GET请求，因为本质上script加载资源就是GET，那么如果要发POST请求怎么办呢？
+细心的朋友可能发现，`JSONP` 只能发 `GET` 请求，因为本质上 `script` 加载资源就是 `GET`，那么如果要发 `POST` 请求怎么办呢？
 
 后端写个小接口
 ```js
@@ -1611,6 +1596,7 @@ class CrossDomain {
   }
 }
 module.exports = CrossDomain
+```
 前端
 ```js
 const requestPost = ({url, data}) => {
@@ -1652,22 +1638,22 @@ requestPost({
 })
 ```
 ###### 3. CORS
+`CORS` 是一个 `W3C` 标准，全称是"跨域资源共享"（`Cross-origin resource sharing`）跨域资源共享 `CORS` 详解。看名字就知道这是处理跨域问题的标准做法。
 
-CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）跨域资源共享 CORS 详解。看名字就知道这是处理跨域问题的标准做法。
-
-浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。
+浏览器将 `CORS` 请求分成两类：简单请求（`simple request`）和非简单请求（`not-so-simple request`）。
 
 只要同时满足以下两大条件，就属于简单请求。
-（1) 请求方法是以下三种方法之一：
-HEAD
-GET
-POST
-（2）HTTP的头信息不超出以下几种字段：
-Accept
-Accept-Language
-Content-Language
-Last-Event-ID
-Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+- 请求方法是以下三种方法之一：
+ - HEAD
+ - GET
+ - POST
+- HTTP的头信息不超出以下几种字段：
+ - Accept
+ - Accept-Language
+ - Content-Language
+ - Last-Event-ID
+ - Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+
 i. 简单请求
 后端
 ```js
@@ -1684,15 +1670,14 @@ class CrossDomain {
 }
 module.exports = CrossDomain
 ```
-前端什么也不用干，就是正常发请求就可以，如果需要带cookie的话，前后端都要设置一下，下面那个非简单请求例子会看到。
+前端什么也不用干，就是正常发请求就可以，如果需要带 `cookie` 的话，前后端都要设置一下，下面那个非简单请求例子会看到。
 ```js
 fetch(`http://localhost:9871/api/cors?msg=helloCors`).then(res => {
   console.log(res)
 })
 ```
 ii. 非简单请求
-非简单请求会发出一次预检测请求，返回码是204，预检测通过才会真正发出请求，这才返回200。这里通过前端发请求的时候增加一个额外的headers来触发非简单请求。
-clipboard.png
+非简单请求会发出一次预检测请求，返回码是`204`，预检测通过才会真正发出请求，这才返回`200`。这里通过前端发请求的时候增加一个额外的`headers`来触发非简单请求。
 
 后端
 ```js
@@ -1715,7 +1700,7 @@ class CrossDomain {
 }
 module.exports = CrossDomain
 ```
-一个接口就要写这么多代码，如果想所有接口都统一处理，有什么更优雅的方式呢？见下面的koa2-cors。
+一个接口就要写这么多代码，如果想所有接口都统一处理，有什么更优雅的方式呢？见下面的 `koa2-cors`。
 ```js
 const path = require('path')
 const Koa = require('koa')
@@ -1758,24 +1743,24 @@ fetch(`http://localhost:9871/api/cors?msg=helloCors`, {
 })
 ```
 ###### 4. 代理
-想一下，如果我们请求的时候还是用前端的域名，然后有个东西帮我们把这个请求转发到真正的后端域名上，不就避免跨域了吗？这时候，Nginx出场了。
-Nginx配置
+想一下，如果我们请求的时候还是用前端的域名，然后有个东西帮我们把这个请求转发到真正的后端域名上，不就避免跨域了吗？这时候，`Nginx` 出场了。
+
+`Nginx` 配置
 ```js
 server{
-    # 监听9099端口
+    // 监听9099端口
     listen 9099;
-    # 域名是localhost
+    // 域名是localhost
     server_name localhost;
-    #凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
+    // 凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
     location ^~ /api {
         proxy_pass http://localhost:9871;
     }    
 }
 ```
-
 前端就不用干什么事情了，除了写接口，也没后端什么事情了
 
-// 请求的时候直接用回前端这边的域名http://localhost:9099，这就不会跨域，然后Nginx监听到凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
+请求的时候直接用回前端这边的域名 `http://localhost:9099`，这就不会跨域，然后 `Nginx` 监听到凡是 `localhost:9099/api` 这个样子的，都转发到真正的服务端地址 `http://localhost:9871`。 
 ```js
 fetch('http://localhost:9099/api/iframePost', {
   method: 'POST',
@@ -1788,13 +1773,13 @@ fetch('http://localhost:9099/api/iframePost', {
   })
 })
 ```
-Nginx转发的方式似乎很方便！但这种使用也是看场景的，如果后端接口是一个公共的API，比如一些公共服务获取天气什么的，前端调用的时候总不能让运维去配置一下Nginx，如果兼容性没问题（IE 10或者以上），CROS才是更通用的做法吧。
+`Nginx` 转发的方式似乎很方便！但这种使用也是看场景的，如果后端接口是一个公共的 `API`，比如一些公共服务获取天气什么的，前端调用的时候总不能让运维去配置一下 `Nginx`，如果兼容性没问题（`IE 10`或者以上），`CROS` 才是更通用的做法吧。
 
 ###### 5. postMessage
-window.postMessage() 是HTML5的一个接口，专注实现不同窗口不同页面的跨域通讯。
-为了演示方便，我们将hosts改一下：127.0.0.1 crossDomain.com，现在访问域名crossDomain.com就等于访问127.0.0.1。
+`window.postMessage()` 是 `HTML5` 的一个接口，专注实现不同窗口不同页面的跨域通讯。
+为了演示方便，我们将 `hosts` 改一下：`127.0.0.1 crossDomain.com`，现在访问域名 `crossDomain.com` 就等于访问 `127.0.0.1`。
 
-这里是http://localhost:9099/#/crossDomain，发消息方
+这里是 `http://localhost:9099/#/crossDomain`，发消息方
 ```js
 <template>
   <div>
@@ -1825,7 +1810,7 @@ export default {
 </script>
 ```
 
-这里是http://crossdomain.com:9099，接收消息方
+这里是`http://crossdomain.com:9099`，接收消息方
 
 ```js
 <template>
@@ -1853,123 +1838,8 @@ export default {
 ```
 
 ###### 6. document.domain
-这种方式只适合主域名相同，但子域名不同的iframe跨域。
-比如主域名是http://crossdomain.com:9099，子域名是http://child.crossdomain.com:9099，这种情况下给两个页面指定一下document.domain即document.domain = crossdomain.com就可以访问各自的window对象了。
-
-3.canvas操作图片的跨域问题
-这个应该是一个比较冷门的跨域问题，张大神已经写过了我就不再班门弄斧了解决canvas图片getImageData,toDataURL跨域问题
-
-因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax 请求会失败。
-
-那么是出于什么安全考虑才会引入这种机制呢？ 其实主要是用来防止 CSRF 攻击的。简单点说，CSRF 攻击是利用用户的登录态发起恶意请求。
-
-也就是说，没有同源策略的情况下，A 网站可以被任意其他来源的 Ajax 访问到内容。如果你当前 A 网站还存在登录态，那么对方就可以通过 Ajax 获得你的任何信息。当然跨域并不能完全阻止 CSRF。
-
-然后我们来考虑一个问题，请求跨域了，那么请求到底发出去没有？ 请求必然是发出去了，但是浏览器拦截了响应。你可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会。因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。
-
-接下来我们将来学习几种常见的方式来解决跨域的问题。
-
-JSONP
-JSONP 的原理很简单，就是利用 <script> 标签没有跨域限制的漏洞。通过 <script> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。
-
-<script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
-<script>
-    function jsonp(data) {
-    	console.log(data)
-	}
-</script>    
-JSONP 使用简单且兼容性不错，但是只限于 get 请求。
-
-在开发中可能会遇到多个 JSONP 请求的回调函数名是相同的，这时候就需要自己封装一个 JSONP，以下是简单实现
-
-function jsonp(url, jsonpCallback, success) {
-  let script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.type = 'text/javascript'
-  window[jsonpCallback] = function(data) {
-    success && success(data)
-  }
-  document.body.appendChild(script)
-}
-jsonp('http://xxx', 'callback', function(value) {
-  console.log(value)
-})
-CORS
-CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
-
-浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。只要后端实现了 CORS，就实现了跨域。
-
-服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。
-
-虽然设置 CORS 和前端没什么关系，但是通过这种方式解决跨域问题的话，会在发送请求时出现两种情况，分别为简单请求和复杂请求。
-
-简单请求
-以 Ajax 为例，当满足以下条件时，会触发简单请求
-
-使用下列方法之一：
-
-GET
-
-HEAD
-
-POST
-
-Content-Type 的值仅限于下列三者之一：
-
-text/plain
-
-multipart/form-data
-
-application/x-www-form-urlencoded
-
-请求中的任意 XMLHttpRequestUpload 对象均没有注册任何事件监听器； XMLHttpRequestUpload 对象可以使用 XMLHttpRequest.upload 属性访问。
-
-复杂请求
-那么很显然，不符合以上条件的请求就肯定是复杂请求了。
-
-对于复杂请求来说，首先会发起一个预检请求，该请求是 option 方法的，通过该请求来知道服务端是否允许跨域请求。
-
-对于预检请求来说，如果你使用过 Node 来设置 CORS 的话，可能会遇到过这么一个坑。
-
-以下以 express 框架举例：
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials'
-  )
-  next()
-})
-该请求会验证你的 Authorization 字段，没有的话就会报错。
-
-当前端发起了复杂请求后，你会发现就算你代码是正确的，返回结果也永远是报错的。因为预检请求也会进入回调中，也会触发 next 方法，因为预检请求并不包含 Authorization 字段，所以服务端会报错。
-
-想解决这个问题很简单，只需要在回调中过滤 option 方法即可
-
-res.statusCode = 204
-res.setHeader('Content-Length', '0')
-res.end()
-document.domain
-该方式只能用于二级域名相同的情况下，比如 a.test.com 和 b.test.com 适用于该方式。
-
-只需要给页面添加 document.domain = 'test.com' 表示二级域名都相同就可以实现跨域
-
-postMessage
-这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息
-
-// 发送消息端
-window.parent.postMessage('message', 'http://test.com')
-// 接收消息端
-var mc = new MessageChannel()
-mc.addEventListener('message', event => {
-  var origin = event.origin || event.originalEvent.origin
-  if (origin === 'http://test.com') {
-    console.log('验证通过')
-  }
-})
+这种方式只适合主域名相同，但子域名不同的 `iframe` 跨域。
+比如主域名是 `http://crossdomain.com:9099`，子域名是 `http://child.crossdomain.com:9099`，这种情况下给两个页面指定一下 `document.domain` 即 `document.domain = crossdomain.com` 就可以访问各自的 `window` 对象了。
 
 ---
 

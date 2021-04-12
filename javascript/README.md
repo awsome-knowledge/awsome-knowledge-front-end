@@ -1901,12 +1901,11 @@ function loadScript(url, callback) {
 
 21.  #### <a id="window_onload"></a> 关于window.onload()了解多少
 
-当文档内容加载完成后，会触发window.onload方法。
+当文档内容加载完成后，会触发 `window.onload` 方法。
 
 可以为此事件注册事件处理函数，可以把要执行的脚本代码放在事件处理函数中，于是就可以避免获取不到对象的情况。
 
 ##### 还需要知道window.onload()的前世今生
-
 看代码
 ```html
 <!DOCTYPE html>
@@ -1943,7 +1942,7 @@ function loadScript(url, callback) {
 
 为什么会出现这种情况呢？
 
-是因为html挂载都是从上往下的顺序，代码中文档放在脚本后面，所以当事件发生时，`box`还没有挂载。都没拿到`box`，那怎么给他填充颜色。
+是因为 `html` 挂载都是从上往下的顺序，代码中文档放在脚本后面，所以当事件发生时，`box`还没有挂载。都没拿到`box`，那怎么给他填充颜色。
 
 根据从上到下执行的道理，我们可以将js放到后面
 ```html
@@ -1978,7 +1977,7 @@ function loadScript(url, callback) {
 
 </html>
 ```
-虽然效果是出来了，但是我很不喜欢，我想觉得js想要自由，不能让他受拘束，所以这时候`window.onload`就应运而生。
+虽然效果是出来了，但是我很不喜欢，我想觉得 `js` 想要自由，不能让他受拘束，所以这时候`window.onload`就应运而生。
 
 `window.onload`方法就可以在文档加载完后，触发事件，并且为此事件注册事件处理函数，于是就避免了对象获取不到的情况。
 
@@ -2054,7 +2053,7 @@ function loadScript(url, callback) {
 </script>
 ```
 
-还可以用`window.addEventListener('load', setColor1, false)`去替换`window.onload`，可以为onload事件绑定事件处理函数
+还可以用`window.addEventListener('load', setColor1, false)`去替换`window.onload`，可以为 `onload` 事件绑定事件处理函数。
 ```js
 <script type="text/javascript">
     window.addEventListener('load', setColor1, false)
@@ -2071,7 +2070,7 @@ function loadScript(url, callback) {
 </script>
 ```
 
-但是老版本的ie浏览器不支持`window.addEventListener`事件模型,如果不支持就使用`window.attachEvent`来实现功能。
+但是老版本的 `ie` 浏览器不支持`window.addEventListener`事件模型,如果不支持就使用`window.attachEvent`来实现功能。
 ```js
 <script type="text/javascript">
     if (window.addEventListener) {

@@ -3161,7 +3161,7 @@ E: TypeError
 
 A
 
-在JavaScript中，所有对象在彼此相等时通过引用进行交互。首先，变量c持有对象的值。d等于c，就是d和c共享一个引用位置。当更改一个对象时，将更改所有对象
+对象是引用类型。在JavaScript中，所有对象在彼此相等时通过引用进行交互。首先，变量c持有对象的值。d等于c，就是d和c共享一个引用位置。当更改一个对象时，将更改所有对象。
 </details>
 
 ---
@@ -3194,9 +3194,7 @@ new Number()是一个内置函数构造函数。虽然它看起来像一个数�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-
 30. #### 静态方法
-
 ```javascript
 class Chameleon {
   static colorChange(newColor) {
@@ -3226,7 +3224,6 @@ colorChange函数是静态的。静态方法被设计为仅存在于创建它们
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
-
 
 31. #### 输出什么7
 

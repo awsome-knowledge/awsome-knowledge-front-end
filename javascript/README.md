@@ -3438,7 +3438,7 @@ C: "Lydia" ["", " is ", " years old"] 21
 模板字符串使用反引号 (` `) 来代替普通字符串中的用双引号和单引号。
 
 ##### 原始字符串
-在标签函数的第一个参数中，存在一个特殊的属性raw ，我们可以通过它来访问模板字符串的原始字符串，而不经过特殊字符的替换。
+在标签函数的第一个参数中，存在一个特殊的属性 `raw` ，我们可以通过它来访问模板字符串的原始字符串，而不经过特殊字符的替换。
 ```js
 function tag(strings) {
   console.log(strings.raw[0]);
@@ -3448,7 +3448,7 @@ tag`string text line 1 \n string text line 2`;
 // logs "string text line 1 \n string text line 2" ,
 // including the two characters '\' and 'n'
 ```
-另外，使用String.raw() 方法创建原始字符串和使用默认模板函数和字符串连接创建是一样的。
+另外，使用 `String.raw()` 方法创建原始字符串和使用默认模板函数和字符串连接创建是一样的。
 ```js
 var str = String.raw`Hi\n${2+3}!`;
 // "Hi\n5!"

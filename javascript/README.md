@@ -3530,7 +3530,7 @@ B: false
 <details><summary><b>答案</b></summary>
 
 答案: B
-除了基础对象（base object），所有对象都有原型。基本对象可以访问一些方法和属性，如.tostring。这就是为什么可以使用内置的javascript方法。所有这些方法在原型上都是可用的。虽然javascript不能直接在对象上找到这些方法，但javascript会沿着原型链找到他们，以便使用。
+除了基础对象（`base object`），所有对象都有原型。基本对象可以访问一些方法和属性，如`.tostring`。这就是为什么可以使用内置的 `javascript` 方法。所有这些方法在原型上都是可用的。虽然 `javascript` 不能直接在对象上找到这些方法，但 `javascript` 会沿着原型链找到他们，以便使用。
 </details>
 
 ---
@@ -3556,7 +3556,7 @@ D: TypeError
 
 答案: C
 
-使用 "use strict"，你可以确保不会意外地声明全局变量。我们从来没有声明变量 age，因为我们使用 "use strict"，它将抛出一个引用错误。如果我们不使用 "use strict"，它就会工作，因为属性 age 会被添加到全局对象中了。
+使用 "`use strict`"，你可以确保不会意外地声明全局变量。我们从来没有声明变量 `age`，因为我们使用 "`use strict`"，它将抛出一个引用错误。如果我们不使用 "`use strict`"，它就会工作，因为属性 `age` 会被添加到全局对象中了。
 </details>
 
 ---
@@ -3577,7 +3577,7 @@ D: "10*10+5"
 
 答案: A
 
-代码以字符串形式传递进来，eval 对其求值。如果它是一个表达式，就像本例中那样，它对表达式求值。表达式是 10 * 10 + 5。这将返回数字 105。
+代码以字符串形式传递进来，`eval` 对其求值。如果它是一个表达式，就像本例中那样，它对表达式求值。表达式是 `10 * 10 + 5`。这将返回数字 `105`。
 </details>
 
 ---
@@ -3598,9 +3598,9 @@ D: 当用户关闭电脑时。
 
 答案: B
 
-关闭 tab 标签页 后，sessionStorage 存储的数据才会删除。
+关闭 `tab` 标签页 后，`sessionStorage` 存储的数据才会删除。
 
-如果使用 localStorage，那么数据将永远在那里，除非调用了 localStorage.clear()。
+如果使用 `localStorage`，那么数据将永远在那里，除非调用了 `localStorage.clear()`。
 </details>
 
 ---
@@ -3624,9 +3624,9 @@ D: ReferenceError
 
 答案: B
 
-使用 var 关键字，你可以用相同的名称声明多个变量。然后变量将保存最新的值。
+使用 `var` 关键字，你可以用相同的名称声明多个变量。然后变量将保存最新的值。
 
-你不能使用 let 或 const 来实现这一点，因为它们是块作用域的。
+你不能使用 `let` 或 `const` 来实现这一点，因为它们是块作用域的。
 </details>
 
 ---
@@ -3652,9 +3652,9 @@ D: true true true true
 
 答案: C
 
-所有对象的键（不包括 Symbol）在底层都是字符串，即使你自己没有将其作为字符串输入。这就是为什么 obj.hasOwnProperty('1') 也返回 true。
+所有对象的键（不包括 `Symbol`）在底层都是字符串，即使你自己没有将其作为字符串输入。这就是为什么 `obj.hasOwnProperty('1')` 也返回 `true`。
 
-对于集合，它不是这样工作的。在我们的集合中没有 '1'：set.has('1') 返回 false。它有数字类型为 1，set.has(1) 返回 true。
+对于集合，它不是这样工作的。在我们的集合中没有 `'1'：set.has('1')` 返回 `false`。它有数字类型为 `1`，`set.has(1)` 返回 `true`。
 
 1. 对象object的key只可以是字符串
 2. 集合set的key可以有数字类型
@@ -3679,7 +3679,7 @@ console.log(obj)
 <details><summary><b>答案</b></summary>
 <p>
 
- 答案: C
+答案: C
 
 如果你有两个名称相同的键，则键会被替换掉。它仍然位于第一个键出现的位置，但是值是最后出现那个键的值。
 
@@ -3690,9 +3690,8 @@ console.log(obj)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-48. #### JavaScript全局执行上下文为你做了两件事全局对象和this关键字
-
-JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关键字。
+48.  #### JavaScript全局执行上下文为你做了两件事全局对象和this关键字
+JavaScript 全局执行上下文为你做了两件事：全局对象和 `this` 关键字。
 - A: true
 - B: false
 - C: it depends
@@ -3700,10 +3699,9 @@ JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关
 <details><summary><b>答案</b></summary>
 <p>
 
- 答案: A
+答案: A
 
 基本执行上下文是全局执行上下文：它是代码中随处可访问的内容。
-
 </p>
 </details>
 
@@ -3711,8 +3709,7 @@ JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-49. #### 输出什么20
-
+49.  #### 输出什么20
 ```javascript
 for (let i = 1; i < 5; i++) {
   if (i === 3) continue
@@ -3761,7 +3758,7 @@ name.giveLydiaPizza()
 
  答案: A
 
-`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 string(string 对象)都可以访问该方法！
+`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 `string(string 对象)`都可以访问该方法！
 
 </p>
 </details>
@@ -3859,9 +3856,9 @@ async function async1() {
 
 我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。
 
-这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。
+这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 `DOM`。
 
-将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。
+将 `_callback_` 推送到 `WebAPI` 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
@@ -3873,7 +3870,7 @@ async function async1() {
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。
+`WebAPI` 不能随时向栈内添加内容。相反，它将回调函数推到名为 `_queue_` 的地方。
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 

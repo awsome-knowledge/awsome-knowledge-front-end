@@ -142,23 +142,23 @@ div {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 7. #### 移动设备忽略将页面中的数字识别为电话号码的方法 
-1.标准的电话号码格式是这样的:<a  href="tel:1-408-555-5555">1-408-555-5555</a>，点击后会自动打开电话功能；
+1. 标准的电话号码格式是这样的: `<a  href="tel:1-408-555-5555">1-408-555-5555</a>`，点击后会自动打开电话功能；
 
-2.但有时候不是电话号码的数字也会被浏览器自动解析为电话号码, 并把数字的颜色和样式都改了；
+2. 但有时候不是电话号码的数字也会被浏览器自动解析为电话号码，并把数字的颜色和样式都改了；
 
-3.如果忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行，只要一行代码:
+3. 如果忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行，只要一行代码:
 
-<meta name = "format-detection" content = "telephone=no">
+`<meta name ="format-detection" content ="telephone=no">`
 
-4.这个关闭不会影响真正电话号码的识别；
+4. 这个关闭不会影响真正电话号码的识别；
 
-
-format-detection翻译成中文的意思是“格式检测”，顾名思义，它是用来检测html里的一些格式的，那关于meta的format-detection属性主要是有以下几个设置：
+`format-detection` 翻译成中文的意思是“格式检测”，顾名思义，它是用来检测 `html` 里的一些格式的，那关于 `meta` 的 `format-detection` 属性主要是有以下几个设置：
+```html
 <meta name="format-detection" content="telephone=no">
 <meta name="format-detection" content="email=no">
-<meta name="format-detection" content="adress=no">
-<meta name="format-detection" content="telephone=no,email=no,adress=no">
-
+<meta name="format-detection" content="address=no">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+```
 
 --------------------- 
 版权声明：本文为CSDN博主「初漾」的原创文章，遵循CC 4.0 by-sa版权协议，转载请附上原文出处链接及本声明。

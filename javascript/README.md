@@ -15,11 +15,11 @@
 12. [在页面中有如下html，要求用闭包方式写一个JS从文本框中取出值，并在标签span中显示出来](#html_js_span)
 13. [在IE6.0下面是不支持position：fixed的，请写一个JS使用<div id="box"></div>固定在页面的右下角](#ie6_position_fixed_div)
 14. [请实现鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓](#mouse_move_label)
-15. [js的基础对象有哪些window和document的常用的方法和属性列出来](#js的基础对象有哪些window和document的常用的方法和属性列出来)
+15. [js的基础对象有哪些?window和document的常用的方法和属性列出来](#js_basic_object)
 16. [JavaScript中如何对一个对象进行深度clone](#JavaScript中如何对一个对象进行深度clone)
-17. [js中如何定义class如何扩展protope](#js中如何定义class如何扩展protope)
-18. [ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题](#ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题)
-19. [请给出异步加载js方案不少于两种](#请给出异步加载js方案不少于两种)
+17. [js中如何定义class?如何扩展protope](#class_prototype)
+18. [ajax是什么?ajax的交互模型?同步和异步的区别?如何解决跨域问题](#ajax_async_sync)
+19. [请给出异步加载js方案，不少于两种](#async_js)
 20. [多浏览器检测通过什么](#多浏览器检测通过什么)
 21. [关于window.onload()了解多少](#window_onload)
 22. [如何让generator自动next（不通过next.next.next）](#generator_auto_next)
@@ -192,35 +192,35 @@
 ### JavaScript
 
 1. ####  数组问题1
-为什么["1","2","3"].map(parseInt) 返回[1,NaN,NaN]
+为什么 `["1","2","3"].map(parseInt)` 返回 `[1,NaN,NaN]`
 ##### 开始
 ![Screenshot from 2019-04-18 09-48-49](https://user-images.githubusercontent.com/36500514/56331706-124a8700-61c0-11e9-9ed6-8dac78d596ae.png)
 
-答案是肯定的，那为什么不是[1,2,3]呢？
+答案是肯定的，那为什么不是 `[1,2,3]` 呢？
 
 ##### 知识
 首先看看官网上：
 
 [paserInt的用法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
-parseInt() 函数解析一个字符串参数，通过基数解析，返回一个整数或者NAN
+`parseInt()` 函数解析一个字符串参数，通过基数解析，返回一个整数或者 `NAN`
 
-parseInt() 的两个参数分别是string和radix
+`parseInt()` 的两个参数分别是 `string` 和 `radix`
 
-string就是要解析的字符串，radix就是基数
+`string` 就是要解析的字符串，`radix` 就是基数
 
 注意：
-- 基数不在2-36之间，则返回值就是NAN
+- 基数不在`2-36`之间，则返回值就是 `NAN`
 
-map
+- map
 遍历数组，将数组中的每一个元素调用定义的回调函数，返回包含结果的数组
 
-map()的第一个参数是回调函数，回调函数的三个参数分别是currentValue/index/arr
+`map()` 的第一个参数是回调函数，回调函数的三个参数分别是 `currentValue/index/arr`
 
-currentValue是当前值，index当前值的索引，arr当前元素属于的数组对象
+`currentValue` 是当前值，`index` 当前值的索引，`arr` 当前元素属于的数组对象
 
 ##### 解析
-那么回到这道题中，['1','2','3'].map(parseInt)就可以等于
+那么回到这道题中，`['1','2','3'].map(parseInt)` 就可以等于
 
 ['1','2','3'].map(function('1',0))，
 
@@ -236,13 +236,11 @@ parseInt('2',1),
 
 parseInt('3',2)
 
-那么，第一个字符串‘1’基于基数0也就是10进制返回值是1
+那么，第一个字符串‘1’基于基数`0`也就是`10`进制返回值是`1`
 
-第二个的基数是1小于2，返回值为NAN
+第二个的基数是`1`小于`2`，返回值为 `NAN`
 
-第三个中3是没有2进制的，返回值为NAN
-
-
+第三个中`3`是没有`2`进制的，返回值为 `NAN`
 
 ##### 延伸
 ```javascript
@@ -298,14 +296,12 @@ a.map(part(parseInt))
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 2. ####  手写节流和防抖
-
 ##### 防抖
-
-防抖（debounce）
-所谓防抖，就是指触发事件后在n秒内函数只能执行一次，如果在n秒内又触发了事件，则会重新计算函数执行时间。
+- 防抖（`debounce`）
+所谓防抖，就是指触发事件后在 `n` 秒内函数只能执行一次，如果在 `n` 秒内又触发了事件，则会重新计算函数执行时间。
 防抖函数分为非立即执行版和立即执行版。
 - 非立即执行：触发事件后函数不会立即执行，而是在n秒后执行，如果在n秒内又触发了事件，则会重新计算函数执行时间。
-```javascript
+```js
     function debounce(func, wait) {
         let timeout
         return function () {
@@ -318,13 +314,12 @@ a.map(part(parseInt))
         }
     }
 ```
-背景：产生事件时，首先执行立即执行函数setTimeout。
-当鼠标移动时，会产生setTimeout，每移动一次就timeout增加一次，
-当timeout有值时，就销毁定时器。如果停止移动，就不触发定时器，
-那么timeout没有值，那么就执行加一操作。
+背景：产生事件时，首先执行立即执行函数 `setTimeout`。
+当鼠标移动时，会产生 `setTimeout`，每移动一次就 `timeout` 增加一次，
+当 `timeout` 有值时，就销毁定时器。如果停止移动，就不触发定时器，
+那么 `timeout` 没有值，那么就执行加一操作。
 
-获取this和参数，为了让debounce函数最终返回的函数this指向不变以及依旧能接受参数。
-
+获取 `this` 和参数，为了让 `debounce` 函数最终返回的函数 `this` 指向不变以及依旧能接受参数。
 
 完整版：
 ```html
@@ -400,8 +395,8 @@ a.map(part(parseInt))
         }
     }
 ```
-当鼠标移动触发事件，进入debounce方法中。当执行setTimeout方法时，timeout为null，等一秒后再执行。在回到context/args赋值，如果此时timeout为null则不清除定时器。
-并且callNow为ture，callNow为ture，那么执行加一操作。
+当鼠标移动触发事件，进入 `debounce` 方法中。当执行 `setTimeout` 方法时，`timeout` 为 `null`，等一秒后再执行。在回到 `context/args` 赋值，如果此时 `timeout` 为 `null` 则不清除定时器。
+并且 `callNow` 为 `ture`，`callNow` 为 `ture`，那么执行加一操作。
 
 完整版本：
 ```html
@@ -525,8 +520,6 @@ a.map(part(parseInt))
 </html>
 
 ```
-
-
 ###### 应用场景
 
 - 窗口大小变化，调整样式
@@ -584,7 +577,7 @@ setTimeout(handle, 10000)
 
 [Jest unit test for a debounce function](https://stackoverflow.com/questions/52224447/jest-unit-test-for-a-debounce-function)
 
-可以通过jest来测试
+可以通过 `jest` 来测试
 ```js
 const _ = require('lodash');
 import * as sinon from 'sinon';
@@ -620,9 +613,10 @@ test('debounce', () => {
 });
 ```
 ##### 节流
-连续触发事件，但是在n秒中只执行一次。节流会稀释函数的执行频率。
+连续触发事件，但是在 `n` 秒中只执行一次。节流会稀释函数的执行频率。
 
 对于节流，一般有两种方式可以实现，分别是时间戳版和定时器版。
+
 时间戳版：
 ```javascript
     function throttle(func, wait) {
@@ -638,9 +632,9 @@ test('debounce', () => {
         }
     }
 ```
-在持续触发事件过程中，函数会立即执行，并且每1秒执行一次。
+在持续触发事件过程中，函数会立即执行，并且每`1`秒执行一次。
 
-当时间每过去n秒后，执行加一事件。
+当时间每过去`n`秒后，执行加一事件。
 完整版
 ```html
 <!DOCTYPE html>
@@ -715,10 +709,10 @@ test('debounce', () => {
         }
     }
 ```
-持续触发事件时，每当n秒后执行一次，timeout设为空。当为空又开始执行。
+持续触发事件时，每当 `n` 秒后执行一次，`timeout` 设为空。当为空又开始执行。
 
+在持续触发事件的过程中，函数不会立即执行，并且每 `1s` 执行一次，在停止触发事件后，函数还会再执行一次。
 
-在持续触发事件的过程中，函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。
 我们应该可以很容易的发现，其实时间戳版和定时器版的节流函数的区别就是，时间戳版的函数触发是在时间段内开始的时候，而定时器版的函数触发是在时间段内结束的时候。
 
 
@@ -858,11 +852,10 @@ test('debounce', () => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-3. #### <a id="set_map_weakset_weakmap"></a>  介绍下Set、Map、WeakSet和WeakMap的区别
+3. #### <a id="set_map_weakset_weakmap"></a>  介绍下Set、Map、WeakSet和WeakMap的区别(难))
 ##### 集合 Set
-
-   ES6 新增的一种新的数据结构，类似于数组，但成员是唯一且无序的。
-   Set 本身是一种构造函数，用来生成 Set 数据结构。
+`ES6` 新增的一种新的数据结构，类似于数组，但成员是唯一且无序的。
+`Set` 本身是一种构造函数，用来生成 `Set` 数据结构。
 
 ```javascript
 new Set([iterable]);
@@ -871,8 +864,8 @@ new Set([iterable]);
 ![Screenshot from 2019-05-05 10-58-15](https://user-images.githubusercontent.com/36500514/57187656-e996f100-6f24-11e9-91c3-ddbcb2adcd69.png)                                                                                                                                                                                                                                                            
 
 ![Screenshot from 2019-05-05 11-01-34](https://user-images.githubusercontent.com/36500514/57187672-2cf15f80-6f25-11e9-8de7-8af871d42e84.png)                                                                                                                                                                                                                                                            
-Set 对象存储原始值或是对象引用的唯一值。
-向 Set 加入值的时候，不会发生类型转换，所以 1 和‘1’是两个不同的值。Set 用‘Same-value-zero equality’算法来判断两个值是否不同，它类似于精确相等运算符（===），主要的区别是 NAN 等于自身，而精确相等运算符认为 NaN 不等于自身。
+`Set` 对象存储原始值或是对象引用的唯一值。
+向 `Set` 加入值的时候，不会发生类型转换，所以 `1` 和`‘1’`是两个不同的值。`Set` 用`‘Same-value-zero equality’`算法来判断两个值是否不同，它类似于精确相等运算符（`===`），主要的区别是 `NAN` 等于自身，而精确相等运算符认为 `NaN` 不等于自身。
 
 ![Screenshot from 2019-05-05 11-09-15](https://user-images.githubusercontent.com/36500514/57187740-3d560a00-6f26-11e9-9d89-889f2724ba3c.png)                                                                                                                                                                                                                                                            
 
@@ -904,8 +897,8 @@ Set 对象存储原始值或是对象引用的唯一值。
     差集还是有问题的
 
 ##### WeakSet
-   WeakSet 对象允许将弱引用对象储存在一个集合中
-   与 Set 的区别：
+`WeakSet` 对象允许将弱引用对象储存在一个集合中
+与 `Set` 的区别：
 
 - 前者只能存储对象引用，不能存放值，而 Set 对象都可以
 - 前者对象中存储的对象值都是被弱引用的，即垃圾回收机制不考虑其对该对象的应用，如果没有其他的变量或属性引用这个对象值，则这个对象将会被垃圾回收掉（不考虑改对象还存在于 WeakSet 中）。WeakSet 对象里有多少哥成员元素，取决于垃圾回收机制有没有运行，运行前后成员个数可能不一致，遍历结束后，有的成员可能取不到了（被垃圾回收），其实是无法被遍历的，也没法拿到它的所有元素
@@ -923,34 +916,34 @@ Set 对象存储原始值或是对象引用的唯一值。
   ![Screenshot from 2019-05-05 13-26-05](https://user-images.githubusercontent.com/36500514/57188898-5ae09f00-6f39-11e9-8777-5da20be804da.png)                                                                                                                                                                                                                                                                                                                                                
 
 ##### 字典(Map)
-   集合和字典的区别：
+集合和字典的区别：
 
 - 共同点：集合和字典可以存储不重复的值
 - 异点：集合是[value,value]的形式储存元素，字典是[key,value]的形式储存
 
 ![Screenshot from 2019-05-05 13-32-53](https://user-images.githubusercontent.com/36500514/57188949-4ea91180-6f3a-11e9-94ca-b27d5285f517.png)                                                                                                                                                                                                                                                                                                                                                
 
-任何具有 Iterator 接口且每个成员都是一个双元素的数组的数据结构都可以当作`Map`构造函数的参数
+任何具有 `Iterator` 接口且每个成员都是一个双元素的数组的数据结构都可以当作`Map`构造函数的参数
 
 ![Screenshot from 2019-05-05 13-38-00](https://user-images.githubusercontent.com/36500514/57188989-076f5080-6f3b-11e9-9119-46764be1f66d.png)                                                                                                                                                                                                                                                                                                                                                
 ![Screenshot from 2019-05-05 13-38-23](https://user-images.githubusercontent.com/36500514/57189021-65039d00-6f3b-11e9-863b-11a2d6957614.png)                                                                                                                                                                                                                                                                                                                                                
 
-如果读取一个未知的键，则返回 undefined。
+如果读取一个未知的键，则返回 `undefined`。
 
 ![Screenshot from 2019-05-05 13-40-12](https://user-images.githubusercontent.com/36500514/57189015-52896380-6f3b-11e9-8aa8-7bb4c95a17ba.png)                                                                                                                                                                                                                                                                                                                                                
-注意，只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。
+注意，只有对同一个对象的引用，`Map` 结构才将其视为同一个键。这一点要非常小心。
 
 ![Screenshot from 2019-05-05 13-42-57](https://user-images.githubusercontent.com/36500514/57189035-b9a71800-6f3b-11e9-98e7-84209a5345c2.png)                                                                                                                                                                                                                                                            
 ![Screenshot from 2019-05-05 13-43-03](https://user-images.githubusercontent.com/36500514/57189036-bca20880-6f3b-11e9-9375-9cba418b3745.png)                                                                                                                                                                                                                                                            
-上面代码的 set 和 get 方法，表面是针对同一个键，但实际上这是两个值，内存地址是不一样的，因此 get 方法无法读取该键，返回 undefined。
+上面代码的 `set` 和 `get` 方法，表面是针对同一个键，但实际上这是两个值，内存地址是不一样的，因此 `get` 方法无法读取该键，返回 `undefined`。
 
-由上可知，Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。这就解决了同名属性碰撞（clash）的问题，我们扩展别人的库的时候，如果使用对象作为键名，就不用担心自己的属性与原作者的属性同名。
+由上可知，`Map` 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。这就解决了同名属性碰撞（`clash`）的问题，我们扩展别人的库的时候，如果使用对象作为键名，就不用担心自己的属性与原作者的属性同名。
 
-如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键，比如 0 和-0 就是一个键，布尔值 true 和字符串 true 则是两个不同的键。另外，undefined 和 null 也是两个不同的键。虽然 NaN 不严格相等于自身，但 Map 将其视为同一个键。
+如果 `Map` 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，`Map` 将其视为一个键，比如 `0` 和 `-0` 就是一个键，布尔值 `true` 和字符串 `true` 则是两个不同的键。另外，`undefined` 和 `null` 也是两个不同的键。虽然 NaN 不严格相等于自身，但 `Map` 将其视为同一个键。
 
 ![Screenshot from 2019-05-05 13-48-31](https://user-images.githubusercontent.com/36500514/57189081-7ef1af80-6f3c-11e9-8eda-e68934aa153a.png)                                                                                                                                                                                                                                                            
 
-Map 的属性及方法
+`Map` 的属性及方法
 
 - 属性：
   - constructor：构造函数
@@ -973,7 +966,7 @@ Map 的属性及方法
   - forEach()：遍历字典的所有成员
 
 ![Screenshot from 2019-05-05 13-53-44](https://user-images.githubusercontent.com/36500514/57189137-3686c180-6f3d-11e9-99f7-9da09d3c2e7b.png)                                                                                                                                                                                                                                                            
-Map 结构的默认遍历器接口（Symbol.iterator 属性），就是 entries 方法。
+`Map` 结构的默认遍历器接口（`Symbol.iterator` 属性），就是 `entries` 方法。
 
 ![Screenshot from 2019-05-05 13-55-01](https://user-images.githubusercontent.com/36500514/57189156-646c0600-6f3d-11e9-9b33-d0895fd8cd89.png)                                                                                                                                                                                                                                                            
 
@@ -1006,8 +999,8 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 
 ##### WeakMap
    是一组键值对的集合，其中的键是弱引用对象，而值可以是任意的。
-   注意，WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
-   WeakMap 中，每个键对自己所引用对象的引用都是弱引用，在没有其他引用和该键引用同一对象，这个对象将会被垃圾回收（相应的 key 则变成无效的），所以，WeakMap 的 key 是不可枚举的。
+   注意，`WeakMap` 弱引用的只是键名，而不是键值。键值依然是正常引用。
+   `WeakMap` 中，每个键对自己所引用对象的引用都是弱引用，在没有其他引用和该键引用同一对象，这个对象将会被垃圾回收（相应的 `key` 则变成无效的），所以，`WeakMap` 的 `key` 是不可枚举的。
 
 - 属性：
   - constructor：构造函数
@@ -1018,7 +1011,6 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
   - delete(key)：移除 key 的关联对象
 
 ##### 总结：
-
 - Set
   - 无序且不重复的
   - [value，value]，键值和键名重复
@@ -1041,15 +1033,16 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 4. #### <a id="js_datatype_isstring"></a>  JavaScript包括哪些数据类型？请分别编写3种以上类型的判断函数？如isString
-字符串、数字、布尔、数组、对象、null、undefined
+字符串、数字、布尔、数组、对象、`null`、`undefined`
 
-typeof, instanceof, isArray()?
+`typeof`, `instanceof`, `isArray()`
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 5. ####  编写一个JavaScript函数实时显示当前时间格式如年月日时分秒
+因为 `getMonth()` 方法返回值 `0-11` 的正整数，是从 `0` 开始的，获取的月份比正常月份少 `1`，所以需要加 `1`。
 ```js
 <!DOCTYPE html>
 <html lang="en">
@@ -1083,8 +1076,10 @@ typeof, instanceof, isArray()?
 
 6. ####  如何显示隐藏一个DOM元素
 ```css
-显示：object.style.display="block";
-隐藏：object.style.display="none";
+/* 显示： */
+object.style.display="block";
+/* 隐藏： */
+object.style.display="none";
 ```
 
 ---
@@ -1092,29 +1087,26 @@ typeof, instanceof, isArray()?
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 7. ####  如何添加html元素的事件处理有几种方法
- ```text
- html的元素的事件就只有组件自带的的那么几个，
- 如onclick,onmousedown等等都是调用脚本执行
+`html` 的元素的事件就只有组件自带的的那么几个，
+如 `onclick,onmousedown` 等等都是调用脚本执行。
 
- 方法：
- 1. 在组件上直接激发事件
- 2. 在页面加载的时候就调用脚本激发组件的某个事件
- 3. 在后台利用后台代码强行执行组件的事件。
-   或：
- 4. 为HTML元素的事件属性赋值 
- 5. 在JS中使用el.on*** = function() {…}
- 6. 使用DOM2的添加事件的方法 addEventListener或attachEvent
-```
+方法：
+1. 在组件上直接激发事件；
+2. 在页面加载的时候就调用脚本激发组件的某个事件；
+3. 在后台利用后台代码强行执行组件的事件；
+4. 为HTML元素的事件属性赋值；
+5. 在JS中使用el.on*** = function() {…}；
+6. 使用DOM2的添加事件的方法 addEventListener或attachEvent。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 8. ####  如何控制alert中的换行
-如何控制alert中的换行
-```text
-\n alert("text\ntext");
-alert("再打个招呼。这里演示了" + "\n" + "如何在消息框中添加换行。")
+如何控制 `alert` 中的换行
+```js
+// \n 
+alert("text\ntext");
 ```
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
@@ -1150,6 +1142,7 @@ alert("再打个招呼。这里演示了" + "\n" + "如何在消息框中添加�
 </body>
 </html>
 ```
+
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
@@ -1204,13 +1197,13 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 
 12. #### <a id="html_js_span"></a> 在页面中有如下html，要求用闭包方式写一个JS从文本框中取出值，并在标签span中显示出来
 
-在页面中有如下html:
+在页面中有如下 `html`:
 ```html
 <div id="field">
 <input type="text" value="User Name"/>
 </div><span class="red"></span>
 ```
-要求用闭包方式写一个JS从文本框中取出值并在标签span中显示出来。
+要求用闭包方式写一个 `JS` 从文本框中取出值并在标签 `span` 中显示出来。
 
 ```html
 <!DOCTYPE html>
@@ -1247,11 +1240,11 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 13. #### <a id="ie6_position_fixed_div"></a> 在IE6.0下面是不支持position：fixed的，请写一个JS使用<div id="box"></div>固定在页面的右下角
 ##### 前提知识
 1. window.onscroll
-为当前页面的页面滚动事件添加事件处理函数.
+为当前页面的页面滚动事件添加事件处理函数
 2. window.onresize
-用来获取或设置当前窗口的resize事件的事件处理函数
+用来获取或设置当前窗口的 `resize` 事件的事件处理函数
 3. window.onload
-用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行某个方法。
+用于在网页加载完毕后立刻执行的操作，即当 `HTML` 文档加载完毕后，立刻执行某个方法
 4. document.documentElement.scrollTop
 获取滚动条位置
 5. document.documentElement.clientWidth
@@ -1259,9 +1252,9 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 6. document.documentElement.clientHeight
 获取浏览器窗口文档显示区域的高度，不包括滚动条。
 7. document.documentElement.offsetWidth
-获取DOM文档的根节点html元素对象的宽度，即offsetWidth=width+padding+border，不包括margin。
+获取 `DOM` 文档的根节点 `html` 元素对象的宽度，即 `offsetWidth=width+padding+border`，不包括 `margin`。
 8. document.documentElement.offsetHeight
-获取DOM文档的根节点html元素对象的高度，即offsetHeight=height+padding+border，不包括margin。
+获取 `DOM` 文档的根节点 `html` 元素对象的高度，即 `offsetHeight=height+padding+border`，不包括 `margin`。
 ##### 解析
 1. 当前页面的页面滚动、更改当前页面的大小和加载完成时执行下面方法
 2. 获取div，获取滚动条位置
@@ -1298,17 +1291,17 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 ```
 ##### 课外知识
 1. document.documentElement.scrollWidth
-获取html元素对象内容的实际宽度，即html元素对象的滚动宽度。
+获取 `html` 元素对象内容的实际宽度，即 `html` 元素对象的滚动宽度。
 2. document.documentElement.scrollHeight
-获取html元素对象内容的实际高度，即html元素对象的滚动高度。
+获取 `html` 元素对象内容的实际高度，即 `html` 元素对象的滚动高度。
 3. document.documentElement.clientLeft
-获取html元素对象的左边框的宽度。
+获取 `html` 元素对象的左边框的宽度。
 4. document.documentElement.clientTop
-获取html元素对象的上边框的宽度。
+获取 `html` 元素对象的上边框的宽度。
 5. document.doucmentElement.offsetLeft
-获取html元素对象相对于整个页面文档的位置，也就是html元素的margin。
+获取 `html` 元素对象相对于整个页面文档的位置，也就是 `html` 元素的 `margin`。
 6. document.documentElement.offsetTop
-获取html元素对象相对于整个页面文档的位置，也就是html元素的margin。
+获取 `html` 元素对象相对于整个页面文档的位置，也就是 `html` 元素的 `margin`。
 7. document.documentElement.scrollLeft
 设置或获取页面文档向右滚动过的像素数。
 8. document.documentElement.scrollTop
@@ -1322,11 +1315,11 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 请实现，鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓。
 
 ##### 先前知识
-1. document.body返回当前文档中的<body>元素或者<frameset>元素.
+1. document.body返回当前文档中的 `<body>` 元素或者 `<frameset>` 元素.
 2. nodeType 属性返回以数字值返回指定节点的节点类型。
-如果节点是元素节点，则 nodeType 属性将返回 1。
-如果节点是属性节点，则 nodeType 属性将返回 2。
-如果节点是文本节点，则 nodeType 属性将返回 3。
+如果节点是元素节点，则 `nodeType` 属性将返回 `1`。
+如果节点是属性节点，则 `nodeType` 属性将返回 `2`。
+如果节点是文本节点，则 `nodeType` 属性将返回 `3`。
 3. onmouseover 事件会在鼠标指针移动到指定的对象上时发生。
 ##### 解析
 1. 获取body中的节点
@@ -1381,36 +1374,33 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-15. #### js的基础对象有哪些window和document的常用的方法和属性列出来
-js的基础对象有哪些，window和document的常用的方法和属性列出来
+15. #### <div id="js_basic_object"></div>js的基础对象有哪些?window和document的常用的方法和属性列出来
 
-```html
-  String,Number,Boolean
+`String,Number,Boolean`
 
-Window:
+- Window:
 
-方法：setInterval,setTimeout,clearInterval,clearTimeout,alert,confirm,open
+方法：`setInterval,setTimeout,clearInterval,clearTimeout,alert,confirm,open`
 
-属性：name,parent,screenLeft,screenTop,self,top,status
+属性：`name,parent,screenLeft,screenTop,self,top,status`
 
-Document
+- Document
 
-方法：createElement,execCommand,getElementById,getElementsByName,getElementByTagName,write,writeln
+方法：`createElement,execCommand,getElementById,getElementsByName,getElementByTagName,write,writeln`
 
-属性：cookie,doctype,domain,documentElement,readyState,URL,
-```
+属性：`cookie,doctype,domain,documentElement,readyState,URL`
+
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 16. #### JavaScript中如何对一个对象进行深度clone
-
 ##### 解析
 1. 为空且不为object类型返回自身
 2. 根据原始值的类型创建同样类型的值
 3. 遍历原始值，将原始值中的对象和属性拷贝到新值，并返回
 
-不反对用Ext.ux.clone，但是最好还是递归
+不反对用 `Ext.ux.clone`，但是最好还是递归
 ```js
 function cloneObject(o) {
     // 1. 是否是object,是否为空
@@ -1441,9 +1431,7 @@ console.log('b', b)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-17. #### js中如何定义class如何扩展protope
-
-js中如何定义class，如何扩展protope？
+17. #### <div id="class_prototype"></div>js中如何定义class，如何扩展prototype？
 ```html
 Ele.className = “***”; //***在css中定义，形式如下：.*** {…}
 
@@ -1459,61 +1447,51 @@ C是想要定义的属性的值
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-18. #### ajax是什么ajax的交互模型同步和异步的区别如何解决跨域问题
-
-题目： ajax是什么？ajax的交互模型？同步和异步的区别？如何解决跨域问题？
+18. #### <div id="ajax_async_sync"></div>ajax是什么？ajax的交互模型？同步和异步的区别？如何解决跨域问题？
 #####  ajax是什么
-Ajax是多种技术组合起来的一种浏览器和服务器交互技术，基本思想是允许一个互联网浏览器向一个远程页面/服务做异步的http调用，并且用收到的数据来更新一个当前web页面而不必刷新整个页面。该技术能够改进客户端的体验。包含的技术：
+`Ajax` 是多种技术组合起来的一种浏览器和服务器交互技术，基本思想是允许一个互联网浏览器向一个远程页面/服务做异步的 `http` 调用，并且用收到的数据来更新一个当前 `web` 页面而不必刷新整个页面。该技术能够改进客户端的体验。包含的技术：
 
-XHTML：对应W3C的XHTML规范，目前是XHTML1.0。
-
-CSS：对应W3C的CSS规范，目前是CSS2.0
-
-DOM：这里的DOM主要是指HTML DOM，XML DOM包括在下面的XML中
-
-JavaScript：对应于ECMA的ECMAScript规范
-
-XML：对应W3C的XML DOM、XSLT、XPath等等规范
-
-XMLHttpRequest：对应WhatWG的Web Applications1.0规范（http://whatwg.org/specs/web-apps/current-work/）
+- XHTML：对应W3C的XHTML规范，目前是XHTML1.0。
+- CSS：对应W3C的CSS规范，目前是CSS2.0
+- DOM：这里的DOM主要是指HTML DOM，XML DOM包括在下面的XML中
+- JavaScript：对应于ECMA的ECMAScript规范
+- XML：对应W3C的XML DOM、XSLT、XPath等等规范
+- XMLHttpRequest：对应WhatWG的Web Applications1.0规范（http://whatwg.org/specs/web-apps/current-work/）
 
 #####  ajax的交互模型
-AJAX交互模型
+`AJAX` 交互模型
 
 同步：脚本会停留并等待服务器发送回复然后再继续
 
 异步：脚本允许页面继续其进程并处理可能的回复
 
 #####  同步和异步的区别
-
-跨域问题简单的理解就是因为JS同源策略的限制，a.com域名下的JS无法操作b.com或c.a.com下的对象，具体场景如下：
+跨域问题简单的理解就是因为 `JS` 同源策略的限制，`a.com` 域名下的 `JS` 无法操作 `b.com` 或 `c.a.com` 下的对象，具体场景如下：
 
 1. 如果是端口或者协议造成的跨域问题前端是无能为力的
-
 2. 在跨域问题上，域仅仅通过URL的首部来识别而不会尝试判断相同的IP地址对应的域或者两个域是否对应一个IP
 
 #####  没有同源策略限制的两大危险场景
-据我了解，浏览器是从两个方面去做这个同源策略的，一是针对接口的请求，二是针对Dom的查询。试想一下没有这样的限制上述两种动作有什么危险。
+据我了解，浏览器是从两个方面去做这个同源策略的，一是针对接口的请求，二是针对 `Dom` 的查询。试想一下没有这样的限制上述两种动作有什么危险。
 
 ###### 没有同源策略限制的接口请求
-有一个小小的东西叫cookie大家应该知道，一般用来处理登录等场景，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入Set-Cookie字段，然后下次再发请求的时候，浏览器会自动将cookie附加在HTTP请求的头字段Cookie中，服务端就能知道这个用户已经登录过了。知道这个之后，我们来看场景：
+有一个小小的东西叫 `cookie` 大家应该知道，一般用来处理��录等场景，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入 `Set-Cookie` 字段，然后下次再发请求的时候，浏览器会自动将 `cookie` 附加在 `HTTP` 请求的头字段 `Cookie` 中，服务端就能知道这个用户已经登录过了。知道这个之后，我们来看场景：
 
 1. 你登陆了安全的网站www.yinhang.com,准备转账;
 2. 突然右下脚跳出弹框;
 3. 你没注意点了进去，然后由于没有同源策略的限制，它向www.yinhang.com发起了请求！ 很不幸你的银行账户被第三方恶意登录转账，等你回过神来，钱没了。
 
-这就是CSRF攻击方式。
+这就是 `CSRF` 攻击方式。
 
-看了这波CSRF攻击我在想，即使有了同源策略限制，但cookie是明文的，还不是一样能拿下来。于是我看了一些cookie相关的文章聊一聊 cookie、Cookie/Session的机制与安全，知道了服务端可以设置httpOnly，使得前端无法操作cookie，如果没有这样的设置，像XSS攻击就可以去获取到cookieWeb安全测试之XSS；设置secure，则保证在https的加密通信中传输以防截获。
+看了这波 `CSRF` 攻击我在想，即使有了同源策略限制，但 `cookie` 是明文的，还不是一样能拿下来。服务端可以设置  `httpOnly`，使得前端无法操作 `cookie`，如果没有这样的设置，像 `XSS` 攻击就可以去获取到 `cookieWeb` 安全测试之 `XSS`；设置 `secure`，则保证在 `https` 的加密通信中传输以防截获。
 
 ###### 没有同源策略限制的Dom查询
-
 1. 有一天你刚睡醒，收到一封邮件，说是你的银行账号有风险，赶紧点进www.yinghang.com改密码。你吓尿了，赶紧点进去，还是熟悉的银行登录界面，你果断输入你的账号密码，登录进去看看钱有没有少了。
 2. 睡眼朦胧的你没看清楚，平时访问的银行网站是www.yinhang.com，而现在访问的是www.yinghang.com，这个钓鱼网站做了什么呢？
 ```html
 <iframe name="yinhang" src="www.yinhang.com"></iframe>
 ```
-由于没有同源策略的限制，钓鱼网站可以直接拿到别的网站的Dom
+由于没有同源策略的限制，钓鱼网站可以直接拿到别的网站的 `Dom`
 ```js
 const iframe = window.frames['yinhang']
 const node = iframe.document.getElementById('你输入账号密码的Input')
@@ -1524,7 +1502,7 @@ console.log(`拿到了这个${node}，我还拿不到你刚刚输入的账号密
 ##### 前端对于跨域的解决办法
 同源策略限制下接口请求的正确打开方式
 ###### 1. JSONP
-在HTML标签里，一些标签比如script、img这样的获取资源的标签是没有跨域限制的，利用这一点，我们可以这样干：
+在 `HTML` 标签里，一些标签比如 `script、img` 这样的获取资源的标签是没有跨域限制的，利用这一点，我们可以这样干：
 
 后端写个小接口
 ```js
@@ -1604,7 +1582,7 @@ request({
 })
 ```
 ###### 2. 空iframe加form
-细心的朋友可能发现，JSONP只能发GET请求，因为本质上script加载资源就是GET，那么如果要发POST请求怎么办呢？
+细心的朋友可能发现，`JSONP` 只能发 `GET` 请求，因为本质上 `script` 加载资源就是 `GET`，那么如果要发 `POST` 请求怎么办呢？
 
 后端写个小接口
 ```js
@@ -1618,6 +1596,7 @@ class CrossDomain {
   }
 }
 module.exports = CrossDomain
+```
 前端
 ```js
 const requestPost = ({url, data}) => {
@@ -1659,22 +1638,22 @@ requestPost({
 })
 ```
 ###### 3. CORS
+`CORS` 是一个 `W3C` 标准，全称是"跨域资源共享"（`Cross-origin resource sharing`）跨域资源共享 `CORS` 详解。看名字就知道这是处理跨域问题的标准做法。
 
-CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）跨域资源共享 CORS 详解。看名字就知道这是处理跨域问题的标准做法。
-
-浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。
+浏览器将 `CORS` 请求分成两类：简单请求（`simple request`）和非简单请求（`not-so-simple request`）。
 
 只要同时满足以下两大条件，就属于简单请求。
-（1) 请求方法是以下三种方法之一：
-HEAD
-GET
-POST
-（2）HTTP的头信息不超出以下几种字段：
-Accept
-Accept-Language
-Content-Language
-Last-Event-ID
-Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+- 请求方法是以下三种方法之一：
+ - HEAD
+ - GET
+ - POST
+- HTTP的头信息不超出以下几种字段：
+ - Accept
+ - Accept-Language
+ - Content-Language
+ - Last-Event-ID
+ - Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+
 i. 简单请求
 后端
 ```js
@@ -1691,15 +1670,14 @@ class CrossDomain {
 }
 module.exports = CrossDomain
 ```
-前端什么也不用干，就是正常发请求就可以，如果需要带cookie的话，前后端都要设置一下，下面那个非简单请求例子会看到。
+前端什么也不用干，就是正常发请求就可以，如果需要带 `cookie` 的话，前后端都要设置一下，下面那个非简单请求例子会看到。
 ```js
 fetch(`http://localhost:9871/api/cors?msg=helloCors`).then(res => {
   console.log(res)
 })
 ```
 ii. 非简单请求
-非简单请求会发出一次预检测请求，返回码是204，预检测通过才会真正发出请求，这才返回200。这里通过前端发请求的时候增加一个额外的headers来触发非简单请求。
-clipboard.png
+非简单请求会发出一次预检测请求，返回码是`204`，预检测通过才会真正发出请求，这才返回`200`。这里通过前端发请求的时候增加一个额外的`headers`来触发非简单请求。
 
 后端
 ```js
@@ -1722,7 +1700,7 @@ class CrossDomain {
 }
 module.exports = CrossDomain
 ```
-一个接口就要写这么多代码，如果想所有接口都统一处理，有什么更优雅的方式呢？见下面的koa2-cors。
+一个接口就要写这么多代码，如果想所有接口都统一处理，有什么更优雅的方式呢？见下面的 `koa2-cors`。
 ```js
 const path = require('path')
 const Koa = require('koa')
@@ -1765,24 +1743,24 @@ fetch(`http://localhost:9871/api/cors?msg=helloCors`, {
 })
 ```
 ###### 4. 代理
-想一下，如果我们请求的时候还是用前端的域名，然后有个东西帮我们把这个请求转发到真正的后端域名上，不就避免跨域了吗？这时候，Nginx出场了。
-Nginx配置
+想一下，如果我们请求的时候还是用前端的域名，然后有个东西帮我们把这个请求转发到真正的后端域名上，不就避免跨域了吗？这时候，`Nginx` 出场了。
+
+`Nginx` 配置
 ```js
 server{
-    # 监听9099端口
+    // 监听9099端口
     listen 9099;
-    # 域名是localhost
+    // 域名是localhost
     server_name localhost;
-    #凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
+    // 凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
     location ^~ /api {
         proxy_pass http://localhost:9871;
     }    
 }
 ```
-
 前端就不用干什么事情了，除了写接口，也没后端什么事情了
 
-// 请求的时候直接用回前端这边的域名http://localhost:9099，这就不会跨域，然后Nginx监听到凡是localhost:9099/api这个样子的，都转发到真正的服务端地址http://localhost:9871 
+请求的时候直接用回前端这边的域名 `http://localhost:9099`，这就不会跨域，然后 `Nginx` 监听到凡是 `localhost:9099/api` 这个样子的，都转发到真正的服务端地址 `http://localhost:9871`。 
 ```js
 fetch('http://localhost:9099/api/iframePost', {
   method: 'POST',
@@ -1795,13 +1773,13 @@ fetch('http://localhost:9099/api/iframePost', {
   })
 })
 ```
-Nginx转发的方式似乎很方便！但这种使用也是看场景的，如果后端接口是一个公共的API，比如一些公共服务获取天气什么的，前端调用的时候总不能让运维去配置一下Nginx，如果兼容性没问题（IE 10或者以上），CROS才是更通用的做法吧。
+`Nginx` 转发的方式似乎很方便！但这种使用也是看场景的，如果后端接口是一个公共的 `API`，比如一些公共服务获取天气什么的，前端调用的时候总不能让运维去配置一下 `Nginx`，如果兼容性没问题（`IE 10`或者以上），`CROS` 才是更通用的做法吧。
 
 ###### 5. postMessage
-window.postMessage() 是HTML5的一个接口，专注实现不同窗口不同页面的跨域通讯。
-为了演示方便，我们将hosts改一下：127.0.0.1 crossDomain.com，现在访问域名crossDomain.com就等于访问127.0.0.1。
+`window.postMessage()` 是 `HTML5` 的一个接口，专注实现不同窗口不同页面的跨域通讯。
+为了演示方便，我们将 `hosts` 改一下：`127.0.0.1 crossDomain.com`，现在访问域名 `crossDomain.com` 就等于访问 `127.0.0.1`。
 
-这里是http://localhost:9099/#/crossDomain，发消息方
+这里是 `http://localhost:9099/#/crossDomain`，发消息方
 ```js
 <template>
   <div>
@@ -1832,7 +1810,7 @@ export default {
 </script>
 ```
 
-这里是http://crossdomain.com:9099，接收消息方
+这里是`http://crossdomain.com:9099`，接收消息方
 
 ```js
 <template>
@@ -1860,170 +1838,50 @@ export default {
 ```
 
 ###### 6. document.domain
-这种方式只适合主域名相同，但子域名不同的iframe跨域。
-比如主域名是http://crossdomain.com:9099，子域名是http://child.crossdomain.com:9099，这种情况下给两个页面指定一下document.domain即document.domain = crossdomain.com就可以访问各自的window对象了。
-
-3.canvas操作图片的跨域问题
-这个应该是一个比较冷门的跨域问题，张大神已经写过了我就不再班门弄斧了解决canvas图片getImageData,toDataURL跨域问题
-
-因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax 请求会失败。
-
-那么是出于什么安全考虑才会引入这种机制呢？ 其实主要是用来防止 CSRF 攻击的。简单点说，CSRF 攻击是利用用户的登录态发起恶意请求。
-
-也就是说，没有同源策略的情况下，A 网站可以被任意其他来源的 Ajax 访问到内容。如果你当前 A 网站还存在登录态，那么对方就可以通过 Ajax 获得你的任何信息。当然跨域并不能完全阻止 CSRF。
-
-然后我们来考虑一个问题，请求跨域了，那么请求到底发出去没有？ 请求必然是发出去了，但是浏览器拦截了响应。你可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会。因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。
-
-接下来我们将来学习几种常见的方式来解决跨域的问题。
-
-JSONP
-JSONP 的原理很简单，就是利用 <script> 标签没有跨域限制的漏洞。通过 <script> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。
-
-<script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
-<script>
-    function jsonp(data) {
-    	console.log(data)
-	}
-</script>    
-JSONP 使用简单且兼容性不错，但是只限于 get 请求。
-
-在开发中可能会遇到多个 JSONP 请求的回调函数名是相同的，这时候就需要自己封装一个 JSONP，以下是简单实现
-
-function jsonp(url, jsonpCallback, success) {
-  let script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.type = 'text/javascript'
-  window[jsonpCallback] = function(data) {
-    success && success(data)
-  }
-  document.body.appendChild(script)
-}
-jsonp('http://xxx', 'callback', function(value) {
-  console.log(value)
-})
-CORS
-CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
-
-浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。只要后端实现了 CORS，就实现了跨域。
-
-服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。
-
-虽然设置 CORS 和前端没什么关系，但是通过这种方式解决跨域问题的话，会在发送请求时出现两种情况，分别为简单请求和复杂请求。
-
-简单请求
-以 Ajax 为例，当满足以下条件时，会触发简单请求
-
-使用下列方法之一：
-
-GET
-
-HEAD
-
-POST
-
-Content-Type 的值仅限于下列三者之一：
-
-text/plain
-
-multipart/form-data
-
-application/x-www-form-urlencoded
-
-请求中的任意 XMLHttpRequestUpload 对象均没有注册任何事件监听器； XMLHttpRequestUpload 对象可以使用 XMLHttpRequest.upload 属性访问。
-
-复杂请求
-那么很显然，不符合以上条件的请求就肯定是复杂请求了。
-
-对于复杂请求来说，首先会发起一个预检请求，该请求是 option 方法的，通过该请求来知道服务端是否允许跨域请求。
-
-对于预检请求来说，如果你使用过 Node 来设置 CORS 的话，可能会遇到过这么一个坑。
-
-以下以 express 框架举例：
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials'
-  )
-  next()
-})
-该请求会验证你的 Authorization 字段，没有的话就会报错。
-
-当前端发起了复杂请求后，你会发现就算你代码是正确的，返回结果也永远是报错的。因为预检请求也会进入回调中，也会触发 next 方法，因为预检请求并不包含 Authorization 字段，所以服务端会报错。
-
-想解决这个问题很简单，只需要在回调中过滤 option 方法即可
-
-res.statusCode = 204
-res.setHeader('Content-Length', '0')
-res.end()
-document.domain
-该方式只能用于二级域名相同的情况下，比如 a.test.com 和 b.test.com 适用于该方式。
-
-只需要给页面添加 document.domain = 'test.com' 表示二级域名都相同就可以实现跨域
-
-postMessage
-这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息
-
-// 发送消息端
-window.parent.postMessage('message', 'http://test.com')
-// 接收消息端
-var mc = new MessageChannel()
-mc.addEventListener('message', event => {
-  var origin = event.origin || event.originalEvent.origin
-  if (origin === 'http://test.com') {
-    console.log('验证通过')
-  }
-})
+这种方式只适合主域名相同，但子域名不同的 `iframe` 跨域。
+比如主域名是 `http://crossdomain.com:9099`，子域名是 `http://child.crossdomain.com:9099`，这种情况下给两个页面指定一下 `document.domain` 即 `document.domain = crossdomain.com` 就可以访问各自的 `window` 对象了。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-19.  #### 请给出异步加载js方案不少于两种
-
-请给出异步加载js方案，不少于两种？
-
-默认情况javascript是同步加载的，也就是javascript的加载时阻塞的，后面的元素要等待javascript加载完毕后才能进行再加载，对于一些意义不是很大的javascript，如果放在页头会导致加载很慢的话，是会严重影响用户体验的。
-
+19.  #### <div id="async_js"></div>请给出异步加载js方案，不少于两种？
+默认情况 `javascript` 是同步加载的，也就是 `javascript` 的加载时阻塞的，后面的元素要等待 `javascript` 加载完毕后才能进行再加载，对于一些意义不是很大的 `javascript`，如果放在页头会导致加载很慢的话，是会严重影响用户体验的。
 ##### 1. defer（只支持IE）
-defer属性规定是否对脚本执行进行延迟，直到页面加载为止。
-有的javascript脚本document.write方法来创建当前的文档内容，不会改变文档的内容
+`defer` 属性规定是否对脚本执行进行延迟，直到页面加载为止。
+有的 `javascript` 脚本 `document.write` 方法来创建当前的文档内容，不会改变文档的内容
 
 ##### 2. async
-async的定义和用法(是HTML5的属性)
-async 属性规定一旦脚本可用，则会异步执行。
+`async` 属性规定一旦脚本可用，则会异步执行。
 
 ##### 3. 创建script，插入到DOM中，加载完毕后callBack，见代码：
 复制代码 代码如下:
 ```js
-function loadScript(url, callback){
-var script = document.createElement_x("script")
-script.type = "text/javascript";
-if (script.readyState){ //IE
-script.onreadystatechange = function(){
-if (script.readyState == "loaded" ||
-script.readyState == "complete"){
-script.onreadystatechange = null;
-callback();
-}
-};
-} else { //Others: Firefox, Safari, Chrome, and Opera
-script.onload = function(){
-callback();
-};
-}
-script.src = url;
-document.body.appendChild(script);
+function loadScript(url, callback) {
+    var script = document.createElement_x("script")
+    script.type = "text/javascript";
+    if (script.readyState) { //IE
+        script.onreadystatechange = function () {
+            if (script.readyState == "loaded" ||
+                script.readyState == "complete") {
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else { //Others: Firefox, Safari, Chrome, and Opera
+        script.onload = function () {
+            callback();
+        };
+    }
+    script.src = url;
+    document.body.appendChild(script);
 }
 ```
 注释：有多种执行外部脚本的方法：
-•async 属性仅适用于外部脚本（只有在使用 src 属性时）。
-•如果 async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
-•如果不使用 async 且 defer="defer"：脚本将在页面完成解析时执行
-•如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本
+- async 属性仅适用于外部脚本（只有在使用 src 属性时）。
+- 如果 async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
+- 如果不使用 async 且 defer="defer"：脚本将在页面完成解析时执行
+- 如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本
 
 有关链接：[异步加载js的几种方式](https://www.cnblogs.com/1314-/p/6561475.html)
 
@@ -2032,28 +1890,22 @@ document.body.appendChild(script);
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 20.   #### 多浏览器检测通过什么
+- Navigator  对象
+- navigator.appName     保存浏览器类型
+- navigator.appVersion   存有浏览器的版本信息
+- navigator.userAgent     用户代理
 
-```html
-Navigator  对象
-
-navigator.appName     保存浏览器类型
-
-navigator.appVersion   存有浏览器的版本信息
-
-navigator.userAgent     用户代理
-```
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 21.  #### <a id="window_onload"></a> 关于window.onload()了解多少
 
-当文档内容加载完成后，会触发window.onload方法。
+当文档内容加载完成后，会触发 `window.onload` 方法。
 
 可以为此事件注册事件处理函数，可以把要执行的脚本代码放在事件处理函数中，于是就可以避免获取不到对象的情况。
 
 ##### 还需要知道window.onload()的前世今生
-
 看代码
 ```html
 <!DOCTYPE html>
@@ -2090,7 +1942,7 @@ navigator.userAgent     用户代理
 
 为什么会出现这种情况呢？
 
-是因为html挂载都是从上往下的顺序，代码中文档放在脚本后面，所以当事件发生时，`box`还没有挂载。都没拿到`box`，那怎么给他填充颜色。
+是因为 `html` 挂载都是从上往下的顺序，代码中文档放在脚本后面，所以当事件发生时，`box`还没有挂载。都没拿到`box`，那怎么给他填充颜色。
 
 根据从上到下执行的道理，我们可以将js放到后面
 ```html
@@ -2125,7 +1977,7 @@ navigator.userAgent     用户代理
 
 </html>
 ```
-虽然效果是出来了，但是我很不喜欢，我想觉得js想要自由，不能让他受拘束，所以这时候`window.onload`就应运而生。
+虽然效果是出来了，但是我很不喜欢，我想觉得 `js` 想要自由，不能让他受拘束，所以这时候`window.onload`就应运而生。
 
 `window.onload`方法就可以在文档加载完后，触发事件，并且为此事件注册事件处理函数，于是就避免了对象获取不到的情况。
 
@@ -2201,7 +2053,7 @@ navigator.userAgent     用户代理
 </script>
 ```
 
-还可以用`window.addEventListener('load', setColor1, false)`去替换`window.onload`，可以为onload事件绑定事件处理函数
+还可以用`window.addEventListener('load', setColor1, false)`去替换`window.onload`，可以为 `onload` 事件绑定事件处理函数。
 ```js
 <script type="text/javascript">
     window.addEventListener('load', setColor1, false)
@@ -2218,7 +2070,7 @@ navigator.userAgent     用户代理
 </script>
 ```
 
-但是老版本的ie浏览器不支持`window.addEventListener`事件模型,如果不支持就使用`window.attachEvent`来实现功能。
+但是老版本的 `ie` 浏览器不支持`window.addEventListener`事件模型,如果不支持就使用`window.attachEvent`来实现功能。
 ```js
 <script type="text/javascript">
     if (window.addEventListener) {
@@ -2327,7 +2179,7 @@ result.value.then(function (data) {
 ```
 首先执行 `Generator` 函数，获取遍历器对象。
 
-然后使用 next 方法，执行异步任务的第一阶段，即 `fetch(url)`。
+然后使用 `next` 方法，执行异步任务的第一阶段，即 `fetch(url)`。
 
 注意，由于 `fetch(url)` 会返回一个 `Promise` 对象，所以 `result` 的值为：
 ```js
@@ -2336,7 +2188,7 @@ result.value.then(function (data) {
 最后我们为这个 `Promise` 对象添加一个 `then` 方法，先将其返回的数据格式化`(data.json())`，再调用 `g.next`，将获得的数据传进去，由此可以执行异步任务的第二阶段……
 
 ##### 多个异步任务
-那如果我们调用了多个接口，使用了多个 yield，照上述情况，我们就要在 then 函数中不断的嵌套下去……
+那如果我们调用了多个接口，使用了多个 `yield`，照上述情况，我们就要在 `then` 函数中不断的嵌套下去……
 
 所以我们来看看执行多个异步任务的情况：
 ```js
@@ -2699,7 +2551,7 @@ recursion()
 ##### co
 如果我们再将这个启动器函数写的完善一些，我们就相当于写了一个 `co`
 
-而 `co` 是什么？ `co` 是大神 TJ Holowaychuk 于 2013 年 6 月发布的一个小模块，用于 `Generator` 函数的自动执行。
+而 `co` 是什么？ `co` 是大神 `TJ Holowaychuk` 于 `2013` 年 `6` 月发布的一个小模块，用于 `Generator` 函数的自动执行。
 
 如果直接使用 `co` 模块，上面的例子可以简写成:
 
@@ -2755,12 +2607,11 @@ co(gen);
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 23. #### promise原理
-
 ##### 什么是promise
 
-promise的中文意思是承诺，
+`promise` 的中文意思是承诺，
 
-并且会回复三种状态，分别是：等待中（pending）、完成了 （resolved）和拒绝了（rejected）
+并且会回复三种状态，分别是：等待中（`pending`）、完成了 （`resolved`）和拒绝了（`rejected`）
 
 既然是承诺，那就得一言既出驷马难追。
 所以`promise`一旦从等待状态变成为其他状态就永远不能更改状态了
@@ -2770,37 +2621,37 @@ new Promise((resolve, reject) => {
   reject('reject')// 无效
 })
 ```
-pending 状态的 Promise 对象可能会变为fulfilled 状态并传递一个值给相应的状态处理方法，也可能变为失败状态（rejected）并传递失败信息。当其中任一种情况出现时，Promise 对象的 then 方法绑定的处理方法（handlers ）就会被调用（then方法包含两个参数：onfulfilled 和 onrejected，它们都是 Function 类型。当Promise状态为fulfilled时，调用 then 的 onfulfilled 方法，当Promise状态为rejected时，调用 then 的 onrejected 方法， 所以在异步操作的完成和绑定处理方法之间不存在竞争）。
+`pending` 状态的 `Promise` 对象可能会变为 `fulfilled` 状态并传递一个值给相应的状态处理方法，也可能变为失败状态（`rejected`）并传递失败信息。当其中任一种情况出现时，`Promise` 对象的 `then` 方法绑定的处理方法（`handlers`）就会被调用（`then`方法包含两个参数：`onfulfilled` 和 `onrejected`，它们都是 `Function` 类型。当 `Promise` 状态为 `fulfilled` 时，调用 `then` 的 `onfulfilled` 方法，当 `Promise` 状态为 `rejected` 时，调用 `then` 的 `onrejected` 方法，所以在异步操作的完成和绑定处理方法之间不存在竞争）。
 
-因为 Promise.prototype.then 和  Promise.prototype.catch 方法返回promise 对象， 所以它们可以被链式调用。
+因为 `Promise.prototype.then` 和 `Promise.prototype.catch` 方法返回 `promise` 对象，所以它们可以被链式调用。
 
-不要和惰性求值混淆： 有一些语言中有惰性求值和延时计算的特性，它们也被称为“promises”，例如Scheme.Javascript中的promise代表一种已经发生的状态， 而且可以通过回调方法链在一起。 如果你想要的是表达式的延时计算，考虑无参数的"箭头方法":  f = () =>表达式 创建惰性求值的表达式，使用 f() 求值。
+不要和惰性求值混淆： 有一些语言中有惰性求值和延时计算的特性，它们也被称为“`promises`”，例如 `Scheme.Javascript` 中的 `promise` 代表一种已经发生的状态，而且可以通过回调方法链在一起。如果你想要的是表达式的延时计算，考虑无参数的"箭头方法":  `f = () =>` 表达式创建惰性求值的表达式，使用 `f()` 求值。
 
-注意： 如果一个promise对象处在fulfilled或rejected状态而不是pending状态，那么它也可以被称为settled状态。你可能也会听到一个术语resolved ，它表示promise对象处于settled状态。
+注意： 如果一个 `promise` 对象处在 `fulfilled` 或 `rejected` 状态而不是 `pending` 状态，那么它也可以被称为 `settled` 状态。你可能也会听到一个术语 `resolved` ，它表示 `promise` 对象处于 `settled` 状态。
 
 [](https://mdn.mozillademos.org/files/8633/promises.png)
 
 ###### 参数
-executor是带有 resolve 和 reject 两个参数的函数 。Promise构造函数执行时立即调用executor 函数， resolve 和 reject 两个函数作为参数传递给executor（executor 函数在Promise构造函数返回所建promise实例对象前被调用）。resolve 和 reject 函数被调用时，分别将promise的状态改为fulfilled（完成）或rejected（失败）。executor 内部通常会执行一些异步操作，一旦异步操作执行完毕(可能成功/失败)，要么调用resolve函数来将promise状态改成fulfilled，要么调用reject 函数将promise的状态改为rejected。如果在executor函数中抛出一个错误，那么该promise 状态为rejected。executor函数的返回值被忽略。
+`executor` 是带有 `resolve` 和 `reject` 两个参数的函数 。 `Promise` 构造函数执行时立即调用 `executor` 函数， `resolve` 和 `reject` 两个函数作为参数传递给 `executor`（`executor` 函数在 `Promise` 构造函数返回所建 `promise` 实例对象前被调用）。 `resolve` 和 `reject` 函数被调用时，分别将 `promise` 的状态改为 `fulfilled` （完成）或 `rejected` （失败）。 `executor` 内部通常会执行一些异步操作，一旦异步操作执行完毕(可能成功/失败)，要么调用 `resolve` 函数来将 `promise` 状态改成 `fulfilled`，要么调用 `reject` 函数将 `promise` 的状态改为 `rejected` 。如果在 `executor` 函数中抛出一个错误，那么该 `promise` 状态为 `rejected`。`executor` 函数的返回值被忽略。
 ###### 属性
-Promise.length
-length属性，其值总是为 1 (构造器参数的数目).
-Promise.prototype
-表示 Promise 构造器的原型.
+- Promise.length
+`length` 属性，其值总是为 1 (构造器参数的数目).
+- Promise.prototype
+表示 `Promise` 构造器的原型.
 ###### 方法
 - Promise.all(iterable)
-这个方法返回一个新的promise对象，该promise对象在iterable参数对象里所有的promise对象都成功的时候才会触发成功，一旦有任何一个iterable里面的promise对象失败则立即触发该promise对象的失败。这个新的promise对象在触发成功状态以后，会把一个包含iterable里所有promise返回值的数组作为成功回调的返回值，顺序跟iterable的顺序保持一致；如果这个新的promise对象触发了失败状态，它会把iterable里第一个触发失败的promise对象的错误信息作为它的失败错误信息。`Promise.all`方法常被用于处理多个`promise`对象的状态集合。
+这个方法返回一个新的 `promise` 对象，该 `promise` 对象在 `iterable` 参数对象里所有的 `promise` 对象都成功的时候才会触发成功，一旦有任何一个 `iterable` 里面的 `promise` 对象失败则立即触发该 `promise` 对象的失败。这个新的 `promise` 对象在触发成功状态以后，会把一个包含 `iterable` 里所有 `promise` 返回值的数组作为成功回调的返回值，顺序跟 `iterable` 的顺序保持一致；如果这个新的 `promise` 对象触发了失败状态，它会把 `iterable` 里第一个触发失败的 `promise` 对象的错误信息作为它的失败错误信息。`Promise.all`方法常被用于处理多个`promise`对象的状态集合。
 - Promise.race(iterable)  
-当`iterable`参数里的任意一个子`promise`被成功或失败后，父`promise`马上也会用子`promise`的成功返回值或失败详情作为参数调用父`promise`绑定的相应句柄，并返回该`promise`对象。
+当 `iterable` 参数里的任意一个子 `promise` 被成功或失败后，父 `promise` 马上也会用子 `promise` 的成功返回值或失败详情作为参数调用父 `promise` 绑定的相应句柄，并返回该 `promise` 对象。
 - Promise.reject(reason)
-返回一个状态为失败的`Promise`对象，并将给定的失败信息传递给对应的处理方法
+返回一个状态为失败的 `Promise` 对象，并将给定的失败信息传递给对应的处理方法。
 - Promise.resolve(value)
-返回一个状态由给定`value`决定的`Promise`对象。如果该值是`thenable`(即，带有`then`方法的对象)，返回的`Promise`对象的最终状态由`then`方法执行决定；否则的话(该`value`为空，基本类型或者不带`then`方法的对象),返回的`Promise`对象状态为`fulfilled`，并且将该`value`传递给对应的`then`方法。通常而言，如果你不知道一个值是否是`Promise`对象，使用`Promise.resolve(value)` 来返回一个`Promise`对象,这样就能将该`value`以`Promise`对象形式使用。
+返回一个状态由给定 `value` 决定的 `Promise` 对象。如果该值是 `thenable`(即，带有 `then` 方法的对象)，返回的 `Promise` 对象的最终状态由 `then` 方法执行决定；否则的话(该 `value` 为空，基本类型或者不带 `then` 方法的对象),返回的 `Promise` 对象状态为 `fulfilled`，并且将该 `value` 传递给对应的 `then` 方法。通常而言，如果你不知道一个值是否是 `Promise` 对象，使用 `Promise.resolve(value)` 来返回一个 `Promise` 对象,这样就能将该 `value` 以 `Promise` 对象形式使用。
 ###### 基本用法
 ```js
-new Promise( function(resolve, reject) {...} /* executor */  );
+new Promise(function(resolve, reject) {...} /* executor */  );
 ```
-Promise 对象是由关键字 new 及其构造函数来创建的。该构造函数会把一个叫做“处理器函数”（executor function）的函数作为它的参数。这个“处理器函数”接受两个函数——resolve 和 reject ——作为其参数。当异步任务顺利完成且返回结果值时，会调用 resolve 函数；而当异步任务失败且返回失败原因（通常是一个错误对象）时，会调用reject 函数。
+`Promise` 对象是由关键字 `new` 及其构造函数来创建的。该构造函数会把一个叫做“处理器函数”（`executor function`）的函数作为它的参数。这个“处理器函数”接受两个函数—— `resolve` 和 `reject` —— 作为其参数。当异步任务顺利完成且返回结果值时，会调用 `resolve` 函数；而当异步任务失败且返回失败原因（通常是一个错误对象）时，会调用 `reject` 函数。
 ```js
 const myFirstPromise = new Promise((resolve, reject) => {
   // ?做一些异步操作，最终会调用下面两者之一:
@@ -2810,9 +2661,7 @@ const myFirstPromise = new Promise((resolve, reject) => {
   //   reject("failure reason"); // rejected
 });
 ```
-
-当我们在构造 `Promise` 的时候，构造函数内部的代码是立即执行的
-
+当我们在构造 `Promise` 的时候，构造函数内部的代码是立即执行的。
 ```js
 new Promise((resolve, reject) => {
   console.log('new Promise')
@@ -2848,9 +2697,9 @@ ajax(url)
 ```
 
 ##### 高级示例
-本例展示了 Promise 的一些机制。 testPromise() 方法在每次点击 <button> 按钮时被调用，该方法会创建一个promise 对象，使用 window.setTimeout() 让Promise等待 10-12 秒不等的时间来填充数据（通过Math.random()方法）。
+本例展示了 `Promise` 的一些机制。 `testPromise()` 方法在每次点击 `<button>` 按钮时被调用，该方法会创建一个 `promise` 对象，使用 `window.setTimeout()` 让 `Promise` 等待 `10-12` 秒不等的时间来填充数据（通过 `Math.random()` 方法）。
 
-Promise 的值的填充过程都被日志记录（logged）下来，这些日志信息展示了方法中的同步代码和异步代码是如何通过Promise完成解耦的。
+`Promise` 的值的填充过程都被日志记录（`logged`）下来，这些日志信息展示了方法中的同步代码和异步代码是如何通过 `Promise` 完成解耦的。
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -2967,8 +2816,6 @@ Promise 的值的填充过程都被日志记录（logged）下来，这些日志
 6. Promise 已填充完毕 (异步代码结束)
 9. Promise 已填充完毕 (异步代码结束)
 ```
-
-
 ##### [promise的实现原理](https://www.jianshu.com/p/43de678e918a)
  ```js 
  // 判断变量否为function
@@ -3195,9 +3042,9 @@ D: undefined and ReferenceError
 
 D
 
-在函数中，我们首先用关键词`var`声明`name`变量。这意味着这个变量提升（内存空间是在创建阶段被设置的），其默认值是`undefined`,直到我们真正到达定义变量的那一行。我们还没有在试图记录name变量的行上定义变量，所以它仍然保留`undefined`的值。
+在函数中，我们首先用关键词`var`声明`name`变量。这意味着这个变量提升（内存空间是在创建阶段被设置的），其默认值是`undefined`，直到我们真正到达定义变量的那一行。我们还没有在试图记录 `name` 变量的行上定义变量，所以它仍然保留`undefined` 的值。
 
-用`let` 和`const`关键词定义的变量被提升，但是不像`var`，不会获得初始值。在我们定义（初始化）他们之前，他们是不被接受的。这被叫做“暂时性死区”。在他们被声明之前,我们试图去获得这个变量，javascript是会抛出`ReferenceError`。
+用`let` 和`const`关键词定义的变量被提升，但是不像 `var`，不会获得初始值。在我们定义（初始化）他们之前，他们是不被接受的。这被叫做“暂时性死区”。在他们被声明之前,我们试图去获得这个变量， `javascript` 是会抛出`ReferenceError`。
 </details>
 
 ---
@@ -3222,15 +3069,14 @@ C: 3 3 3 and 0 1 2
 
 C
 
-因为在javascript中的事件队列，在循环执行后，`setTimeout`的回调才被调用。变量`i`在第一次循环中用`var`关键词被定义。在循环中，我们每次用一元操作符`++`按步长1来递增`i`。在调用`setTimeout`回调函数时，`i`在第一个例子中就等于`3`。
+因为在 `javascript` 中的事件队列，在循环执行后，`setTimeout`的回调才被调用。变量 `i` 在第一次循环中用 `var` 关键词被定义。在循环中，我们每次用一元操作符 `++` 按步长 `1` 来递增 `i`。在调用 `setTimeout` 回调函数时，`i` 在第一个例子中就等于 `3`。
 
-在第二个循环中，变量`i`被关键词`let`定义：变量被关键词`let`和`const`定义会产生闭包（块局限于`{}`）。在每个迭代中，`i`将有一个新的值，并且在循环内，每个值都是有范围的。
+在第二个循环中，变量 `i` 被关键词 `let` 定义：变量被关键词 `let` 和 `const` 定义会产生闭包（块局限于 `{}`）。在每个迭代中，`i` 将有一个新的值，并且在循环内，每个值都是有范围的。
 </details>
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
-
 
 26. #### this的指向
 
@@ -3254,7 +3100,7 @@ D: NaN and 63
 
 B
 
-注意，`diameter` 的值是一个正则函数，而`perimeter `的值是一个箭头函数。对于箭头函数，this关键字指的是它当前周围的作用域，这与常规函数不同!这意味着当我们调用`perimeter`时，它不是指向`shape`对象，而是指向它的周围范围(例如`window `)。该对象上没有值`radius`，它返回未定义的值。
+注意，`diameter` 的值是一个正则函数，而 `perimeter` 的值是一个箭头函数。对于箭头函数，`this` 关键字指的是它当前周围的作用域，这与常规函数不同!这意味着当我们调用 `perimeter` 时，它不是指向 `shape` 对象，而是指向它的周围范围(例如 `window`)。该对象上没有值 `radius`，它返回未定义的值。
 </details>
 
 ---
@@ -3315,7 +3161,7 @@ E: TypeError
 
 A
 
-在JavaScript中，所有对象在彼此相等时通过引用进行交互。首先，变量c持有对象的值。d等于c，就是d和c共享一个引用位置。当更改一个对象时，将更改所有对象
+对象是引用类型。在JavaScript中，所有对象在彼此相等时通过引用进行交互。首先，变量c持有对象的值。d等于c，就是d和c共享一个引用位置。当更改一个对象时，将更改所有对象。
 </details>
 
 ---
@@ -3348,9 +3194,7 @@ new Number()是一个内置函数构造函数。虽然它看起来像一个数�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-
 30. #### 静态方法
-
 ```javascript
 class Chameleon {
   static colorChange(newColor) {
@@ -3380,7 +3224,6 @@ colorChange函数是静态的。静态方法被设计为仅存在于创建它们
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
-
 
 31. #### 输出什么7
 
@@ -3506,7 +3349,7 @@ D: Capturing > Target > Bubbling
 
 D
 
-在捕获（capturing）阶段中，事件从祖先元素向下传播到目标元素。当事件达到目标（target）元素后，冒泡（bubbling）才开始。
+在捕获（`capturing`）阶段中，事件从祖先元素向下传播到目标元素。当事件达到目标（`target`）元素后，冒泡（`bubbling`）才开始。
 事件捕获：当使用事件捕获时，父级元素先触发，子元素后触发
 事件冒泡：当使用事件冒泡时，子级元素先触发，父元素后触发
 </details>
@@ -3595,7 +3438,7 @@ C: "Lydia" ["", " is ", " years old"] 21
 模板字符串使用反引号 (` `) 来代替普通字符串中的用双引号和单引号。
 
 ##### 原始字符串
-在标签函数的第一个参数中，存在一个特殊的属性raw ，我们可以通过它来访问模板字符串的原始字符串，而不经过特殊字符的替换。
+在标签函数的第一个参数中，存在一个特殊的属性 `raw` ，我们可以通过它来访问模板字符串的原始字符串，而不经过特殊字符的替换。
 ```js
 function tag(strings) {
   console.log(strings.raw[0]);
@@ -3605,7 +3448,7 @@ tag`string text line 1 \n string text line 2`;
 // logs "string text line 1 \n string text line 2" ,
 // including the two characters '\' and 'n'
 ```
-另外，使用String.raw() 方法创建原始字符串和使用默认模板函数和字符串连接创建是一样的。
+另外，使用 `String.raw()` 方法创建原始字符串和使用默认模板函数和字符串连接创建是一样的。
 ```js
 var str = String.raw`Hi\n${2+3}!`;
 // "Hi\n5!"
@@ -3644,11 +3487,11 @@ C: Hmm.. You don't have an age I guess
 <details><summary><b>答案</b></summary>
 
 答案: C
-在测试相等性时，基本类型通过它们的值（value）进行比较，而对象通过它们的引用（reference）进行比较。JavaScript 检查对象是否具有对内存中相同位置的引用。
+在测试相等性时，基本类型通过它们的值（`value`）进行比较，而对象通过它们的引用（`reference`）进行比较。`JavaScript` 检查对象是否具有对内存中相同位置的引用。
 
 题目中我们正在比较的两个对象不是同一个引用：作为参数传递的对象引用的内存位置，与用于判断相等的对象所引用的内存位置并不同。
 
-这也是 { age: 18 } === { age: 18 } 和 { age: 18 } == { age: 18 } 都返回 false 的原因。
+这也是 `{ age: 18 } === { age: 18 }` 和 `{ age: 18 } == { age: 18 }` 都返回 false 的原因。
 </details>
 
 ---
@@ -3671,7 +3514,7 @@ D: "NaN"
 <details><summary><b>答案</b></summary>
 
 答案: C
-扩展运算符（...args）会返回实参组成的数组。而数组是对象，因此 typeof args 返回 "object"。
+扩展运算符（`...args`）会返回实参组成的数组。而数组是对象，因此 `typeof args` 返回 "`object`"。
 </details>
 
 ---
@@ -3687,7 +3530,7 @@ B: false
 <details><summary><b>答案</b></summary>
 
 答案: B
-除了基础对象（base object），所有对象都有原型。基本对象可以访问一些方法和属性，如.tostring。这就是为什么可以使用内置的javascript方法。所有这些方法在原型上都是可用的。虽然javascript不能直接在对象上找到这些方法，但javascript会沿着原型链找到他们，以便使用。
+除了基础对象（`base object`），所有对象都有原型。基本对象可以访问一些方法和属性，如`.tostring`。这就是为什么可以使用内置的 `javascript` 方法。所有这些方法在原型上都是可用的。虽然 `javascript` 不能直接在对象上找到这些方法，但 `javascript` 会沿着原型链找到他们，以便使用。
 </details>
 
 ---
@@ -3713,7 +3556,7 @@ D: TypeError
 
 答案: C
 
-使用 "use strict"，你可以确保不会意外地声明全局变量。我们从来没有声明变量 age，因为我们使用 "use strict"，它将抛出一个引用错误。如果我们不使用 "use strict"，它就会工作，因为属性 age 会被添加到全局对象中了。
+使用 "`use strict`"，你可以确保不会意外地声明全局变量。我们从来没有声明变量 `age`，因为我们使用 "`use strict`"，它将抛出一个引用错误。如果我们不使用 "`use strict`"，它就会工作，因为属性 `age` 会被添加到全局对象中了。
 </details>
 
 ---
@@ -3734,7 +3577,7 @@ D: "10*10+5"
 
 答案: A
 
-代码以字符串形式传递进来，eval 对其求值。如果它是一个表达式，就像本例中那样，它对表达式求值。表达式是 10 * 10 + 5。这将返回数字 105。
+代码以字符串形式传递进来，`eval` 对其求值。如果它是一个表达式，就像本例中那样，它对表达式求值。表达式是 `10 * 10 + 5`。这将返回数字 `105`。
 </details>
 
 ---
@@ -3755,9 +3598,9 @@ D: 当用户关闭电脑时。
 
 答案: B
 
-关闭 tab 标签页 后，sessionStorage 存储的数据才会删除。
+关闭 `tab` 标签页 后，`sessionStorage` 存储的数据才会删除。
 
-如果使用 localStorage，那么数据将永远在那里，除非调用了 localStorage.clear()。
+如果使用 `localStorage`，那么数据将永远在那里，除非调用了 `localStorage.clear()`。
 </details>
 
 ---
@@ -3781,9 +3624,9 @@ D: ReferenceError
 
 答案: B
 
-使用 var 关键字，你可以用相同的名称声明多个变量。然后变量将保存最新的值。
+使用 `var` 关键字，你可以用相同的名称声明多个变量。然后变量将保存最新的值。
 
-你不能使用 let 或 const 来实现这一点，因为它们是块作用域的。
+你不能使用 `let` 或 `const` 来实现这一点，因为它们是块作用域的。
 </details>
 
 ---
@@ -3809,9 +3652,9 @@ D: true true true true
 
 答案: C
 
-所有对象的键（不包括 Symbol）在底层都是字符串，即使你自己没有将其作为字符串输入。这就是为什么 obj.hasOwnProperty('1') 也返回 true。
+所有对象的键（不包括 `Symbol`）在底层都是字符串，即使你自己没有将其作为字符串输入。这就是为什么 `obj.hasOwnProperty('1')` 也返回 `true`。
 
-对于集合，它不是这样工作的。在我们的集合中没有 '1'：set.has('1') 返回 false。它有数字类型为 1，set.has(1) 返回 true。
+对于集合，它不是这样工作的。在我们的集合中没有 `'1'：set.has('1')` 返回 `false`。它有数字类型为 `1`，`set.has(1)` 返回 `true`。
 
 1. 对象object的key只可以是字符串
 2. 集合set的key可以有数字类型
@@ -3836,7 +3679,7 @@ console.log(obj)
 <details><summary><b>答案</b></summary>
 <p>
 
- 答案: C
+答案: C
 
 如果你有两个名称相同的键，则键会被替换掉。它仍然位于第一个键出现的位置，但是值是最后出现那个键的值。
 
@@ -3847,9 +3690,8 @@ console.log(obj)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-48. #### JavaScript全局执行上下文为你做了两件事全局对象和this关键字
-
-JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关键字。
+48.  #### JavaScript全局执行上下文为你做了两件事全局对象和this关键字
+JavaScript 全局执行上下文为你做了两件事：全局对象和 `this` 关键字。
 - A: true
 - B: false
 - C: it depends
@@ -3857,10 +3699,9 @@ JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关
 <details><summary><b>答案</b></summary>
 <p>
 
- 答案: A
+答案: A
 
 基本执行上下文是全局执行上下文：它是代码中随处可访问的内容。
-
 </p>
 </details>
 
@@ -3868,8 +3709,7 @@ JavaScript 全局执行上下文为你做了两件事：全局对象和 this 关
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-49. #### 输出什么20
-
+49.  #### 输出什么20
 ```javascript
 for (let i = 1; i < 5; i++) {
   if (i === 3) continue
@@ -3918,7 +3758,7 @@ name.giveLydiaPizza()
 
  答案: A
 
-`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 string(string 对象)都可以访问该方法！
+`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 `string(string 对象)`都可以访问该方法！
 
 </p>
 </details>
@@ -4016,9 +3856,9 @@ async function async1() {
 
 我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。
 
-这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。
+这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 `DOM`。
 
-将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。
+将 `_callback_` 推送到 `WebAPI` 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。
 
 <img src="https://i.imgur.com/X5wsHOg.png" width="200">
 
@@ -4030,7 +3870,7 @@ async function async1() {
 
 <img src="https://i.imgur.com/WhA2bCP.png" width="200">
 
-WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。
+`WebAPI` 不能随时向栈内添加内容。相反，它将回调函数推到名为 `_queue_` 的地方。
 
 <img src="https://i.imgur.com/NSnDZmU.png" width="200">
 
@@ -4050,7 +3890,7 @@ async1 end
 promise2
 setTimeout
 
-首先，js是单线程的，主要的任务是处理用户的交互，而用户的交互无非就是响应DOM的增删改，使用事件队列的形式，一次事件循环只处理一个事件响应，使得脚本执行相对连续，所以有了事件队列，用来储存待执行的事件，那么事件队列的事件从哪里被push进来的呢。那就是另外一个线程叫事件触发线程做的事情了，他的作用主要是在定时触发器线程、异步HTTP请求线程满足特定条件下的回调函数push到事件队列中，等待js引擎空闲的时候去执行，当然js引擎执行过程中有优先级之分，首先js引擎在一次事件循环中，会先执行js线程的主任务，然后会去查找是否有微任务microtask（promise），如果有那就优先执行微任务，如果没有，在去查找宏任务macrotask（setTimeout、setInterval）进行执行。
+首先，`js` 是单线程的，主要的任务是处理用户的交互，而用户的交互无非就是响应 `DOM` 的增删改，使用事件队列的形式，一次事件循环只处理一个事件响应，使得脚本执行相对连续，所以有了事件队列，用来储存待执行的事件，那么事件队列的事件从哪里被 `push` 进来的呢。那就是另外一个线程叫事件触发线程做的事情了，他的作用主要是在定时触发器线程、异步 `HTTP` 请求线程满足特定条件下的回调函数 `push` 到事件队列中，等待 `js` 引擎空闲的时候去执行，当然 `js` 引擎执行过程中有优先级之分，首先 `js` 引擎在一次事件循环中，会先执行 `js` 线程的主任务，然后会去查找是否有微任务 `microtask`（`promise`），如果有那就优先执行微任务，如果没有，在去查找宏任务 `macrotask`（`setTimeout、setInterval`）进行执行。
 
 在一个事件循环中，异步事件返回结果后会被放到一个任务队列中。然而，根据这个异步事件的类型，这个事件实际上会被对应的宏任务队列或者微任务队列中去。并且在当前执行栈为空的时候，主线程会查看微任务队列是否有事件存在。如果不存在，那么再去宏任务队列中取出一个事件并把对应的加入当前执行栈；如果存在，则会依次执行队列中事件对应的回调，直到微任务队列为空，然后去宏任务队列中取出最前面的一个事件，把对应的回调加入当前执行栈...如此反复，进入循环。
 

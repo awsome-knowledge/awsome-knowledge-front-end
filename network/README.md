@@ -971,3 +971,109 @@ QUIC 基于 UDP 实现，是 HTTP/3 中的底层支撑协议，该协议基于 U
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+32. #### 什么是TCP
+​    TCP传输控制协议，是一种面向连接的、可靠的、基于字节流的传输层通信协议。通讯双方建立一次tcp连接，需要经过三次步骤1、客户端发送syn包（syn=j）到服务器，并入SYN_SEND状态，等待服务器确认。2、服务器收入syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），既SYN+ACK包，此时服务器进入SYN_RECV状态。3、客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK（ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。（tcp在握手过程中并不携带数据，而是在三次握手完成之后才会进行数据传送）
+
+SYN：synchronous 建立联机
+
+ACK：acknowledgement 确认
+
+SYN_SENT 、
+
+
+
+SYN_RECV 服务端被动打开后，接收到了客户端的SYN并且发送了ACK时的状态，再进一步接收到客户端的ACK就进入ESTABISHED状态。
+
+UDP（User Datagram Protocol ）用户数据报协议
+
+UDP是非面向连接协议，使用udp协议通讯并不需要建立连接，它只负责把数据尽可能发送出去，并不可靠，在接收端，UDP把每个消息断放入队列中，接收端程序从队列中读取数据。
+
+TCP/IP是位于传输层上的一种协议，用于在网络中传输数据
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+33. #### 什么是socket？
+socket是一组实现TCP/UDP通信的接口API，既无论TCP还是UDP，通过对scoket的编程，都可以实现TCP/UCP通信。（TCP或UDP是一种计算机网络通信中在传输层的一种协议，可以简单的理解成是一种约定，只有履行合同才是实质性的行动，所以无论是TCP还是UDP要产生作用，都需要有实际性的行为去执行才能体现协议的作用。socket就是实现这种作用的方法）socket作为一个通信链的句柄，它包含了网络通信必备的5种信息。1、连接使用的协议。2、本地主机的IP地址。3、本地进程的协议端口。4、远地主机的IP地址。5、远地进程的协议端口。即可知道，socket包含了通信本方和对方的ip和端口以及连接使用的协议（TCP/UDP）。通信双方中的一方（客户端）通过socket对另一方（服务端）发起连接请求，服务端在网络上监听请求，当收到客户端发来的请求之后，根据socket里携带的信息，定位到客户端，就相应请求，把socket描述发给客户端，双方确认之后连接就建立了。
+
+socket连接过程的三个步骤
+
+1、服务器监听：服务器实时监控网络状态等待客户端发来的连接请求
+
+2、客户端请求：客户端根据远程主机服务器的IP地址和协议端口向其发起连接请求
+
+3、连接确认：服务端收到socket的连接请求之后，就响应请求，把服务端socket描述发给客户端，客户端收到后一但确认。则双方建立连接，进行数据交互。
+
+socket连接一旦建立就保持连接状态，而HTTP连接则不一样，它基于tcp协议的短连接，也就是客户端发起请求，服务器响应请求之后，连接就会自动断开，不会一直保持。
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+34. #### 
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+

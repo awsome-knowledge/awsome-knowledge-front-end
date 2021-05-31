@@ -154,3 +154,17 @@ https://blog.csdn.net/weixin_44523860/article/details/105530018
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+webpack 可以用使用url-loader  将静态图片转化为 base64 编码的字符串，并内联在对应的脚本中。大幅度地较少了页面的请求数，所以在开发阶段可以无限制地使用。
+
+
+控制图片质量，压缩图片大小
+为了和 url-loader 配合，引入image-webpack-loader ，同时配置图片的 loader
+
+
+https://www.jb51.net/article/161272.htm
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)

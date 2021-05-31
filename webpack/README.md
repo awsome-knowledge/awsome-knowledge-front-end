@@ -25,6 +25,7 @@
 `loader` 用于加载某些资源文件。 因为 `webpack` 本身只能打包 `commonjs` 规范的 `js` 文件，
 对于其他资源例如 `css`，图片，或者其他的语法集，比如 `jsx`， `coffee`，是没有办法加载的。 
 这就需要对应的 `loader` 将资源转化，加载进来。
+
 `plugin` 用于扩展 `webpack` 的功能。功能更加的丰富，不仅局限于资源的加载。
 
 总结：`loader` 用于加载待打包的资源，`plugin` 用于扩展 `webpack`。
@@ -118,6 +119,37 @@ chunkhash是根据打包过程中当前chunk计算出的hash值。如果Webpack�
 contenthash有点像chunkhash，是根据打包时CSS内容计算出的hash值。一般在使用提取CSS的插件的时候，我们使用contenthash。
 
 https://www.jiangruitao.com/webpack/hash-chunkhash-contenthash/
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.  #### <div id="webpackCss"></div>webpack 将 css 合并成一个（百度）
+mini-css-extract-plugin这个插件可以完成该功能
+
+引入插件，const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+MiniCssExtractPlugin.loade取代style-loader。作用：提取js中的css成单独文件
+
+```js
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          // 创建style标签，将样式放入
+          // 'style-loader', 
+          // 这个loader取代style-loader。作用：提取js中的css成单独文件
+          MiniCssExtractPlugin.loader,
+          // 将css文件整合到js文件中
+          'css-loader'
+        ]
+      } 
+    ]
+  },
+
+```
+https://blog.csdn.net/weixin_44523860/article/details/105530018
 
 ---
 

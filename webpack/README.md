@@ -108,3 +108,17 @@ webpack 打包优化 webpack 哪里打包慢(字节跳动)
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.  #### <div id="chunkHashAndcontentHash"></div>webpack 中 chunkHash 与 contentHash 区别（百度）
+
+chunkHash触发来为每个chunk生成hash。
+
+chunkhash是根据打包过程中当前chunk计算出的hash值。如果Webpack配置是多入口配置，那么通常会生成多个chunk，每个chunk对应的出口filename获得的chunkhash是不一样的。这样可以保证打包后每一个JS文件名都不一样
+
+contenthash有点像chunkhash，是根据打包时CSS内容计算出的hash值。一般在使用提取CSS的插件的时候，我们使用contenthash。
+
+https://www.jiangruitao.com/webpack/hash-chunkhash-contenthash/
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)

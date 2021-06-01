@@ -2614,7 +2614,7 @@ co(gen);
 并且会回复三种状态，分别是：等待中（`pending`）、完成了 （`resolved`）和拒绝了（`rejected`）
 
 既然是承诺，那就得一言既出驷马难追。
-所以`promise`一旦从等待状态变成为其他状态就永远不能更改状态了
+所以 `promise` 一旦从等待状态变成为其他状态就永远不能更改状态了。
 ```js
 new Promise((resolve, reject) => {
   resolve('success')
@@ -2672,8 +2672,7 @@ console.log('finish')
 ```
 `Promise` 实现了链式调用，也就是说每次调用 `then` 之后返回的都是一个 `Promise`，
 并且是一个全新的 `Promise`，原因也是因为状态不可变。
-如果你在 `then` 中 使用了 `return`，那么 `return` 的值会被 `Promise.resolve()` 包装
-前一个`then`中的`return`的值就是后一个`then`的返回值。
+如果你在 `then` 中使用了 `return`，那么 `return` 的值会被 `Promise.resolve()` 包装前一个 `then` 中的 `return` 的值就是后一个 `then` 的返回值。
 ```js
 Promise.resolve('hello world')
   .then(res => {
@@ -10370,15 +10369,33 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 执行结果
+192. #### 实现一下模板字符串的功能
+```js
+let str1 = 'abc', str2 = 'def'
+console.log(`第一个字符串是${ str1},第二个字符串是${str2}`)
+// 第一个字符串是abc,第二个字符串是def
+ 
+ 
+ 
+ 
+let esStr = '第一个字符串是${ str1},第二个字符串是${str2}'
+function strParse(string) {
+  let args = /\$\{(.+?)\}/g   
+  return string.replace(args, function(){
+    return eval(arguments[1])
+  })
+}
+let str = strParse(esStr)
+console.log(str) // 第一个字符串是abc,第二个字符串是def
+```
 
-##### 题目：let {...a}=[1,2,3](个推一面)
-##### 答案：{0: 1, 1: 2, 2: 3}
+https://blog.csdn.net/qq_40028324/article/details/116492586
+
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 执行结果
+1.   #### 执行结果
 
 ##### 题目：let {...a}={a:1,a:2,a:3}(个推一面)
 ##### 答案：{a: 3}
@@ -10386,14 +10403,14 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 类数组
+1.   #### 类数组
 ##### 题目：类数组(个推一面)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### exports和export的区别(个推一面)
+1.   #### exports和export的区别(个推一面)
 ```js
 //a.js
 const a=13
@@ -10407,7 +10424,7 @@ a可以重新赋值吗
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 判断两个嵌套对象是否相等(个推一面)
+1.   #### 判断两个嵌套对象是否相等(个推一面)
 ```js
 //a.js
 const a=13
@@ -10421,7 +10438,7 @@ a可以重新赋值吗
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 遍历对象的方法(个推一面)
+1.   #### 遍历对象的方法(个推一面)
 ```js
 //a.js
 const a=13
@@ -10446,3 +10463,96 @@ change() {
 }
 
 sum(1)(2)(3) == 6
+
+
+
+1.   #### 实现promise.all（已支持promise）（百度）
+```js
+  Promise.all = function(promises) {
+    return new Promise(function(resolve, reject) {
+      var resolvedCounter = 0
+      var promiseNum = promises.length
+      var resolvedValues = new Array(promiseNum)
+      for (var i = 0; i < promiseNum; i++) {
+        (function(i) {
+          Promise.resolve(promises[i]).then(function(value) {
+            resolvedCounter++
+            resolvedValues[i] = value
+            if (resolvedCounter == promiseNum) {
+              return resolve(resolvedValues)
+            }
+          }, function(reason) {
+            return reject(reason)
+          })
+        })(i)
+      }
+    })
+  }
+
+  let a  = new Promise((resolve,reject)=>resolve(1))
+  let b  = new Promise((resolve,reject)=>resolve(2))
+  let c  = new Promise((resolve,reject)=>resolve(3))
+  Promise.all([a,b,c]).then(res=>{console.log(res)})
+  //  [1, 2, 3]
+```
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### ES6 symbol 如何使用以及使用场景（百度）
+
+const  a= Symbol()
+a就是唯一的
+
+场景：解除魔术字符串，取消强耦合
+
+http://caibaojian.com/es6/symbol.html
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 执行结果
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 执行结果
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 执行结果
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 执行结果
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 执行结果
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 执行结果
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+

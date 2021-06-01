@@ -168,3 +168,78 @@ https://www.jb51.net/article/161272.htm
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="treeShaking"></div>webpack 的摇树对 commonjs 和 es6 module 都生效么，原理是（百度）
+支持es6 module，commonjs就不生效了
+
+https://webpack.docschina.org/guides/tree-shaking/
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+5.  #### <div id="webpackImage"></div>webpack 处理 image 是用哪个 loader，限制成 image 大小的是（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)

@@ -1613,3 +1613,109 @@ setInterval跟上面同理 当同步代码比较多时，不确保每次能在�
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 怎么实现响应式布局的（百度）
+- 百分比设置
+- 媒体查询@media
+- vw/vh响应式布局
+- rem响应式布局
+- flex弹性/grid网格/table表格等布局方案
+- 
+https://juejin.cn/post/6844903814332432397
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1. #### flex各个属性值（百度）
+容器属性：
+- flex-direction
+- flex-wrap
+- flex-fl ow
+- justify-content
+- align-content
+- align-items
+
+项目属性：
+- order
+- flex-grow
+- flex-shrink(缩小)
+- flex-basis
+- flex
+- align-self
+  
+https://www.runoob.com/w3cnote/flex-grammar.html
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1. #### css 动画 animation 各个时间值含义（百度）
+- @keyframes	规定动画模式。
+- animation	设置所有动画属性的简写属性。
+- animation-delay	规定动画开始的延迟。
+- animation-direction	定动画是向前播放、向后播放还是交替播放。
+- animation-duration	规定动画完成一个周期应花费的时间。
+- animation-fill-mode	规定元素在不播放动画时的样式（在开始前、结束后，或两者同时）。
+- animation-iteration-count	规定动画应播放的次数。
+- animation-name	规定 @keyframes 动画的名称。
+- animation-play-state	规定动画是运行还是暂停。
+- animation-timing-function	规定动画的速度曲线。
+
+https://www.w3school.com.cn/css/css3_animations.asp
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### css 如何实现让一个元素旋转并横向移动，如果只用一个 css 属性（百度）
+- transition/animation
+- transform
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### less 与 sass 区别，技术选型时如何取舍（百度）
+sass比less多了条件语句（高级函数）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 性能对比（百度）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 性能对比
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 性能对比
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 性能对比
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 性能对比
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1. #### 性能对比
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)

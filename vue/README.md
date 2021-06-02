@@ -4640,9 +4640,68 @@ const store = new Vuex.Store({
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### xxxxxx
-##### 题目：xxxxx
+1.   #### vue从初始化开始整个流程（teamind）
+
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.   #### vue中数组为什么不能通过对象那样劫持（teamind）
+https://blog.csdn.net/JackieDYH/article/details/114253038
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.   #### vue3.0做了哪些更新（teamind）
+https://zhuanlan.zhihu.com/p/46269528
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.   #### 响应式对象新增一个属性，怎么样可以进行视图更新（teamind）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 响应式对象a上拓展一个属性，this.a将另一个对象赋值给他，视图是否更新（teamind）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### virtualdom的好处？操作dom的性能比做virtualdom更高吗？（teamind）
+保证了下限
+
+virtualdom的好处？操作dom的性能比做virtualdom更高吗？（teamind）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### ssr（teamind）
+https://ssr.vuejs.org/zh/
+
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+1.   #### 预渲染（teamind）
+https://blog.csdn.net/csdn_yudong/article/details/80769424
+
+https://juejin.cn/post/6844903668488093704
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+

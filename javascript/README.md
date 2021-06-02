@@ -172,7 +172,7 @@
 169. [什么是回调函数?回调函数有什么缺点?如何解决回调地狱问题](#什么是回调函数回调函数有什么缺点如何解决回调地狱问题)
 170. [你理解的Generator是什么](#你理解的Generator是什么)
 171. [Promise的特点是什么?分别有什么优缺点?什么是Promise链?Promise构造函数执行和then函数执行有什么区别?](#Promise的特点是什么分别有什么优缺点什么是Promise链Promise构造函数执行和then函数执行有什么区别)
-172. [async及await的特点?它们的优点和缺点分别是什么?await原理是什么?](#async及await的特点它们的优点和缺点分别是什么await原理是什么)
+172. [async及await的特点?它们的优点和缺点分别是什么?await原理是什么?](#asyncAndAwait)
 173. [setTimeout,setInterval,requestAnimationFrame各有什么特点](#setTimeoutsetIntervalrequestAnimationFrame各有什么特点)
 174. [手写Promise](#手写Promise)
 175. [异步代码执行顺序?解释一下什么是EventLoop?(坚果云)](#异步代码执行顺序解释一下什么是EventLoop坚果云)
@@ -7987,7 +7987,7 @@ BinaryTreeNode* findLowestCommonAncestor(BinaryTreeNode* root , BinaryTreeNode* 
 
 <details><summary><b>答案</b></summary>
 浏览器的协商缓存与强缓存
-2017-04-0710841View0
+
 做前端有两个比较令人头痛的事，一个是命名，另一个就是缓存了。缓存的问题在移动端上尤其严重，因为手机随时随地会缓存你的资源，要想清缓存，不像PC使用强制刷新，还要手动找到浏览器的缓存，有时候还要重启等。下面这篇文章清晰的讲解关注浏览器的缓存，值得看看。
 
 什么是浏览器缓存
@@ -9289,23 +9289,22 @@ let result3 = it.next()
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-172. #### async及await的特点它们的优点和缺点分别是什么await原理是什么
-
- async 及 await 的特点，它们的优点和缺点分别是什么？await 原理是什么？
-<details><summary><b>答案</b></summary>
+1.   #### <div id="asyncAndAwait"></div>async及await的特点?它们的优点和缺点分别是什么?await原理是什么?
 一个函数如果加上 async ，那么该函数就会返回一个 Promise
-
+```js
 async function test() {
   return "1"
 }
 console.log(test()) // -> Promise {<resolved>: "1"}
+```
 async 就是将函数返回值使用 Promise.resolve() 包裹了下，和 then 中处理返回值一样，并且 await 只能配套 async 使用
-
+```js
 async function test() {
   let value = await sleep()
 }
+```
 async 和 await 可以说是异步终极解决方案了，相比直接使用 Promise 来说，优势在于处理 then 的调用链，能够更清晰准确的写出代码，毕竟写一大堆 then 也很恶心，并且也能优雅地解决回调地狱问题。当然也存在一些缺点，因为 await 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 await 会导致性能上的降低。
-
+```js
 async function test() {
   // 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式
   // 如果有依赖性的话，其实就是解决回调地狱的例子了
@@ -9313,8 +9312,9 @@ async function test() {
   await fetch(url1)
   await fetch(url2)
 }
+```
 下面来看一个使用 await 的例子：
-
+```js
 let a = 0
 let b = async () => {
   a = a + await 10
@@ -9323,19 +9323,20 @@ let b = async () => {
 b()
 a++
 console.log('1', a) // -> '1' 1
+```
 对于以上代码你可能会有疑惑，让我来解释下原因
 
 首先函数 b 先执行，在执行到 await 10 之前变量 a 还是 0，因为 await 内部实现了 generator ，generator 会保留堆栈中东西，所以这时候 a = 0 被保存了下来
 因为 await 是异步操作，后来的表达式不返回 Promise 的话，就会包装成 Promise.reslove(返回值)，然后会去执行函数外的同步代码
 同步代码执行完毕后开始执行异步代码，将保存下来的值拿出来使用，这时候 a = 0 + 10
-上述解释中提到了 await 内部实现了 generator，其实 await 就是 generator 加上 Promise 的语法糖，且内部实现了自动执行 generator。如果你熟悉 co 的话，其实自己就可以实现这样的语法糖。
-</details>
+
+上述解释中提到了 `await` 内部实现了 `generator`，其实 `await` 就是 `generator` 加上 `Promise` 的语法糖，且内部实现了自动执行 `generator`。如果你熟悉 `co` 的话，其实自己就可以实现这样的语法糖。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-173. #### setTimeoutsetIntervalrequestAnimationFrame各有什么特点
+1.   #### setTimeoutsetIntervalrequestAnimationFrame各有什么特点
 
 ##### 题目：setTimeout、setInterval、requestAnimationFrame 各有什么特点？
 
@@ -9416,7 +9417,7 @@ setInterval(timer => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-174. #### 手写Promise
+1.   #### 手写Promise
 
 <details><summary><b>答案</b></summary>
 实现一个简易版 Promise
@@ -9518,7 +9519,7 @@ new MyPromise((resolve, reject) => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-175. #### 异步代码执行顺序解释一下什么是EventLoop坚果云
+1.   #### 异步代码执行顺序解释一下什么是EventLoop坚果云
 
 ##### 题目：异步代码执行顺序？解释一下什么是 Event Loop ？(坚果云)
 <details><summary><b>答案</b></summary>
@@ -9658,7 +9659,7 @@ new Promise((resolve, reject) => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-176. #### 进程与线程区别JS单线程带来的好处
+1.   #### 进程与线程区别JS单线程带来的好处
 
 ##### 题目：进程与线程区别？JS 单线程带来的好处？
 <details><summary><b>答案</b></summary>
@@ -9677,7 +9678,7 @@ new Promise((resolve, reject) => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-177. #### 什么是执行栈
+1.   #### 什么是执行栈
 
 <details><summary><b>答案</b></summary>
 可以把执行栈认为是一个存储函数调用的栈结构，遵循先进后出的原则。
@@ -9715,7 +9716,7 @@ bar()
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-178. #### Node中的EventLoop和浏览器中的有什么区别processnexttick执行顺序
+1.   #### Node中的EventLoop和浏览器中的有什么区别processnexttick执行顺序
 
  Node 中的 Event Loop 和浏览器中的有什么区别？process.nexttick 执行顺序？
 <details><summary><b>答案</b></summary>
@@ -9822,7 +9823,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-179. #### 使用正则表达式验证邮箱格式
+1.   #### 使用正则表达式验证邮箱格式
 
 ##### 题目：使用正则表达式验证邮箱格式(大搜车)
 <details><summary><b>答案</b></summary>
@@ -9833,7 +9834,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-180. #### 判断数组
+1.   #### 判断数组
 
 ##### 题目：判断数组(大搜车)
 <details><summary><b>答案</b></summary>
@@ -9844,7 +9845,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-181. #### 实现indexof
+1.   #### 实现indexof
 
 实现indexof(大搜车)
 <details><summary><b>答案</b></summary>
@@ -9856,7 +9857,7 @@ https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-182. #### promiseall如果三个请求中第一个发生错误是会继续执行吗
+1.   #### promiseall如果三个请求中第一个发生错误是会继续执行吗
 
 ##### 题目：promise.all 如果三个请求中第一个发生错误是会继续执行吗（海康）
 
@@ -9868,7 +9869,7 @@ Promise.all 在任意一个传入的 promise 失败时返回失败。例如，�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-183. #### 取消promise
+1.   #### 取消promise
 
 取消promise（海康）
 
@@ -9969,7 +9970,7 @@ componentWillUnmount() {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-184.   #### defer和async的区别(坚果云)
+1.     #### defer和async的区别(坚果云)
 
 先来试个一句话解释仨，当浏览器碰到 script 脚本的时候：
 ```js
@@ -10007,7 +10008,7 @@ https://blog.csdn.net/function__/article/details/79321540
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-184. #### 后端的MVC
+1.   #### 后端的MVC
 
 ##### 题目：后端的MVC(海康二面)
 
@@ -10052,7 +10053,7 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-185. #### 简单讲讲适配器模式
+1.   #### 简单讲讲适配器模式
 
 ##### 题目：简单讲讲适配器模式(海康二面)
 
@@ -10060,7 +10061,7 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-186. #### rustful接口原则
+1.   #### rustful接口原则
 
 ##### 题目：rustful接口原则(海康二面)
 
@@ -10068,7 +10069,7 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-187. #### 执行上下文变量声明和函数声明
+1.   #### 执行上下文变量声明和函数声明
 
 ##### 题目：执行上下文，变量声明和函数声明(字节跳动)
 
@@ -10104,7 +10105,7 @@ new Byte().getName();
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-188. #### _.get()实现
+1.   #### _.get()实现
 
 ##### 题目：_.get()实现(字节跳动)
 
@@ -10113,7 +10114,7 @@ new Byte().getName();
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-189. #### lodash 的 深克隆实现
+1.   #### lodash 的 深克隆实现
 
 ##### 题目：lodash 的 深克隆实现(字节跳动)
 ```js
@@ -10216,7 +10217,7 @@ child2 = cloneDeep(parent2);
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-190. #### ts和js的区别，为什么要选择使用ts？
+1.   #### ts和js的区别，为什么要选择使用ts？
 
 ##### 题目：ts和js的区别，为什么要选择使用ts？(字节跳动)
 javascript和typescript的区别一：概念对比
@@ -10285,7 +10286,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-191. #### 讲讲订阅-发布模式，有几种实现方式
+1.   #### 讲讲订阅-发布模式，有几种实现方式
 
 ##### 题目：讲讲订阅-发布模式，有几种实现方式(字节跳动)
 关键词：listener、Object.defineProperty
@@ -10294,7 +10295,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 事件是如何实现的
+1.   #### 事件是如何实现的
 
 ##### 题目：事件是如何实现的(字节跳动)
 关键词：订阅-发布模式
@@ -10303,7 +10304,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 许多if的优化
+1.   #### 许多if的优化
 
 ##### 题目：许多if的优化(个推一面)
 关键词：1. map 2. weakmap 3. switch 4. generate 5. 函数编程 6. 洋葱模型
@@ -10312,7 +10313,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 输出什么
+1.   #### 输出什么
 ##### 题目：{}+13(个推一面)
 ##### 答案是：[object Object]13
 
@@ -10322,7 +10323,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 输出什么
+1.   #### 输出什么
 
 ##### 题目：[]+13(个推一面)
 ##### 答案：13
@@ -10333,7 +10334,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 浏览器的新特性和js的新特性
+1.   #### 浏览器的新特性和js的新特性
 
 ##### 题目：浏览器的新特性和js的新特性(个推一面)
 
@@ -10341,7 +10342,7 @@ typescript优点：
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-192. #### 在两个上万的数组中找出重复的数据
+1.   #### 在两个上万的数组中找出重复的数据
 
 ##### 题目：在两个上万的数组中找出重复的数据(个推一面)
 方法一：
@@ -10515,35 +10516,20 @@ http://caibaojian.com/es6/symbol.html
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-1.   #### 执行结果
+1.   #### 变量的存储方式，堆内存和栈内存（teamind）
+https://juejin.cn/post/6844903873992196110
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-1.   #### 执行结果
-
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-
-1.   #### 执行结果
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-
-1.   #### 执行结果
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-
-1.   #### 执行结果
+1.   #### http协议和缓存时间有关的请求头和响应头
+http的返回头中的Expires或者Cache-Control
 
 ---
 

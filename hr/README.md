@@ -328,3 +328,18 @@
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
+
+24. #### 业务这么忙，如何坚持的？
+
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+
+24. #### 技术规划（teamind）
+
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)

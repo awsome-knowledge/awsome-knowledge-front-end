@@ -4641,13 +4641,14 @@ const store = new Vuex.Store({
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 1.   #### vue从初始化开始整个流程（teamind）
-
+https://www.cnblogs.com/DivHao/p/11805829.html
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 1.   #### vue中数组为什么不能通过对象那样劫持（teamind）
+数组变异
 https://blog.csdn.net/JackieDYH/article/details/114253038
 
 ---
@@ -4662,6 +4663,7 @@ https://zhuanlan.zhihu.com/p/46269528
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 1.   #### 响应式对象新增一个属性，怎么样可以进行视图更新（teamind）
+$set $forceUpdate
 
 ---
 

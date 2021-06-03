@@ -1064,14 +1064,18 @@ export function nextTick(cb?: Function, ctx?: Object) {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-20.   #### 响应式原理
-##### 题目： 响应式原理（海康）
-`Vue.js` 最显著的功能就是响应式系统，它是一个典型的 `MVVM` 框架，模型（`Model`）只是普通的 `JavaScript` 对象，修改它则视图（`View`）会自动更新。这种设计让状态管理变得非常简单而直观，不过理解它的原理也很重要，可以避免一些常见问题。下面让我们深挖 `Vue.js` 响应式系统的细节，来看一看 `Vue.js` 是如何把模型和视图建立起关联关系的。
+20.   #### 响应式原理（海康/快手）
+https://cn.vuejs.org/v2/guide/reactivity.html
 
-图中的模型（`Model`）就是 `data` 方法返回的`{times:1}`，视图（`View`）是最终在浏览器中显示的 `DOM`。模型通过 `Observer、Dep、Watcher、Directive` 等一系列对象的关联，最终和视图建立起关系。归纳起来，`Vue.js` 在这里主要做了三件事：
-1. 通过 `Observer` 对 `data` 做监听，并且提供了订阅某个数据项变化的能力。
-2. 把 `template` 编译成一段 `document fragment`，然后解析其中的 `Directive`，得到每一个 `Directive` 所依赖的数据项和 `update` 方法。
-3. 通过 `Watcher` 把上述两部分结合起来，即把 `Directive` 中的数据依赖通过 `Watcher` 订阅在对应数据的 `Observer` 的 `Dep` 上。当数据变化时，就会触发 `Observer` 的 `Dep` 上的 `notify` 方法通知对应的 `Watcher` 的 `update`，进而触发 `Directive` 的 `update` 方法来更新 `DOM` 视图，最后达到模型和视图关联起来。
+new Vue()时会触发init方法，初始化各类数据：initMethods、initState、initWatcher等。
+
+initState会初始化数据，并且observer会对数据进行劫持，其中用object.defineProperty()对其进行定义成响应式对象。getter获取其值和setter改变其值。
+
+这样在data函数中声明的对象就完成了初始化响应式，当我们在代码中改变data中对象值的时候，视图中绑定对象的dom也能得到更新。
+
+这里注意一点：object.defineProperty()方法有缺陷，对象的增加和删除并不会触发试图变更，可以通过vue定义的set去变更。
+
+数组的变更也是。
 
 ---
 

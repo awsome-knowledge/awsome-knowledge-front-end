@@ -1015,40 +1015,31 @@ export function nextTick(cb?: Function, ctx?: Object) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-19.   #### vue3.0的变化
-##### 题目：vue3.0的变化（海康）
-全面改革：解读 `vue3.0` 的变化
-9月30日，尤雨溪在 `medium` 个人博客上发布了 `vue3.0` 的开发思路，国内有翻译的版本，见文章最后的参考链接。`3.0` 带了了很大的变化，他讲了一些改进的思路以及整个开发流程的规划。
-
+19.   #### vue3.0的变化（海康/teamind）
 ###### vue3.0的改进思路
 `vue` 最主要的特点就是响应式机制、模板、以及对象式的组件声明语法，而 `3.0` 对这三部分都做了更改。
-
-
 ###### 响应式
 `2.x` 的响应式是基于 `Object.defineProperty` 实现的代理，兼容主流浏览器和 `ie9` 以上的 `ie` 浏览器，能够监听数据对象的变化，但是监听不到对象属性的增删、数组元素和长度的变化，同时会在 `vue` 初始化的时候把所有的 `Observer` 都建立好，才能观察到数据对象属性的变化。
 
 针对上面的问题，`3.0` 进行了革命性的变更，采用了 `ES2015` 的 `Proxy` 来代替 `Object.defineProperty`，可以做到监听对象属性的增删和数组元素和长度的修改，还可以监听 `Map`、`Set`、`WeakSet`、`WeakMap`，同时还实现了惰性的监听，不会在初始化的时候创建所有的 `Observer`，而是会在用到的时候才去监听。但是，虽然主流的浏览器都支持 `Proxy`，`ie` 系列却还是不兼容，所以针对 `ie11`，`vue3.0` 决定做单独的适配，暴露出来的 `api` 一样，但是底层实现还是 `Object.defineProperty`，这样导致了 `ie11` 还是有 `2.x` 的问题。但是绝大部分情况下，`3.0` 带来的好处已经能够体验到了。
 
-响应式方面，`vue3.0` 做了实现机制的变更，采用 `ES2015` 的 `Proxy`，不但解决了 `vue2.x` 中的问题，还是得性能有了进一步提升。虽然有一些兼容问题，但是通过适配的方式解决掉了。此外，还暴露了 `observable` 的 `api` 来创建响应式对象，可以替代掉 `event bus`，来做一些跨组件的通信。
+响应式方面，`vue3.0` 做了实现机制的变更，采用 `ES2015` 的 `Proxy`，不但解决了 `vue2.x` 中的问题，还使得性能有了进一步提升。虽然有一些兼容问题，但是通过适配的方式解决掉了。此外，还暴露了 `observable` 的 `api` 来创建响应式对象，可以替代掉 `event bus`，来做一些跨组件的通信。
 
 ###### 模板
 模板方面没有大的变更，只改了作用域插槽，`2.x` 的机制导致作用域插槽变了，父组件会重新渲染，而 `3.0` 把作用于插槽改成了函数的方式，这样只会影响子组件的重新渲染，提升了渲染的性能。
 
-同时，对于 `render` 函数的方面， `vue3.0` 也会进行一系列更改来方便习惯直接使用 `api` 来生成 `vdom` 的开发者。
-
+同时，对于 `render` 函数的方面，`vue3.0` 也会进行一系列更改来方便习惯直接使用 `api` 来生成 `vdom` 的开发者。
 ###### 对象式的组件声明方式
-
 `vue2.x` 中的组件是通过声明的方式传入一系列 `option`，和 `TypeScript` 的结合需要通过一些装饰器的方式来做，虽然能实现功能，但是比较麻烦。
 
 `3.0` 修改了组件的声明方式，改成了类式的写法，这样使得和 `TypeScript` 的结合变得很容易。
 
 此外，`vue` 的源码也改用了 `TypeScript` 来写。其实当代码的功能复杂之后，必须有一个静态类型系统来做一些辅助管理，如 `React` 使用的 `Flow` ， `Angular` 使用的 `TypeScript` 。现在`vue3.0` 也全面改用 `TypeScript` 来重写了，更是使得对外暴露的 `api` 更容易结合 `TypeScript` 。静态类型系统对于复杂代码的维护确实很有必要。
-
 ###### 其他的一些东西
 `vue3.0` 的改变是全面的，上面只涉及到主要的`3`个方面，还有一些其他的更改：
 
 - 支持自定义渲染器，从而使得 `weex` 可以通过自定义渲染器的方式来扩展，而不是直接 `fork` 源码来改的方式。
-- 支持 `Fragment` （多个根节点）和 `Protal` （在 `dom` 其他部分渲染组建内容）组件，针对一些特殊的场景做了处理。
+- 支持 `Fragment` （多个根节点）和 `Protal` （在 `dom` 其他部分渲染组件内容）组件，针对一些特殊的场景做了处理。
 - 基于 `treeshaking` 优化，提供了更多的内置功能。
 
 ###### vue3.0的开发流程规划
@@ -1063,26 +1054,23 @@ export function nextTick(cb?: Function, ctx?: Object) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-
 20.   #### 响应式原理（海康/快手）
 https://cn.vuejs.org/v2/guide/reactivity.html
 
-new Vue()时会触发init方法，初始化各类数据：initMethods、initState、initWatcher等。
+`new Vue()` 时会触发init方法，初始化各类数据：`initMethods`、`initState`、`initWatcher`等。
 
-initState会初始化数据，并且observer会对数据进行劫持，其中用object.defineProperty()对其进行定义成响应式对象。getter获取其值和setter改变其值。
+`initState` 会初始化数据，并且 `observer` 会对数据进行劫持，其中用 `object.defineProperty()` 对其进行定义成响应式对象。`getter` 获取其值和 `setter` 改变其值。
 
-这样在data函数中声明的对象就完成了初始化响应式，当我们在代码中改变data中对象值的时候，视图中绑定对象的dom也能得到更新。
+这样在 `data` 函数中声明的对象就完成了初始化响应式，当我们在代码中改变 `data` 中对象值的时候，视图中绑定对象的 `dom` 也能得到更新。
 
-这里注意一点：object.defineProperty()方法有缺陷，对象的增加和删除并不会触发试图变更，可以通过vue定义的set去变更。
-
-数组的变更也是。
+这里注意一点：`object.defineProperty()` 方法有缺陷，对象的增加和删除，数组的长度更改和针对指定索引修改并不会触发试图变更，可以通过 `vue` 定义的 `set` 去变更。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-21.   #### vuerouter的钩子
-##### 题目： vue-router的钩子（海康）
+21. #### <div id="vue-router"></div> vue-router的钩子（海康）
+
 1. 导航被触发。
 2. 在失活的组件里调用 `beforeRouteLeave` 守卫。
 3. 调用全局的 `beforeEach` 守卫。

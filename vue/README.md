@@ -4697,5 +4697,109 @@ https://juejin.cn/post/6844903668488093704
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
+1.   #### vue如何抽取公共组件的？（快手）
+在 `js` 文件中注册
+```js
+import a from './a.vue'
+
+const a ={
+        install:function(Vue){
+            Vue.component('a',a)
+        }
+    
+}
+export default a
+```
+在 `main.js` 中全局挂载
+```js
+import a from './components/a'
+Vue.use(a)
+```
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+1.   #### vue如何抽取公共组件的？（快手）
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
 
 

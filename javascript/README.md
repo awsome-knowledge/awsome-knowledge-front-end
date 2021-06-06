@@ -9952,14 +9952,42 @@ https://blog.csdn.net/hl971115/article/details/109557323
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### xxxx
+1.   #### new操作符具体做了什么，用代码解释（快手）
+例：var obj = new Base(); 
+
+该步一共做了三件事：即 var obj = {}; obj.__proto__ = Base.prototype; Base.call(obj); 
+
+第一行，我们创建了一个空对象obj
+
+第二行，我们将这个空对象的__proto__成员指向了Base函数对象prototype成员对象
+
+第三行，我们将Base函数对象的this指针替换成obj。
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-1.   #### xxxx
+1.   #### 合并两个升序数组为一个升序数组（快手）
+```js
+var a=[1,3,4,5,7,8,9];
+var b=[3,4,5,6,7,8,9];
+ 
+var c= a.concat(b);
+console.log(c);
+for(var i=0;i<c.length;i++){
+	for(var j=i+1;j<c.length;j++){
+		if(c[i]==c[j]){
+			c.splice(j,1);
+			j--;
+		}
+	}
+}
+ 
+console.log(c);
+c.sort();
+console.log(c);
+```
 
 ---
 

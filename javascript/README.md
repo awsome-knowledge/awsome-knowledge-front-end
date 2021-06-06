@@ -140,7 +140,7 @@
 137. [使用前端框架angularvuereact带来哪些好处相对于使用jQuery](#使用前端框架angularvuereact带来哪些好处相对于使用jQuery)
 138. [vue双向数据绑定的实现](#vue双向数据绑定的实现)
 139. [单页应用如何实现其路由功能](#单页应用如何实现其路由功能)
-140. [手动实现callapplybind](#手动实现callapplybind)
+140. [手动实现call、apply、bind](#call_apply_bind)
 141. [观察者模式](#观察者模式)
 142. [浅拷贝和深拷贝](#浅拷贝和深拷贝)
 143. [数组去重](#数组去重)
@@ -148,45 +148,44 @@
 145. [怎么理解es6箭头函数中的this，它和一般函数的this指向有什么区别呢？（蘑菇街）](#es6_this_function_this)
 146. [说一下同源策略](#说一下同源策略)
 147. [一个DOM树，其中有两个节点，找出这两个节点公共的父节点？ (有赞)](#dom_two_node)
-148. [说一下强缓存和协商缓存？ （浏览器的缓存机制也需要很清楚） (有赞) ](#strong_cache_negotiate_cache)
-149. [为什么数据库使用的是mongodb而不是mysql](#为什么数据库使用的是mongodb而不是mysql)
-150. [什么是xss如何防止xss](#什么是xss如何防止xss)
-151. [作用域](#作用域)
-152. [语法题](#语法题)
-153. [promise和callback的区别(海康)](#promise和callback的区别海康)
-154. [axios封装用什么处理异常其原理其返回的是什么海康](#axios封装用什么处理异常其原理其返回的是什么海康)
-155. [正则题](#正则题)
-156. [闭包(海康)](#闭包海康)
-157. [原始类型有哪几种null是对象嘛](#原始类型有哪几种null是对象嘛)
-158. [对象类型和原始类型的不同之处函数参数是对象会发生什么问题](#对象类型和原始类型的不同之处函数参数是对象会发生什么问题)
-159. [typeof是否能正确判断类型instanceof能正确判断对象的原理是什么](#typeof是否能正确判断类型instanceof能正确判断对象的原理是什么)
-160. [==和===有什么区别](#==和===有什么区别)
-161. [如何正确判断this箭头函数的this是什么](#如何正确判断this箭头函数的this是什么)
-162. [如何理解原型如何理解原型链](#如何理解原型如何理解原型链)
-163. [什么是提升什么是暂时性死区varlet及const区别](#什么是提升什么是暂时性死区varlet及const区别)
-164. [原型如何实现继承Class如何实现继承Class本质是什么](#原型如何实现继承Class如何实现继承Class本质是什么)
-165. [为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点](#为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点)
-166. [Proxy可以实现什么功能](#Proxy可以实现什么功能)
-167. [map, filter, reduce 各自有什么作用？](#mapfilterreduce各自有什么作用)
-168. [并发与并行的区别](#并发与并行的区别)
-169. [什么是回调函数?回调函数有什么缺点?如何解决回调地狱问题](#什么是回调函数回调函数有什么缺点如何解决回调地狱问题)
-170. [你理解的Generator是什么](#你理解的Generator是什么)
-171. [Promise的特点是什么?分别有什么优缺点?什么是Promise链?Promise构造函数执行和then函数执行有什么区别?](#Promise的特点是什么分别有什么优缺点什么是Promise链Promise构造函数执行和then函数执行有什么区别)
-172. [async及await的特点?它们的优点和缺点分别是什么?await原理是什么?](#asyncAndAwait)
-173. [setTimeout,setInterval,requestAnimationFrame各有什么特点](#setTimeoutsetIntervalrequestAnimationFrame各有什么特点)
-174. [手写Promise](#手写Promise)
-175. [异步代码执行顺序?解释一下什么是EventLoop?(坚果云)](#异步代码执行顺序解释一下什么是EventLoop坚果云)
-176. [进程与线程区别?JS单线程带来的好处?](#进程与线程区别JS单线程带来的好处)
-177. [什么是执行栈](#什么是执行栈)
-178. [Node中的EventLoop和浏览器中的有什么区别?process.nexttick执行顺序?](#Node中的EventLoop和浏览器中的有什么区别processnexttick执行顺序)
-179. [使用正则表达式验证邮箱格式](#使用正则表达式验证邮箱格式)
-180. [判断数组(大搜车)](#判断数组)
-181. [实现indexof(大搜车)](#实现indexof)
-182. [promise.all 如果三个请求中第一个发生错误是会继续执行吗（海康）](#promiseall如果三个请求中第一个发生错误是会继续执行吗)
-183. [取消promise（海康）](#取消promise)
-184. [后端的MVC(海康二面)](#后端的MVC)
-185. [简单讲讲适配器模式(海康二面)](#简单讲讲适配器模式)
-186. [rustful接口原则(海康二面)](#rustful接口原则)
+148. [为什么数据库使用的是mongodb而不是mysql](#为什么数据库使用的是mongodb而不是mysql)
+149. [什么是xss如何防止xss](#什么是xss如何防止xss)
+150. [作用域](#作用域)
+151. [语法题](#语法题)
+152. [promise和callback的区别(海康)](#promise和callback的区别海康)
+153. [axios封装用什么处理异常其原理其返回的是什么海康](#axios封装用什么处理异常其原理其返回的是什么海康)
+154. [正则题](#正则题)
+155. [闭包(海康)](#闭包海康)
+156. [原始类型有哪几种null是对象嘛](#原始类型有哪几种null是对象嘛)
+157. [对象类型和原始类型的不同之处函数参数是对象会发生什么问题](#对象类型和原始类型的不同之处函数参数是对象会发生什么问题)
+158. [typeof是否能正确判断类型instanceof能正确判断对象的原理是什么](#typeof是否能正确判断类型instanceof能正确判断对象的原理是什么)
+159. [==和===有什么区别](#==和===有什么区别)
+160. [如何正确判断this箭头函数的this是什么](#如何正确判断this箭头函数的this是什么)
+161. [如何理解原型如何理解原型链](#如何理解原型如何理解原型链)
+162. [什么是提升什么是暂时性死区varlet及const区别](#什么是提升什么是暂时性死区varlet及const区别)
+163. [原型如何实现继承Class如何实现继承Class本质是什么](#原型如何实现继承Class如何实现继承Class本质是什么)
+164. [为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点](#为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点)
+165. [Proxy可以实现什么功能](#Proxy可以实现什么功能)
+166. [map, filter, reduce 各自有什么作用？](#mapfilterreduce各自有什么作用)
+167. [并发与并行的区别](#并发与并行的区别)
+168. [什么是回调函数?回调函数有什么缺点?如何解决回调地狱问题](#什么是回调函数回调函数有什么缺点如何解决回调地狱问题)
+169. [你理解的Generator是什么](#你理解的Generator是什么)
+170. [Promise的特点是什么?分别有什么优缺点?什么是Promise链?Promise构造函数执行和then函数执行有什么区别?](#Promise的特点是什么分别有什么优缺点什么是Promise链Promise构造函数执行和then函数执行有什么区别)
+171. [async及await的特点?它们的优点和缺点分别是什么?await原理是什么?](#asyncAndAwait)
+172. [setTimeout,setInterval,requestAnimationFrame各有什么特点](#setTimeoutsetIntervalrequestAnimationFrame各有什么特点)
+173. [手写Promise](#手写Promise)
+174. [异步代码执行顺序?解释一下什么是EventLoop?(坚果云)](#异步代码执行顺序解释一下什么是EventLoop坚果云)
+175. [进程与线程区别?JS单线程带来的好处?](#进程与线程区别JS单线程带来的好处)
+176. [什么是执行栈](#什么是执行栈)
+177. [Node中的EventLoop和浏览器中的有什么区别?process.nexttick执行顺序?](#Node中的EventLoop和浏览器中的有什么区别processnexttick执行顺序)
+178. [使用正则表达式验证邮箱格式](#使用正则表达式验证邮箱格式)
+179. [判断数组(大搜车)](#判断数组)
+180. [实现indexof(大搜车)](#实现indexof)
+181. [promise.all 如果三个请求中第一个发生错误是会继续执行吗（海康）](#promiseall如果三个请求中第一个发生错误是会继续执行吗)
+182. [取消promise（海康）](#取消promise)
+183. [后端的MVC(海康二面)](#后端的MVC)
+184. [简单讲讲适配器模式(海康二面)](#简单讲讲适配器模式)
+185. [rustful接口原则(海康二面)](#rustful接口原则)
 ## 题目
 
 ### JavaScript
@@ -1451,7 +1450,7 @@ C是想要定义的属性的值
 #####  ajax是什么
 `Ajax` 是多种技术组合起来的一种浏览器和服务器交互技术，基本思想是允许一个互联网浏览器向一个远程页面/服务做异步的 `http` 调用，并且用收到的数据来更新一个当前 `web` 页面而不必刷新整个页面。该技术能够改进客户端的体验。包含的技术：
 
-- XHTML：对应W3C的XHTML规范，目前是XHTML1.0。
+- XHTML：对应W3C的XHTML规范，目前是XHTML1.0
 - CSS：对应W3C的CSS规范，目前是CSS2.0
 - DOM：这里的DOM主要是指HTML DOM，XML DOM包括在下面的XML中
 - JavaScript：对应于ECMA的ECMAScript规范
@@ -1460,22 +1459,17 @@ C是想要定义的属性的值
 
 #####  ajax的交互模型
 `AJAX` 交互模型
-
-同步：脚本会停留并等待服务器发送回复然后再继续
-
-异步：脚本允许页面继续其进程并处理可能的回复
-
+- 同步：脚本会停留并等待服务器发送回复然后再继续
+- 异步：脚本允许页面继续其进程并处理可能的回复
 #####  同步和异步的区别
 跨域问题简单的理解就是因为 `JS` 同源策略的限制，`a.com` 域名下的 `JS` 无法操作 `b.com` 或 `c.a.com` 下的对象，具体场景如下：
-
 1. 如果是端口或者协议造成的跨域问题前端是无能为力的
 2. 在跨域问题上，域仅仅通过URL的首部来识别而不会尝试判断相同的IP地址对应的域或者两个域是否对应一个IP
-
 #####  没有同源策略限制的两大危险场景
 据我了解，浏览器是从两个方面去做这个同源策略的，一是针对接口的请求，二是针对 `Dom` 的查询。试想一下没有这样的限制上述两种动作有什么危险。
 
 ###### 没有同源策略限制的接口请求
-有一个小小的东西叫 `cookie` 大家应该知道，一般用来处理��录等场景，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入 `Set-Cookie` 字段，然后下次再发请求的时候，浏览器会自动将 `cookie` 附加在 `HTTP` 请求的头字段 `Cookie` 中，服务端就能知道这个用户已经登录过了。知道这个之后，我们来看场景：
+有一个小小的东西叫 `cookie` 大家应该知道，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入 `Set-Cookie` 字段，然后下次再发请求的时候，浏览器会自动将 `cookie` 附加在 `HTTP` 请求的头字段 `Cookie` 中，服务端就能知道这个用户已经登录过了。知道这个之后，我们来看场景：
 
 1. 你登陆了安全的网站www.yinhang.com,准备转账;
 2. 突然右下脚跳出弹框;
@@ -7122,29 +7116,65 @@ history api。使用html5的history api实现，主要就是popState事件等。
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-140. ####  手动实现callapplybind
-
-<details><summary><b>答案</b></summary>
-
-
+140. #### <div id="call_apply_bind"></div> 手动实现call、apply、bind
 ##### 模拟实现call
+`call()` 方法是预定义的 `JavaScript` 方法。
 
-需要注意的是apply接受的参数是函数或者对象
+它可以用来调用所有者对象作为参数的方法。
 
+通过 `call()`，您能够使用属于另一个对象的方法。
 
+需要注意的是 `call` 接受的参数是函数或者对象
 1. 判断this是否是函数，防止`Function.prototype.mycall()`直接调用
-
 2. content为可选参数，上下文，如果不传的话，content就为window全局对象
-
 3. 为content创建一个Symbol属性，将当前函数赋值给这个属性fn
-
 4. 处理参数，传入第1个参数之后的所有参数
-
 5. 删除content的fn属性
-
 6. 返回res
 
 ```js
+// 手写call
+/**
+ * 
+ * @param {*} content Animal {} 传入的方法或对象
+ * @param  {...any} args 参数
+ * @returns 
+ */
+Function.prototype.myCall = function (content = window, ...args) {
+    // 如果this([Function: Shout])和函数的原型({ [Function] myCall: [Function] })一样，不允许改变，返回undefined
+    if (this === Function.prototype) {
+        return undefined
+    }
+    // Animal {}
+    // this指向这个函数,将这个函数改变成content
+    content = content || window
+    // 声明一个独有的Symbol属性, 防止fn覆盖已有属性
+    const fn = Symbol()
+    // this指向调用call的对象,即我们要改变this指向的函数
+    content[fn] = this
+    // 执行当前函数
+    let res = content[fn](...args)
+    // 删除我们声明的fn属性
+    delete content[fn]
+    // 返回函数执行结果
+    return res
+}
+
+// 测试
+
+function Shout(name, place) {
+    this.name = name
+    this.place = place
+}
+
+function Animal(name, place, age) {
+    Shout.myCall(this,name, place)
+    this.age = age
+}
+
+let dog = new Animal('xiaowang', 'tree', 1)
+
+console.log(dog.name, dog.place, dog.age)
 
 Function.prototype.myCall = function (content = window, ...args) {
     if (this === Function.prototype) {
@@ -7178,8 +7208,14 @@ console.log(dog.name, dog.place, dog.age)
 ```
 
 ##### 模拟实现apply
+作用域 `call` 相同
 
-需要注意的是apply接受的参数是数组
+不同之处是：
+
+- call() 方法分别接受参数。
+- apply() 方法接受数组形式的参数。
+
+需要注意的是 `apply` 接受的参数是数组
 
 ```js
 Function.prototype.myApply = function (content = window, ...args) {
@@ -7208,11 +7244,8 @@ console.log(Shout)
 // [ 'xiangwang', 'tree', [ '1', '2' ] ]
 ```
 ##### 模拟实现bind
-
 1. 先判断this是否是Function.prototype,防止被其调用
-
 2. 处理参数，返回一个闭包
-
 3. 判断是否为构造函数调用，如果是则使用new调用当前函数，如果不是则使用apply，将content和处理好的参数传入
 ```js
 
@@ -7249,7 +7282,7 @@ console.log(boundGetX());
 ```
 
 ##### 扩展
-参数argument和args的区别
+参数 `argument` 和 `args` 的区别
 
 ```js
     // 获取argument对象 类数组对象 不能调用数组方法
@@ -7983,96 +8016,6 @@ BinaryTreeNode* findLowestCommonAncestor(BinaryTreeNode* root , BinaryTreeNode* 
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-148. #### <a id="strong_cache_negotiate_cache"></a> 说一下强缓存和协商缓存？ （浏览器的缓存机制也需要很清楚） (有赞) 
-
-<details><summary><b>答案</b></summary>
-浏览器的协商缓存与强缓存
-
-做前端有两个比较令人头痛的事，一个是命名，另一个就是缓存了。缓存的问题在移动端上尤其严重，因为手机随时随地会缓存你的资源，要想清缓存，不像PC使用强制刷新，还要手动找到浏览器的缓存，有时候还要重启等。下面这篇文章清晰的讲解关注浏览器的缓存，值得看看。
-
-什么是浏览器缓存
-浏览器缓存(Brower Caching)是浏览器在本地磁盘对用户最近请求过的文档进行存储，当访问者再次访问同一页面时，浏览器就可以直接从本地磁盘加载文档。
-
-浏览器缓存的优点有：
-
-减少了冗余的数据传输，节省了网费
-减少了服务器的负担，大大提升了网站的性能
-加快了客户端加载网页的速度
-在前端开发面试中，浏览器缓存是web性能优化面试题中很重要的一个知识点，从而说明浏览器缓存是提升web性能的一大利器，但是浏览器缓存如果使用不当，也会产生很多问题，正所谓是，想说爱你，并不是很容易的事。所以，结合最近遇到的案例，本文对浏览器缓存相关的知识进行总结归纳，希望对读者有所帮助。
-
-浏览器缓存的分类
-浏览器缓存主要有两类：缓存协商和彻底缓存，也有称之为协商缓存和强缓存。
-
-浏览器在第一次请求发生后，再次请求时：
-
-浏览器会先获取该资源缓存的header信息，根据其中的expires和cahe-control判断是否命中强缓存，若命中则直接从缓存中获取资源，包括缓存的header信息，本次请求不会与服务器进行通信；
-如果没有命中强缓存，浏览器会发送请求到服务器，该请求会携带第一次请求返回的有关缓存的header字段信息（Last-Modified/IF-Modified-Since、Etag/IF-None-Match）,由服务器根据请求中的相关header信息来对比结果是否命中协商缓存，若命中，则服务器返回新的响应header信息更新缓存中的对应header信息，但是并不返回资源内容，它会告知浏览器可以直接从缓存获取；否则返回最新的资源内容
-强缓存
-强缓存是利用http的返回头中的Expires或者Cache-Control两个字段来控制的，用来表示资源的缓存时间。
-
-Expires
-该字段是http1.0时的规范，它的值为一个绝对时间的GMT格式的时间字符串，比如Expires:Mon,18 Oct 2066 23:59:59 GMT。这个时间代表着这个资源的失效时间，在此时间之前，即命中缓存。这种方式有一个明显的缺点，由于失效时间是一个绝对时间，所以当服务器与客户端时间偏差较大时，就会导致缓存混乱。
-
-Cache-Control
-Cache-Control是http1.1时出现的header信息，主要是利用该字段的max-age值来进行判断，它是一个相对时间，例如Cache-Control:max-age=3600，代表着资源的有效期是3600秒。cache-control除了该字段外，还有下面几个比较常用的设置值：
-
-no-cache：不使用本地缓存。需要使用缓存协商，先与服务器确认返回的响应是否被更改，如果之前的响应中存在ETag，那么请求的时候会与服务端验证，如果资源未被更改，则可以避免重新下载。
-no-store：直接禁止游览器缓存数据，每次用户请求该资源，都会向服务器发送一个请求，每次都会下载完整的资源。
-public：可以被所有的用户缓存，包括终端用户和CDN等中间代理服务器。
-private：只能被终端用户的浏览器缓存，不允许CDN等中继缓存服务器对其缓存。
-Cache-Control与Expires可以在服务端配置同时启用，同时启用的时候Cache-Control优先级高。
-
-协商缓存
-协商缓存就是由服务器来确定缓存资源是否可用，所以客户端与服务器端要通过某种标识来进行通信，从而让服务器判断请求资源是否可以缓存访问，这主要涉及到下面两组header字段，这两组搭档都是成对出现的，即第一次请求的响应头带上某个字段（Last-Modified或者Etag），则后续请求则会带上对应的请求字段（If-Modified-Since或者If-None-Match），若响应头没有Last-Modified或者Etag字段，则请求头也不会有对应的字段。
-
-Last-Modify/If-Modify-Since
-
-浏览器第一次请求一个资源的时候，服务器返回的header中会加上Last-Modify，Last-modify是一个时间标识该资源的最后修改时间，例如Last-Modify: Thu,31 Dec 2037 23:59:59 GMT。
-
-当浏览器再次请求该资源时，request的请求头中会包含If-Modify-Since，该值为缓存之前返回的Last-Modify。服务器收到If-Modify-Since后，根据资源的最后修改时间判断是否命中缓存。
-
-如果命中缓存，则返回304，并且不会返回资源内容，并且不会返回Last-Modify。
-
-ETag/If-None-Match
-
-与Last-Modify/If-Modify-Since不同的是，Etag/If-None-Match返回的是一个校验码。ETag可以保证每一个资源是唯一的，资源变化都会导致ETag变化。服务器根据浏览器上送的If-None-Match值来判断是否命中缓存。
-
-与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response header中还会把这个ETag返回，即使这个ETag跟之前的没有变化。
-
-为什么要有Etag
-
-你可能会觉得使用Last-Modified已经足以让浏览器知道本地的缓存副本是否足够新，为什么还需要Etag呢？HTTP1.1中Etag的出现主要是为了解决几个Last-Modified比较难解决的问题：
-
-一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新GET；
-某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，If-Modified-Since能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)；
-某些服务器不能精确的得到文件的最后修改时间。
-Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。
-
-强缓存与协商缓存的区别可以用下表来表示：
-
-缓存类型	获取资源形式	状态码	发送请求到服务器
-强缓存	从缓存取	200（from cache）	否，直接从缓存取
-协商缓存	从缓存取	304（Not Modified）	否，通过服务器来告知缓存是否可用
-用户行为对缓存的影响
-用户操作	Expires/Cache-Control	Last-Modied/Etag
-地址栏回车	有效	有效
-页面链接跳转	有效	有效
-新开窗口	有效	有效
-前进回退	有效	有效
-F5刷新	无效	有效
-Ctrl+F5强制刷新	无效	无效
-实际问题分析
-如文章开头所属，代码更新到线上后用户浏览器不能自行更新，我们不能要求客户在系统更新后都进行一次缓存清理的操作。
-
-到底该如何解决呢？
-
-在资源请求的URL中增加一个参数，比如：js/mian.js?ver=0.7.1。这个参数是一个版本号，每一次部署的时候变更一下，当这个参数变化的时候，强缓存都会失效并重新加载。这样一来，静态资源，部署以后就需要重新加载。这样就比较完美的解决了问题。
-</details>
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
 149. #### 为什么数据库使用的是mongodb而不是mysql
 
 为什么数据库使用的是mongodb而不是mysql (有赞)
@@ -8291,17 +8234,28 @@ return ret ;
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 153. #### 闭包
+[JavaScript 闭包](https://www.w3school.com.cn/js/js_function_closures.asp)
+
+这被称为 JavaScript 闭包。它使函数拥有“私有”变量成为可能。
+
+计数器被这个匿名函数的作用域保护，并且只能使用 add 函数来修改。
+
+闭包指的是有权访问父作用域的函数，即使在父函数关闭之后。
 
 下面五段代码分别输出什么？并且什么时候输出什么？
 ```js
+// 正常执行
 for (var i = 0; i < 5; i++) {
     console.log(i);
   }
+// 事件循环中 for循环是主线程 setTimeout都是宏任务，每次for创建的setTimeout都在宏任务队列中等待，等for循环结束。执行完成后，i=5，然后执行setTimeout
   for (var i = 0; i < 5; i++) {
     setTimeout(function () {
       console.log(i);
     }, 1000 * i);
   }
+
+// 闭包，自执行函数，将i当做参数传入
   for (var i = 0; i < 5; i++) {
     (function (i) {
       setTimeout(function () {
@@ -8309,6 +8263,8 @@ for (var i = 0; i < 5; i++) {
       }, i * 1000);
     })(i);
   }
+
+// i没有作为实参传入，那么setTimeout只能等待for循环结束算出i值
   for (var i = 0; i < 5; i++) {
     (function () {
       setTimeout(function () {
@@ -8316,18 +8272,17 @@ for (var i = 0; i < 5; i++) {
       }, i * 1000);
     })(i);
   }
+
+// 闭包，自执行函数，将i当做参数传入
   for (var i = 0; i < 5; i++) {
     setTimeout((function (i) {
       console.log(i);
     })(i), i * 1000);
   }
-  // _.pluck(list, propertyName)
-  _.pluck = function (obj, key) {
-    return _.map(obj, _.property(key));
-  };
+
 ```
-<details><summary><b>答案</b></summary>
 答案
+
 1. 立即输出0-4
 
 2. 0-4秒间输出 5
@@ -8337,7 +8292,6 @@ for (var i = 0; i < 5; i++) {
 4. 0-4秒间输出 5
 
 5. 立即输出 0-4
-</details>
 
 ---
 
@@ -8698,116 +8652,14 @@ foo.bind(a)() // => 'yck'
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-162. #### 如何理解原型如何理解原型链
-
-如何理解原型？如何理解原型链？
-<details><summary><b>答案</b></summary>
-本文不会过多介绍基础知识，而是把重点放在原型的各个难点上。
-
-
-
-大家可以先仔细分析下该图，然后让我们进入主题
-
-prototype
-首先来介绍下 prototype 属性。这是一个显式原型属性，只有函数才拥有该属性。基本上所有函数都有这个属性，但是也有一个例外
-
-let fun = Function.prototype.bind()
-如果你以上述方法创建一个函数，那么可以发现这个函数是不具有 prototype 属性的。
-
-prototype 如何产生的
-当我们声明一个函数时，这个属性就被自动创建了。
-
-function Foo() {}
-并且这个属性的值是一个对象（也就是原型），只有一个属性 constructor
-
-
-
-constructor 对应着构造函数，也就是 Foo。
-
-constructor
-constructor 是一个公有且不可枚举的属性。一旦我们改变了函数的 prototype ，那么新对象就没有这个属性了（当然可以通过原型链取到 constructor）。
-
-
-
-那么你肯定也有一个疑问，这个属性到底有什么用呢？其实这个属性可以说是一个历史遗留问题，在大部分情况下是没用的，在我的理解里，我认为他有两个作用：
-
-让实例对象知道是什么函数构造了它
-如果想给某些类库中的构造函数增加一些自定义的方法，就可以通过 xx.constructor.method 来扩展
-_proto_
-这是每个对象都有的隐式原型属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
-
-因为在 JS 中是没有类的概念的，为了实现类似继承的方式，通过 _proto_ 将对象和原型联系起来组成原型链，得以让对象可以访问到不属于自己的属性。
-
-实例对象的 _proto_ 如何产生的
-从上图可知，当我们使用 new 操作符时，生成的实例对象拥有了 _proto_属性。
-
-function Foo() {}
-// 这个函数是 Function 的实例对象
-// function 就是一个语法糖
-// 内部调用了 new Function(...)
-所以可以说，在 new 的过程中，新对象被添加了 _proto_ 并且链接到构造函数的原型上。
-
-new 的过程
-新生成了一个对象
-链接到原型
-绑定 this
-返回新对象
-在调用 new 的过程中会发生以上四件事情，我们也可以试着来自己实现一个 new
-
-function create() {
-	// 创建一个空的对象
-	let obj = new Object()
-	// 获得构造函数
-	let Con = [].shift.call(arguments)
-	// 链接到原型
-	obj.__proto__ = Con.prototype
-	// 绑定 this，执行构造函数
-	let result = Con.apply(obj, arguments)
-	// 确保 new 出来的是个对象
-	return typeof result === 'object' ? result : obj
-}
-对于实例对象来说，都是通过 new 产生的，无论是 function Foo() 还是 let a = { b : 1 } 。
-
-对于创建一个对象来说，更推荐使用字面量的方式创建对象。因为你使用 new Object() 的方式创建对象需要通过作用域链一层层找到 Object，但是你使用字面量的方式就没这个问题。
-
-function Foo() {}
-// function 就是个语法糖
-// 内部等同于 new Function()
-let a = { b: 1 }
-// 这个字面量内部也是使用了 new Object()
-Function.proto === Function.prototype
-对于对象来说，xx.__proto__.contrcutor 是该对象的构造函数，但是在图中我们可以发现 Function.__proto__ === Function.prototype，难道这代表着 Function 自己产生了自己?
-
-答案肯定是否认的，要说明这个问题我们先从 Object 说起。
-
-从图中我们可以发现，所有对象都可以通过原型链最终找到 Object.prototype ，虽然 Object.prototype 也是一个对象，但是这个对象却不是 Object 创造的，而是引擎自己创建了 Object.prototype 。所以可以这样说，所有实例都是对象，但是对象不一定都是实例。
-
-接下来我们来看 Function.prototype 这个特殊的对象，如果你在浏览器将这个对象打印出来，会发现这个对象其实是一个函数。
-
-
-
-我们知道函数都是通过 new Function() 生成的，难道 Function.prototype 也是通过 new Function() 产生的吗？答案也是否定的，这个函数也是引擎自己创建的。首先引擎创建了 Object.prototype ，然后创建了 Function.prototype ，并且通过 __proto__ 将两者联系了起来。这里也很好的解释了上面的一个问题，为什么 let fun = Function.prototype.bind() 没有 prototype 属性。因为 Function.prototype 是引擎创建出来的对象，引擎认为不需要给这个对象添加 prototype 属性。
-
-所以我们又可以得出一个结论，不是所有函数都是 new Function() 产生的。
-
-有了 Function.prototype 以后才有了 function Function() ，然后其他的构造函数都是 function Function() 生成的。
-
-现在可以来解释 Function.__proto__ === Function.prototype 这个问题了。因为先有的 Function.prototype 以后才有的 function Function() ，所以也就不存在鸡生蛋蛋生鸡的悖论问题了。对于为什么 Function.__proto__ 会等于 Function.prototype ，个人的理解是：其他所有的构造函数都可以通过原型链找到 Function.prototype ，并且 function Function() 本质也是一个函数，为了不产生混乱就将 function Function() 的 __proto__ 联系到了 Function.prototype 上。
-
-总结
-Object 是所有对象的爸爸，所有对象都可以通过 __proto__ 找到它
-Function 是所有函数的爸爸，所有函数都可以通过 __proto__ 找到它
-Function.prototype 和 Object.prototype 是两个特殊的对象，他们由引擎来创建
-除了以上两个特殊对象，其他对象都是通过构造器 new 出来的
-函数的 prototype 是一个对象，也就是原型
-对象的 __proto__ 指向原型， __proto__ 将对象和原型连接起来组成了原型链
-</details>
+162. #### <div id="prototype"></div>如何理解原型？如何理解原型链？
+[深度解析原型中的各个难点](https://juejin.cn/post/6844903575974313992)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-163. #### 什么是提升什么是暂时性死区varlet及const区别
+1.   #### 什么是提升什么是暂时性死区varlet及const区别
 
 ##### 题目：什么是提升？什么是暂时性死区？var、let 及 const 区别？
 <details><summary><b>答案</b></summary>
@@ -8887,7 +8739,7 @@ let 和 const 作用基本一致，但是后者声明的变量不能再次赋值
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-164. #### 原型如何实现继承Class如何实现继承Class本质是什么
+1.   #### 原型如何实现继承Class如何实现继承Class本质是什么
 
 ##### 题目：原型如何实现继承？Class 如何实现继承？Class 本质是什么？
 <details><summary><b>答案</b></summary>
@@ -8978,7 +8830,7 @@ class 实现继承的核心在于使用 extends 表明继承自哪个父类，�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-165. #### 为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点
+1.   #### 为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点
 
 ##### 题目：为什么要使用模块化？都有哪几种方式可以实现模块化，各有什么特点？
 <details><summary><b>答案</b></summary>
@@ -9070,7 +8922,7 @@ export default function() {}
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-166. #### Proxy可以实现什么功能
+1.   #### Proxy可以实现什么功能
 
 ##### 题目：Proxy 可以实现什么功能？
 
@@ -9129,7 +8981,7 @@ get(target, property, receiver) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-167. #### mapfilterreduce各自有什么作用
+1.   #### mapfilterreduce各自有什么作用
 
 ##### 题目：map, filter, reduce 各自有什么作用？
 <details><summary><b>答案</b></summary>
@@ -9186,7 +9038,7 @@ console.log(mapArray, reduceArray) // [2, 4, 6]
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-168. #### 并发与并行的区别
+1.   #### 并发与并行的区别
 
 <details><summary><b>答案</b></summary>
 异步和这小节的知识点其实并不是一个概念，但是这两个名词确实是很多人都常会混淆的知识点。其实混淆的原因可能只是两个名词在中文上的相似，在英文上来说完全是不同的单词。
@@ -9200,7 +9052,7 @@ console.log(mapArray, reduceArray) // [2, 4, 6]
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-169. #### 什么是回调函数回调函数有什么缺点如何解决回调地狱问题
+1.   #### 什么是回调函数回调函数有什么缺点如何解决回调地狱问题
 
 ##### 题目：什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？
 <details><summary><b>答案</b></summary>
@@ -9250,7 +9102,7 @@ ajax(url, () => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-170. #### 你理解的Generator是什么
+1.   #### 你理解的Generator是什么
 
 <details><summary><b>答案</b></summary>
 Generator 算是 ES6 中难理解的概念之一了，Generator 最大的特点就是可以控制函数的执行。在这一小节中我们不会去讲什么是 Generator，而是把重点放在 Generator 的一些容易困惑的地方。
@@ -9519,141 +9371,12 @@ new MyPromise((resolve, reject) => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### 异步代码执行顺序解释一下什么是EventLoop坚果云
+1.   #### <div id="asyncExcuteAndEventLoop"></div>异步代码执行顺序解释一下什么是EventLoop(坚果云/快手)
+[做一些动图，学习一下EventLoop](https://juejin.cn/post/6969028296893792286?utm_source=gold_browser_extension#comment)
 
-##### 题目：异步代码执行顺序？解释一下什么是 Event Loop ？(坚果云)
-<details><summary><b>答案</b></summary>
+[一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.cn/post/6844903764202094606)
 
-Event Loop即事件循环，是指浏览器或Node的一种解决javaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。
-
-为啥要弄懂Event Loop
-是要增加自己技术的深度，也就是懂得JavaScript的运行机制。
-
-现在在前端领域各种技术层出不穷，掌握底层原理，可以让自己以不变，应万变。
-
-在JavaScript中，任务被分为两种，一种宏任务（MacroTask）也叫Task，一种叫微任务（MicroTask）。
-
-
-MacroTask（宏任务）
-script全部代码、setTimeout、setInterval、setImmediate（浏览器暂时不支持，只有IE10支持，具体可见MDN）、I/O、UI Rendering。
-
-
-MicroTask（微任务）
-Process.nextTick（Node独有）、Promise、Object.observe(废弃)、MutationObserver
-
-浏览器中的Event Loop
-Javascript 有一个 main thread 主线程和 call-stack 调用栈(执行栈)，所有的任务都会被放到调用栈等待主线程执行。
-
-JS调用栈
-JS调用栈采用的是后进先出的规则，当函数执行的时候，会被添加到栈的顶部，当执行栈执行完成后，就会从栈顶移出，直到栈内被清空。
-
-同步任务和异步任务
-Javascript单线程任务被分为同步任务和异步任务，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。
-
-
-事件循环的进程模型
-
-选择当前要执行的任务队列，选择任务队列中最先进入的任务，如果任务队列为空即null，则执行跳转到微任务（MicroTask）的执行步骤。
-将事件循环中的任务设置为已选择任务。
-执行任务。
-将事件循环中当前运行任务设置为null。
-将已经运行完成的任务从任务队列中删除。
-microtasks步骤：进入microtask检查点。
-更新界面渲染。
-返回第一步。
-
-执行进入microtask检查点时，用户代理会执行以下步骤：
-
-设置microtask检查点标志为true。
-当事件循环microtask执行不为空时：选择一个最先进入的microtask队列的microtask，将事件循环的microtask设置为已选择的microtask，运行microtask，将已经执行完成的microtask为null，移出microtask中的microtask。
-清理IndexDB事务
-设置进入microtask检查点的标志为false。
-
-执行栈在执行完同步任务后，查看执行栈是否为空，如果执行栈为空，就会去检查微任务(microTask)队列是否为空，如果为空的话，就执行Task（宏任务），否则就一次性执行完所有微任务。
-每次单个宏任务执行完毕后，检查微任务(microTask)队列是否为空，如果不为空的话，会按照先入先出的规则全部执行完微任务(microTask)后，设置微任务(microTask)队列为null，然后再执行宏任务，如此循环。
-Node的Event loop一共分为6个阶段，每个细节具体如下：
-
-timers: 执行setTimeout和setInterval中到期的callback。
-pending callback: 上一轮循环中少数的callback会放在这一阶段执行。
-idle, prepare: 仅在内部使用。
-poll: 最重要的阶段，执行pending callback，在适当的情况下回阻塞在这个阶段。
-check: 执行setImmediate(setImmediate()是将事件插入到事件队列尾部，主线程和事件队列的函数执行完成之后立即执行setImmediate指定的回调函数)的callback。
-close callbacks: 执行close事件的callback，例如socket.on('close'[,fn])或者http.server.on('close, fn)。
-
-作者：光光同学
-链接：https://juejin.im/post/5c3d8956e51d4511dc72c200
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-上一小节我们讲到了什么是执行栈，大家也知道了当我们执行 JS 代码的时候其实就是往执行栈中放入函数，那么遇到异步代码的时候该怎么办？其实当遇到异步的代码时，会被挂起并在需要执行的时候加入到 Task（有多种 Task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为。
-
-
-事件循环
-不同的任务源会被分配到不同的 Task 队列中，任务源可以分为 微任务（microtask） 和 宏任务（macrotask）。在 ES6 规范中，microtask 称为 jobs，macrotask 称为 task。下面来看以下代码的执行顺序：
-
-console.log('script start')
-
-async function async1() {
-  await async2()
-  console.log('async1 end')
-}
-async function async2() {
-  console.log('async2 end')
-}
-async1()
-
-setTimeout(function() {
-  console.log('setTimeout')
-}, 0)
-
-new Promise(resolve => {
-  console.log('Promise')
-  resolve()
-})
-  .then(function() {
-    console.log('promise1')
-  })
-  .then(function() {
-    console.log('promise2')
-  })
-
-console.log('script end')
-// script start => async2 end => Promise => script end => promise1 => promise2 => async1 end => setTimeout
-注意：新的浏览器中不是如上打印的，因为 await 变快了，具体内容可以往下看
-
-首先先来解释下上述代码的 async 和 await 的执行顺序。当我们调用 async1 函数时，会马上输出 async2 end，并且函数返回一个 Promise，接下来在遇到 await的时候会就让出线程开始执行 async1 外的代码，所以我们完全可以把 await 看成是让出线程的标志。
-
-然后当同步代码全部执行完毕以后，就会去执行所有的异步代码，那么又会回到 await 的位置执行返回的 Promise 的 resolve 函数，这又会把 resolve 丢到微任务队列中，接下来去执行 then 中的回调，当两个 then 中的回调全部执行完毕以后，又会回到 await 的位置处理返回值，这时候你可以看成是 Promise.resolve(返回值).then()，然后 await 后的代码全部被包裹进了 then 的回调中，所以 console.log('async1 end') 会优先执行于 setTimeout。
-
-如果你觉得上面这段解释还是有点绕，那么我把 async 的这两个函数改造成你一定能理解的代码
-
-new Promise((resolve, reject) => {
-  console.log('async2 end')
-  // Promise.resolve() 将代码插入微任务队列尾部
-  // resolve 再次插入微任务队列尾部
-  resolve(Promise.resolve())
-}).then(() => {
-  console.log('async1 end')
-})
-也就是说，如果 await 后面跟着 Promise 的话，async1 end 需要等待三个 tick 才能执行到。那么其实这个性能相对来说还是略慢的，所以 V8 团队借鉴了 Node 8 中的一个 Bug，在引擎底层将三次 tick 减少到了二次 tick。但是这种做法其实是违法了规范的，当然规范也是可以更改的，这是 V8 团队的一个 PR，目前已被同意这种做法。
-
-所以 Event Loop 执行顺序如下所示：
-
-首先执行同步代码，这属于宏任务
-当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行
-执行所有微任务
-当执行完所有微任务后，如有必要会渲染页面
-然后开始下一轮 Event Loop，执行宏任务中的异步代码，也就是 setTimeout 中的回调函数
-所以以上代码虽然 setTimeout 写在 Promise 之前，但是因为 Promise 属于微任务而 setTimeout 属于宏任务，所以会有以上的打印。
-
-微任务包括 process.nextTick ，promise ，MutationObserver，其中 process.nextTick 为 Node 独有。
-
-宏任务包括 script ， setTimeout ，setInterval ，setImmediate ，I/O ，UI rendering。
-
-这里很多人会有个误区，认为微任务快于宏任务，其实是错误的。因为宏任务中包括了 script ，浏览器会先执行一个宏任务，接下来有异步代码的话才会先执行微任务。
-
-
-</details>
+这些文章解释 `Event Loop` 非常好。
 
 ---
 

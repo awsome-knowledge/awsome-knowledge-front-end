@@ -1,4 +1,12 @@
+// 手写apply
+/**
+ * 
+ * @param {*} content 传入的第一个参数 [ 'xiangwang', 'tree' ]
+ * @param  {...any} args 传入的其余参数 [ '1', '2' ]
+ * @returns 
+ */
 Function.prototype.myApply = function (content = window, ...args) {
+    // 如果this([Function: push])和函数的原型({ [Function] myApply: [Function] })一样，返回undefined，自己绑自己干嘛
     if (this === Function.prototype) {
         return undefined
     }

@@ -4623,10 +4623,16 @@ const store = new Vuex.Store({
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-135.   #### computed和watch的区别
-##### 题目：computed和watch的区别(个推一面)
-阅读[计算属性 vs 侦听属性](https://cn.vuejs.org/v2/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-vs-%E4%BE%A6%E5%90%AC%E5%B1%9E%E6%80%A7)
+1. #### <div id="computed_watch"> </div>computed和watch的区别（个推一面/快手）
+阅读[计算属性 vs 侦听属性](https://cn.vuejs.org/v2/guide/computed.html)
 
+- computed
+惰性计算，计算属性是基于它们的响应式依赖进行缓存的。，性能比较好。
+
+除了getter，还有setter属性
+
+- watch
+当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。
 
 ---
 
@@ -4720,7 +4726,9 @@ Vue.use(a)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-1.   #### vue如何抽取公共组件的？（快手）
+1.   ####  created和mounted的区别（快手）
+- created:通常在页面渲染前调用，获取数据，初始化computed watch
+- mounted：通常在页面渲染后调用，操作dom
 
 ---
 

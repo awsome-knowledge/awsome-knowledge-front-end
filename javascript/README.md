@@ -1031,8 +1031,8 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-4. #### <a id="js_datatype_isstring"></a>  JavaScript包括哪些数据类型？请分别编写3种以上类型的判断函数？如isString
-字符串、数字、布尔、数组、对象、`null`、`undefined`
+4. #### <a id="js_datatype_isstring"></a>  JavaScript包括哪些数据类型？请分别编写3种以上类型的判断函数？如isString（快手）
+字符串string、数字number、布尔boolean、数组array、对象object、`null`、`undefined`
 
 `typeof`, `instanceof`, `isArray()`
 
@@ -7499,336 +7499,13 @@ elem.dispatchEvent(myEvent);
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 142. #### 浅拷贝和深拷贝
-
-<details><summary><b>答案</b></summary>
-关于为什么会有深拷贝和浅拷贝，实际上就是基本类型和引用类型的问题。
-
-##### 浅拷贝
-
-我们用很多简单的方法都能实现浅拷贝
-
-```js
-arr.slice()
-arr.concat()
-```
-##### 深拷贝
-我们也能用简单的方法实现深拷贝
-```js
-JSON.parse(JSON.stringify(obj))
-```
-手动实现
-
-```js
-const mapTag = '[object Map]';
-const setTag = '[object Set]';
-const arrayTag = '[object Array]';
-const objectTag = '[object Object]';
-const argsTag = '[object Arguments]';
-
-const boolTag = '[object Boolean]';
-const dateTag = '[object Date]';
-const numberTag = '[object Number]';
-const stringTag = '[object String]';
-const symbolTag = '[object Symbol]';
-const errorTag = '[object Error]';
-const regexpTag = '[object RegExp]';
-const funcTag = '[object Function]';
-
-const deepTag = [mapTag, setTag, arrayTag, objectTag, argsTag];
-
-
-function forEach(array, iteratee) {
-    let index = -1;
-    const length = array.length;
-    while (++index < length) {
-        iteratee(array[index], index);
-    }
-    return array;
-}
-
-function isObject(target) {
-    const type = typeof target;
-    return target !== null && (type === 'object' || type === 'function');
-}
-
-function getType(target) {
-    return Object.prototype.toString.call(target);
-}
-
-function getInit(target) {
-    const Ctor = target.constructor;
-    return new Ctor();
-}
-
-function cloneSymbol(targe) {
-    return Object(Symbol.prototype.valueOf.call(targe));
-}
-
-function cloneReg(targe) {
-    const reFlags = /\w*$/;
-    const result = new targe.constructor(targe.source, reFlags.exec(targe));
-    result.lastIndex = targe.lastIndex;
-    return result;
-}
-
-function cloneFunction(func) {
-    const bodyReg = /(?<={)(.|\n)+(?=})/m;
-    const paramReg = /(?<=\().+(?=\)\s+{)/;
-    const funcString = func.toString();
-    if (func.prototype) {
-        const param = paramReg.exec(funcString);
-        const body = bodyReg.exec(funcString);
-        if (body) {
-            if (param) {
-                const paramArr = param[0].split(',');
-                return new Function(...paramArr, body[0]);
-            } else {
-                return new Function(body[0]);
-            }
-        } else {
-            return null;
-        }
-    } else {
-        return eval(funcString);
-    }
-}
-
-function cloneOtherType(targe, type) {
-    const Ctor = targe.constructor;
-    switch (type) {
-        case boolTag:
-        case numberTag:
-        case stringTag:
-        case errorTag:
-        case dateTag:
-            return new Ctor(targe);
-        case regexpTag:
-            return cloneReg(targe);
-        case symbolTag:
-            return cloneSymbol(targe);
-        case funcTag:
-            return cloneFunction(targe);
-        default:
-            return null;
-    }
-}
-
-function clone(target, map = new WeakMap()) {
-
-    // 克隆原始类型
-    if (!isObject(target)) {
-        return target;
-    }
-
-    // 初始化
-    const type = getType(target);
-    let cloneTarget;
-    if (deepTag.includes(type)) {
-        cloneTarget = getInit(target, type);
-    } else {
-        return cloneOtherType(target, type);
-    }
-
-    // 防止循环引用
-    if (map.get(target)) {
-        return target;
-    }
-    map.set(target, cloneTarget);
-
-    // 克隆set
-    if (type === setTag) {
-        target.forEach(value => {
-            cloneTarget.add(clone(value));
-        });
-        return cloneTarget;
-    }
-
-    // 克隆map
-    if (type === mapTag) {
-        target.forEach((value, key) => {
-            cloneTarget.set(key, clone(value));
-        });
-        return cloneTarget;
-    }
-
-    // 克隆对象和数组
-    const keys = type === arrayTag ? undefined : Object.keys(target);
-    forEach(keys || target, (value, key) => {
-        if (keys) {
-            key = value;
-        }
-        cloneTarget[key] = clone(target[key], map);
-    });
-
-    return cloneTarget;
-}
-
-
-// 测试
-let A = {
-    a: 'a'
-}
-let B = clone(A)
-console.log(B)
-A.a = "b"
-console.log(A)
-console.log(B)
-```
-
-
-我们了解了对象类型在赋值的过程中其实是复制了地址，从而会导致改变了一方其他也都被改变的情况。通常在开发中我们不希望出现这样的问题，我们可以使用浅拷贝来解决这个情况。
-
-let a = {
-  age: 1
-}
-let b = a
-a.age = 2
-console.log(b.age) // 2
-浅拷贝
-首先可以通过 Object.assign 来解决这个问题，很多人认为这个函数是用来深拷贝的。其实并不是，Object.assign 只会拷贝所有的属性值到新的对象中，如果属性值是对象的话，拷贝的是地址，所以并不是深拷贝。
-
-let a = {
-  age: 1
-}
-let b = Object.assign({}, a)
-a.age = 2
-console.log(b.age) // 1
-另外我们还可以通过展开运算符 ... 来实现浅拷贝
-
-let a = {
-  age: 1
-}
-let b = { ...a }
-a.age = 2
-console.log(b.age) // 1
-通常浅拷贝就能解决大部分问题了，但是当我们遇到如下情况就可能需要使用到深拷贝了
-
-let a = {
-  age: 1,
-  jobs: {
-    first: 'FE'
-  }
-}
-let b = { ...a }
-a.jobs.first = 'native'
-console.log(b.jobs.first) // native
-浅拷贝只解决了第一层的问题，如果接下去的值中还有对象的话，那么就又回到最开始的话题了，两者享有相同的地址。要解决这个问题，我们就得使用深拷贝了。
-
-深拷贝
-
-这个问题通常可以通过 JSON.parse(JSON.stringify(object)) 来解决。
-
-let a = {
-  age: 1,
-  jobs: {
-    first: 'FE'
-  }
-}
-let b = JSON.parse(JSON.stringify(a))
-a.jobs.first = 'native'
-console.log(b.jobs.first) // FE
-但是该方法也是有局限性的：
-
-会忽略 undefined
-会忽略 symbol
-不能序列化函数
-不能解决循环引用的对象
-let obj = {
-  a: 1,
-  b: {
-    c: 2,
-    d: 3,
-  },
-}
-obj.c = obj.b
-obj.e = obj.a
-obj.b.c = obj.c
-obj.b.d = obj.b
-obj.b.e = obj.b.c
-let newObj = JSON.parse(JSON.stringify(obj))
-console.log(newObj)
-如果你有这么一个循环引用对象，你会发现并不能通过该方法实现深拷贝
-
-
-在遇到函数、 undefined 或者 symbol 的时候，该对象也不能正常的序列化
-
-let a = {
-  age: undefined,
-  sex: Symbol('male'),
-  jobs: function() {},
-  name: 'yck'
-}
-let b = JSON.parse(JSON.stringify(a))
-console.log(b) // {name: "yck"}
-你会发现在上述情况中，该方法会忽略掉函数和 undefined 。
-
-但是在通常情况下，复杂数据都是可以序列化的，所以这个函数可以解决大部分问题。
-
-如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel
-
-function structuralClone(obj) {
-  return new Promise(resolve => {
-    const { port1, port2 } = new MessageChannel()
-    port2.onmessage = ev => resolve(ev.data)
-    port1.postMessage(obj)
-  })
-}
-
-var obj = {
-  a: 1,
-  b: {
-    c: 2
-  }
-}
-
-obj.b.d = obj.b
-
-// 注意该方法是异步的
-// 可以处理 undefined 和循环引用对象
-const test = async () => {
-  const clone = await structuralClone(obj)
-  console.log(clone)
-}
-test()
-当然你可能想自己来实现一个深拷贝，但是其实实现一个深拷贝是很困难的，需要我们考虑好多种边界情况，比如原型链如何处理、DOM 如何处理等等，所以这里我们实现的深拷贝只是简易版，并且我其实更推荐使用 lodash 的深拷贝函数。
-
-function deepClone(obj) {
-  function isObject(o) {
-    return (typeof o === 'object' || typeof o === 'function') && o !== null
-  }
-
-  if (!isObject(obj)) {
-    throw new Error('非对象')
-  }
-
-  let isArray = Array.isArray(obj)
-  let newObj = isArray ? [...obj] : { ...obj }
-  Reflect.ownKeys(newObj).forEach(key => {
-    newObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key]
-  })
-
-  return newObj
-}
-
-let obj = {
-  a: [1, 2, 3],
-  b: {
-    c: 2,
-    d: 3
-  }
-}
-let newObj = deepClone(obj)
-newObj.b.c = 1
-console.log(obj.b.c) // 2
-
-
-</details>
+[https://zhuanlan.zhihu.com/p/56741046](https://zhuanlan.zhihu.com/p/56741046)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-143. #### 数组去重
+1.   #### 数组去重
 
 <details><summary><b>答案</b></summary>
 
@@ -7890,7 +7567,7 @@ console.log(res6)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-144.   #### 如何实现一个倒计时功能类似于蘑菇街中的秒杀
+1.     #### 如何实现一个倒计时功能类似于蘑菇街中的秒杀
 
 如何实现一个倒计时功能，类似于蘑菇街中的秒杀（蘑菇街）
 <details><summary><b>答案</b></summary>
@@ -7901,7 +7578,7 @@ console.log(res6)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-145.   #### <a id="es6_this_function_this"></a> 怎么理解es6箭头函数中的this，它和一般函数的this指向有什么区别呢？（蘑菇街）
+1.     #### <a id="es6_this_function_this"></a> 怎么理解es6箭头函数中的this，它和一般函数的this指向有什么区别呢？（蘑菇街）
 
 <details><summary><b>答案</b></summary>
 
@@ -10267,7 +9944,9 @@ https://blog.csdn.net/hl971115/article/details/109557323
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-1.   #### xxxx
+1.   #### es6中 for in 和for of（快手）
+- for in 遍历数据的索引
+- for of 遍历数据的值
 
 ---
 

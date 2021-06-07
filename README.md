@@ -15,6 +15,11 @@
 
 <details><summary><b>参考文献</b></summary>
 
+[最全的 Vue 面试题+详解答案](https://juejin.cn/post/6961222829979697165#heading-0)
+
+[最全的手写JS面试题](https://juejin.cn/post/6968713283884974088#heading-21)
+
+
 [awesome-coding-js](http://www.conardli.top/docs/JavaScript/)
 
 [sudheerj/vuejs-interview-questions](https://github.com/sudheerj/vuejs-interview-questions)

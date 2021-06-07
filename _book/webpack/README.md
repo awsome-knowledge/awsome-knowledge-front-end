@@ -79,23 +79,17 @@ webpack的配置文件、怎么打包css文件
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-8. ####  你说一下webpack的一些plugin怎么使用webpack对项目进行优化
-你说一下webpack的一些plugin，怎么使用webpack对项目进行优化?
-<details><summary><b>答案</b></summary>
-构建优化
-
+8. ####  你说一下webpack的一些plugin，怎么使用webpack对项目进行优化?
 1. 减少编译体积 ContextReplacementPugin、IgnorePlugin、babel-plugin-import、babel-plugin-transform-runtime。
 2. 并行编译 happypack、thread-loader、uglifyjsWebpackPlugin开启并行
 3. 缓存 cache-loader、hard-source-webpack-plugin、uglifyjsWebpackPlugin开启缓存、babel-loader开启缓存
 4. 预编译 dllWebpackPlugin && DllReferencePlugin、auto-dll-webapck-plugin
 
-性能优化
+> 性能优化
 
 1. 减少编译体积 Tree-shaking、Scope Hositing。
 2. hash缓存 webpack-md5-plugin
 3. 拆包 splitChunksPlugin、import()、require.ensure
-
-</details>
 
 ---
 

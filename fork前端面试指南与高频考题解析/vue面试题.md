@@ -8,7 +8,7 @@ Model（模型）：是应用程序中用于处理应用程序数据逻辑的部
 View（视图）：是应用程序中处理数据显示的部分。通常视图是依据模型数据创建的
 Controller（控制器）：是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据
 
-![mvc](./mvc.png)
+![mvc](./public/mvc.png)
 
 MVC 的思想：一句话描述就是 Controller 负责将 Model 的数据用 View 显示出来，换句话说就是在 Controller 里面把 Model 的数据赋值给 View。
 MVVM
@@ -16,14 +16,14 @@ MVVM 新增了 VM 类
 
 ViewModel 层：做了两件事达到了数据的双向绑定 一是将【模型】转化成【视图】，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将【视图】转化成【模型】，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。
 
-![mvvm](./mvvm.png)
+![mvvm](./public/mvvm.png)
 
 MVVM 与 MVC 最大的区别就是：它实现了 View 和 Model 的自动同步，也就是当 Model 的属性改变时，我们不用再自己手动操作 Dom 元素，来改变 View 的显示，而是改变属性后该属性对应 View 层显示会自动改变（对应Vue数据驱动的思想）
 整体看来，MVVM 比 MVC 精简很多，不仅简化了业务与界面的依赖，还解决了数据频繁更新的问题，不用再用选择器操作 DOM 元素。因为在 MVVM 中，View 不知道 Model 的存在，Model 和 ViewModel 也观察不到 View，这种低耦合模式提高代码的可重用性
 
 注意：Vue 并没有完全遵循 MVVM 的思想 这一点官网自己也有说明
 
-![vue](./vue.png)
+![vue](./public/vue.png)
 
 那么问题来了 为什么官方要说 Vue 没有完全遵循 MVVM 思想呢？
 
@@ -86,10 +86,10 @@ v-show 适用于需要非常频繁切换条件的场景
 
 扩展补充：display:none、visibility:hidden 和 opacity:0 之间的区别？
 
-![show](./show.png)
+![show](./public/show.png)
 
 ### 6 说说 vue 内置指令
-![内置组件](./内置组件.png)
+![内置组件](./public/内置组件.png)
 
 ### 7 怎样理解 Vue 的单向数据流
 数据总是从父组件传到子组件，子组件没有权利修改父组件传过来的数据，只能请求父组件对原始数据进行修改。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。
@@ -433,7 +433,7 @@ watch: { //通过watch来监听路由变化
 ### 21 谈一下对 vuex 的个人理解
 vuex 是专门为 vue 提供的全局状态管理系统，用于多个组件中数据共享、数据缓存等。（无法持久化、内部核心原理是通过创造一个全局实例 new Vue）
 
-![vuex](./vuex.png)
+![vuex](./public/vuex.png)
 
 主要包括以下几个模块：
 
@@ -693,7 +693,7 @@ export default {
 
 扩展补充：LRU 算法是什么？
 
-![lru](./lru.png)
+![lru](./public/lru.png)
 
 LRU 的核心思想是如果数据最近被访问过，那么将来被访问的几率也更高，所以我们将命中缓存的组件 key 重新插入到 this.keys 的尾部，这样一来，this.keys 中越往头部的数据即将来被访问几率越低，所以当缓存数量达到最大值时，我们就删除将来被访问几率最低的数据，即 this.keys 中第一个缓存的组件。
 ### 30 Vue.set 方法原理
@@ -917,7 +917,7 @@ history 模式
 特点：虽然美观，但是刷新会出现 404 需要后端进行配置
 
 ### 38 diff 算法了解吗
-![diff](./diff.png)
+![diff](./public/diff.png)
 建议直接看 diff 算法详解 
 
 

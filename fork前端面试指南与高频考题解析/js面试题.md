@@ -139,6 +139,7 @@ function uniqueArr(arr) {
 ## 5 数组扁平化
 题目描述:实现一个方法使多维数组变成一维数组
 最常见的递归版本如下：
+```js
 function flatter(arr) {
   if (!arr.length) return;
   return arr.reduce(
@@ -148,11 +149,12 @@ function flatter(arr) {
   );
 }
 // console.log(flatter([1, 2, [1, [2, 3, [4, 5, [6]]]]]));
-复制代码
+```
 
 扩展思考：能用迭代的思路去实现吗?
 
 实现代码如下:
+```js
 function flatter(arr) {
   if (!arr.length) return;
   while (arr.some((item) => Array.isArray(item))) {
@@ -161,10 +163,11 @@ function flatter(arr) {
   return arr;
 }
 // console.log(flatter([1, 2, [1, [2, 3, [4, 5, [6]]]]]));
-复制代码
+```
 ## 6 寄生组合继承
 题目描述:实现一个你认为不错的 js 继承方式
 实现代码如下:
+```js
 function Parent(name) {
   this.name = name;
   this.say = () => {
@@ -184,7 +187,7 @@ Children.prototype.constructor = Children;
 // // console.log(child.name);
 // // child.say();
 // // child.play();
-复制代码
+```
 ## 7 实现有并行限制的 Promise 调度器
 题目描述:JS 实现一个带并发限制的异步调度器 Scheduler，保证同时运行的任务最多有两个
  addTask(1000,"1");
@@ -730,7 +733,7 @@ console.log(arr);
 复制代码
 22 LRU 算法
 题目描述:
-
+![lru算法](./public/lru算法.png)
 实现代码如下:
 //  一个Map对象在迭代时会根据对象中元素的插入顺序来进行
 // 新添加的元素会被插入到map的末尾，整个栈倒序查看
@@ -779,6 +782,7 @@ class LRUCache {
 23 Promise 以及相关方法的实现
 题目描述:手写 Promise 以及 Promise.all Promise.race 的实现
 实现代码如下:
+```js
 class Mypromise {
   constructor(fn) {
     // 表示状态
@@ -941,7 +945,7 @@ class Mypromise {
 //       console.log(err);
 //     }
 //   );
-复制代码
+```
 
 扩展思考:如何取消 promise
 

@@ -851,7 +851,7 @@ test('debounce', () => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-3. #### <a id="set_map_weakset_weakmap"></a>  介绍下Set、Map、WeakSet和WeakMap的区别(难))
+3. #### <a id="set_map_weakset_weakmap"></a>  介绍下Set、Map、WeakSet和WeakMap的区别(难))（抖音）
 ##### 集合 Set
 `ES6` 新增的一种新的数据结构，类似于数组，但成员是唯一且无序的。
 `Set` 本身是一种构造函数，用来生成 `Set` 数据结构。
@@ -2600,7 +2600,7 @@ co(gen);
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-23. #### promise原理
+23. #### promise原理（快手、抖音）
 ##### 什么是promise
 
 `promise` 的中文意思是承诺，

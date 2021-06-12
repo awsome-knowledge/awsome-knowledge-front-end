@@ -33,7 +33,7 @@ function compose(...fn) {
 ```
 
 ## 2. settimeout 模拟实现 setinterval(带清除定时器的版本)
-题目描述:setinterval 用来实现循环定时调用 可能会存在一定的问题 能用 `settimeout` 解决吗
+题目描述: `setinterval` 用来实现循环定时调用 可能会存在一定的问题 能用 `settimeout` 解决吗
 实现代码如下:
 ```js
 function mySettimeout(fn, t) {
@@ -52,9 +52,11 @@ function mySettimeout(fn, t) {
 // let a=mySettimeout(()=>{
 //   console.log(111);
 // },1000)
+// a.cancel()
 // let b=mySettimeout(() => {
 //   console.log(222)
 // }, 1000)
+// b.cancel()
 ```
 
 扩展：我们能反过来使用 setinterval 模拟实现 settimeout 吗？
@@ -71,11 +73,13 @@ const mySetTimeout = (fn, time) => {
 ```
 
 扩展思考：为什么要用 settimeout 模拟实现 setinterval？setinterval 的缺陷是什么？
-
-答案请自行百度哈 这个其实面试官问的也挺多的 小编这里就不展开了
+1. setInterval 无视代码错误
+2. setInterval 无视网络延迟
+3. setInterval 不保证执行间隔
 ## 3 发布订阅模式
-题目描述:实现一个发布订阅模式拥有 on emit once off 方法
+题目描述:实现一个发布订阅模式拥有 `on` `emit` `once` `off` 方法
 实现代码如下:
+```js
 class EventEmitter {
   constructor() {
     this.events = {};
@@ -129,27 +133,48 @@ class EventEmitter {
 // });
 // event.emit("dbClick");
 // event.emit("dbClick");
-复制代码
+```
 ## 4 数组去重
 实现代码如下:
+```js
 function uniqueArr(arr) {
   return [...new Set(arr)];
 }
-复制代码
+```
 ## 5 数组扁平化
 题目描述:实现一个方法使多维数组变成一维数组
 最常见的递归版本如下：
+
 ```js
 function flatter(arr) {
   if (!arr.length) return;
   return arr.reduce(
     (pre, cur) =>
       Array.isArray(cur) ? [...pre, ...flatter(cur)] : [...pre, cur],
+      // 第一次调用的初始值
     []
   );
 }
 // console.log(flatter([1, 2, [1, [2, 3, [4, 5, [6]]]]]));
 ```
+### reduce
+1. callback
+执行数组中每个值 (如果没有提供 initialValue则第一个值除外)的函数，包含四个参数：
+- accumulator
+累计器累计回调的返回值; 它是上一次调用回调时返回的累积值，或initialValue（见于下方）。
+
+- currentValue
+数组中正在处理的元素。
+
+- index 可选
+数组中正在处理的当前元素的索引。 如果提供了initialValue，则起始索引号为0，否则从索引1起始。
+
+- array可选
+调用reduce()的数组
+
+2. initialValue可选
+作为第一次调用 callback函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。 在没有初始值的空数组上调用 reduce 将报错。
+
 
 扩展思考：能用迭代的思路去实现吗?
 
@@ -165,7 +190,7 @@ function flatter(arr) {
 // console.log(flatter([1, 2, [1, [2, 3, [4, 5, [6]]]]]));
 ```
 ## 6 寄生组合继承
-题目描述:实现一个你认为不错的 js 继承方式
+题目描述:实现一个你认为不错的 `js` 继承方式
 实现代码如下:
 ```js
 function Parent(name) {
@@ -189,11 +214,13 @@ Children.prototype.constructor = Children;
 // // child.play();
 ```
 ## 7 实现有并行限制的 Promise 调度器
-题目描述:JS 实现一个带并发限制的异步调度器 Scheduler，保证同时运行的任务最多有两个
+题目描述: `JS` 实现一个带并发限制的异步调度器 `Scheduler`，保证同时运行的任务最多有两个
+```js
  addTask(1000,"1");
  addTask(500,"2");
  addTask(300,"3");
  addTask(400,"4");
+ ```
  的输出顺序是：2 3 1 4
 
  整个的完整执行流程：
@@ -204,9 +231,10 @@ Children.prototype.constructor = Children;
 1000ms时，1任务执行完毕，输出1，此时只剩下4任务在执行
 1200ms时，4任务执行完毕，输出4
 
-复制代码
 实现代码如下:
+```js
 class Scheduler {
+  // 最大并发数
   constructor(limit) {
     this.queue = [];
     this.maxCount = limit;
@@ -250,9 +278,9 @@ addTask(500, "2");
 addTask(300, "3");
 addTask(400, "4");
 scheduler.taskStart();
-复制代码
+```
 ## 8 new 操作符
-题目描述:手写 new 操作符实现
+题目描述:手写 `new` 操作符实现
 实现代码如下:
 function myNew(fn, ...args) {
   let obj = Object.create(fn.prototype);
@@ -506,7 +534,7 @@ function insertSort(arr) {
 }
 // console.log(insertSort([3, 6, 2, 4, 1]));
 复制代码
-16 快排--时间复杂度 nlogn~ n^2 之间
+## 16 快排--时间复杂度 nlogn~ n^2 之间
 题目描述:实现一个快排
 实现代码如下:
 function quickSort(arr) {
@@ -520,7 +548,7 @@ function quickSort(arr) {
 }
 // console.log(quickSort([3, 6, 2, 4, 1]));
 复制代码
-17 归并排序--时间复杂度 nlog(n)
+## 17 归并排序--时间复杂度 nlog(n)
 题目描述:实现一个时间复杂度为 nlog(n)的排序算法
 实现代码如下:
 function merge(left, right) {
@@ -556,7 +584,7 @@ function mergeSort(arr) {
 }
 // console.log(mergeSort([3, 6, 2, 4, 1]));
 复制代码
-18 二分查找--时间复杂度 log2(n)
+## 18 二分查找--时间复杂度 log2(n)
 题目描述:如何确定一个数在一个有序数组中的位置
 实现代码如下:
 function search(arr, target, start, end) {
@@ -587,7 +615,7 @@ function search(arr, target, start, end) {
 //   console.log("目标元素不在数组中");
 // }
 复制代码
-19 实现 LazyMan
+## 19 实现 LazyMan
 题目描述:
 实现一个LazyMan，可以按照以下方式调用:
 LazyMan(“Hank”)输出:
@@ -662,7 +690,7 @@ function LazyMan(name) {
   return new _LazyMan(name);
 }
 复制代码
-20 防抖节流
+## 20 防抖节流
 题目描述:手写防抖节流
 实现代码如下:
 // 防抖
@@ -708,7 +736,7 @@ window.addEventListener(
   }, 1000)
 );
 复制代码
-21 写版本号排序的方法
+## 21 写版本号排序的方法
 题目描述:有一组版本号如下['0.1.1', '2.3.3', '0.302.1', '4.2', '4.3.5', '4.3.4.5']。现在需要对其进行排序，排序的结果为 ['4.3.5','4.3.4.5','2.3.3','0.302.1','0.1.1']
 实现代码如下:
 arr.sort((a, b) => {
@@ -731,7 +759,7 @@ arr.sort((a, b) => {
 });
 console.log(arr);
 复制代码
-22 LRU 算法
+## 22 LRU 算法
 题目描述:
 ![lru算法](./public/lru算法.png)
 实现代码如下:
@@ -779,7 +807,7 @@ class LRUCache {
 // console.log("cache.get(3)", cache.get(3))// 返回  3
 // console.log("cache.get(4)", cache.get(4))// 返回  4
 复制代码
-23 Promise 以及相关方法的实现
+## 23 Promise 以及相关方法的实现
 题目描述:手写 Promise 以及 Promise.all Promise.race 的实现
 实现代码如下:
 ```js
@@ -975,7 +1003,7 @@ wrapPro.promise.then((res) => {
 });
 wrapPro.resolve("被拦截了");
 复制代码
-24 实现一个 add 方法
+## 24 实现一个 add 方法
 题目描述:实现一个 add 方法 使计算结果能够满足如下预期：
 add(1)(2)(3)()=6
 add(1,2,3)(4)()=10
@@ -996,7 +1024,7 @@ function add(...args) {
   return fn;
 }
 复制代码
-25 动态规划求解硬币找零问题
+## 25 动态规划求解硬币找零问题
 题目描述:给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1
 示例1：
 输入: coins = [1, 2, 5], amount = 11
@@ -1034,7 +1062,7 @@ const coinChange = function (coins, amount) {
   return f[amount];
 };
 复制代码
-26 请实现 DOM2JSON 一个函数，可以把一个 DOM 节点输出 JSON 的格式
+## 26 请实现 DOM2JSON 一个函数，可以把一个 DOM 节点输出 JSON 的格式
 题目描述:
 <div>
   <span>
@@ -1080,7 +1108,7 @@ function dom2Json(domtree) {
 扩展思考:如果给定的不是一个 Dom 树结构 而是一段 html 字符串 该如何解析?
 
 那么这个问题就类似 Vue 的模板编译原理 我们可以利用正则 匹配 html 字符串 遇到开始标签 结束标签和文本 解析完毕之后生成对应的 ast 并建立相应的父子关联 不断的 advance 截取剩余的字符串 直到 html 全部解析完毕 感兴趣的可以看这里
-27 类数组转化为数组的方法
+## 27 类数组转化为数组的方法
 题目描述:类数组拥有 length 属性 可以使用下标来访问元素 但是不能使用数组的方法 如何把类数组转化为数组?
 实现代码如下:
 const arrayLike=document.querySelectorAll('div')
@@ -1097,7 +1125,7 @@ Array.apply(null, arrayLike)
 Array.prototype.concat.apply([], arrayLike)
 
 复制代码
-28 Object.is 实现
+## 28 Object.is 实现
 题目描述:
 Object.is不会转换被比较的两个值的类型，这点和===更为相似，他们之间也存在一些区别。
     1. NaN在===中是不相等的，而在Object.is中是相等的
@@ -1117,7 +1145,7 @@ Object.is = function (x, y) {
   return x !== x && y !== y;
 };
 复制代码
-29 AJAX
+## 29 AJAX
 题目描述:利用 XMLHttpRequest 手写 AJAX 实现
 实现代码如下:
 const getJSON = function (url) {
@@ -1137,7 +1165,7 @@ const getJSON = function (url) {
   });
 };
 复制代码
-30 分片思想解决大数据量渲染问题
+## 30 分片思想解决大数据量渲染问题
 题目描述:渲染百万条结构简单的大数据时 怎么使用分片思想优化渲染
 实现代码如下:
 let ul = document.getElementById("container");
@@ -1171,7 +1199,7 @@ loop(total, index);
 扩展思考：对于大数据量的简单 dom 结构渲染可以用分片思想解决 如果是复杂的 dom 结构渲染如何处理？
 
 这时候就需要使用虚拟列表了 大家自行百度哈 虚拟列表和虚拟表格在日常项目使用还是很频繁的
-31 将虚拟 Dom 转化为真实 Dom
+## 31 将虚拟 Dom 转化为真实 Dom
 题目描述:JSON 格式的虚拟 Dom 怎么转换成真实 Dom
 {
   tag: 'DIV',
@@ -1231,7 +1259,7 @@ function _render(vnode) {
   return dom;
 }
 复制代码
-32 实现模板字符串解析功能
+## 32 实现模板字符串解析功能
 题目描述:
 let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
 let data = {
@@ -1248,7 +1276,7 @@ function render(template, data) {
   return computed;
 }
 复制代码
-33 实现一个对象的 flatten 方法
+## 33 实现一个对象的 flatten 方法
 题目描述:
 const obj = {
  a: {
@@ -1303,7 +1331,7 @@ function flatten(obj) {
 }
 flatten();
 复制代码
-34 列表转成树形结构
+## 34 列表转成树形结构
 题目描述:
 [
     {
@@ -1355,7 +1383,7 @@ function listToTree(data) {
   return treeData;
 }
 复制代码
-35 树形结构转成列表
+## 35 树形结构转成列表
 题目描述:
 [
     {
@@ -1403,7 +1431,7 @@ function treeToList(data) {
   return res;
 }
 复制代码
-36 大数相加
+## 36 大数相加
 题目描述:实现一个add方法完成两个大数相加
 let a = "9007199254740991";
 let b = "1234567899999999999";

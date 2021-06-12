@@ -282,7 +282,9 @@ scheduler.taskStart();
 ## 8 new 操作符
 题目描述:手写 `new` 操作符实现
 实现代码如下:
+```js
 function myNew(fn, ...args) {
+  // 创建对象
   let obj = Object.create(fn.prototype);
   let res = fn.call(obj, ...args);
   if (res && (typeof res === "object" || typeof res === "function")) {
@@ -290,7 +292,9 @@ function myNew(fn, ...args) {
   }
   return obj;
 }
+```
 用法如下：
+```js
 // // function Person(name, age) {
 // //   this.name = name;
 // //   this.age = age;
@@ -302,10 +306,11 @@ function myNew(fn, ...args) {
 // // console.log(p1.name);
 // // console.log(p1);
 // // p1.say();
-复制代码
+```
 ## 9 call apply bind
-题目描述:手写 call apply bind 实现
+题目描述:手写 `call` `apply` `bind` 实现
 实现代码如下:
+```js
 Function.prototype.myCall = function (context, ...args) {
   if (!context || context === null) {
     context = window;
@@ -394,10 +399,11 @@ Function.prototype.myBind = function (context, ...args) {
 // 再测试作为普通函数调用
 // let bindFun = normalFun.myBind(obj, '我是参数传进来的name')
 //  bindFun('我是参数传进来的age')
-复制代码
+```
 ## 10 深拷贝（考虑到复制 Symbol 类型）
-题目描述:手写 new 操作符实现
+题目描述:手写 `new` 操作符实现
 实现代码如下:
+```js
 function isObject(val) {
   return typeof val === "object" && val !== null;
 }
@@ -426,10 +432,11 @@ function deepClone(obj, hash = new WeakMap()) {
 // };
 // var obj2 = deepClone(obj1);
 // console.log(obj1);
-复制代码
+```
 ## 11 instanceof
-题目描述:手写 instanceof 操作符实现
+题目描述:手写 `instanceof` 操作符实现
 实现代码如下:
+```js
 function myInstanceof(left, right) {
   while (true) {
     if (left === null) {
@@ -441,10 +448,11 @@ function myInstanceof(left, right) {
     left = left.__proto__;
   }
 }
-复制代码
+```
 ## 12 柯里化
 题目描述:柯里化（Currying），又称部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。核心思想是把多参数传入的函数拆成单参数（或部分）函数，内部再返回调用下一个单参数（或部分）函数，依次处理剩余的参数。
 实现代码如下:
+```js
 function currying(fn, ...args) {
   const length = fn.length;
   let allArgs = [...args];
@@ -463,7 +471,7 @@ function currying(fn, ...args) {
 // const add = (a, b, c) => a + b + c;
 // const a = currying(add, 1);
 // console.log(a(2,3))
-复制代码
+```
 ## 13 冒泡排序--时间复杂度 n^2
 题目描述:实现一个冒泡排序
 实现代码如下:
@@ -533,10 +541,11 @@ function insertSort(arr) {
   return arr;
 }
 // console.log(insertSort([3, 6, 2, 4, 1]));
-复制代码
+```
 ## 16 快排--时间复杂度 nlogn~ n^2 之间
 题目描述:实现一个快排
 实现代码如下:
+```js
 function quickSort(arr) {
   if (arr.length < 2) {
     return arr;
@@ -547,10 +556,11 @@ function quickSort(arr) {
   return [...quickSort(left), cur, ...quickSort(right)];
 }
 // console.log(quickSort([3, 6, 2, 4, 1]));
-复制代码
+```
 ## 17 归并排序--时间复杂度 nlog(n)
 题目描述:实现一个时间复杂度为 nlog(n)的排序算法
 实现代码如下:
+```js
 function merge(left, right) {
   let res = [];
   let i = 0;
@@ -583,10 +593,11 @@ function mergeSort(arr) {
   return merge(left, right);
 }
 // console.log(mergeSort([3, 6, 2, 4, 1]));
-复制代码
+```
 ## 18 二分查找--时间复杂度 log2(n)
 题目描述:如何确定一个数在一个有序数组中的位置
 实现代码如下:
+```js
 function search(arr, target, start, end) {
   let targetIndex = -1;
 
@@ -614,10 +625,11 @@ function search(arr, target, start, end) {
 // } else {
 //   console.log("目标元素不在数组中");
 // }
-复制代码
+```
 ## 19 实现 LazyMan
 题目描述:
 实现一个LazyMan，可以按照以下方式调用:
+```js
 LazyMan(“Hank”)输出:
 Hi! This is Hank!
 
@@ -637,8 +649,10 @@ LazyMan(“Hank”).eat(“supper”).sleepFirst(5)输出
 Wake up after 5
 Hi This is Hank!
 Eat supper
-复制代码
+```
+
 实现代码如下:
+```js
 class _LazyMan {
   constructor(name) {
     this.tasks = [];
@@ -689,10 +703,11 @@ class _LazyMan {
 function LazyMan(name) {
   return new _LazyMan(name);
 }
-复制代码
+```
 ## 20 防抖节流
 题目描述:手写防抖节流
 实现代码如下:
+```js
 // 防抖
 function debounce(fn, delay = 300) {
   //默认300毫秒
@@ -735,7 +750,7 @@ window.addEventListener(
     console.log(111);
   }, 1000)
 );
-复制代码
+```
 ## 21 写版本号排序的方法
 题目描述:有一组版本号如下['0.1.1', '2.3.3', '0.302.1', '4.2', '4.3.5', '4.3.4.5']。现在需要对其进行排序，排序的结果为 ['4.3.5','4.3.4.5','2.3.3','0.302.1','0.1.1']
 实现代码如下:

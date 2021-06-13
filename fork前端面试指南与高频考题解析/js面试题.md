@@ -686,6 +686,9 @@ function search(arr, target, start, end) {
 ```
 ## 19 实现 LazyMan
 题目描述:
+
+这是典型的JavaScript流程控制，问题的关键是如何实现任务的顺序执行。
+
 实现一个LazyMan，可以按照以下方式调用:
 ```js
 LazyMan(“Hank”)输出:
@@ -713,6 +716,7 @@ Eat supper
 ```js
 class _LazyMan {
   constructor(name) {
+    // 任务队列
     this.tasks = [];
     const task = () => {
       console.log(`Hi! This is ${name}`);
@@ -764,6 +768,7 @@ function LazyMan(name) {
 ```
 ## 20 防抖节流
 题目描述:手写防抖节流
+
 实现代码如下:
 ```js
 // 防抖

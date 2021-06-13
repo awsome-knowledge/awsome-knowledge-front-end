@@ -598,8 +598,15 @@ function quickSort(arr) {
 }
 // console.log(quickSort([3, 6, 2, 4, 1]));
 ```
-## 17 归并排序--时间复杂度 nlog(n)
-题目描述:实现一个时间复杂度为 nlog(n)的排序算法
+## 17 归并排序--时间复杂度 nlog(n) (难)
+题目描述:实现一个时间复杂度为 nlog(n)的排序算法：[归并排序](https://www.runoob.com/w3cnote/merge-sort.html)
+
+1. 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；
+2. 设定两个指针，最初位置分别为两个已经排序序列的起始位置；
+3. 比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；
+4. 重复步骤 3 直到某一指针达到序列尾；
+5. 将另一序列剩下的所有元素直接复制到合并序列尾。
+
 实现代码如下:
 ```js
 function merge(left, right) {
@@ -637,25 +644,35 @@ function mergeSort(arr) {
 ```
 ## 18 二分查找--时间复杂度 log2(n)
 题目描述:如何确定一个数在一个有序数组中的位置
+
 实现代码如下:
 ```js
+/**
+ * 
+ * @param {*} arr 需要查找的原始数组 
+ * @param {*} target 查找值
+ * @param {*} start 开始位置
+ * @param {*} end 结束位置
+ * @returns 
+ */
 function search(arr, target, start, end) {
   let targetIndex = -1;
-
+  // 中间位置
   let mid = Math.floor((start + end) / 2);
-
+  // 如果中间位置的值等于目标值返回
   if (arr[mid] === target) {
     targetIndex = mid;
     return targetIndex;
   }
-
+  // 如果开始索引大于结束索引返回
   if (start >= end) {
     return targetIndex;
   }
-
   if (arr[mid] < target) {
+    // 如果中间值小于目标值，那么在右边
     return search(arr, target, mid + 1, end);
   } else {
+    // 如果中间值大于目标值，那么在左边
     return search(arr, target, start, mid - 1);
   }
 }

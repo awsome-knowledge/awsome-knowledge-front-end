@@ -548,17 +548,26 @@ function selectSort(arr) {
 // console.log(quickSort([3, 6, 2, 4, 1]));
 ```
 ## 15 插入排序--时间复杂度 n^2
-题目描述:实现一个插入排序
+题目描述:实现一个[插入排序](https://www.runoob.com/w3cnote/insertion-sort.html)
+
+1. 将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。
+2. 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）
+
 实现代码如下:
 ```js
 function insertSort(arr) {
+  // 遍历数组
   for (let i = 1; i < arr.length; i++) {
     let j = i;
     let target = arr[j];
+    // 比较前一个值和当前值的大小
     while (j > 0 && arr[j - 1] > target) {
+      // 交换位置
       arr[j] = arr[j - 1];
+      // 判断前前一个和前一个值的大小
       j--;
     }
+    // 将target保留的当前位置的值赋值给前一个
     arr[j] = target;
   }
   return arr;
@@ -566,7 +575,12 @@ function insertSort(arr) {
 // console.log(insertSort([3, 6, 2, 4, 1]));
 ```
 ## 16 快排--时间复杂度 nlogn~ n^2 之间
-题目描述:实现一个快排
+题目描述:实现一个[快排](https://www.runoob.com/w3cnote/quick-sort-2.html)
+
+1. 从数列中挑出一个元素，称为 "基准"（pivot）;
+2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
+3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；
+
 实现代码如下:
 ```js
 function quickSort(arr) {
@@ -574,8 +588,12 @@ function quickSort(arr) {
     return arr;
   }
   const cur = arr[arr.length - 1];
+  // 左边数组要比当前值小
+  // 过滤当前值
   const left = arr.filter((v, i) => v <= cur && i !== arr.length - 1);
+  // 右边数组要比当前值大
   const right = arr.filter((v) => v > cur);
+  // 递归
   return [...quickSort(left), cur, ...quickSort(right)];
 }
 // console.log(quickSort([3, 6, 2, 4, 1]));

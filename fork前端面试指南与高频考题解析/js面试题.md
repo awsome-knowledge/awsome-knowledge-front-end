@@ -434,23 +434,35 @@ function deepClone(obj, hash = new WeakMap()) {
 // console.log(obj1);
 ```
 ## 11 instanceof
-题目描述:手写 `instanceof` 操作符实现
+题目描述:手写 `instanceof` 操作符实现。
+
+instanceof: 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+
 实现代码如下:
 ```js
 function myInstanceof(left, right) {
+  // 循环判断实例对象上的原型链是否有某个构造函数的prototype属性
   while (true) {
+    // 如果实例对象不存在返回false
     if (left === null) {
       return false;
     }
+    // 如果实例对象原型链上找到构造函数的prototype属性返回true
     if (left.__proto__ === right.prototype) {
       return true;
     }
+    // 实例对象原型链上继续找
     left = left.__proto__;
   }
 }
 ```
 ## 12 柯里化
-题目描述:柯里化（Currying），又称部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。核心思想是把多参数传入的函数拆成单参数（或部分）函数，内部再返回调用下一个单参数（或部分）函数，依次处理剩余的参数。
+[一文讲懂什么是函数柯里化，柯里化的目的及其代码实现](https://developer.51cto.com/art/202012/633598.htm)
+
+题目描述:柯里化（Currying），又称部分求值（Partial Evaluation），是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+
+核心思想是把多参数传入的函数拆成单参数（或部分）函数，内部再返回调用下一个单参数（或部分）函数，依次处理剩余的参数。
+
 实现代码如下:
 ```js
 function currying(fn, ...args) {
@@ -473,7 +485,13 @@ function currying(fn, ...args) {
 // console.log(a(2,3))
 ```
 ## 13 冒泡排序--时间复杂度 n^2
-题目描述:实现一个冒泡排序
+题目描述:实现一个[冒泡排序](https://www.runoob.com/w3cnote/bubble-sort.html)
+
+1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+2. 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。
+3. 针对所有的元素重复以上的步骤，除了最后一个。
+4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+
 实现代码如下:
 ```js
 function bubbleSort(arr) {
@@ -496,7 +514,12 @@ function bubbleSort(arr) {
 // console.log(bubbleSort([3, 6, 2, 4, 1]));
 ```
 ## 14 选择排序--时间复杂度 n^2
-题目描述:实现一个选择排序
+题目描述:实现一个[选择排序](https://www.runoob.com/w3cnote/selection-sort.html)
+
+1. 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。
+2. 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+3. 重复第二步，直到所有元素均排序完毕。
+
 实现代码如下:
 ```js
 function selectSort(arr) {

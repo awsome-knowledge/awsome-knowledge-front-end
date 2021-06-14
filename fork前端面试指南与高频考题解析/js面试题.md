@@ -793,7 +793,7 @@ window.addEventListener(
   }, 1000)
 );
 
-// 节流
+// 节流（定时器版本）
 // 设置一个标志
 function throttle(fn, delay) {
   let flag = true;
@@ -815,8 +815,9 @@ window.addEventListener(
 );
 ```
 ## 21 写版本号排序的方法
-题目描述:有一组版本号如下['0.1.1', '2.3.3', '0.302.1', '4.2', '4.3.5', '4.3.4.5']。现在需要对其进行排序，排序的结果为 ['4.3.5','4.3.4.5','2.3.3','0.302.1','0.1.1']
+题目描述:有一组版本号如下`['0.1.1', '2.3.3', '0.302.1', '4.2', '4.3.5', '4.3.4.5']`。现在需要对其进行排序，排序的结果为 `['4.3.5','4.3.4.5','2.3.3','0.302.1','0.1.1']`
 实现代码如下:
+```js
 arr.sort((a, b) => {
   let i = 0;
   const arr1 = a.split(".");
@@ -836,11 +837,14 @@ arr.sort((a, b) => {
   }
 });
 console.log(arr);
-复制代码
+```
 ## 22 LRU 算法
 题目描述:
+
 ![lru算法](./public/lru算法.png)
+
 实现代码如下:
+```js
 //  一个Map对象在迭代时会根据对象中元素的插入顺序来进行
 // 新添加的元素会被插入到map的末尾，整个栈倒序查看
 class LRUCache {
@@ -884,9 +888,9 @@ class LRUCache {
 // console.log("cache.get(1)", cache.get(1))// 返回 -1 (未找到)
 // console.log("cache.get(3)", cache.get(3))// 返回  3
 // console.log("cache.get(4)", cache.get(4))// 返回  4
-复制代码
+```
 ## 23 Promise 以及相关方法的实现
-题目描述:手写 Promise 以及 Promise.all Promise.race 的实现
+题目描述:手写 `Promise` 以及 `Promise.all` `Promise.race` 的实现
 实现代码如下:
 ```js
 class Mypromise {

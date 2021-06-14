@@ -1,11 +1,18 @@
-
+// 构造函数
+/**
+ * get put是原型上的方法
+ */
 class LRUCache {
   constructor(capacity) {
+    //   map对象作为容器
     this.secretKey = new Map();
+    // 容器的容量
     this.capacity = capacity;
   }
   get(key) {
+    //   如果容器里有对应属性
     if (this.secretKey.has(key)) {
+        // 调换位置，将对应属性调换到第一个
       let tempValue = this.secretKey.get(key);
       this.secretKey.delete(key);
       this.secretKey.set(key, tempValue);
@@ -15,7 +22,9 @@ class LRUCache {
   put(key, value) {
     // key存在，仅修改值
     if (this.secretKey.has(key)) {
+        // 删除原来的值
       this.secretKey.delete(key);
+    //   设置新值
       this.secretKey.set(key, value);
     }
     // key不存在，cache未满

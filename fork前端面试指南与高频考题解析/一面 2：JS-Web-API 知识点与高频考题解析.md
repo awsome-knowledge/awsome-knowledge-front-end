@@ -519,7 +519,7 @@ response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"
 response.setHeader("Access-Control-Allow-Credentials", "true");
 
 ```
-
+### 解决跨域 - postMessage 跨域
 * * *
 
 ## 存储

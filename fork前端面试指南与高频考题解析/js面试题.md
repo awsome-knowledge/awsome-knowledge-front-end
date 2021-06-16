@@ -1061,6 +1061,7 @@ class Mypromise {
 
 Promise.race()方法可以用来竞争 Promise
 可以借助这个特性 自己包装一个 空的 Promise 与要发起的 Promise 来实现
+```js
 function wrap(pro) {
   let obj = {};
   // 构造一个新的promise用来竞争
@@ -1084,7 +1085,7 @@ wrapPro.promise.then((res) => {
   console.log(res);
 });
 wrapPro.resolve("被拦截了");
-复制代码
+```
 ## 24 实现一个 add 方法
 题目描述:实现一个 add 方法 使计算结果能够满足如下预期：
 add(1)(2)(3)()=6

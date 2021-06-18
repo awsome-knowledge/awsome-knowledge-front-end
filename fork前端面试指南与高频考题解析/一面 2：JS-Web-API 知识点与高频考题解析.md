@@ -381,6 +381,7 @@ bindEvent(div1, 'click', function (e) {
 而JavaScript之所谓设计为单线程语言，主要是因为它作为浏览器脚本语言，主要的用途就是与用户互动，操作Dom节点。
 
 而在这个情景设定下，假设JavaScript同时有两个进程，一个是操作A节点，一个是删除A节点，这时候浏览器就不知道要以哪个线程为准了。
+
 因此为了避免这类型的问题，JavaScript从一开始就属于单线程语言。
 
 ## 事件循环 Event Loop
@@ -520,6 +521,8 @@ response.setHeader("Access-Control-Allow-Credentials", "true");
 
 ```
 ### 解决跨域 - postMessage 跨域
+
+### nginx代理
 * * *
 
 ## 存储

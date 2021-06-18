@@ -467,29 +467,26 @@ vuex 和 vue-router 的插件注册方法 install 判断如果系统存在实例
 6.策略模式 策略模式指对象有某个行为,但是在不同的场景中,该行为有不同的实现方案-比如选项的合并策略
 ...其他模式欢迎补充
 ### 26 你都做过哪些 Vue 的性能优化
-
-这里只列举针对 Vue 的性能优化 整个项目的性能优化是一个大工程 可以另写一篇性能优化的文章 哈哈
-
-
-对象层级不要过深，否则性能就会差
-不需要响应式的数据不要放到 data 中（可以用 Object.freeze() 冻结数据）
-v-if 和 v-show 区分使用场景
-computed 和 watch 区分使用场景
-v-for 遍历必须加 key，key 最好是 id 值，且避免同时使用 v-if
-大数据列表和表格性能优化-虚拟列表/虚拟表格
-防止内部泄漏，组件销毁后把全局变量和事件销毁
-图片懒加载
-路由懒加载
-第三方插件的按需引入
-适当采用 keep-alive 缓存组件
-防抖、节流运用
-服务端渲染 SSR or 预渲染
-
+1. 对象层级不要过深，否则性能就会差
+2. 不需要响应式的数据不要放到 data 中（可以用 Object.freeze() 冻结数据）
+3. v-if 和 v-show 区分使用场景
+4. computed 和 watch 区分使用场景
+5. v-for 遍历必须加 key，key 最好是 id 值，且避免同时使用 v-if
+6. 大数据列表和表格性能优化-虚拟列表/虚拟表格
+7. 防止内部泄漏，组件销毁后把全局变量和事件销毁
+8. 图片懒加载
+9. 路由懒加载
+10. 第三方插件的按需引入
+11. 适当采用 keep-alive 缓存组件
+12. 防抖、节流运用
+13. 服务端渲染 SSR or 预渲染
 
 ## 困难
 ### 27 Vue.mixin 的使用场景和原理
-在日常的开发中，我们经常会遇到在不同的组件中经常会需要用到一些相同或者相似的代码，这些代码的功能相对独立，可以通过 Vue 的 mixin 功能抽离公共的业务逻辑，原理类似“对象的继承”，当组件初始化时会调用 mergeOptions 方法进行合并，采用策略模式针对不同的属性进行合并。当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
+在日常的开发中，我们经常会遇到在不同的组件中经常会需要用到一些相同或者相似的代码，这些代码的功能相对独立，可以通过 `Vue` 的 `mixin` 功能抽离公共的业务逻辑，原理类似“对象的继承”，当组件初始化时会调用 `mergeOptions` 方法进行合并，采用策略模式针对不同的属性进行合并。当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
+
 相关代码如下
+```js
 export default function initMixin(Vue){
   Vue.mixin = function (mixin) {
     //   合并对象
@@ -538,11 +535,13 @@ export function mergeOptions(parent, child) {
   }
   return options;
 }
-复制代码
+```
 Vue.mixin 原理详解 传送门
 ### 28 nextTick 使用场景和原理
-nextTick 中的回调是在下次 DOM 更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。主要思路就是采用微任务优先的方式调用异步方法去执行 nextTick 包装的方法
+`nextTick` 中的回调是在下次 `DOM` 更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的 `DOM`。主要思路就是采用微任务优先的方式调用异步方法去执行 `nextTick` 包装的方法
+
 相关代码如下
+```js
 let callbacks = [];
 let pending = false;
 function flushCallbacks() {
@@ -592,19 +591,19 @@ export function nextTick(cb) {
     timerFunc();
   }
 }
-复制代码
+```
 nextTick 原理详解 传送门
 ### 29 keep-alive 使用场景和原理
-keep-alive 是 Vue 内置的一个组件，可以实现组件缓存，当组件切换时不会对当前组件进行卸载。
+`keep-alive` 是 `Vue` 内置的一个组件，可以实现组件缓存，当组件切换时不会对当前组件进行卸载。
 
 
-常用的两个属性 include/exclude，允许组件有条件的进行缓存。
+常用的两个属性 `include/exclude`，允许组件有条件的进行缓存。
 
 
-两个生命周期 activated/deactivated，用来得知当前组件是否处于活跃状态。
+两个生命周期 `activated/deactivated`，用来得知当前组件是否处于活跃状态。
 
 
-keep-alive 的中还运用了 LRU(最近最少使用) 算法，选择最近最久未使用的组件予以淘汰。
+`keep-alive` 的中还运用了 `LRU`(最近最少使用) 算法，选择最近最久未使用的组件予以淘汰。
 
 
 相关代码如下
@@ -691,18 +690,22 @@ export default {
 };
 ```
 
-扩展补充：LRU 算法是什么？
+扩展补充：`LRU` 算法是什么？
 
 ![lru](./public/lru.png)
 
-LRU 的核心思想是如果数据最近被访问过，那么将来被访问的几率也更高，所以我们将命中缓存的组件 key 重新插入到 this.keys 的尾部，这样一来，this.keys 中越往头部的数据即将来被访问几率越低，所以当缓存数量达到最大值时，我们就删除将来被访问几率最低的数据，即 this.keys 中第一个缓存的组件。
+`LRU` 的核心思想是如果数据最近被访问过，那么将来被访问的几率也更高，所以我们将命中缓存的组件 `key` 重新插入到 `this.keys` 的尾部，这样一来，`this.keys` 中越往头部的数据即将来被访问几率越低，所以当缓存数量达到最大值时，我们就删除将来被访问几率最低的数据，即 `this.keys` 中第一个缓存的组件。
 ### 30 Vue.set 方法原理
-了解 Vue 响应式原理的同学都知道在两种情况下修改数据 Vue 是不会触发视图更新的
-1.在实例创建之后添加新的属性到实例上（给响应式对象新增属性）
-2.直接更改数组下标来修改数组的值
-Vue.set 或者说是$set 原理如下
-因为响应式数据 我们给对象和数组本身都增加了__ob__属性，代表的是 Observer 实例。当给对象新增不存在的属性 首先会把新的属性进行响应式跟踪 然后会触发对象__ob__的 dep 收集到的 watcher 去更新，当修改数组索引时我们调用数组本身的 splice 方法去更新数组
+了解 `Vue` 响应式原理的同学都知道在两种情况下修改数据 `Vue` 是不会触发视图更新的
+1. 在实例创建之后添加新的属性到实例上（给响应式对象新增属性）
+2. 直接更改数组下标来修改数组的值
+
+`Vue.set` 或者说是 `$set` 原理如下
+
+因为响应式数据 我们给对象和数组本身都增加了 `__ob__` 属性，代表的是 `Observer` 实例。当给对象新增不存在的属性 首先会把新的属性进行响应式跟踪 然后会触发对象 `__ob__` 的 `dep` 收集到的 `watcher` 去更新，当修改数组索引时我们调用数组本身的 `splice` 方法去更新数组
+
 相关代码如下
+```js
 export function set(target: Array | Object, key: any, val: any): any {
   // 如果是数组 调用我们重写的splice方法 (这样可以更新视图)
   if (Array.isArray(target) && isValidArrayIndex(key)) {
@@ -728,12 +731,15 @@ export function set(target: Array | Object, key: any, val: any): any {
   ob.dep.notify();
   return val;
 }
-复制代码
+```
 响应式数据原理详解 传送门
 ### 31 Vue.extend 作用和原理
-官方解释：Vue.extend 使用基础 Vue 构造器，创建一个“子类”。参数是一个包含组件选项的对象。
-其实就是一个子类构造器 是 Vue 组件的核心 api 实现思路就是使用原型继承的方法返回了 Vue 的子类 并且利用 mergeOptions 把传入组件的 options 和父类的 options 进行了合并
+官方解释：`Vue.extend` 使用基础 `Vue` 构造器，创建一个“子类”。参数是一个包含组件选项的对象。
+
+其实就是一个子类构造器 是 `Vue` 组件的核心 `api` 实现思路就是使用原型继承的方法返回了 `Vue` 的子类 并且利用 `mergeOptions` 把传入组件的 `options` 和父类的 `options` 进行了合并
+
 相关代码如下
+```js
 export default function initExtend(Vue) {
   let cid = 0; //组件的唯一标识
   // 创建子类继承Vue父类 便于属性扩展
@@ -749,11 +755,12 @@ export default function initExtend(Vue) {
     return Sub;
   };
 }
-复制代码
+```
 Vue 组件原理详解 传送门
 ### 32 写过自定义指令吗 原理是什么
-指令本质上是装饰器，是 vue 对 HTML 元素的扩展，给 HTML 元素增加自定义功能。vue 编译 DOM 时，会找到指令对象，执行指令的相关方法。
-自定义指令有五个生命周期（也叫钩子函数），分别是 bind、inserted、update、componentUpdated、unbind
+指令本质上是装饰器，是 `vue` 对 `HTML` 元素的扩展，给 `HTML` 元素增加自定义功能。`vue` 编译 `DOM` 时，会找到指令对象，执行指令的相关方法。
+
+自定义指令有五个生命周期（也叫钩子函数），分别是 `bind、inserted、update、componentUpdated、unbind`
 1. bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
 
 2. inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。
@@ -763,66 +770,63 @@ Vue 组件原理详解 传送门
 4. componentUpdated：被绑定元素所在模板完成一次更新周期时调用。
 
 5. unbind：只调用一次，指令与元素解绑时调用。
-复制代码
+
 原理
-1.在生成 ast 语法树时，遇到指令会给当前元素添加 directives 属性
-2.通过 genDirectives 生成指令代码
-3.在 patch 前将指令的钩子提取到 cbs 中,在 patch 过程中调用对应的钩子
-4.当执行指令对应钩子函数时，调用对应指令定义的方法
+1. 在生成 ast 语法树时，遇到指令会给当前元素添加 directives 属性
+2. 通过 genDirectives 生成指令代码
+3. 在 patch 前将指令的钩子提取到 cbs 中,在 patch 过程中调用对应的钩子
+4. 当执行指令对应钩子函数时，调用对应指令定义的方法
 ### 33 Vue 修饰符有哪些
 事件修饰符
 
-.stop 阻止事件继续传播
-.prevent 阻止标签默认行为
-.capture 使用事件捕获模式,即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理
-.self 只当在 event.target 是当前元素自身时触发处理函数
-.once 事件将只会触发一次
-.passive 告诉浏览器你不想阻止事件的默认行为
+1. .stop 阻止事件继续传播
+2. .prevent 阻止标签默认行为
+3. .capture 使用事件捕获模式,即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理
+4. .self 只当在 event.target 是当前元素自身时触发处理函数
+5. .once 事件将只会触发一次
+6. .passive 告诉浏览器你不想阻止事件的默认行为
 
 v-model 的修饰符
 
 
-.lazy 通过这个修饰符，转变为在 change 事件再同步
-
-
-.number 自动将用户的输入值转化为数值类型
-
-
-.trim 自动过滤用户输入的首尾空格
+1. .lazy 通过这个修饰符，转变为在 change 事件再同步
+2. .number 自动将用户的输入值转化为数值类型
+3. .trim 自动过滤用户输入的首尾空格
 
 
 键盘事件的修饰符
 
-.enter
-.tab
-.delete (捕获“删除”和“退格”键)
-.esc
-.space
-.up
-.down
-.left
-.right
+1. .enter
+2. .tab
+3. .delete (捕获“删除”和“退格”键)
+4. .esc
+5. .space
+6. .up
+7. .down
+8. .left
+9. .right
 
 系统修饰键
 
-.ctrl
-.alt
-.shift
-.meta
+1. .ctrl
+2. .alt
+3. .shift
+4. .meta
 
 鼠标按钮修饰符
 
-.left
-.right
-.middle
+1. .left
+2. .right
+3. .middle
 
 ### 34 Vue 模板编译原理
-Vue 的编译过程就是将 template 转化为 render 函数的过程 分为以下三步
-第一步是将 模板字符串 转换成 element ASTs（解析器）
-第二步是对 AST 进行静态节点标记，主要用来做虚拟DOM的渲染优化（优化器）
-第三步是 使用 element ASTs 生成 render 函数代码字符串（代码生成器）
-复制代码
+`Vue` 的编译过程就是将 `template` 转化为 `render` 函数的过程 分为以下三步
+1. 第一步是将 模板字符串 转换成 element ASTs（解析器）
+2. 第二步是对 AST 进行静态节点标记，主要用来做虚拟DOM的渲染优化（优化器）
+3. 第三步是 使用 element ASTs 生成 render 函数代码字符串（代码生成器）
+
 相关代码如下
+```js
 export function compileToFunctions(template) {
   // 我们需要把html字符串变成render函数
   // 1.把html代码转成ast语法树  ast用来描述代码本身形成树结构 不仅可以描述html 也能描述css以及js语法
@@ -843,11 +847,13 @@ export function compileToFunctions(template) {
   let renderFn = new Function(`with(this){return ${code}}`);
   return renderFn;
 }
-复制代码
+```
 模板编译原理详解 传送门
 ### 35 生命周期钩子是如何实现的
-Vue 的生命周期钩子核心实现是利用发布订阅模式先把用户传入的的生命周期钩子订阅好（内部采用数组的方式存储）然后在创建组件实例的过程中会一次执行对应的钩子方法（发布）
+`Vue` 的生命周期钩子核心实现是利用发布订阅模式先把用户传入的的生命周期钩子订阅好（内部采用数组的方式存储）然后在创建组件实例的过程中会一次执行对应的钩子方法（发布）
+
 相关代码如下
+```js
 export function callHook(vm, hook) {
   // 依次执行生命周期对应的方法
   const handlers = vm.$options[hook];
@@ -870,22 +876,27 @@ Vue.prototype._init = function (options) {
     vm.$mount(vm.$options.el);
   }
 };
-复制代码
+```
 生命周期实现详解 传送门
 ### 36 函数式组件使用场景和原理
 函数式组件与普通组件的区别
-1.函数式组件需要在声明组件是指定 functional:true
-2.不需要实例化，所以没有this,this通过render函数的第二个参数context来代替
-3.没有生命周期钩子函数，不能使用计算属性，watch
-4.不能通过$emit 对外暴露事件，调用事件只能通过context.listeners.click的方式调用外部传入的事件
-5.因为函数式组件是没有实例化的，所以在外部通过ref去引用组件时，实际引用的是HTMLElement
-6.函数式组件的props可以不用显示声明，所以没有在props里面声明的属性都会被自动隐式解析为prop,而普通组件所有未声明的属性都解析到$attrs里面，并自动挂载到组件根元素上面(可以通过inheritAttrs属性禁止)
-复制代码
-优点 1.由于函数式组件不需要实例化，无状态，没有生命周期，所以渲染性能要好于普通组件 2.函数式组件结构比较简单，代码结构更清晰
+1. 函数式组件需要在声明组件是指定 functional:true
+2. 不需要实例化，所以没有this,this通过render函数的第二个参数context来代替
+3. 没有生命周期钩子函数，不能使用计算属性，watch
+4. 不能通过$emit 对外暴露事件，调用事件只能通过context.listeners.click的方式调用外部传入的事件
+5. 因为函数式组件是没有实例化的，所以在外部通过ref去引用组件时，实际引用的是HTMLElement
+6. 函数式组件的props可以不用显示声明，所以没有在props里面声明的属性都会被自动隐式解析为prop,而普通组件所有未声明的属性都解析到$attrs里面，并自动挂载到组件根元素上面(可以通过inheritAttrs属性禁止)
+
+优点 
+1. 由于函数式组件不需要实例化，无状态，没有生命周期，所以渲染性能要好于普通组件 
+2. 函数式组件结构比较简单，代码结构更清晰
+
 使用场景：
-一个简单的展示组件，作为容器组件使用 比如 router-view 就是一个函数式组件
-“高阶组件”——用于接收一个组件作为参数，返回一个被包装过的组件
+1. 一个简单的展示组件，作为容器组件使用 比如 router-view 就是一个函数式组件
+2. “高阶组件”——用于接收一个组件作为参数，返回一个被包装过的组件
+
 相关代码如下
+```js
 if (isTrue(Ctor.options.functional)) {
   // 带有functional的属性的就是函数式组件
   return createFunctionalComponent(Ctor, propsData, data, context, children);
@@ -893,31 +904,30 @@ if (isTrue(Ctor.options.functional)) {
 const listeners = data.on;
 data.on = data.nativeOn;
 installComponentHooks(data); // 安装组件相关钩子 （函数式组件没有调用此方法，从而性能高于普通组件）
-复制代码
+```
 ### 37 能说下 vue-router 中常用的路由模式实现原理吗
-hash 模式
+1. `hash` 模式
 
 
-location.hash 的值实际就是 URL 中#后面的东西 它的特点在于：hash 虽然出现 URL 中，但不会被包含在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。
+`location.hash` 的值实际就是 `URL` 中#后面的东西 它的特点在于：hash 虽然出现 `URL` 中，但不会被包含在 `HTTP` 请求中，对后端完全没有影响，因此改变 `hash` 不会重新加载页面。
 
 
-可以为 hash 的改变添加监听事件
-
-
+可以为 `hash` 的改变添加监听事件
+```js
 window.addEventListener("hashchange", funcRef, false);
-复制代码
-每一次改变 hash（window.location.hash），都会在浏览器的访问历史中增加一个记录利用 hash 的以上特点，就可以来实现前端路由“更新视图但不重新请求页面”的功能了
+```
+每一次改变 `hash（window.location.hash）`，都会在浏览器的访问历史中增加一个记录利用 `hash` 的以上特点，就可以来实现前端路由“更新视图但不重新请求页面”的功能了
 
 特点：兼容性好但是不美观
 
-history 模式
+2. `history` 模式
 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。
-这两个方法应用于浏览器的历史记录站，在当前已有的 back、forward、go 的基础之上，它们提供了对历史记录进行修改的功能。这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前 URL 改变了，但浏览器不会刷新页面，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础。
+这两个方法应用于浏览器的历史记录站，在当前已有的 `back、forward、go` 的基础之上，它们提供了对历史记录进行修改的功能。这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前 `URL` 改变了，但浏览器不会刷新页面，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础。
 
-特点：虽然美观，但是刷新会出现 404 需要后端进行配置
+特点：虽然美观，但是刷新会出现 `404` 需要后端进行配置
 
 ### 38 diff 算法了解吗
 ![diff](./public/diff.png)
-建议直接看 diff 算法详解 
+建议直接看 `diff` 算法详解 
 
 

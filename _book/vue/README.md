@@ -3609,7 +3609,6 @@ vm.contact() // "+91 893839389"
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 85. #### 什么是自定义选项合并策略
-
 Vue使用默认策略，在合并自定义选项时覆盖现有值。但是如果你想使用自定义登录合并自定义选项，那么你需要附加一个函数Vue.config.optionMergeStrategies 。例如，myOptions自定义选项的结构如下所示，
 
 ```
@@ -4332,13 +4331,8 @@ VueJS可用于jsdelivr，unpkg和cdnjs等CDN。 通常，您可以将它们用�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-122. #### vuex中Mutations和Actions的区别vuex中刷新丢state问题
-##### 题目：vuex中Mutations和Actions的区别？vuex中刷新丢state问题？（海康）
-前端路由是直接找到与地址匹配的一个组件或对象并将其渲染出来。改变浏览器地址而不向服务器发出请求有两种方式:
-1. 在地址中加入#以欺骗浏览器，地址的改变是由于正在进行页内导航
-2. 使用H5的window.history功能，使用URL的Hash来模拟一个完整的URL。
-
-Actions为了解决Mutations的不能异步的问题 使用computed 计算属性来将state保存在缓存中
+122. #### vuex中Mutations和Actions的区别？vuex中刷新丢state问题？（海康）
+可以存入浏览器缓存中
 
 ---
 

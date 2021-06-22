@@ -1088,10 +1088,13 @@ wrapPro.resolve("被拦截了");
 ```
 ## 24 实现一个 add 方法
 题目描述:实现一个 add 方法 使计算结果能够满足如下预期：
+```js
 add(1)(2)(3)()=6
 add(1,2,3)(4)()=10
+```
 其实就是考函数柯里化
 实现代码如下:
+```js
 function add(...args) {
   let allArgs = [...args];
   function fn(...newArgs) {
@@ -1106,7 +1109,7 @@ function add(...args) {
   };
   return fn;
 }
-复制代码
+```
 ## 25 动态规划求解硬币找零问题
 题目描述:给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1
 示例1：
@@ -1119,6 +1122,7 @@ function add(...args) {
 输出: -1
 复制代码
 实现代码如下:
+```js
 const coinChange = function (coins, amount) {
   // 用于保存每个目标总额对应的最小硬币个数
   const f = [];
@@ -1144,9 +1148,10 @@ const coinChange = function (coins, amount) {
   // 若有解，直接返回解的内容
   return f[amount];
 };
-复制代码
+```
 ## 26 请实现 DOM2JSON 一个函数，可以把一个 DOM 节点输出 JSON 的格式
 题目描述:
+```html
 <div>
   <span>
     <a></a>
@@ -1156,9 +1161,9 @@ const coinChange = function (coins, amount) {
     <a></a>
   </span>
 </div>
-
+```
 把上诉dom结构转成下面的JSON格式
-
+```js
 {
   tag: 'DIV',
   children: [
@@ -1177,8 +1182,9 @@ const coinChange = function (coins, amount) {
     }
   ]
 }
-复制代码
+```
 实现代码如下:
+```js
 function dom2Json(domtree) {
   let obj = {};
   obj.name = domtree.tagName;
@@ -1186,7 +1192,7 @@ function dom2Json(domtree) {
   domtree.childNodes.forEach((child) => obj.children.push(dom2Json(child)));
   return obj;
 }
-复制代码
+```
 
 扩展思考:如果给定的不是一个 Dom 树结构 而是一段 html 字符串 该如何解析?
 
@@ -1194,6 +1200,7 @@ function dom2Json(domtree) {
 ## 27 类数组转化为数组的方法
 题目描述:类数组拥有 length 属性 可以使用下标来访问元素 但是不能使用数组的方法 如何把类数组转化为数组?
 实现代码如下:
+```js
 const arrayLike=document.querySelectorAll('div')
 
 // 1.扩展运算符
@@ -1206,15 +1213,15 @@ Array.prototype.slice.call(arrayLike)
 Array.apply(null, arrayLike)
 // 5.Array.prototype.concat
 Array.prototype.concat.apply([], arrayLike)
-
-复制代码
+```
 ## 28 Object.is 实现
 题目描述:
 Object.is不会转换被比较的两个值的类型，这点和===更为相似，他们之间也存在一些区别。
     1. NaN在===中是不相等的，而在Object.is中是相等的
     2. +0和-0在===中是相等的，而在Object.is中是不相等的
-复制代码
+
 实现代码如下:
+```js
 Object.is = function (x, y) {
   if (x === y) {
     // 当前情况下，只有一种情况是特殊的，即 +0 -0
@@ -1227,10 +1234,11 @@ Object.is = function (x, y) {
   // x和y同时为NaN时，返回true
   return x !== x && y !== y;
 };
-复制代码
+```
 ## 29 AJAX
 题目描述:利用 XMLHttpRequest 手写 AJAX 实现
 实现代码如下:
+```js
 const getJSON = function (url) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -1247,10 +1255,11 @@ const getJSON = function (url) {
     xhr.send();
   });
 };
-复制代码
+```
 ## 30 分片思想解决大数据量渲染问题
 题目描述:渲染百万条结构简单的大数据时 怎么使用分片思想优化渲染
 实现代码如下:
+```js
 let ul = document.getElementById("container");
 // 插入十万条数据
 let total = 100000;
@@ -1277,13 +1286,14 @@ function loop(curTotal, curIndex) {
   });
 }
 loop(total, index);
-复制代码
+```
 
 扩展思考：对于大数据量的简单 dom 结构渲染可以用分片思想解决 如果是复杂的 dom 结构渲染如何处理？
 
 这时候就需要使用虚拟列表了 大家自行百度哈 虚拟列表和虚拟表格在日常项目使用还是很频繁的
 ## 31 将虚拟 Dom 转化为真实 Dom
 题目描述:JSON 格式的虚拟 Dom 怎么转换成真实 Dom
+```js
 {
   tag: 'DIV',
   attrs:{
@@ -1305,7 +1315,9 @@ loop(total, index);
     }
   ]
 }
+```
 把上诉虚拟Dom转化成下方真实Dom
+```js
 <div id="app">
   <span>
     <a></a>
@@ -1315,9 +1327,9 @@ loop(total, index);
     <a></a>
   </span>
 </div>
-
-复制代码
+```
 实现代码如下:
+```js
 // 真正的渲染函数
 function _render(vnode) {
   // 如果是数字类型转化为字符串
@@ -1341,26 +1353,29 @@ function _render(vnode) {
   vnode.children.forEach((child) => dom.appendChild(_render(child)));
   return dom;
 }
-复制代码
+```
 ## 32 实现模板字符串解析功能
 题目描述:
+```js
 let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
 let data = {
   name: '姓名',
   age: 18
 }
 render(template, data); // 我是姓名，年龄18，性别undefined
-复制代码
+```
 实现代码如下:
+```js
 function render(template, data) {
   let computed = template.replace(/\{\{(\w+)\}\}/g, function (match, key) {
     return data[key];
   });
   return computed;
 }
-复制代码
+```
 ## 33 实现一个对象的 flatten 方法
 题目描述:
+```js
 const obj = {
  a: {
         b: 1,
@@ -1382,8 +1397,9 @@ flatten(obj) 结果返回如下
 //  'b[2].b': 3
 //   c: 3
 // }
-复制代码
+```
 实现代码如下:
+```js
 function isObject(val) {
   return typeof val === "object" && val !== null;
 }
@@ -1413,9 +1429,10 @@ function flatten(obj) {
   return res;
 }
 flatten();
-复制代码
+```
 ## 34 列表转成树形结构
 题目描述:
+```js
 [
     {
         id: 1,
@@ -1429,8 +1446,9 @@ flatten();
     }
     ...
 ]
-
+```
 转成
+```js
 [
     {
         id: 1,
@@ -1445,8 +1463,9 @@ flatten();
         ]
     }
 ]
-复制代码
+```
 实现代码如下:
+```js
 function listToTree(data) {
   let temp = {};
   let treeData = [];
@@ -1465,9 +1484,10 @@ function listToTree(data) {
   }
   return treeData;
 }
-复制代码
+```
 ## 35 树形结构转成列表
 题目描述:
+```js
 [
     {
         id: 1,
@@ -1482,7 +1502,9 @@ function listToTree(data) {
         ]
     }
 ]
+```
 转成
+```js
 [
     {
         id: 1,
@@ -1496,9 +1518,9 @@ function listToTree(data) {
     }
     ...
 ]
-
-复制代码
+```
 实现代码如下:
+```js
 function treeToList(data) {
   let res = [];
   const dfs = (tree) => {
@@ -1513,18 +1535,19 @@ function treeToList(data) {
   dfs(data);
   return res;
 }
-复制代码
+```
 ## 36 大数相加
 题目描述:实现一个add方法完成两个大数相加
+```js
 let a = "9007199254740991";
 let b = "1234567899999999999";
 
 function add(a ,b){
    //...
 }
-
-复制代码
+```
 实现代码如下:
+```js
 function add(a ,b){
    //取两个数字的最大长度
    let maxLength = Math.max(a.length, b.length);
@@ -1545,7 +1568,7 @@ function add(a ,b){
    }
    return sum;
 }
-
+```
 作者：Big shark@LX
 链接：https://juejin.cn/post/6968713283884974088
 来源：掘金

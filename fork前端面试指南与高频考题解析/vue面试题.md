@@ -937,4 +937,28 @@ window.addEventListener("hashchange", funcRef, false);
 4. Store这个类拥有commit，dispatch这些方法，Store类里将用户传入的state包装成data，作为new Vue的参数，从而实现了state 值的响应式。
 
 ### 40 Vuex与Redux的主要区别
-Vuex 其实是一个针对 Vue 特化的 Flux，主要是为了配合 Vue 本身的响应式机制。当然吸取了一些 Redux 的特点，比如单状态树和便于测试和热重载的 API，但是也选择性的放弃了一些在 Vue 的场景下并不契合的特性，比如强制的 immutability（在保证了每一次状态变化都能追踪的情况下强制的 immutability 带来的收益就很有限了）、为了同构而设计得较为繁琐的 API、必须依赖第三方库才能相对高效率地获得状态树的局部状态等等（相比之下 Vuex 直接用 Vue 本身的计算属性就可以）所以 Vue + Vuex 会更简洁，也不需要考虑性能问题，代价就是 Vuex 只能和 Vue 配合。Vue + Redux 也不是不可以，但是 Redux 作为一个泛用的实现和 Vue 的契合度肯定不如 Vuex。
+`Vuex` 其实是一个针对 `Vue` 特化的 `Flux`，主要是为了配合 `Vue` 本身的响应式机制。当然吸取了一些 `Redux` 的特点，比如单状态树和便于测试和热重载的 `API`，但是也选择性的放弃了一些在 `Vue` 的场景下并不契合的特性，比如强制的 `immutability`（在保证了每一次状态变化都能追踪的情况下强制的 `immutability` 带来的收益就很有限了）、为了同构而设计得较为繁琐的 `API`、必须依赖第三方库才能相对高效率地获得状态树的局部状态等等（相比之下 `Vuex` 直接用 `Vue` 本身的计算属性就可以）所以 `Vue + Vuex` 会更简洁，也不需要考虑性能问题，代价就是 `Vuex` 只能和 `Vue` 配合。`Vue + Redux` 也不是不可以，但是 `Redux` 作为一个泛用的实现和 `Vue` 的契合度肯定不如 `Vuex`。
+
+### 41 ast
+```js
+new Vue({
+  el: '#app',
+  template: `
+    <div>
+      <h2 v-if="message">{{message}}</h2>
+      <button @click="showName">showName</button>
+    </div>
+  `,
+  data: {
+    name: 'shenfq',
+    message: 'Hello Vue!'
+  },
+  methods: {
+    showName() {
+      alert(this.name)
+    }
+  }
+})
+```
+
+![ast](./public/ast.png)

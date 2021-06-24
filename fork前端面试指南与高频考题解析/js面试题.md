@@ -1573,3 +1573,54 @@ function add(a ,b){
 链接：https://juejin.cn/post/6968713283884974088
 来源：掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## 37 将一个json数据的所有key从下划线改为驼峰
+```js
+/**
+ * 问题 2
+ * 将一个json数据的所有key从下划线改为驼峰
+ * 
+ * @param {object | array} value 待处理对象或数组
+ * @returns {object | array} 处理后的对象或数组
+ */
+// const testData = {
+//     a_bbb: 123,
+//     a_g: [1, 2, 3, 4],
+//     a_d: {
+//         s: 2,
+//         s_d: 3
+//     },
+//     a_f: [1, 2, 3, {
+//         a_g: 5
+//     }],
+//     a_d_s: 1
+// }
+```
+
+```js
+
+
+function mapKeysToCamelCase(data) {
+    if (typeof data !== 'object') {
+        return data;
+    }
+
+    const res = {};
+    for (let key in data) {
+        const newKey = key.split('_').reduce((res, next) => {
+            return res + next[0].toUpperCase() + next.slice(1);
+        })
+        const value = data[key];
+
+        if (Array.isArray(value)) {
+            res[newKey] = value.map(mapKeysToCamelCase);
+        } else if (typeof value === 'object') {
+            res[newKey] = mapKeysToCamelCase(value);
+        } else {
+            res[newKey] = value;
+        }
+    }
+
+    return res;
+}
+```

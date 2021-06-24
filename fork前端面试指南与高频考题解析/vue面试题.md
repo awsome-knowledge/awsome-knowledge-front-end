@@ -135,7 +135,7 @@ class Observer {
 // Object.defineProperty数据劫持核心 兼容性在ie9以及以上
 function defineReactive(data, key, value) {
   observe(value); // 递归关键
-  // --如果value还是一个对象会继续走一遍odefineReactive 层层遍历一直到value不是对象才停止
+  // --如果value还是一个对象会继续走一遍 defineReactive 层层遍历一直到value不是对象才停止
   //   思考？如果Vue数据嵌套层级过深 >>性能会受影响
   Object.defineProperty(data, key, {
     get() {
@@ -165,7 +165,9 @@ export function observe(value) {
 响应式数据原理详解 传送门
 ### 11 Vue 如何检测数组变化
 数组考虑性能原因没有用 defineProperty 对数组的每一项进行拦截，而是选择对 7 种数组（push,shift,pop,splice,unshift,sort,reverse）方法进行重写(AOP 切片思想)
+
 所以在 Vue 中修改数组的索引和长度是无法监控到的。需要通过以上 7 种变异方法修改数组才会触发数组对应的 watcher 进行更新
+
 相关代码如下
 ```js
 // src/obserber/array.js
@@ -212,24 +214,22 @@ methodsToPatch.forEach((method) => {
 ```
 数组的观测原理详解 传送门
 ### 12 vue3.0 用过吗 了解多少
-
-
-响应式原理的改变
+1. 响应式原理的改变
 Vue3.x 使用 Proxy 取代 Vue2.x 版本的 Object.defineProperty
 
 
-组件选项声明方式
+2. 组件选项声明方式
 Vue3.x 使用 Composition API
 setup 是 Vue3.x 新增的一个选项， 他是组件内使用 Composition API 的入口。
 
 
-模板语法变化
+3. 模板语法变化
 slot 具名插槽语法
 自定义指令
 v-model 升级
 
 
-其它方面的更改
+4. 其它方面的更改
 Suspense
 支持 Fragment（多个根节点）和 Protal（在 dom 其他部分渲染组件内容）组件，针对一些特殊的场景做了处理。
 基于 treeshaking 优化，提供了更多的内置功能。
@@ -962,3 +962,7 @@ new Vue({
 ```
 
 ![ast](./public/ast.png)
+
+### 42 vue-class-component的原理
+尤大推出的一个支持使用class方式来开发vue单文件组件的库。
+https://zhuanlan.zhihu.com/p/48371638

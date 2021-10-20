@@ -27,3 +27,14 @@ TypeScript与JavaScript的区别如下:
 8	|JavaScript不支持模块。|	TypeScript支持模块。
 9	|在这里，number和string是对象。|	在这里，number和string是接口。
 10	|JavaScript不支持泛型。|	TypeScript支持泛型。
+
+#### 3.我们为什么需要TypeScript？
+- TypeScript快速、简单，最重要的是，容易学习。
+- TypeScript支持面向对象的编程特性，比如类、接口、继承、泛型等等。
+- TypeScript在编译时提供了错误检查功能。它将编译代码，如果发现任何错误，它将在运行脚本之前突出显示这些错误。
+- TypeScript支持所有JavaScript库，因为它是JavaScript的超集。
+- TypeScript通过使用继承来支持可重用性。
+- TypeScript使应用程序开发尽可能的快速和简单，并且TypeScript的工具支持为我们提供了自动完成、类型检查和源文档。
+- TypeScript支持最新的JavaScript特性，包括ECMAScript 2015。
+- TypeScript提供了ES6的所有优点和更高的生产力。
+- TypeScript支持静态类型、强类型、模块、可选参数等。

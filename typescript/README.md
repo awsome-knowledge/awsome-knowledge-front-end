@@ -116,3 +116,27 @@ Null类型: Null表示值未定义的变量。不能直接引用空类型值本�
 Void类型: Void是不返回任何类型值的函数的返回类型。如果没有可用的数据类型，则使用它。
 
 语法: let unusable:void =未定义;
+
+#### 11.Typescript中的变量是什么？如何在Typescript中创建变量？
+变量是存储位置，用于存储要被程序引用和使用的值/信息。它充当程序中值的容器。可以使用var关键字声明它。它应该在使用前声明。在Typescript中声明变量时，应该遵循某些规则
+
+- 变量名必须是字母或数字。
+- 变量名不能以数字开头。
+- 变量名不能包含空格和特殊字符，除了下划线(_)和美元($)符号。
+
+我们可以通过以下四种方式之一声明一个变量:
+- 在一条语句中声明类型和值。语法:var [identifier]: [type-annotation] = value;
+- 声明没有值的类型。语法:var [identifier]: [type-annotation];
+- 在没有类型的情况下声明它的值。语法:var [identifier] = value;
+- 声明没有值和类型。语法:var(标识符);
+
+#### 12.如何编译Typescript文件？
+下面是将Typescript文件编译成JavaScript时所遵循的命令。
+```
+$ tsc <TypeScript File Name>  
+```
+例如，编译“hello.ts”。
+```
+$ tsc helloworld.ts  
+```
+结果是helloworld.js。

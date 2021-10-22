@@ -151,3 +151,82 @@ tsc --outFile comman.js file1.ts file2.ts file3.ts
 tsc --outFile file1.ts file2.ts file3.ts
 ```
 然后file2.ts和file3.ts将被编译，并将输出放在file1.ts中，现在是file1.ts包含JavaScript代码。
+
+#### 14.能否自动编译.ts文件，并实时修改.ts文件？
+自动实时根据.ts文件变化自动编译.ts文件是可以的。这可以通过使用——watch compiler选项来实现
+```
+tsc --watch file1.ts
+```
+上面的命令首先编译file1为file1.js，并注意文件的变化，如果检测到任何更改，它将再次编译文件。这里，我们需要确保在使用——watch选项运行时命令提示符不能关闭。
+
+#### 15.TS的接口是什么意思？参照TS来解释它们。
+接口是在我们的应用程序中充当契约的结构。它定义了要遵循的类的语法，这意味着实现接口的类必须实现它的所有成员。它不能被实例化，但是可以被实现它的类对象引用。无论对象是否具有特定的结构，TypeScript编译器都使用接口进行类型检查(也称为“duck typing”鸭子类型或“结构化子类型”)。
+
+语法:
+```
+interface interface_name{
+    //字段声明
+    //方法声明
+}
+```
+接口只是声明方法和字段，它不能用来建造任何东西。不需要将接口转换为JavaScript来执行，它们对运行时JavaScript没有任何影响。因此，它们的唯一目的是在开发阶段提供帮助。
+
+#### 16.你如何理解Typescript中的类？列出类的一些特性。
+TypeScript是一种面向对象的JavaScript语言，支持OOP编程特性，比如类、接口等。与Java一样，类是用于创建可重用组件的基本实体。它是一组具有公共属性的对象。类是创建对象的模板或蓝图。它是一个逻辑实体。“class”关键字用于在Typescript中声明一个类。
+
+例子:
+```js
+class Student{
+    code:number;
+    name:string;
+    constructor(code:number,name:string){
+        this.name=name
+        this.code=code
+    }
+    getGrade():string{
+        return "AAA"
+    }
+}
+```
+
+类的特征是
+
+- 继承
+- 封装
+- 多态性
+- 抽象
+
+#### 17.本地Javascript支持模块吗？
+不。目前，本地JavaScript不支持模块。为了在Javascript中创建和使用模块，我们需要一个像CommonJS这样的外部模块。
+
+#### 18.TypeScript支持哪些面向对象的术语？
+TypeScript支持以下面向对象的术语。
+- 模块
+- 类
+- 接口
+- 继承
+- 数据类型
+- 成员函数
+
+#### 19.如何从TypeScript的子类调用基类构造函数？
+super()函数的作用是: 从子类中调用父类或基类构造函数。
+
+#### 20.如何在TypeScript中实现继承？
+继承是一种从另一个类获取一个类的属性和行为的机制。它是OOPs语言的一个重要方面，并且具有从现有类创建新类的能力，继承成员的类称为基类，继承这些成员的类称为派生类。
+
+继承可以通过使用extend关键字来实现。我们可以通过下面的例子来理解它。
+```js
+class Shape{
+    area:number
+    constructor(area:number){
+        this.area:area
+    }
+}
+class Circle extends Shape{
+    display():void{
+        console.log("圆的面积"+this.area)
+    }
+}
+var obj=new Circle(555)
+obj.display()
+```

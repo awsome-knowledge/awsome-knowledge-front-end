@@ -140,3 +140,14 @@ $ tsc <TypeScript File Name>
 $ tsc helloworld.ts  
 ```
 结果是helloworld.js。
+
+#### 13.是否可以将多个.ts文件合并成一个.js文件？如果是，那么如何做？
+是的，有可能。为此，我们需要添加——outFILE [OutputJSFileName]编译选项。
+```
+tsc --outFile comman.js file1.ts file2.ts file3.ts
+```
+上面的命令将编译所有这三个.ts文件和结果将存储在一个comman.js文件中，在这种情况下，当我们不提供输出文件名像下面的命令。
+```
+tsc --outFile file1.ts file2.ts file3.ts
+```
+然后file2.ts和file3.ts将被编译，并将输出放在file1.ts中，现在是file1.ts包含JavaScript代码。

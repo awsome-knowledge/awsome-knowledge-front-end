@@ -230,3 +230,20 @@ class Circle extends Shape{
 var obj=new Circle(555)
 obj.display()
 ```
+
+#### 21、Typescript中的模块是什么？
+模块是创建一组相关变量、函数、类和接口等的强大方法。它可以在它们自己的范围内执行，而不是在全局范围内。换句话说，在模块中声明的变量、函数、类和接口不能在模块外部直接访问。
+
+创建一个模块
+
+可以使用export关键字创建模块，也可以在其他模块中使用import关键字。
+
+```js
+module module_name{
+    class xyz{
+        export sum(x,y){
+            return x+y
+        }
+    }
+}
+```

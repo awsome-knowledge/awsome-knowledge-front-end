@@ -231,7 +231,7 @@ var obj=new Circle(555)
 obj.display()
 ```
 
-#### 21、Typescript中的模块是什么？
+#### 21.Typescript中的模块是什么？
 模块是创建一组相关变量、函数、类和接口等的强大方法。它可以在它们自己的范围内执行，而不是在全局范围内。换句话说，在模块中声明的变量、函数、类和接口不能在模块外部直接访问。
 
 创建一个模块
@@ -247,3 +247,49 @@ module module_name{
     }
 }
 ```
+#### 22.内部模块和外部模块有什么区别？
+
+内部模块|外部模块
+--|--
+内部模块用于将类、接口、函数和变量逻辑地分组到一个单元中，并可以导出到另一个模块中。|外部模块用于隐藏模块定义的内部语句，并且只显示与声明的变量相关的方法和参数。
+内部模块在Typescript的早期版本中。但是在最新版本的TypeScript中使用名称空间仍然支持它们。|外部模块在最新版本的TypeScript中称为模块。
+内部模块是其他模块(包括全局模块和外部模块)的本地或导出成员|外部模块是使用外部模块名称引用的单独加载的代码体。
+内部模块使用指定其名称和主体的moduledeclaration来声明。|外部模块被编写为一个单独的源文件，其中包含至少一个导入或导出声明。
+例子: module Sum {      export function add(a, b) {          console.log(“Sum: ” +(a+b));      }   }|例子: export class Addition{      constructor(private x?: number, private y?: number){      }      Sum(){          console.log(“SUM: ” +(this.x + this.y));      }  }
+
+#### 23.Typescript中的名称空间是什么？如何在Typescript中声明名称空间？
+名称空间是用于对功能进行逻辑分组的一种方式。名称空间用于在内部维护typescript的遗留代码。它封装了共享某些关系的特性和对象。名称空间也称为内部模块。名称空间还可以包括接口、类、函数和变量，以支持一组相关功能。
+
+注意: 名称空间可以在多个文件中定义，并允许将每个文件都定义在一个地方。它使代码更容易维护。
+
+用于创建名称空间的语法
+```
+namespace <namespace_name>{
+    export interface I1{}
+    export class c1{}
+}
+```
+#### 24.解释在TypeScript中的装饰器？
+修饰符是一种特殊类型的声明，可以应用于类、方法、访问器、属性或参数。修饰符只是以@expression符号为前缀的函数，其中表达式必须求值为一个函数，该函数将在运行时用有关修饰声明的信息调用。
+
+TypeScript装饰器以声明的方式将注释和元数据添加到现有代码中。装饰器是为ES7提出的一个实验性特性。它已经被一些JavaScript框架使用，包括Angular 2。装饰器在未来的版本中可能会改变。
+
+要启用对decorator的实验支持，我们必须在命令行或在我们的tsconfig.json中启用experimental aldecorators编译器选项:
+
+命令行
+```
+tsc --target ES5 --experimentalDecorators
+```
+tsconfig.json
+```
+{
+    "compilerOptions":{
+        "target":"ES5",
+        "experimentalDecorators":true
+    }
+}
+```
+#### 25.什么是混合mixin？
+在Javascript中，mixin是一种从可重用组件构建类的方法，通过组合称为mixin的更简单的部分类来构建它们。
+
+这个想法很简单，不是类a扩展类B来获得它的功能，而是函数B获取类a并返回一个新类，这个类具有这个添加的功能。函数B是一个混合函数。

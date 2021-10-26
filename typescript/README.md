@@ -293,3 +293,77 @@ tsconfig.json
 在Javascript中，mixin是一种从可重用组件构建类的方法，通过组合称为mixin的更简单的部分类来构建它们。
 
 这个想法很简单，不是类a扩展类B来获得它的功能，而是函数B获取类a并返回一个新类，这个类具有这个添加的功能。函数B是一个混合函数。
+
+#### 26.TypeScript类中属性/方法的默认可见性是什么？
+Public是TypeScript类中属性/方法的默认可见性。
+
+#### 27.TypeScript是如何在函数中支持可选参数的
+与JavaScript不同，如果我们试图调用一个函数而不提供其函数签名中声明的参数的确切数量和类型，那么TypeScript编译器将抛出一个错误。为了克服这个问题，我们可以通过使用问号符号(‘?’)来使用可选参数。这意味着可以或不可以接收值的参数可以附加一个’?”“可选的。
+```js
+function fn(arg1: number, arg2? :number) {              
+}因此，arg1总是必需的，而arg2是一个可选参数  
+```
+
+因此，arg1总是必需的，而arg2是一个可选参数。
+
+注意: 可选参数必须遵循要求的参数。如果我们想让arg1成为可选的，而不是arg2，那么我们需要改变顺序，arg1必须放在arg2之后。
+```js
+function fn(arg2:number,arg1?:number)
+```
+
+#### 28.JavaScript不支持函数重载，但TypeScript是否支持函数重载？
+JavaScript不支持函数重载，但TypeScript是否支持函数重载？
+```js
+//带有字符串类型参数的函数  
+function add(a:string,b:string):string
+
+//带有数字类型参数的函数
+function add(a:number,b:number):number
+
+//函数定义
+function add(a:any,b:any):any{
+    return a+b
+}
+```
+在上面的例子中，前两行是函数重载声明。它有两次重载，第一个签名的参数类型为string，而第二个签名的参数类型为number。第三个函数包含实际实现并具有any类型的参数。任何数据类型都可以接受任何类型的数据。然后，实现检查所提供参数的类型，并根据供应商参数类型执行不同的代码段。
+
+#### 29.可以调试任何TypeScript文件吗？
+是的。要调试任何TypeScript文件，我们需要.js源映射文件。因此，使用—sourcemap标志编译.ts文件以生成源映射文件。
+```
+tsc -sourcemap file1.ts
+```
+这将创建file1.js和file1.js.map，而file1.js的最后一行是源映射文件的引用。
+```
+//# sourceMappingURL=file1.js.map
+```
+#### 30.什么是TypeScript定义管理器？为什么我们需要它？
+TypeScript定义管理器(TSD)是一个包管理器，用于直接从社区驱动的DefinitelyTyped库中搜索和安装TypeScript定义文件。
+
+假设我们想在.ts文件中使用一些jQuery代码。
+```
+$(document).ready(function(){
+    
+})
+```
+现在，当我们尝试使用tsc编译它时，它会给出一个编译时错误: 找不到名称“$”。因此，我们需要通知TypeScript编译器“$”属于jQuery。要做到这一点，TSD就要发挥作用。我们可以下载jQuery类型定义文件并将其包含在.ts文件中。以下是实现这一目标的步骤:
+
+1. 安装TSD
+```
+npm install tsd -g
+```
+2. 在ts目录中，通过运行创建一个新的ts项目
+```
+tsd init
+```
+3. 安装jQuery的定义文件
+```
+tsd query jquery --action install
+```
+4. 上面的命令将下载并创建一个包含以“.d.ts”结尾的jQuery定义文件的新目录。现在，通过更新TypeScript文件以指向jQuery定义来包含定义文件。
+```
+ <!-- <reference path="typings/jquery/jquery.d.ts" />   -->
+$(document).ready(function(){
+
+})
+```
+现在，再次编译。这次将生成js文件，没有任何错误。因此，TSD的需要帮助我们获得所需框架的类型定义文件。

@@ -367,3 +367,56 @@ $(document).ready(function(){
 })
 ```
 现在，再次编译。这次将生成js文件，没有任何错误。因此，TSD的需要帮助我们获得所需框架的类型定义文件。
+
+#### 31.什么是TypeScript Declare关键字?
+我们知道所有的JavaScript库/框架都没有TypeScript声明文件，但是我们希望在TypeScript文件中使用它们时不会出现编译错误。为此，我们使用declare关键字。在我们希望定义可能存在于其他地方的变量的环境声明和方法中，可以使用declare关键字。
+
+例如，假设我们有一个名为myLibrary的库，它没有TypeScript声明文件，在全局命名空间中有一个名为myLibrary的命名空间。如果我们想在TypeScript代码中使用这个库，我们可以使用以下代码:
+```
+declare var myLibrary
+```
+TypeScript运行时将把myLibrary变量赋值为任意类型。这是一个问题，我们不会得到智能感知在设计时，但我们将能够使用库在我们的代码。
+
+#### 32.如何从任何.ts文件生成TypeScript定义文件?
+我们可以使用tsc编译器从任何.ts文件生成TypeScript定义文件。它将生成一个TypeScript定义，使我们的TypeScript文件可重用。
+```
+tsc --declaration file1.ts
+```
+#### 33.什么是tsconfig.json文件吗？
+tsconfig.json文件是json格式的文件。tsconfig.json文件中，我们可以指定各种选项告诉编译器如何编译当前项目。目录中存在tsconfig.json文件，表明该目录是TypeScript项目的根目录。 下面是一个示例tsconfig.json文件。
+```
+{  
+   "compilerOptions": {  
+      "declaration": true,      
+      "emitDecoratorMetadata": false,      
+      "experimentalDecorators": false,      
+      "module": "none",      
+      "moduleResolution": "node"  
+      "removeComments": true,  
+      "sourceMap": true  
+   },  
+   "files": [  
+      "main.ts",  
+      "othermodule.ts"  
+    ]  
+}  
+```
+#### 34.解释TypeScript中的泛型？
+TypeScript泛型是一个提供创建可重用组件方法的工具。它能够创建可以处理多种数据类型而不是单一数据类型的组件。泛型在不影响性能或生产率的情况下提供类型安全性。泛型允许我们创建泛型类、泛型函数、泛型方法和泛型接口。
+
+在泛型中，类型参数写在开(<)和闭(>)括号之间，这使得它是强类型集合。泛型使用一种特殊类型的类型变量 `<T>`，它表示类型。泛型集合只包含类似类型的对象。
+```ts
+function identity<T>(arg:T):T{
+    return arg
+}
+let output1=identity<string>("myString")
+let output2=identity<number>( 100 )
+console.log(output1)
+console.log(output2)
+```
+#### 35.TypeScript是否支持所有面向对象的原则？
+是的，TypeScript支持所有面向对象的原则。面向对象编程有四个主要原则:
+- 封装
+- 继承
+- 多态
+- 抽象

@@ -420,3 +420,95 @@ console.log(output2)
 - 继承
 - 多态
 - 抽象
+
+#### 36.如何检查TypeScript中的null和undefined ？
+通过使用一个缓冲检查，我们可以检查空和未定义:
+```
+if(x==null){
+
+}
+```
+如果我们使用严格的检查，它将总是对设置为 null 的值为真，而对未定义的变量不为真。
+
+例子：
+```ts
+var a: number;  
+var b: number = null;  
+function check(x, name) {  
+    if (x == null) {  
+        console.log(name + ' == null');  
+    }  
+    if (x === null) {  
+        console.log(name + ' === null');  
+    }  
+    if (typeof x === 'undefined') {  
+        console.log(name + ' is undefined');  
+    }  
+}  
+check(a, 'a');  
+check(b, 'b');  
+```
+输出
+```
+a == null
+a is undefined
+b == null
+b === null
+```
+
+#### 37.我们可以在后端使用TypeScript吗？如果可以，如何使用？
+是的，我们可以在后端使用TypeScript。我们可以通过下面的例子来理解它。在这里，我们选择Node.js，并具有一些额外的类型安全性和该语言带来的其他抽象。
+
+安装TypeScript编译器
+```
+npm i -g typescript
+```
+TypeScript编译器接受tsconfig.json文件中的选项，此文件确定将构建的文件放在何处。
+```
+{
+    "compilerOptions":{
+        "target":"es5",
+        "module":"commonjs",
+        "declaration":true,
+        "outDir":"build"
+    }
+}
+```
+编译ts文件
+```
+tsc
+```
+运行
+```
+node build/index.js
+```
+#### 38.TS的“接口”和“type”语句有什么区别？
+```
+interface X{
+    a:number
+    b:string
+}
+type X={
+    a:number
+    b:string
+}
+```
+
+接口|type类型
+--|--
+接口声明总是引入指定的对象类型。|类型别名声明可以为任何类型（包括基元类型、联合类型和交集类型）引入名称。
+接口可以在 extends 或 implements 子句中命名|对象类型文字的类型别名不能在 extends 或 implements 子句中命名
+创建一个到处可以使用的新名称|类型别名不创建新名称
+可以有多个合并声明|不能有多个合并声明
+
+#### 39.TypeScript中的环境是什么？何时使用它？
+环境声明告诉编译器其他地方存在的实际源代码。如果这些源代码在运行时不存在，而我们尝试使用它们，则它将中断而不会发出警告。
+
+环境声明文件类似于docs文件。如果源更改，则还需要保持文档更新。如果环境声明文件未更新，那么我们将得到编译器错误。
+
+Ambient声明使我们能够安全轻松地使用现有流行的JavaScript库，例如jquery，angularjs，nodejs等。
+
+#### 40.什么是TypeScript映射文件？
+- TypeScript Map文件是一个源映射文件，其中包含有关我们原始文件的信息。
+- .map文件是源映射文件，可让工具在发出的JavaScript代码和创建它的TypeScript源文件之间进行映射。
+- 许多调试器可以使用这些文件，因此我们可以调试TypeScript文件而不是JavaScript文件。

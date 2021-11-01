@@ -512,3 +512,70 @@ Ambient声明使我们能够安全轻松地使用现有流行的JavaScript库，
 - TypeScript Map文件是一个源映射文件，其中包含有关我们原始文件的信息。
 - .map文件是源映射文件，可让工具在发出的JavaScript代码和创建它的TypeScript源文件之间进行映射。
 - 许多调试器可以使用这些文件，因此我们可以调试TypeScript文件而不是JavaScript文件。
+
+#### 41.什么是TypeScript中的类型断言？
+类型断言的工作方式类似于其他语言中的类型转换，但是它不像其他语言一样执行C＃和Java那样的类型检查或数据重组。类型转换附带运行时支持，而类型断言对运行时没有影响。但是，类型断言仅由编译器使用，并向编译器提供有关我们希望如何分析代码的提示。
+
+例
+```ts
+let empCode: any = 111;     
+let employeeCode = <number> empCode;     
+console.log(typeof(employeeCode)); 
+// number  
+```
+#### 42.TypeScript的as语法是什么？
+as 是 TypeScript 中类型断言的附加语法，引入 as- 语法的原因是原始语法(<type>)与 JSX 冲突。
+
+例子
+```ts
+let empCode:any=111
+let employeeCode= empCode as number
+console.log(typeof(employeeCode)); 
+// number  
+```
+#### 43.什么是JSX？我们可以在TypeScript中使用JSX吗？
+JSX只不过是带有不同扩展名的Javascript。Facebook提出了这个新的扩展，以便与JavaScript中类似xml的HTML实现区分开来。
+
+JSX是一种可嵌入的类似xml的语法。它将被转换成有效的JavaScript。JSX随着React框架而流行起来。TypeScript支持嵌入、类型检查和直接将JSX编译成JavaScript。
+
+要使用JSX，我们必须做两件事。
+
+- 使用.tsx扩展名命名文件
+- 启用jsx选项
+#### 44.什么是Rest参数？
+rest参数用于向函数传递零个或多个值。它是通过在参数前加上三个点字符(‘…’)来声明的。它允许函数在不使用arguments对象的情况下拥有可变数量的参数。当我们有不确定数量的参数时，这是非常有用的。
+
+rest参数要遵循的规则:
+- 一个函数中只允许有一个rest参数。
+- 它必须是数组类型。
+- 它必须是参数列表中的最后一个参数。
+
+```ts
+function sum(a: number, ...b: number[]): number {
+  let res = a;
+  for (var i = 0; i < b.length; i++) {
+    res += b[i];
+  }
+  console.log(res);
+  return res
+}
+let res1 = sum(1, 2);
+// 3
+let res2 = sum(1, 2, 3, 4, 5);
+// 15
+```
+#### 45.解释TypeScript的Enum枚举类型？
+枚举或枚举是一种数据类型，允许我们定义一组命名常量。使用枚举可以更容易地记录意图，或者创建一组不同的案例。它是相关值的集合，可以是数值或字符串值。
+
+例子：
+```ts
+enum Student {
+  xiaoming,
+  xiaoding,
+  xiaohuang,
+}
+console.log(Student.xiaoming);
+// 0
+console.log(Student[2]);
+// xiaohuang
+```

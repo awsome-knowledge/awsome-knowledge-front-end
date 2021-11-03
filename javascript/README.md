@@ -327,7 +327,7 @@ a.map(part(parseInt))
 当timeout有值时，就销毁定时器。如果停止移动，就不触发定时器，
 那么timeout没有值，那么就执行加一操作。
 
-[arguments]ttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments) 是一个对应于传递给函数的参数的类数组对象。
+[arguments](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments) 是一个对应于传递给函数的参数的类数组对象。
 
 获取this和参数，为了让debounce函数最终返回的函数this指向不变以及依旧能接受参数。
 

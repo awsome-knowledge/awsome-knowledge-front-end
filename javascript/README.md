@@ -999,6 +999,18 @@ Map 结构转为数组结构，比较快速的方法是使用扩展运算符（.
 - Map 转 Object
 
   因为 Object 的键名都为字符串，而 Map 的键名为对象，所以转换的时候会把非字符串键名转为字符串键名。
+```js
+function mapToObj(map) {
+    let obj = Object.create(null)
+    for (let [key, value] of map) {
+        obj[key] = value
+    }
+    return obj
+}
+let map = new Map().set('name', 'An').set('des', 'JS')
+mapToObj(map)
+// {name: "An", des: "JS"}
+```
 
   ![Screenshot from 2019-05-05 14-05-29](https://user-images.githubusercontent.com/36500514/57189259-dbee6500-6f3e-11e9-830d-69ca9b1f403e.png)                                                                                                                                                                                                                                                            
 - Object 转 Map

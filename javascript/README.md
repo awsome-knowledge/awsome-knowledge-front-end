@@ -548,8 +548,10 @@ debounce(fetchSelectData, 1000);
 debounce(validator, 1000);
 ```
 
+这是一道常考题，笔者在很多场笔试中遇到过。
 ##### 手写+测试(坚果云)
-我是这么写的
+
+笔者是这么写的
 ```js
 function debounce(fun, time) {
     let now = new Date()

@@ -1178,7 +1178,9 @@ alert("再打个招呼。这里演示了" + "\n" + "如何在消息框中添加�
 ```js
 var reg = /^[a-zA-Z][a-zA-Z_0-9]{4,19}$/
 console.log(reg.test("11a__a1a__a1a__a1a__"))
-
+//false
+console.log(reg.test("a11a__a1a__aa__"))
+//true
 ```
 ---
 
@@ -1212,6 +1214,7 @@ console.log(reg.test("11a__a1a__a1a__a1a__"))
     var url = "http://witmax.cn/index.php?key0=0&key1=1&key2=2";
     var ps = parseQueryString(url);
     console.log(ps)
+<!-- 	{key0: "0", key1: "1", key2: "2"} -->
 </script>
 </body>
 </html>

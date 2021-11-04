@@ -1237,26 +1237,31 @@ console.log(reg.test("a11a__a1a__aa__"))
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
-<body>
-<div id="firld">
-    <input type="text" value="qiufeihong"/>
-</div>
-<span class="red"></span>
 
-<script>
-    var result = (function () {
-        var value = document.getElementById("firld").children[0].value;
-        var all = document.getElementsByTagName("span");
-        for (let i = 0; i < all.length; i++) {
+<body>
+    <div id="firld">
+        <input type="text" value="qiufeihong" />
+    </div>
+    <span class="red"></span>
+
+    <script>
+        var result = (function () {
+            // 取出输入框的值
+            var value = document.getElementById("firld").children[0].value;
+            var all = document.getElementsByTagName("span");
+            // 遍历 span，将值赋值
+            for (let i = 0; i < all.length; i++) {
                 all[i].innerHTML = value;
-        }
-    })();
-</script>
+            }
+        })();
+    </script>
 </body>
+
 </html>
 ```
 [在线预览](https://codepen.io/qiufeihong2018/pen/aboqQBP?editors=1111)

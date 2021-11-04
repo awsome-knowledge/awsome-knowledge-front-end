@@ -1322,6 +1322,8 @@ console.log(reg.test("a11a__a1a__aa__"))
 </body>
 </html>
 ```
+
+[在线预览](https://codepen.io/qiufeihong2018/pen/abyEgze)
 ##### 课外知识
 1. document.documentElement.scrollWidth
 获取html元素对象内容的实际宽度，即html元素对象的滚动宽度。

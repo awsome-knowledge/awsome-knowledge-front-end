@@ -1403,6 +1403,8 @@ console.log(reg.test("a11a__a1a__aa__"))
 
 </html>
 ```
+[在线预览](https://codepen.io/qiufeihong2018/pen/NWvXZGY)	
+	
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)

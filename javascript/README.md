@@ -3462,7 +3462,8 @@ D: undefined undefined
 ```
 <details><summary><b>答案</b></summary>
 
-C
+A
+
 不能像添加常规对象那样向构造函数添加属性。如果您想一次向所有对象添加一个特性，则必须使用原型。在这种情况下，
 ```js
 Person.prototype.getFullName = function() {

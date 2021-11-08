@@ -2401,7 +2401,7 @@ vm.user = Object.assign({}, vm.user, {
 
 <details><summary><b>答案</b></summary>
 <pre>
-
+```
 <input id="input"/>
 
 const data = {};
@@ -2416,7 +2416,7 @@ input.onchange = function(e) {
   data.text = e.target.value;
   console.log('data',data)
 }
-
+```
 </pre>
 </details>
 

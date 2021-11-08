@@ -64,7 +64,6 @@
 61. [自己开发的框架或者库如何使用原型](#自己开发的框架或者库如何使用原型)
 62. [目前JS对于异步的解决方案有哪些](#目前JS对于异步的解决方案有哪些)
 63. [常用的ES6的语法有哪些](#常用的ES6的语法有哪些)
-64. [vue如何解析模板](#vue如何解析模板)
 65. [React的setState为何是异步渲染](#React的setState为何是异步渲染)
 66. [hybrid和h5有何区别](#hybrid和h5有何区别)
 67. [JavaScript中的一切都是](#JavaScript中的一切都是)
@@ -4591,19 +4590,6 @@ Generator 函数是 ES6 的新特性，它允许一个函数返回的可遍历�
 ES6 对 Promise 有了原生的支持，一个 Promise 是一个等待被异步执行的对象，当它执行完成后，其状态会变成 resolved 或者 rejected。
 ##### proxy
 代理
-</details>
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-64. ####  vue如何解析模板
-<details><summary><b>答案</b></summary>
-简单来说，模板解析分位三步
-
-- 模板就是一段字符串，非结构化的数据，没法分析。因此，第一步是将非结构化的模板字符串，转变成结构化的 JS 对象，抽象语法树，即 AST 。其实就是一个 JS 对象，这样就结构化了。
-- 第二步，将 AST 转换成一个 render 函数，步骤是先转换为一段函数体的字符串，然后再用new Function(...)生成函数。
-- 第三部，渲染时执行 render 函数，返回虚拟 DOM 对象，然后执行虚拟 DOM 的patch方法，渲染成真正的 html 。
 </details>
 
 ---

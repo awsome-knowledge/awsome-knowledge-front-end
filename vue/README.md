@@ -2691,7 +2691,7 @@ Vue.component('todo-item', {
 如果您希望子组件与父母进行通信，那么使用`$event`对象向父级发出一个事件，
 
 ```
-Vue.component('todo-tem', {
+Vue.component('todo-item', {
   props: ['todo'],
   template: `
     <div class="todo-item">

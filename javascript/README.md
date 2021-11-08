@@ -1233,7 +1233,7 @@ console.log(reg.test("a11a__a1a__aa__"))
 <input type="text" value="User Name"/>
 </div><span class="red"></span>
 ```
-要求用闭包方式写一个JS从文本框中取出值并在标签span中显示出来。
+要求用闭包方式写一个 JS 从文本框中取出值并在标签 span 中显示出来。
 
 ```html
 <!DOCTYPE html>
@@ -1265,6 +1265,7 @@ console.log(reg.test("a11a__a1a__aa__"))
 
 </html>
 ```
+
 [在线预览](https://codepen.io/qiufeihong2018/pen/aboqQBP?editors=1111)
 
 ---
@@ -1349,9 +1350,8 @@ console.log(reg.test("a11a__a1a__aa__"))
 
 14. #### <a id="mouse_move_label"></a> 请实现鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓
 请实现，鼠标移到页面中的任意标签，显示出这个标签的基本矩形轮廓。
-
 ##### 先前知识
-1. document.body返回当前文档中的<body>元素或者<frameset>元素.
+1. document.body返回当前文档中的 `<body>` 元素或者 `<frameset>` 元素.
 2. nodeType 属性返回以数字值返回指定节点的节点类型。
 如果节点是元素节点，则 nodeType 属性将返回 1。
 如果节点是属性节点，则 nodeType 属性将返回 2。
@@ -1905,17 +1905,18 @@ export default {
 
 JSONP
 JSONP 的原理很简单，就是利用 <script> 标签没有跨域限制的漏洞。通过 <script> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。
-
+```js
 <script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
 <script>
     function jsonp(data) {
     	console.log(data)
 	}
-</script>    
+</script>  
+```  
 JSONP 使用简单且兼容性不错，但是只限于 get 请求。
 
 在开发中可能会遇到多个 JSONP 请求的回调函数名是相同的，这时候就需要自己封装一个 JSONP，以下是简单实现
-
+```js
 function jsonp(url, jsonpCallback, success) {
   let script = document.createElement('script')
   script.src = url
@@ -1929,6 +1930,7 @@ function jsonp(url, jsonpCallback, success) {
 jsonp('http://xxx', 'callback', function(value) {
   console.log(value)
 })
+```
 CORS
 CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
 
@@ -1967,7 +1969,7 @@ application/x-www-form-urlencoded
 对于预检请求来说，如果你使用过 Node 来设置 CORS 的话，可能会遇到过这么一个坑。
 
 以下以 express 框架举例：
-
+```js
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
@@ -1977,6 +1979,7 @@ app.use((req, res, next) => {
   )
   next()
 })
+```
 该请求会验证你的 Authorization 字段，没有的话就会报错。
 
 当前端发起了复杂请求后，你会发现就算你代码是正确的，返回结果也永远是报错的。因为预检请求也会进入回调中，也会触发 next 方法，因为预检请求并不包含 Authorization 字段，所以服务端会报错。
@@ -1993,7 +1996,7 @@ document.domain
 
 postMessage
 这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息
-
+```js
 // 发送消息端
 window.parent.postMessage('message', 'http://test.com')
 // 接收消息端
@@ -2004,6 +2007,7 @@ mc.addEventListener('message', event => {
     console.log('验证通过')
   }
 })
+```
 
 ---
 
@@ -8213,7 +8217,7 @@ xss攻击的种类
 
  
 
-1、攻击者通过评论表单提交将<script>alert(‘aaa’)</script>提交到网站
+1、攻击者通过评论表单提交将 `<script>alert(‘aaa’)</script>` 提交到网站
 
 2、网站后端对提交的评论数据不做任何操作，直接存储到数据库中
 
@@ -8221,7 +8225,7 @@ xss攻击的种类
 
 4、网站后端会从数据库中取出数据，直接返回给用户
 
-5、用户得到页面后，直接运行攻击者提交的代码<script>alert(‘aaa’)</script>，所有用户都会在网页中弹出aaa的弹窗
+5、用户得到页面后，直接运行攻击者提交的代码 `<script>alert(‘aaa’)</script>`，所有用户都会在网页中弹出aaa的弹窗
 
 这种攻击方式恶意代码会被存储在数据库中，其他用户在正常访问的情况下，也有会被攻击，影响的范围比较大
 
@@ -8231,9 +8235,7 @@ xss攻击的种类
 
 我们来看下面这个场景
 
- 
-
-1、用户误点开了带攻击的url :http://xxx?keyword=<script>alert('aaa')</script>
+1、用户误点开了带攻击的 `url :http://xxx?keyword=<script>alert('aaa')</script>`
 
 2、网站给受害者的返回中包含了来自URL的的恶意文本
 
@@ -8249,7 +8251,7 @@ xss攻击的种类
 
  
 
-1、用户误点开了带攻击的url :http://xxx?name=<script>alert('aaa')</script>
+1、用户误点开了带攻击的 `url :http://xxx?name=<script>alert('aaa')</script>`
 
 2、网站给受害者的返回中正常的网页
 
@@ -8287,9 +8289,9 @@ XSS攻击其实就是代码的注入。用户的输入被编译成恶意的程�
  这些内置的方法会对用户的输入自动编码
 
 但是对于用户的自动输入进行编码也会有弊端，恶意文本也有可能插入进上下文中。看下面的例子：
-
+```js
 document.querySelector(‘a’).href = “javascript:alert(‘aaa’)”
-
+```
 虽然给href属性的时候会被自动编码，但是这已不能组织攻击者嵌入执行脚本。
 
 另外，如果需求是可以让用户自定义页面的代码，对输入进行编码也不是一个很好的解决方案。编码会把用户的输入当成纯文本输出，这样就跟需求不符了。

@@ -2397,11 +2397,7 @@ vm.user = Object.assign({}, vm.user, {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 41. #### 请简单实现双向数据绑定mvvm
-
-
-<details><summary><b>答案</b></summary>
-<pre>
-```
+```js
 <input id="input"/>
 
 const data = {};
@@ -2417,17 +2413,14 @@ input.onchange = function(e) {
   console.log('data',data)
 }
 ```
-</pre>
-</details>
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 42. ####  你如何使用事件处理程序
 
-<details><summary><b>答案</b></summary>
 您可以在vue中使用类似于普通javascript的事件处理程序。 方法调用还支持特殊的$ event变量。
-<pre>
+```js
 
 <button v-on:click="show('Welcome to VueJS world', $event)">
   Submit
@@ -2440,9 +2433,7 @@ methods: {
     console.log(message);
   }
 }
-
-</pre>
-</details>
+```
 
 ---
 [[↑] 回到顶部](#awsome-knowledge-front-end)

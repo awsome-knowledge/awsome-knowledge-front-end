@@ -1,0 +1,1017 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Node.js · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../webpack/" />
+    
+    
+    <link rel="prev" href="../vue/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../css/">
+            
+                <a href="../css/">
+            
+                    
+                    Css
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../javascript/">
+            
+                <a href="../javascript/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    Vue.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../webpack/">
+            
+                <a href="../webpack/">
+            
+                    
+                    Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../css/">
+            
+                <a href="../css/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../html/">
+            
+                <a href="../html/">
+            
+                    
+                    Html
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../network/">
+            
+                <a href="../network/">
+            
+                    
+                    计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../database/">
+            
+                <a href="../database/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../item/">
+            
+                <a href="../item/">
+            
+                    
+                    项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../hr/">
+            
+                <a href="../hr/">
+            
+                    
+                    人事问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Node.js</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#xFEFF;# awsome-knowledge-front-end</p>
+<h2 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h2>
+<h3 id="nodejs">Node.js</h3>
+<ol>
+<li><a href="#koa&#x548C;express">koa&#x548C;express</a></li>
+<li><a href="#const&#x5B9A;&#x4E49;&#x7684;Array&#x4E2D;&#x95F4;&#x5143;&#x7D20;&#x80FD;&#x5426;&#x88AB;&#x4FEE;&#x6539;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x90A3;const&#x4FEE;&#x9970;&#x5BF9;&#x8C61;&#x7684;&#x610F;&#x4E49;&#x662F;">const &#x5B9A;&#x4E49;&#x7684; Array &#x4E2D;&#x95F4;&#x5143;&#x7D20;&#x80FD;&#x5426;&#x88AB;&#x4FEE;&#x6539;? &#x5982;&#x679C;&#x53EF;&#x4EE5;, &#x90A3; const &#x4FEE;&#x9970;&#x5BF9;&#x8C61;&#x7684;&#x610F;&#x4E49;&#x662F;? </a></li>
+<li><a href="#JavaScript&#x4E2D;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x90FD;&#x662F;&#x4F55;&#x65F6;&#x91CA;&#x653E;">JavaScript&#x4E2D;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x90FD;&#x662F;&#x4F55;&#x65F6;&#x91CA;&#x653E;</a></li>
+<li><a href="#a&#x548C;b&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x4E92;&#x76F8;require&#x662F;&#x5426;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;&#x53CC;&#x65B9;&#x662F;&#x5426;&#x80FD;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;&#x5982;&#x4F55;&#x4ECE;&#x8BBE;&#x8BA1;&#x4E0A;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x95EE;&#x9898;">a.js &#x548C; b.js &#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x4E92;&#x76F8; require &#x662F;&#x5426;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;? &#x53CC;&#x65B9;&#x662F;&#x5426;&#x80FD;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;? &#x5982;&#x4F55;&#x4ECE;&#x8BBE;&#x8BA1;&#x4E0A;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x95EE;&#x9898;?</a></li>
+<li><a href="#&#x5982;&#x679C;ajsrequire&#x4E86;bjs&#x90A3;&#x4E48;&#x5728;b&#x4E2D;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF;t111&#x80FD;&#x5426;&#x5728;a&#x4E2D;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x51FA;&#x6765;">&#x5982;&#x679C; a.js require &#x4E86; b.js, &#x90A3;&#x4E48;&#x5728; b &#x4E2D;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF; t = 111 &#x80FD;&#x5426;&#x5728; a &#x4E2D;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x51FA;&#x6765;?</a></li>
+<li><a href="#&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x91CD;&#x542F;%20node%20&#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x70ED;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;%20js/json%20&#x6587;&#x4EF6;?%20&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x672C;&#x8EAB;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;?">&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x91CD;&#x542F;node&#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x70ED;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;js&#x6587;&#x4EF6;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x672C;&#x8EAB;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;</a></li>
+<li><a href="#&#x70ED;&#x66F4;&#x65B0;">&#x70ED;&#x66F4;&#x65B0;</a></li>
+<li><a href="#&#x4E0A;&#x4E0B;&#x6587;">&#x4E0A;&#x4E0B;&#x6587;</a></li>
+<li><a href="#Promise&#x4E2D;then&#x7684;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4E0E;catch&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;">Promise &#x4E2D; .then &#x7684;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4E0E; .catch &#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?</a></li>
+<li><a href="#Eventemitter&#x7684;emit&#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;">Eventemitter&#x7684;emit&#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;</a></li>
+<li><a href="#&#x5982;&#x4F55;&#x5224;&#x65AD;&#x63A5;&#x53E3;&#x662F;&#x5426;&#x5F02;&#x6B65;&#x662F;&#x5426;&#x53EA;&#x8981;&#x6709;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5F02;&#x6B65;">&#x5982;&#x4F55;&#x5224;&#x65AD;&#x63A5;&#x53E3;&#x662F;&#x5426;&#x5F02;&#x6B65;?&#x662F;&#x5426;&#x53EA;&#x8981;&#x6709;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5F02;&#x6B65;</a></li>
+<li><a href="#nextTicksetTimeout&#x4EE5;&#x53CA;setImmediate&#x4E09;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;">nextTicksetTimeout&#x4EE5;&#x53CA;setImmediate&#x4E09;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;</a></li>
+<li><a href="#&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;sleep&#x51FD;&#x6570;">&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;sleep&#x51FD;&#x6570;</a></li>
+<li><a href="#&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684;reduce&#x6CE8;&#x4E0D;&#x662F;&#x5F02;&#x6B65;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;&#x540C;&#x6B65;reduce">&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684; reduce? (&#x6CE8;:&#x4E0D;&#x662F;&#x5F02;&#x6B65;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;&#x540C;&#x6B65; reduce)</a></li>
+<li><a href="#&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#x4F60;&#x5728;&#x7EBF;&#x4E0A;&#x4F7F;&#x7528;koa&#x642D;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4F60;&#x540C;&#x4E8B;&#x5199;&#x7684;&#x63A5;&#x53E3;A&#x800C;A&#x63A5;&#x53E3;&#x4E2D;&#x5728;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x53D8;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;&#x90A3;&#x4E48;&#x9996;&#x5148;&#x95EE;&#x9898;&#x662F;&#x5982;&#x679C;&#x89E6;&#x53D1;&#x4E86;&#x8FD9;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#x4F1A;&#x5BF9;&#x7F51;&#x7AD9;&#x9020;&#x6210;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;">&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x573A;&#x666F;, &#x4F60;&#x5728;&#x7EBF;&#x4E0A;&#x4F7F;&#x7528; koa &#x642D;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;, &#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4F60;&#x540C;&#x4E8B;&#x5199;&#x7684;&#x63A5;&#x53E3; A, &#x800C; A &#x63A5;&#x53E3;&#x4E2D;&#x5728;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x53D8;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;. &#x90A3;&#x4E48;&#x9996;&#x5148;&#x95EE;&#x9898;&#x662F;, &#x5982;&#x679C;&#x89E6;&#x53D1;&#x4E86;&#x8FD9;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;, &#x4F1A;&#x5BF9;&#x7F51;&#x7AD9;&#x9020;&#x6210;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;?</a></li>
+<li><a href="#&#x5E76;&#x884C;&#x548C;&#x5E76;&#x53D1;">&#x5E76;&#x884C;&#x548C;&#x5E76;&#x53D1;</a></li>
+<li><a href="#&#x8FDB;&#x7A0B;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x662F;&#x4EC0;&#x4E48;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;">&#x8FDB;&#x7A0B;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x662F;&#x4EC0;&#x4E48;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;</a></li>
+<li><a href="#childprocessfork&#x4E0E;POSIX&#x7684;fork&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;">child_process.fork &#x4E0E; POSIX &#x7684; fork &#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?</a></li>
+<li><a href="#&#x7236;&#x8FDB;&#x7A0B;&#x6216;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6B7B;&#x4EA1;&#x662F;&#x5426;&#x4F1A;&#x5F71;&#x54CD;&#x5BF9;&#x65B9;&#x4EC0;&#x4E48;&#x662F;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;">&#x7236;&#x8FDB;&#x7A0B;&#x6216;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6B7B;&#x4EA1;&#x662F;&#x5426;&#x4F1A;&#x5F71;&#x54CD;&#x5BF9;&#x65B9;? &#x4EC0;&#x4E48;&#x662F;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;?</a></li>
+<li><a href="#cluster&#x662F;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;">cluster&#x662F;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;</a></li>
+<li><a href="#&#x4EC0;&#x4E48;&#x662F;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;">&#x4EC0;&#x4E48;&#x662F;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;</a></li>
+<li><a href="#&#x5728;IPC&#x901A;&#x9053;&#x5EFA;&#x7ACB;&#x4E4B;&#x524D;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x901A;&#x4FE1;&#x7684;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x901A;&#x4FE1;&#x90A3;IPC&#x662F;&#x600E;&#x4E48;&#x5EFA;&#x7ACB;&#x7684;">&#x5728; IPC &#x901A;&#x9053;&#x5EFA;&#x7ACB;&#x4E4B;&#x524D;, &#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x901A;&#x4FE1;&#x7684;? &#x5982;&#x679C;&#x6CA1;&#x6709;&#x901A;&#x4FE1;, &#x90A3; IPC &#x662F;&#x600E;&#x4E48;&#x5EFA;&#x7ACB;&#x7684;?</a></li>
+</ol>
+<h2 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h2>
+<h3 id="nodejs">Node.js</h3>
+<ol>
+<li><h4 id="koa&#x548C;express">koa&#x548C;express</h4>
+</li>
+</ol>
+<p>Express &#x91C7;&#x7528; callback &#x6765;&#x5904;&#x7406;&#x5F02;&#x6B65;&#xFF0C;Koa v1 &#x91C7;&#x7528; generator&#xFF0C;Koa v2 &#x91C7;&#x7528; async/await&#x3002; 
+&#x4E0B;&#x9762;&#x5206;&#x522B;&#x5BF9; js &#x5F53;&#x4E2D; callback&#x3001;promise&#x3001;generator&#x3001;async/await &#x8FD9;&#x56DB;&#x79CD;&#x5F02;&#x6B65;&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x8FDB;&#x884C;&#x4E86;&#x5BF9;&#x6BD4;&#xFF0C;
+generator &#x548C; async/await &#x4F7F;&#x7528;&#x540C;&#x6B65;&#x7684;&#x5199;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x5F02;&#x6B65;&#xFF0C;&#x660E;&#x663E;&#x597D;&#x4E8E; callback &#x548C; promise&#xFF0C;async/await &#x5728;&#x8BED;&#x4E49;&#x5316;&#x4E0A;&#x53C8;&#x8981;&#x6BD4; generator &#x66F4;&#x5F3A;&#x3002;
+&#x9519;&#x8BEF;&#x5904;&#x7406;
+Express &#x4F7F;&#x7528; callback &#x6355;&#x83B7;&#x5F02;&#x5E38;&#xFF0C;&#x5BF9;&#x4E8E;&#x6DF1;&#x5C42;&#x6B21;&#x7684;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x4E0D;&#x4E86;&#xFF0C;Koa &#x4F7F;&#x7528; try catch&#xFF0C;&#x80FD;&#x66F4;&#x597D;&#x5730;&#x89E3;&#x51B3;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x3002;</p>
+<p>Express
+&#x4F18;&#x70B9;&#xFF1A;&#x7EBF;&#x6027;&#x903B;&#x8F91;&#xFF0C;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x4EF6;&#x5F62;&#x5F0F;&#x628A;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7EC6;&#x5206;&#x3001;&#x7B80;&#x5316;&#xFF0C;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x8FDB;&#x6765;&#x7ECF;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x5904;&#x7406;&#x540E;&#x518D;&#x54CD;&#x5E94;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x6E05;&#x6670;&#x660E;&#x4E86;&#x3002; &#x7F3A;&#x70B9;&#xFF1A;&#x57FA;&#x4E8E; callback &#x7EC4;&#x5408;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x590D;&#x6742;&#x65F6;&#x5D4C;&#x5957;&#x8FC7;&#x591A;&#xFF0C;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x56F0;&#x96BE;&#x3002;</p>
+<p>Koa
+&#x4F18;&#x70B9;&#xFF1A;&#x9996;&#x5148;&#xFF0C;&#x501F;&#x52A9; co &#x548C; generator&#xFF0C;&#x5F88;&#x597D;&#x5730;&#x89E3;&#x51B3;&#x4E86;&#x5F02;&#x6B65;&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x548C;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x95EE;&#x9898;&#x3002;&#x5176;&#x6B21;&#xFF0C;Koa &#x628A; Express &#x4E2D;&#x5185;&#x7F6E;&#x7684; router&#x3001;view &#x7B49;&#x529F;&#x80FD;&#x90FD;&#x79FB;&#x9664;&#x4E86;&#xFF0C;&#x4F7F;&#x5F97;&#x6846;&#x67B6;&#x672C;&#x8EAB;&#x66F4;&#x8F7B;&#x91CF;&#x3002; &#x7F3A;&#x70B9;&#xFF1A;&#x793E;&#x533A;&#x76F8;&#x5BF9;&#x8F83;&#x5C0F;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="const&#x5B9A;&#x4E49;&#x7684;array&#x4E2D;&#x95F4;&#x5143;&#x7D20;&#x80FD;&#x5426;&#x88AB;&#x4FEE;&#x6539;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x90A3;const&#x4FEE;&#x9970;&#x5BF9;&#x8C61;&#x7684;&#x610F;&#x4E49;&#x662F;">const&#x5B9A;&#x4E49;&#x7684;Array&#x4E2D;&#x95F4;&#x5143;&#x7D20;&#x80FD;&#x5426;&#x88AB;&#x4FEE;&#x6539;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x90A3;const&#x4FEE;&#x9970;&#x5BF9;&#x8C61;&#x7684;&#x610F;&#x4E49;&#x662F;</h4>
+const &#x5B9A;&#x4E49;&#x7684; Array &#x4E2D;&#x95F4;&#x5143;&#x7D20;&#x80FD;&#x5426;&#x88AB;&#x4FEE;&#x6539;? &#x5982;&#x679C;&#x53EF;&#x4EE5;, &#x90A3; const &#x4FEE;&#x9970;&#x5BF9;&#x8C61;&#x7684;&#x610F;&#x4E49;&#x662F;? 
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x5176;&#x4E2D;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;. &#x610F;&#x4E49;&#x4E0A;, &#x4E3B;&#x8981;&#x4FDD;&#x62A4;&#x5F15;&#x7528;&#x4E0D;&#x88AB;&#x4FEE;&#x6539; (&#x5982;&#x7528; Map &#x7B49;&#x63A5;&#x53E3;&#x5BF9;&#x5F15;&#x7528;&#x7684;&#x53D8;&#x5316;&#x5F88;&#x654F;&#x611F;, &#x4F7F;&#x7528; const &#x4FDD;&#x62A4;&#x5F15;&#x7528;&#x59CB;&#x7EC8;&#x5982;&#x4E00;&#x662F;&#x6709;&#x610F;&#x4E49;&#x7684;), &#x4E5F;&#x9002;&#x5408;&#x7528;&#x5728; immutable &#x7684;&#x573A;&#x666F;.</details></li>
+</ol>
+<p>&#x80FD;&#x4FEE;&#x6539;&#xFF0C;const&#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x6808;&#x91CC;&#x7684;&#x6570;&#x636E;&#x9501;&#x6B7B;&#x4E86;&#xFF0C;Array&#x662F;&#x4E2A;&#x5F15;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x53EA;&#x662F;&#x9501;&#x6B7B;&#x4E86;&#x5730;&#x5740;&#xFF0C;&#x5806;&#x91CC;&#x9762;&#x7684;&#x6570;&#x636E;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x968F;&#x4FBF;&#x6539;
+&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="javascript&#x4E2D;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x90FD;&#x662F;&#x4F55;&#x65F6;&#x91CA;&#x653E;">JavaScript&#x4E2D;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x90FD;&#x662F;&#x4F55;&#x65F6;&#x91CA;&#x653E;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x662F;&#x5728;&#x6CA1;&#x6709;&#x5F15;&#x7528;&#x4E4B;&#x540E;, &#x901A;&#x8FC7; v8 &#x7684; GC &#x81EA;&#x52A8;&#x56DE;&#x6536;, &#x503C;&#x7C7B;&#x578B;&#x5982;&#x679C;&#x662F;&#x5904;&#x4E8E;&#x95ED;&#x5305;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x8981;&#x7B49;&#x95ED;&#x5305;&#x6CA1;&#x6709;&#x5F15;&#x7528;&#x624D;&#x4F1A;&#x88AB; GC &#x56DE;&#x6536;, &#x975E;&#x95ED;&#x5305;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7B49;&#x5F85; v8 &#x7684;&#x65B0;&#x751F;&#x4EE3; (new space) &#x5207;&#x6362;&#x7684;&#x65F6;&#x5019;&#x56DE;&#x6536;.
+&#x4F60;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x54EA;&#x4E9B;&#x64CD;&#x4F5C;&#x4E00;&#x5B9A;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;, &#x6216;&#x8005;&#x53EF;&#x4EE5;&#x5D29;&#x6389;&#x5185;&#x5B58;. &#x6BD4;&#x5982;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x80FD;&#x5426;&#x7206;&#x6389; V8 &#x7684;&#x5185;&#x5B58;?
+
+let arr = [];
+while(true)
+  arr.push(1);
+&#x7136;&#x540E;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x4E0E;&#x4E0B;&#x65B9;&#x7684;&#x60C5;&#x51B5;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?
+
+let arr = [];
+while(true)
+  arr.push();
+&#x5982;&#x679C; push &#x7684;&#x662F; Buffer &#x60C5;&#x51B5;&#x53C8;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?
+
+let arr = [];
+while(true)
+  arr.push(new Buffer(1000));
+&#x601D;&#x8003;&#x5B8C;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x627E;&#x627E;&#x522B;&#x7684;&#x60C5;&#x51B5;&#x5982;&#x4F55;&#x7206;&#x6389; V8 &#x7684;&#x5185;&#x5B58;. &#x4EE5;&#x53CA;&#x6765;&#x804A;&#x804A;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;?
+
+function out() {
+  const bigData = new Buffer(100);
+  inner = function () {
+    void bigData;
+  }
+}
+&#x95ED;&#x5305;&#x4F1A;&#x5F15;&#x7528;&#x5230;&#x7236;&#x7EA7;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x95ED;&#x5305;&#x672A;&#x91CA;&#x653E;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x662F; inner &#x76F4;&#x63A5;&#x6302;&#x5728;&#x4E86; root &#x4E0A;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#xFF08;bigData &#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#xFF09;&#x3002;&#x8BE6;&#x89C1;[&#x300A;&#x5982;&#x4F55;&#x5206;&#x6790; Node.js &#x4E2D;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x300B;](https://zhuanlan.zhihu.com/p/25736931)
+</details>
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="a&#x548C;b&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x4E92;&#x76F8;require&#x662F;&#x5426;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;&#x53CC;&#x65B9;&#x662F;&#x5426;&#x80FD;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;&#x5982;&#x4F55;&#x4ECE;&#x8BBE;&#x8BA1;&#x4E0A;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x95EE;&#x9898;">a&#x548C;b&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x4E92;&#x76F8;require&#x662F;&#x5426;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;&#x53CC;&#x65B9;&#x662F;&#x5426;&#x80FD;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;&#x5982;&#x4F55;&#x4ECE;&#x8BBE;&#x8BA1;&#x4E0A;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x95EE;&#x9898;</h4>
+a.js &#x548C; b.js &#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x4E92;&#x76F8; require &#x662F;&#x5426;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;? &#x53CC;&#x65B9;&#x662F;&#x5426;&#x80FD;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;? &#x5982;&#x4F55;&#x4ECE;&#x8BBE;&#x8BA1;&#x4E0A;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x95EE;&#x9898;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x4E0D;&#x4F1A;, &#x5148;&#x6267;&#x884C;&#x7684;&#x5BFC;&#x51FA;&#x5176; &#x672A;&#x5B8C;&#x6210;&#x7684;&#x526F;&#x672C;, &#x901A;&#x8FC7;&#x5BFC;&#x51FA;&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x8BA9;&#x5BF9;&#x65B9;&#x4ECE;&#x51FD;&#x6570;&#x53BB;&#x62FF;&#x6BD4;&#x8F83;&#x597D;&#x907F;&#x514D;. &#x6A21;&#x5757;&#x5728;&#x5BFC;&#x51FA;&#x7684;&#x53EA;&#x662F; var module = { exports: {...} }; &#x4E2D;&#x7684; exports, &#x4EE5;&#x4ECE; a.js &#x542F;&#x52A8;&#x4E3A;&#x4F8B;, a.js &#x8FD8;&#x6CA1;&#x6267;&#x884C;&#x5B8C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; a.js &#x7684; exports &#x5BF9;&#x8C61;&#x7684; &#x672A;&#x5B8C;&#x6210;&#x7684;&#x526F;&#x672C; &#x7ED9; b.js &#x6A21;&#x5757;&#x3002; &#x7136;&#x540E; b.js &#x5B8C;&#x6210;&#x52A0;&#x8F7D;&#xFF0C;&#x5E76;&#x5C06; exports &#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x7ED9; a.js &#x6A21;&#x5757;&#x3002;</details></li>
+</ol>
+<p>&#x53E6;&#x5916;&#x8FD8;&#x6709;&#x975E;&#x5E38;&#x57FA;&#x7840;&#x548C;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;, &#x6BD4;&#x5982; module.exports &#x548C; exports &#x7684;&#x533A;&#x522B;&#x8FD9;&#x91CC;&#x4E5F;&#x80FD;&#x4E00;&#x5E76;&#x89E3;&#x51B3;&#x4E86; exports &#x53EA;&#x662F; module.exports &#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;</p>
+<p>&#x518D;&#x664B;&#x7EA7;&#x4E00;&#x70B9;, &#x4F17;&#x6240;&#x5468;&#x77E5;, node &#x7684;&#x6A21;&#x5757;&#x673A;&#x5236;&#x662F;&#x57FA;&#x4E8E; CommonJS &#x89C4;&#x8303;&#x7684;. &#x5BF9;&#x4E8E;&#x4ECE;&#x524D;&#x7AEF;&#x8F6C; node &#x7684;&#x540C;&#x5B66;, &#x5982;&#x679C;&#x9762;&#x8BD5;&#x5B98;&#x60F3;&#x95EE;&#x7684;&#x96BE;&#x4E00;&#x70B9;&#x4F1A;&#x8003;&#x9A8C;&#x5173;&#x4E8E; CommonJS &#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;. &#x6BD4;&#x5982;&#x6BD4;&#x8F83; AMD, CMD, CommonJS &#x4E09;&#x8005;&#x7684;&#x533A;&#x522B;, &#x5305;&#x62EC;&#x8BE2;&#x95EE;&#x5173;&#x4E8E; node &#x4E2D; require &#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x7B49;.</p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/11/circular-dependency.html" target="_blank">JavaScript &#x6A21;&#x5757;&#x7684;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;</a>
+&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5982;&#x679C;ajsrequire&#x4E86;bjs&#x90A3;&#x4E48;&#x5728;b&#x4E2D;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF;t111&#x80FD;&#x5426;&#x5728;a&#x4E2D;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x51FA;&#x6765;">&#x5982;&#x679C;ajsrequire&#x4E86;bjs&#x90A3;&#x4E48;&#x5728;b&#x4E2D;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF;t111&#x80FD;&#x5426;&#x5728;a&#x4E2D;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x51FA;&#x6765;</h4>
+<p>&#x5982;&#x679C; a.js require &#x4E86; b.js, &#x90A3;&#x4E48;&#x5728; b &#x4E2D;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF; t = 111 &#x80FD;&#x5426;&#x5728; a &#x4E2D;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x51FA;&#x6765;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary></details></p>
+<p>&#x6BCF;&#x4E2A; .js &#x80FD;&#x72EC;&#x7ACB;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x53EA;&#x662F;&#x56E0;&#x4E3A; node &#x5E2E;&#x4F60;&#x5728;&#x5916;&#x5C42;&#x5305;&#x4E86;&#x4E00;&#x5708;&#x81EA;&#x6267;&#x884C;, &#x6240;&#x4EE5;&#x4F60;&#x4F7F;&#x7528; t = 111 &#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5F53;&#x7136;&#x80FD;&#x62FF;&#x5230;. &#x60C5;&#x51B5;&#x5982;&#x4E0B;:</p>
+</li>
+</ol>
+<pre><code class="lang-js"><span class="hljs-comment">// b.js</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exports, require, module, __filename, __dirname</span>) </span>{
+  t = <span class="hljs-number">111</span>;
+})();
+
+<span class="hljs-comment">// a.js</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exports, require, module, __filename, __dirname</span>) </span>{
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-built_in">console</span>.log(t); <span class="hljs-comment">// 111</span>
+})();
+</code></pre>
+<p>&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x91CD;&#x542F;node&#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x70ED;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;js&#x6587;&#x4EF6;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x672C;&#x8EAB;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;">&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x91CD;&#x542F;node&#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x70ED;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;js&#x6587;&#x4EF6;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x672C;&#x8EAB;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;</h4>
+&#x5982;&#x4F55;&#x5728;&#x4E0D;&#x91CD;&#x542F; node &#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x70ED;&#x66F4;&#x65B0;&#x4E00;&#x4E2A; js/json &#x6587;&#x4EF6;? &#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x672C;&#x8EAB;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x53EF;&#x4EE5;&#x6E05;&#x9664;&#x6389; require.cache &#x7684;&#x7F13;&#x5B58;&#x91CD;&#x65B0; require(xxx), &#x89C6;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x8FD8;&#x53EF;&#x4EE5;&#x7528; VM &#x6A21;&#x5757;&#x91CD;&#x65B0;&#x6267;&#x884C;.</details></li>
+</ol>
+<p>&#x5F53;&#x7136;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x53EF;&#x80FD;&#x662F;&#x5178;&#x578B;&#x7684; X-Y Problem, &#x4F7F;&#x7528; js &#x5B9E;&#x73B0;&#x70ED;&#x66F4;&#x65B0;&#x5F88;&#x5BB9;&#x6613;&#x78B0;&#x5230; v8 &#x4F18;&#x5316;&#x4E4B;&#x540E;&#x5404;&#x5730;&#x62FF;&#x5230;&#x7F13;&#x5B58;&#x7684;&#x5F15;&#x7528;&#x5BFC;&#x81F4;&#x70ED;&#x66F4;&#x65B0; js &#x6CA1;&#x610F;&#x4E49;. &#x5F53;&#x7136;&#x70ED;&#x66F4;&#x65B0; json &#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x4E00;&#x70B9;&#x6BD4;&#x5982;&#x7528;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x70ED;&#x66F4;&#x65B0;, &#x4F46;&#x662F;&#x8FD9;&#x6837;&#x4E5F;&#x4E0D;&#x5982;&#x4ECE; redis &#x4E4B;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x8BFB;&#x53D6;&#x6BD4;&#x8F83;&#x5408;&#x7406;.</p>
+<p>&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x70ED;&#x66F4;&#x65B0;">&#x70ED;&#x66F4;&#x65B0;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x4ECE;&#x9762;&#x8BD5;&#x5B98;&#x7684;&#x89D2;&#x5EA6;&#x770B;, &#x70ED;&#x66F4;&#x65B0; &#x662F;&#x5F88;&#x591A;&#x7A0B;&#x5E8F;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;. &#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x800C;&#x8A00;, &#x70ED;&#x66F4;&#x65B0;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x7528;&#x6362;&#x5305;, &#x5F53;&#x7136;&#x4E5F;&#x5305;&#x542B;&#x7740; md5 &#x6821;&#x9A8C;/&#x5DEE;&#x5F02;&#x66F4;&#x65B0;&#x7B49;&#x590D;&#x6742;&#x95EE;&#x9898;; &#x5BF9;&#x670D;&#x52A1;&#x7AEF;&#x800C;&#x8A00;, &#x70ED;&#x66F4;&#x65B0;&#x610F;&#x5473;&#x7740;&#x670D;&#x52A1;&#x4E0D;&#x7528;&#x91CD;&#x542F;, &#x8FD9;&#x6837;&#x53EF;&#x7528;&#x6027;&#x8F83;&#x9AD8;&#x540C;&#x65F6;&#x4E5F;&#x4F18;&#x96C5;&#x548C;&#x6709;&#x903C;&#x683C;. &#x95EE;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x7684;&#x66B4;&#x9732;&#x5E94;&#x8058;&#x7A0B;&#x5E8F;&#x5458;&#x7684;&#x6C34;&#x5E73;.
+
+&#x4ECE; PHP &#x8F6C; node &#x7684;&#x540C;&#x5B66;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4E9B;&#x60F3;&#x6CD5;, &#x6BD4;&#x5982; PHP &#x7684;&#x4EE3;&#x7801;&#x76F4;&#x63A5;&#x5237;&#x4E0A;&#x53BB;&#x5C31;&#x597D;&#x4E86;, &#x5E76;&#x6CA1;&#x6709;&#x6240;&#x8C13;&#x7684;&#x91CD;&#x542F;. &#x800C; node &#x91CD;&#x542F;&#x770B;&#x8D77;&#x6765;&#x52A8;&#x4F5C;&#x8FD8;&#x633A;&#x5927;. &#x5F53;&#x7136;&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x533A;&#x522B;, &#x4E3B;&#x8981;&#x662F;&#x4E0E;&#x540C;&#x65F6;&#x6709; PHP &#x4E0E; node &#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x8BA8;&#x8BBA;, &#x4E5F;&#x662F;&#x5F88;&#x597D;&#x7684;&#x5207;&#x5165;&#x70B9;.
+
+&#x5728; Node.js &#x4E2D;&#x505A;&#x70ED;&#x66F4;&#x65B0;&#x4EE3;&#x7801;, &#x7275;&#x626F;&#x5230;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x53EF;&#x80FD;&#x4E3B;&#x8981;&#x662F; require &#x4F1A;&#x6709;&#x4E00;&#x4E2A; cache, &#x6709;&#x8FD9;&#x4E2A; cache &#x5728;, &#x5373;&#x4F7F;&#x4F60;&#x66F4;&#x65B0;&#x4E86; .js &#x6587;&#x4EF6;, &#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x518D;&#x6B21; require &#x8FD8;&#x662F;&#x4F1A;&#x62FF;&#x5230;&#x4E4B;&#x524D;&#x7684;&#x7F16;&#x8BD1;&#x597D;&#x7F13;&#x5B58;&#x5728; v8 &#x5185;&#x5B58; (code space) &#x4E2D;&#x7684;&#x7684;&#x65E7;&#x4EE3;&#x7801;. &#x4F46;&#x662F;&#x5982;&#x679C;&#x53EA;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x6E05;&#x9664;&#x6389; require &#x4E2D;&#x7684; cache, &#x518D;&#x6B21; require &#x786E;&#x5B9E;&#x80FD;&#x62FF;&#x5230;&#x65B0;&#x7684;&#x4EE3;&#x7801;, &#x4F46;&#x662F;&#x8FD9;&#x65F6;&#x5019;&#x5F88;&#x5BB9;&#x6613;&#x78B0;&#x5230;&#x5404;&#x5730;&#x7EF4;&#x6301;&#x65E7;&#x7684;&#x5F15;&#x7528;&#x4F9D;&#x65E7;&#x8DD1;&#x7684;&#x65E7;&#x7684;&#x4EE3;&#x7801;&#x7684;&#x95EE;&#x9898;. &#x5982;&#x679C;&#x8FD8;&#x8981;&#x7EE7;&#x7EED;&#x63A8;&#x884C;&#x8FD9;&#x79CD;&#x70ED;&#x66F4;&#x65B0;&#x4EE3;&#x7801;&#x7684;&#x8BDD;, &#x53EF;&#x80FD;&#x8981;&#x63A8;&#x7FFB;&#x5F53;&#x524D;&#x7684;&#x67B6;&#x6784;, &#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x4ECE;&#x65B0;&#x8BBE;&#x8BA1;&#x4E00;&#x4E0B;&#x76EE;&#x524D;&#x7684;&#x6846;&#x67B6;.
+
+&#x4E0D;&#x8FC7;&#x70ED;&#x66F4;&#x65B0; json &#x4E4B;&#x7C7B;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x8BDD;, &#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#x7684;, &#x66F4;&#x65B0; require &#x7684; cache &#x53EF;&#x4EE5;&#x5B9E;&#x73B0;, &#x4E0D;&#x4F1A;&#x6709;&#x6301;&#x6709;&#x65E7;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;, &#x53EF;&#x4EE5;&#x53C2;&#x89C1;&#x6211; 2 &#x5E74;&#x524D;&#x5199;&#x7740;&#x73A9;&#x7684;[&#x4F8B;&#x5B50;](https://www.npmjs.com/package/auto-reload), &#x4F46;&#x662F;&#x5982;&#x679C;&#x65E7;&#x7684;&#x5F15;&#x7528;&#x4E00;&#x76F4;&#x88AB;&#x6301;&#x6709;&#x5F88;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;, &#x800C;&#x8981;&#x70ED;&#x66F4;&#x65B0;&#x914D;&#x7F6E;&#x7684;&#x8BDD;, &#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x5B58;&#x6570;&#x636E;&#x5E93;? &#x6216;&#x8005;&#x7528; zookeeper &#x4E4B;&#x7C7B;&#x7684;&#x670D;&#x52A1;? &#x901A;&#x8FC7;&#x66F4;&#x65B0;&#x6587;&#x4EF6;&#x8FD8;&#x8981;&#x518D;&#x53D1;&#x5E03;&#x4E00;&#x6B21;, &#x4F46;&#x662F;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x76F4;&#x63A5;&#x5199;&#x4E2A;&#x63A5;&#x53E3;&#x914D;&#x4E2A;&#x754C;&#x9762;&#x591A;&#x723D;&#x4F60;&#x8BF4;&#x662F;&#x4E0D;&#x662F;?
+
+&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5176;&#x5B9E;&#x672C;&#x8EAB;&#x5176;&#x5B9E;&#x662F;&#x503C;&#x5F97;&#x5546;&#x69B7;&#x7684;, &#x53EF;&#x80FD;&#x662F;&#x5178;&#x578B;&#x7684; X-Y Problem, &#x4E0D;&#x8FC7;&#x804A;&#x8D77;&#x6765;&#x786E;&#x5B9E;&#x662F;&#x53EF;&#x4EE5;&#x66B4;&#x9732;&#x6C34;&#x5E73;.
+</details>
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x4E0A;&#x4E0B;&#x6587;">&#x4E0A;&#x4E0B;&#x6587;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x4E86;&#x89E3; &#x2460;&#x2461; &#x90A3;&#x4E48;&#x4F60;&#x4E5F;&#x5E94;&#x8BE5;&#x4E86;&#x89E3;, &#x5BF9;&#x4E8E; Node.js &#x800C;&#x8A00;, &#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;, &#x751A;&#x81F3;&#x4E8E;&#x5185;&#x7F6E;&#x7684;&#x5F88;&#x591A;&#x65B9;&#x9762;&#x4F8B;&#x5982; require &#x7684;&#x5B9E;&#x73B0;&#x53EA;&#x662F;&#x5728;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x8FD0;&#x884C;&#x4E86;&#x5185;&#x7F6E;&#x7684;&#x51FD;&#x6570;.
+
+&#x6BCF;&#x4E2A;&#x5355;&#x72EC;&#x7684; .js &#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x5355;&#x72EC;&#x7684;&#x4E0A;&#x4E0B;&#x6587;, &#x5728;&#x67D0;&#x4E2A; .js &#x6587;&#x4EF6;&#x4E2D;&#x6C61;&#x67D3;&#x4E86;&#x5168;&#x5C40;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E00;&#x6837;&#x80FD;&#x5F71;&#x54CD;&#x5230;&#x5176;&#x4ED6;&#x7684;&#x5730;&#x65B9;.
+
+&#x800C;&#x76EE;&#x524D;&#x7684; Node.js &#x5C06; VM &#x7684;&#x63A5;&#x53E3;&#x66B4;&#x9732;&#x4E86;&#x51FA;&#x6765;, &#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; js &#x4E0A;&#x4E0B;&#x6587;, &#x8FD9;&#x4E00;&#x70B9;&#x4E0A;&#x8DDF;&#x524D;&#x7AEF; js &#x8FD8;&#x662F;&#x533A;&#x522B;&#x633A;&#x5927;&#x7684;. &#x5728;&#x6267;&#x884C;&#x5916;&#x90E8;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;, &#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x6C99;&#x76D2; (sandbox) &#x53EF;&#x4EE5;&#x907F;&#x514D;&#x4E0A;&#x4E0B;&#x6587;&#x88AB;&#x6C61;&#x67D3;:
+```js
+&apos;use strict&apos;;
+const vm = require(&apos;vm&apos;);
+
+let code =
+`(function(require) {
+
+  const http = require(&apos;http&apos;);
+
+  http.createServer( (request, response) =&gt; {
+    response.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+    response.end(&apos;Hello World\\n&apos;);
+  }).listen(8124);
+
+  console.log(&apos;Server running at http://127.0.0.1:8124/&apos;);
+})`;
+
+vm.runInThisContext(code)(require);
+```
+&#x8FD9;&#x79CD;&#x6267;&#x884C;&#x65B9;&#x5F0F;&#x4E0E; eval &#x548C; Function &#x6709;&#x660E;&#x663E;&#x7684;&#x533A;&#x522B;. &#x5173;&#x4E8E; VM &#x66F4;&#x591A;&#x7684;&#x4E00;&#x4E9B;&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x5148;&#x9605;&#x8BFB;[&#x5B98;&#x65B9;&#x6587;&#x6863; VM (&#x865A;&#x62DF;&#x673A;)](https://nodejs.org/dist/latest-v6.x/docs/api/vm.html)
+</details>
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="promise&#x4E2D;then&#x7684;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4E0E;catch&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;">Promise&#x4E2D;then&#x7684;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4E0E;catch&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;</h4>
+Promise &#x4E2D; .then &#x7684;&#x7B2C;&#x4E8C;&#x53C2;&#x6570;&#x4E0E; .catch &#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+Promise.prototype.catch(onRejected)</details></li>
+</ol>
+<p>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x62D2;&#x7EDD;(rejection) &#x56DE;&#x8C03;&#x5230;&#x5F53;&#x524D; promise, &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;promise&#x3002;&#x5F53;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x65B0; promise &#x5C06;&#x4EE5;&#x5B83;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6765;resolve&#xFF0C;&#x5426;&#x5219;&#x5982;&#x679C;&#x5F53;&#x524D;promise &#x8FDB;&#x5165;fulfilled&#x72B6;&#x6001;&#xFF0C;&#x5219;&#x4EE5;&#x5F53;&#x524D;promise&#x7684;&#x5B8C;&#x6210;&#x7ED3;&#x679C;&#x4F5C;&#x4E3A;&#x65B0;promise&#x7684;&#x5B8C;&#x6210;&#x7ED3;&#x679C;.</p>
+<p>Promise.prototype.then(onFulfilled, onRejected)</p>
+<p>&#x6DFB;&#x52A0;&#x89E3;&#x51B3;(fulfillment)&#x548C;&#x62D2;&#x7EDD;(rejection)&#x56DE;&#x8C03;&#x5230;&#x5F53;&#x524D; promise, &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; promise, &#x5C06;&#x4EE5;&#x56DE;&#x8C03;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6765;resolve.</p>
+<p>1&#x3001;&#x5F02;&#x5E38;&#x6355;&#x83B7;</p>
+<pre><code>getJSON(&quot;/post/1.json&quot;).then(function(post) {
+  return getJSON(post.commentURL);
+}).then(function funcA(comments) {
+// &#x8FD9;&#x91CC;&#x7684;&#x5F02;&#x5E38;&#xFF0C;then&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x6355;&#x83B7;&#x4E0D;&#x5230;
+  console.log(&quot;resolved: &quot;, comments);
+}, function funcB(err){
+  console.log(&quot;rejected: &quot;, err);
+});
+</code></pre><p>2&#x3001;&#x5192;&#x6CE1;&#x6027;&#x8D28;</p>
+<p>Promise &#x5BF9;&#x8C61;&#x7684;&#x9519;&#x8BEF;&#x5177;&#x6709;&#x201C;&#x5192;&#x6CE1;&#x201D;&#x6027;&#x8D28;&#xFF0C;&#x4F1A;&#x4E00;&#x76F4;&#x5411;&#x540E;&#x4F20;&#x9012;&#xFF0C;&#x76F4;&#x5230;&#x88AB;&#x6355;&#x83B7;&#x4E3A;&#x6B62;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x9519;&#x8BEF;&#x603B;&#x662F;&#x4F1A;&#x88AB;&#x4E0B;&#x4E00;&#x4E2A;catch&#x8BED;&#x53E5;&#x6355;&#x83B7;&#x3002;</p>
+<pre><code>getJSON(&apos;/post/1.json&apos;).then(function(post) {
+  return getJSON(post.commentURL);
+}).then(function(comments) {
+  // some code
+}).catch(function(error) {
+  // &#x5904;&#x7406;&#x524D;&#x9762;&#x4E09;&#x4E2A;Promise&#x4EA7;&#x751F;&#x7684;&#x9519;&#x8BEF;
+});
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x4E00;&#x5171;&#x6709;&#x4E09;&#x4E2A; Promise &#x5BF9;&#x8C61;&#xFF1A;&#x4E00;&#x4E2A;&#x7531;getJSON&#x4EA7;&#x751F;&#xFF0C;&#x4E24;&#x4E2A;&#x7531;then&#x4EA7;&#x751F;&#x3002;&#x5B83;&#x4EEC;&#x4E4B;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x6700;&#x540E;&#x4E00;&#x4E2A;catch&#x6355;&#x83B7;&#x3002;</p>
+<p>&#x8FD9;&#x4E5F;&#x662F;then&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5904;&#x7406;&#x4E0D;&#x4E86;&#x7684;&#x3002;
+&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="eventemitter&#x7684;emit&#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;">Eventemitter&#x7684;emit&#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;</h4>
+Eventemitter &#x7684; emit &#x662F;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary></details></li>
+</ol>
+<p>Node.js &#x4E2D; Eventemitter &#x7684; emit &#x662F;&#x540C;&#x6B65;&#x7684;. &#x5728;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x6709;&#x8BF4;&#x660E;:</p>
+<p>EventListener&#x6309;&#x6CE8;&#x518C;&#x987A;&#x5E8F;&#x540C;&#x6B65;&#x8C03;&#x7528;&#x6240;&#x6709;&#x4FA6;&#x542C;&#x5668;&#x3002;&#x8FD9;&#x5BF9;&#x4E8E;&#x786E;&#x4FDD;&#x4E8B;&#x4EF6;&#x7684;&#x6B63;&#x786E;&#x987A;&#x5E8F;&#x548C;&#x907F;&#x514D;&#x7ADE;&#x4E89;&#x6761;&#x4EF6;&#x6216;&#x903B;&#x8F91;&#x9519;&#x8BEF;&#x5F88;&#x91CD;&#x8981;&#x3002;</p>
+<p>&#x53E6;&#x5916;, &#x53EF;&#x4EE5;&#x8BA8;&#x8BBA;&#x5982;&#x4E0B;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x662F;&#x8F93;&#x51FA; hi 1 &#x8FD8;&#x662F; hi 2?</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+
+<span class="hljs-keyword">let</span> emitter = <span class="hljs-keyword">new</span> EventEmitter();
+
+emitter.on(<span class="hljs-string">&apos;myEvent&apos;</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hi 1&apos;</span>);
+});
+
+emitter.on(<span class="hljs-string">&apos;myEvent&apos;</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hi 2&apos;</span>);
+});
+
+emitter.emit(<span class="hljs-string">&apos;myEvent&apos;</span>);
+</code></pre>
+<p>&#x6216;&#x8005;&#x5982;&#x4E0B;&#x60C5;&#x51B5;&#x662F;&#x5426;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;?</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+
+<span class="hljs-keyword">let</span> emitter = <span class="hljs-keyword">new</span> EventEmitter();
+
+emitter.on(<span class="hljs-string">&apos;myEvent&apos;</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hi&apos;</span>);
+  emitter.emit(<span class="hljs-string">&apos;myEvent&apos;</span>);
+});
+
+emitter.emit(<span class="hljs-string">&apos;myEvent&apos;</span>);
+</code></pre>
+<p>&#x4EE5;&#x53CA;&#x8FD9;&#x6837;&#x4F1A;&#x4E0D;&#x4F1A;&#x6B7B;&#x5FAA;&#x73AF;?</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+
+<span class="hljs-keyword">let</span> emitter = <span class="hljs-keyword">new</span> EventEmitter();
+
+emitter.on(<span class="hljs-string">&apos;myEvent&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sth</span> (<span class="hljs-params"></span>) </span>{
+  emitter.on(<span class="hljs-string">&apos;myEvent&apos;</span>, sth);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hi&apos;</span>);
+});
+
+emitter.emit(<span class="hljs-string">&apos;myEvent&apos;</span>);
+</code></pre>
+<p>&#x4F7F;&#x7528; emitter &#x5904;&#x7406;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x72B6;&#x6001;&#x573A;&#x666F;, &#x6BD4;&#x5982; TCP &#x7684;&#x590D;&#x6742;&#x72B6;&#x6001;&#x673A;, &#x505A;&#x591A;&#x9879;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#x6BCF;&#x4E00;&#x6B65;&#x90FD;&#x53EF;&#x80FD;&#x62A5;&#x9519;, &#x8FD9;&#x4E2A;&#x65F6;&#x5019; .emit &#x9519;&#x8BEF;&#x5E76;&#x4E14;&#x6267;&#x884C;&#x67D0;&#x4E9B; .once &#x7684;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x5C06;&#x4F60;&#x4ECE;&#x6CE5;&#x6CBC;&#x4E2D;&#x62EF;&#x6551;&#x51FA;&#x6765;.</p>
+<p>&#x53E6;&#x5916;&#x53EF;&#x4EE5;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x7684;&#x662F;, &#x6709;&#x4E9B;&#x540C;&#x5B66;&#x559C;&#x6B22;&#x7528; emitter &#x6765;&#x76D1;&#x63A7;&#x67D0;&#x4E9B;&#x7C7B;&#x7684;&#x72B6;&#x6001;, &#x4F46;&#x662F;&#x5728;&#x8FD9;&#x4E9B;&#x7C7B;&#x91CA;&#x653E;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x4F1A;&#x5FD8;&#x8BB0;&#x91CA;&#x653E; emitter, &#x800C;&#x8FD9;&#x4E9B;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x53EF;&#x80FD;&#x6301;&#x6709;&#x8BE5; emitter &#x7684; listener &#x7684;&#x5F15;&#x7528;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;.</p>
+<p>&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5982;&#x4F55;&#x5224;&#x65AD;&#x63A5;&#x53E3;&#x662F;&#x5426;&#x5F02;&#x6B65;&#x662F;&#x5426;&#x53EA;&#x8981;&#x6709;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5F02;&#x6B65;">&#x5982;&#x4F55;&#x5224;&#x65AD;&#x63A5;&#x53E3;&#x662F;&#x5426;&#x5F02;&#x6B65;&#x662F;&#x5426;&#x53EA;&#x8981;&#x6709;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5F02;&#x6B65;</h4>
+<p>&#x5982;&#x4F55;&#x5224;&#x65AD;&#x63A5;&#x53E3;&#x662F;&#x5426;&#x5F02;&#x6B65;? &#x662F;&#x5426;&#x53EA;&#x8981;&#x6709;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5F02;&#x6B65;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;, &#x6BCF;&#x4E2A;&#x5199; node &#x7684;&#x4EBA;&#x90FD;&#x6709;&#x4E00;&#x5957;&#x81EA;&#x5DF1;&#x7684;&#x5224;&#x65AD;&#x65B9;&#x5F0F;.</details></p>
+</li>
+<li><p>&#x770B;&#x6587;&#x6863;</p>
+</li>
+<li>console.log &#x6253;&#x5370;&#x770B;&#x770B;</li>
+<li>&#x770B;&#x662F;&#x5426;&#x6709; IO &#x64CD;&#x4F5C;</li>
+</ol>
+<p>&#x5355;&#x7EAF;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5E76;&#x4E0D;&#x4F1A;&#x5F02;&#x6B65;, IO &#x64CD;&#x4F5C;&#x624D;&#x53EF;&#x80FD;&#x4F1A;&#x5F02;&#x6B65;, &#x9664;&#x6B64;&#x4E4B;&#x5916;&#x8FD8;&#x6709;&#x4F7F;&#x7528; setTimeout &#x7B49;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x5F02;&#x6B65;.
+&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="nextticksettimeout&#x4EE5;&#x53CA;setimmediate&#x4E09;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;">nextTicksetTimeout&#x4EE5;&#x53CA;setImmediate&#x4E09;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;</h4>
+nextTick, setTimeout &#x4EE5;&#x53CA; setImmediate &#x4E09;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary></details></li>
+</ol>
+<p>&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;sleep&#x51FD;&#x6570;">&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;sleep&#x51FD;&#x6570;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+```js
+function sleep(ms) {
+  var start = Date.now(), expire = start + ms;
+  while (Date.now() &lt; expire) ;
+  return;
+}
+```
+&#x800C;&#x5F02;&#x6B65;, &#x662F;&#x4F7F;&#x7528; libuv &#x6765;&#x5B9E;&#x73B0;&#x7684; (C/C++&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x53C2;&#x89C1; libev &#x548C; libevent) &#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x91CC;&#x7684;&#x4E8B;&#x4EF6;&#x961F;&#x5217;.
+
+&#x5982;&#x679C;&#x5728;&#x7EBF;&#x4E0A;&#x7684;&#x7F51;&#x7AD9;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x6B7B;&#x5FAA;&#x73AF;&#x7684;&#x903B;&#x8F91;&#x88AB;&#x89E6;&#x53D1;, &#x6574;&#x4E2A;&#x8FDB;&#x7A0B;&#x5C31;&#x4F1A;&#x4E00;&#x76F4;&#x5361;&#x5728;&#x6B7B;&#x5FAA;&#x73AF;&#x4E2D;, &#x5982;&#x679C;&#x6CA1;&#x6709;&#x591A;&#x8FDB;&#x7A0B;&#x90E8;&#x7F72;&#x7684;&#x8BDD;, &#x4E4B;&#x540E;&#x7684;&#x7F51;&#x7AD9;&#x8BF7;&#x6C42;&#x5168;&#x90E8;&#x4F1A;&#x8D85;&#x65F6;, js &#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x7ED3;&#x675F;&#x90A3;&#x4E48;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x5C31;&#x4F1A;&#x505C;&#x4E0B;&#x7B49;&#x5F85;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x5F02;&#x6B65;, &#x6574;&#x4E2A;&#x7F51;&#x7AD9;&#x65E0;&#x6CD5;&#x54CD;&#x5E94;.
+</details>
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684;reduce&#x6CE8;&#x4E0D;&#x662F;&#x5F02;&#x6B65;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;&#x540C;&#x6B65;reduce">&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684;reduce&#x6CE8;&#x4E0D;&#x662F;&#x5F02;&#x6B65;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;&#x540C;&#x6B65;reduce</h4>
+&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684; reduce? (&#x6CE8;:&#x4E0D;&#x662F;&#x5F02;&#x6B65;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;&#x540C;&#x6B65; reduce)<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x9700;&#x8981;&#x4E86;&#x89E3; reduce &#x7684;&#x60C5;&#x51B5;, &#x662F;&#x7B2C; n &#x4E2A;&#x4E0E; n+1 &#x7684;&#x7ED3;&#x679C;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x5B8C;&#x4E4B;&#x540E;, &#x5728;&#x7528;&#x65B0;&#x7684;&#x7ED3;&#x679C;&#x4E0E;&#x7B2C; n+2 &#x4E2A;&#x5143;&#x7D20;&#x7EE7;&#x7EED;&#x4F9D;&#x6B21;&#x5F02;&#x6B65;&#x4E0B;&#x53BB;. 
+</details>
+
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#x4F60;&#x5728;&#x7EBF;&#x4E0A;&#x4F7F;&#x7528;koa&#x642D;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4F60;&#x540C;&#x4E8B;&#x5199;&#x7684;&#x63A5;&#x53E3;a&#x800C;a&#x63A5;&#x53E3;&#x4E2D;&#x5728;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x53D8;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;&#x90A3;&#x4E48;&#x9996;&#x5148;&#x95EE;&#x9898;&#x662F;&#x5982;&#x679C;&#x89E6;&#x53D1;&#x4E86;&#x8FD9;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#x4F1A;&#x5BF9;&#x7F51;&#x7AD9;&#x9020;&#x6210;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;">&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#x4F60;&#x5728;&#x7EBF;&#x4E0A;&#x4F7F;&#x7528;koa&#x642D;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4F60;&#x540C;&#x4E8B;&#x5199;&#x7684;&#x63A5;&#x53E3;A&#x800C;A&#x63A5;&#x53E3;&#x4E2D;&#x5728;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x53D8;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;&#x90A3;&#x4E48;&#x9996;&#x5148;&#x95EE;&#x9898;&#x662F;&#x5982;&#x679C;&#x89E6;&#x53D1;&#x4E86;&#x8FD9;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#x4F1A;&#x5BF9;&#x7F51;&#x7AD9;&#x9020;&#x6210;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;</h4>
+&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x573A;&#x666F;, &#x4F60;&#x5728;&#x7EBF;&#x4E0A;&#x4F7F;&#x7528; koa &#x642D;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;, &#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4F60;&#x540C;&#x4E8B;&#x5199;&#x7684;&#x63A5;&#x53E3; A, &#x800C; A &#x63A5;&#x53E3;&#x4E2D;&#x5728;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x53D8;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;. &#x90A3;&#x4E48;&#x9996;&#x5148;&#x95EE;&#x9898;&#x662F;, &#x5982;&#x679C;&#x89E6;&#x53D1;&#x4E86;&#x8FD9;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;, &#x4F1A;&#x5BF9;&#x7F51;&#x7AD9;&#x9020;&#x6210;&#x4EC0;&#x4E48;&#x5F71;&#x54CD;?<details><summary><b>&#x7B54;&#x6848;</b></summary>
+Node.js &#x4E2D;&#x6267;&#x884C; js &#x4EE3;&#x7801;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x7684;. &#x53EA;&#x6709;&#x5F53;&#x524D;&#x4EE3;&#x7801;&#x90FD;&#x6267;&#x884C;&#x5B8C;, &#x624D;&#x4F1A;&#x5207;&#x5165;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;, &#x7136;&#x540E;&#x4ECE;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x4E2D; pop &#x51FA;&#x4E0B;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x4EE3;&#x7801;. &#x6240;&#x4EE5; &#x2460; &#x5B9E;&#x73B0;&#x4E00;&#x4E2A; sleep &#x51FD;&#x6570;, &#x53EA;&#x8981;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6B7B;&#x5FAA;&#x73AF;&#x5C31;&#x53EF;&#x4EE5;&#x963B;&#x585E;&#x6574;&#x4E2A; js &#x7684;&#x6267;&#x884C;&#x6D41;&#x7A0B;. (&#x5173;&#x4E8E;&#x5982;&#x4F55;&#x907F;&#x514D;&#x5751;&#x7239;&#x7684;&#x540C;&#x4E8B;&#x5199;&#x51FA;&#x6B7B;&#x5FAA;&#x73AF;, &#x5728;&#x540E;&#x9762;&#x7684;&#x6D4B;&#x8BD5;&#x73AF;&#x8282;&#x6709;&#x5199;&#x5230;.)
+</details>
+
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5E76;&#x884C;&#x548C;&#x5E76;&#x53D1;">&#x5E76;&#x884C;&#x548C;&#x5E76;&#x53D1;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+
+&#x5E76;&#x884C; (Parallel) &#x4E0E;&#x5E76;&#x53D1; (Concurrent) &#x662F;&#x4E24;&#x4E2A;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x6982;&#x5FF5;.
+
+![avatar](https://joearms.github.io/images/con_and_par.jpg)
+
+&#x5E76;&#x53D1; (Concurrent) = 2 &#x961F;&#x5217;&#x5BF9;&#x5E94; 1 &#x5496;&#x5561;&#x673A;.
+
+&#x5E76;&#x884C; (Parallel) = 2 &#x961F;&#x5217;&#x5BF9;&#x5E94; 2 &#x5496;&#x5561;&#x673A;.
+
+Node.js &#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x6765;&#x6328;&#x4E2A;&#x62BD;&#x53D6;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4E2A; Task &#x6267;&#x884C;, &#x4ECE;&#x800C;&#x907F;&#x514D;&#x4E86;&#x4F20;&#x7EDF;&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x60C5;&#x51B5;&#x4E0B; 2&#x4E2A;&#x961F;&#x5217;&#x5BF9;&#x5E94; 1&#x4E2A;&#x5496;&#x5561;&#x673A; &#x7684;&#x65F6;&#x5019;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x4EE5;&#x53CA;&#x8D44;&#x6E90;&#x4E89;&#x62A2;/&#x540C;&#x6B65;&#x7684;&#x95EE;&#x9898;, &#x6240;&#x4EE5;&#x83B7;&#x5F97;&#x4E86;&#x9AD8;&#x5E76;&#x53D1;&#x7684;&#x6210;&#x5C31;.
+
+&#x81F3;&#x4E8E;&#x5728; node &#x4E2D;&#x5E76;&#x884C;, &#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; cluster &#x6765;&#x518D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5496;&#x5561;&#x673A;.
+</details>
+
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x8FDB;&#x7A0B;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x662F;&#x4EC0;&#x4E48;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;">&#x8FDB;&#x7A0B;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x662F;&#x4EC0;&#x4E48;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x7684;&#x76EE;&#x5F55;, &#x901A;&#x8FC7; process.cwd() &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55; (current working directory), &#x901A;&#x5E38;&#x662F;&#x547D;&#x4EE4;&#x884C;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55; (&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x542F;&#x52A8;&#x65F6;&#x6307;&#x5B9A;), &#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x7B49;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x76F8;&#x5BF9;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x6765;&#x83B7;&#x53D6;&#x6587;&#x4EF6;.
+
+&#x4E00;&#x4E9B;&#x83B7;&#x53D6;&#x914D;&#x7F6E;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x4F60;&#x7684;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x6765;&#x627E;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;. &#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F60;&#x9519;&#x8BEF;&#x7684;&#x76EE;&#x5F55;&#x542F;&#x52A8;&#x811A;&#x672C;, &#x53EF;&#x80FD;&#x6CA1;&#x6CD5;&#x5F97;&#x5230;&#x6B63;&#x786E;&#x7684;&#x7ED3;&#x679C;. &#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; process.chdir() &#x6765;&#x6539;&#x53D8;&#x5F53;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;.
+</details>
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="childprocessfork&#x4E0E;posix&#x7684;fork&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;">childprocessfork&#x4E0E;POSIX&#x7684;fork&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;</h4>
+child_process.fork &#x4E0E; POSIX &#x7684; fork &#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;?
+<details><summary><b>&#x7B54;&#x6848;</b></summary></details></li>
+</ol>
+<p>Node.js &#x7684; child_process.fork() &#x5728; Unix &#x4E0A;&#x7684;&#x5B9E;&#x73B0;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x4E86; POSIX fork(2), &#x800C; POSIX &#x7684; fork &#x9700;&#x8981;&#x624B;&#x52A8;&#x7BA1;&#x7406;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8D44;&#x6E90;&#x91CA;&#x653E; (waitpid), child_process.fork &#x5219;&#x4E0D;&#x7528;&#x5173;&#x5FC3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;, Node.js &#x4F1A;&#x81EA;&#x52A8;&#x91CA;&#x653E;, &#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5728; option &#x4E2D;&#x9009;&#x62E9;&#x7236;&#x8FDB;&#x7A0B;&#x6B7B;&#x540E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x5B50;&#x8FDB;&#x7A0B;&#x5B58;&#x6D3B;.</p>
+<ul>
+<li>spawn() &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x547D;&#x4EE4;</li>
+<li>options.detached &#x7236;&#x8FDB;&#x7A0B;&#x6B7B;&#x540E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x5B50;&#x8FDB;&#x7A0B;&#x5B58;&#x6D3B;</li>
+<li>options.stdio &#x6307;&#x5B9A;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x4E09;&#x4E2A;&#x6807;&#x51C6;&#x6D41;</li>
+<li>spawnSync() &#x540C;&#x6B65;&#x7248;&#x7684; spawn, &#x53EF;&#x6307;&#x5B9A;&#x8D85;&#x65F6;, &#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x53EF;&#x83B7;&#x5F97;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;</li>
+<li>exec() &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x547D;&#x4EE4;, &#x5E26;&#x56DE;&#x8C03;&#x53C2;&#x6570;&#x83B7;&#x77E5;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x60C5;&#x51B5;, &#x53EF;&#x6307;&#x5B9A;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</li>
+<li>execSync() &#x540C;&#x6B65;&#x7248;&#x7684; exec(), &#x53EF;&#x6307;&#x5B9A;&#x8D85;&#x65F6;, &#x8FD4;&#x56DE;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x51FA; (stdout)</li>
+<li>execFile() &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;, &#x53EF;&#x6307;&#x5B9A;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</li>
+<li>execFileSync() &#x540C;&#x6B65;&#x7248;&#x7684; execFile(), &#x8FD4;&#x56DE;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x51FA;, &#x5982;&#x4F55;&#x8D85;&#x65F6;&#x6216;&#x8005; exit code &#x4E0D;&#x4E3A; 0, &#x4F1A;&#x76F4;&#x63A5; throw Error</li>
+<li>fork() &#x52A0;&#x5F3A;&#x7248;&#x7684; spawn(), &#x8FD4;&#x56DE;&#x503C;&#x662F; ChildProcess &#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x4EA4;&#x4E92;</li>
+</ul>
+<p>&#x5176;&#x4E2D; exec/execSync &#x65B9;&#x6CD5;&#x4F1A;&#x76F4;&#x63A5;&#x8C03;&#x7528; bash &#x6765;&#x89E3;&#x91CA;&#x547D;&#x4EE4;, &#x6240;&#x4EE5;&#x5982;&#x679C;&#x6709;&#x547D;&#x4EE4;&#x6709;&#x5916;&#x90E8;&#x53C2;&#x6570;, &#x5219;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x88AB;&#x6CE8;&#x5165;&#x7684;&#x60C5;&#x51B5;.</p>
+<p>&lt;/details&gt;</p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7236;&#x8FDB;&#x7A0B;&#x6216;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6B7B;&#x4EA1;&#x662F;&#x5426;&#x4F1A;&#x5F71;&#x54CD;&#x5BF9;&#x65B9;&#x4EC0;&#x4E48;&#x662F;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;">&#x7236;&#x8FDB;&#x7A0B;&#x6216;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6B7B;&#x4EA1;&#x662F;&#x5426;&#x4F1A;&#x5F71;&#x54CD;&#x5BF9;&#x65B9;&#x4EC0;&#x4E48;&#x662F;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;</h4>
+&#x7236;&#x8FDB;&#x7A0B;&#x6216;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6B7B;&#x4EA1;&#x662F;&#x5426;&#x4F1A;&#x5F71;&#x54CD;&#x5BF9;&#x65B9;? &#x4EC0;&#x4E48;&#x662F;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;?<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x5B50;&#x8FDB;&#x7A0B;&#x6B7B;&#x4EA1;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x7236;&#x8FDB;&#x7A0B;, &#x4E0D;&#x8FC7;&#x5B50;&#x8FDB;&#x7A0B;&#x6B7B;&#x4EA1;&#x65F6;&#xFF08;&#x7EBF;&#x7A0B;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x201C;&#x9886;&#x5934;&#x201D;&#x7EBF;&#x7A0B;&#x6B7B;&#x4EA1;&#x65F6;&#xFF09;&#xFF0C;&#x4F1A;&#x5411;&#x5B83;&#x7684;&#x7236;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x6B7B;&#x4EA1;&#x4FE1;&#x53F7;. &#x53CD;&#x4E4B;&#x7236;&#x8FDB;&#x7A0B;&#x6B7B;&#x4EA1;, &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x5B50;&#x8FDB;&#x7A0B;&#x4E5F;&#x4F1A;&#x968F;&#x4E4B;&#x6B7B;&#x4EA1;, &#x4F46;&#x5982;&#x679C;&#x6B64;&#x65F6;&#x5B50;&#x8FDB;&#x7A0B;&#x5904;&#x4E8E;&#x53EF;&#x8FD0;&#x884C;&#x6001;&#x3001;&#x50F5;&#x6B7B;&#x72B6;&#x6001;&#x7B49;&#x7B49;&#x7684;&#x8BDD;, &#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x88AB;&#x8FDB;&#x7A0B;1&#xFF08;init &#x8FDB;&#x7A0B;&#xFF09;&#x6536;&#x517B;&#xFF0C;&#x4ECE;&#x800C;&#x6210;&#x4E3A;&#x5B64;&#x513F;&#x8FDB;&#x7A0B;. &#x53E6;&#x5916;, &#x5B50;&#x8FDB;&#x7A0B;&#x6B7B;&#x4EA1;&#x7684;&#x65F6;&#x5019;&#xFF08;&#x5904;&#x4E8E;&#x201C;&#x7EC8;&#x6B62;&#x72B6;&#x6001;&#x201D;&#xFF09;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x6CA1;&#x6709;&#x53CA;&#x65F6;&#x8C03;&#x7528; wait() &#x6216; waitpid() &#x6765;&#x8FD4;&#x56DE;&#x6B7B;&#x4EA1;&#x8FDB;&#x7A0B;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x6B64;&#x65F6;&#x5B50;&#x8FDB;&#x7A0B;&#x8FD8;&#x6709;&#x4E00;&#x4E2A; PCB &#x6B8B;&#x7559;&#x5728;&#x8FDB;&#x7A0B;&#x8868;&#x4E2D;&#xFF0C;&#x88AB;&#x79F0;&#x4F5C;&#x50F5;&#x5C38;&#x8FDB;&#x7A0B;.
+</details>
+
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="cluster&#x662F;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;">cluster&#x662F;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+</details>
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x4EC0;&#x4E48;&#x662F;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;">&#x4EC0;&#x4E48;&#x662F;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;</h4>
+</li>
+</ol>
+<details><summary><b>&#x7B54;&#x6848;</b></summary>
+</details>
+
+
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x5728;ipc&#x901A;&#x9053;&#x5EFA;&#x7ACB;&#x4E4B;&#x524D;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x901A;&#x4FE1;&#x7684;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x901A;&#x4FE1;&#x90A3;ipc&#x662F;&#x600E;&#x4E48;&#x5EFA;&#x7ACB;&#x7684;">&#x5728;IPC&#x901A;&#x9053;&#x5EFA;&#x7ACB;&#x4E4B;&#x524D;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x901A;&#x4FE1;&#x7684;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x901A;&#x4FE1;&#x90A3;IPC&#x662F;&#x600E;&#x4E48;&#x5EFA;&#x7ACB;&#x7684;</h4>
+&#x5728; IPC &#x901A;&#x9053;&#x5EFA;&#x7ACB;&#x4E4B;&#x524D;, &#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x901A;&#x4FE1;&#x7684;? &#x5982;&#x679C;&#x6CA1;&#x6709;&#x901A;&#x4FE1;, &#x90A3; IPC &#x662F;&#x600E;&#x4E48;&#x5EFA;&#x7ACB;&#x7684;?<details><summary><b>&#x7B54;&#x6848;</b></summary>
+&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E5F;&#x633A;&#x7B80;&#x5355;, &#x53EA;&#x662F;&#x4E2A;&#x601D;&#x8DEF;&#x7684;&#x95EE;&#x9898;. &#x5728;&#x901A;&#x8FC7; child_process &#x5EFA;&#x7ACB;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x65F6;&#x5019;, &#x662F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5B50;&#x8FDB;&#x7A0B;&#x7684; env (&#x73AF;&#x5883;&#x53D8;&#x91CF;) &#x7684;. &#x6240;&#x4EE5; Node.js &#x5728;&#x542F;&#x52A8;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x65F6;&#x5019;, &#x4E3B;&#x8FDB;&#x7A0B;&#x5148;&#x5EFA;&#x7ACB; IPC &#x9891;&#x9053;, &#x7136;&#x540E;&#x5C06; IPC &#x9891;&#x9053;&#x7684; fd (&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;) &#x901A;&#x8FC7;&#x73AF;&#x5883;&#x53D8;&#x91CF; (NODE_CHANNEL_FD) &#x7684;&#x65B9;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x5B50;&#x8FDB;&#x7A0B;, &#x7136;&#x540E;&#x5B50;&#x8FDB;&#x7A0B;&#x901A;&#x8FC7; fd &#x8FDE;&#x4E0A; IPC &#x4E0E;&#x7236;&#x8FDB;&#x7A0B;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;.
+</details>
+
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="mongo&#x4E8B;&#x52A1;&#xFF08;&#x77E5;&#x8863;&#x79D1;&#x6280;&#xFF09;">mongo&#x4E8B;&#x52A1;&#xFF08;&#x77E5;&#x8863;&#x79D1;&#x6280;&#xFF09;</h4>
+<p>MongoDB&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x64CD;&#x4F5C;&#x5355;&#x4E2A;&#x6587;&#x6863;&#x603B;&#x662F;&#x539F;&#x5B50;&#x6027;&#x7684;&#xFF0C;&#x7136;&#x800C;&#xFF0C;&#x6D89;&#x53CA;&#x591A;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x201C;&#x4E8B;&#x52A1;&#x201D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x539F;&#x5B50;&#x6027;&#x7684;&#x3002;&#x56E0;&#x4E3A;&#x6587;&#x6863;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5F53;&#x590D;&#x6742;&#x5E76;&#x4E14;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x5D4C;&#x5957;&#x6587;&#x6863;&#xFF0C;&#x5355;&#x6587;&#x6863;&#x7684;&#x539F;&#x5B50;&#x6027;&#x5BF9;&#x8BB8;&#x591A;&#x5B9E;&#x9645;&#x7528;&#x4F8B;&#x63D0;&#x4F9B;&#x4E86;&#x652F;&#x6301;&#x3002;&#x5C3D;&#x7BA1;&#x5355;&#x6587;&#x6863;&#x64CD;&#x4F5C;&#x662F;&#x539F;&#x5B50;&#x6027;&#x7684;&#xFF0C;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9700;&#x8981;&#x591A;&#x6587;&#x6863;&#x4E8B;&#x52A1;&#x3002;&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x4E24;&#x9636;&#x6BB5;&#x63D0;&#x4EA4;&#xFF0C;&#x63D0;&#x4F9B;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x591A;&#x6587;&#x6863;&#x66F4;&#x65B0;&#x652F;&#x6301;&#x3002;&#x56E0;&#x4E3A;&#x6587;&#x6863;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;Pending&#x6570;&#x636E;&#x548C;&#x72B6;&#x6001;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x4E24;&#x9636;&#x6BB5;&#x63D0;&#x4EA4;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E8B;&#x52A1;&#x524D;&#x7684;&#x72B6;&#x6001;&#x662F;&#x53EF;&#x6062;&#x590D;&#x7684;&#x3002;
+&#x4E8B;&#x52A1;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x4EE5;&#x53EF;&#x9760;&#x7684;&#x65B9;&#x5F0F;&#x4ECE;A&#x8D26;&#x6237;&#x8F6C;&#x8D26;&#x5230;B&#x8D26;&#x6237;&#xFF0C;&#x5728;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;&#x6B64;&#x64CD;&#x4F5C;&#x5C06;&#x4ECE;A&#x8D26;&#x6237;&#x51CF;&#x6389;&#x91D1;&#x989D;&#x548C;&#x7ED9;B&#x8D26;&#x6237;&#x589E;&#x52A0;&#x91D1;&#x989D;&#x7684;&#x64CD;&#x4F5C;&#x5C01;&#x88C5;&#x5728;&#x5355;&#x4E2A;&#x539F;&#x5B50;&#x4E8B;&#x52A1;&#x4E2D;&#x3002;&#x5728;MongoDB&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E24;&#x9636;&#x6BB5;&#x63D0;&#x4EA4;&#x8FBE;&#x5230;&#x76F8;&#x540C;&#x7684;&#x6548;&#x679C;&#x3002;&#x672C;&#x6587;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x793A;&#x4F8B;&#x4F7F;&#x7528;mongo shell&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;,&#x5E76;&#x5047;&#x8BBE;&#x6709;&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#xFF1A;&#x9996;&#x5148;&#xFF0C;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;accounts&#x7684;&#x96C6;&#x5408;&#x5B58;&#x50A8;&#x6BCF;&#x4E2A;&#x8D26;&#x6237;&#x7684;&#x6587;&#x6863;&#x6570;&#x636E;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;transactions&#x7684;&#x96C6;&#x5408;&#x5B58;&#x50A8;&#x4E8B;&#x52A1;&#x672C;&#x8EAB;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x540D;&#x4E3A;A&#x548C;B&#x7684;&#x8D26;&#x6237;&#xFF0C;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
+</li>
+</ol>
+<p>db.accounts.save({name: &quot;A&quot;, balance: 1000, pendingTransactions: []})
+db.accounts.save({name: &quot;B&quot;, balance: 1000, pendingTransactions: []})
+&#x4F7F;&#x7528;find()&#x65B9;&#x6CD5;&#x9A8C;&#x8BC1;&#x8FD9;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#xFF1A;</p>
+<p>db.accounts.find()
+mongo&#x4F1A;&#x8FD4;&#x56DE;&#x4E24;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x6587;&#x6863;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc66cb8a04f512696151f&quot;), &quot;name&quot; : &quot;A&quot;, &quot;balance&quot; : 1000, &quot;pendingTransactions&quot; : [ ] }
+{ &quot;_id&quot; : ObjectId(&quot;4d7bc67bb8a04f5126961520&quot;), &quot;name&quot; : &quot;B&quot;, &quot;balance&quot; : 1000, &quot;pendingTransactions&quot; : [ ] }
+&#x4E8B;&#x52A1;&#x8FC7;&#x7A0B;&#xFF1A;
+&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x521D;&#x59CB;&#x72B6;&#x6001;initial&#xFF1A;</p>
+<pre><code>&#x901A;&#x8FC7;&#x63D2;&#x5165;&#x4E0B;&#x9762;&#x7684;&#x6587;&#x6863;&#x521B;&#x5EFA;transaction&#x96C6;&#x5408;&#xFF0C;transaction&#x6587;&#x6863;&#x6301;&#x6709;&#x6E90;(source)&#x548C;&#x76EE;&#x6807;(destination)&#xFF0C;&#x5B83;&#x4EEC;&#x5F15;&#x7528;&#x81EA;accounts&#x96C6;&#x5408;&#x6587;&#x6863;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#xFF0C;&#x4EE5;&#x53CA;value&#x5B57;&#x6BB5;&#x8868;&#x793A;&#x6539;&#x53D8;balance&#x5B57;&#x6BB5;&#x6570;&#x91CF;&#x7684;&#x6570;&#x636E;&#x3002;&#x6700;&#x540E;&#xFF0C;state&#x5B57;&#x6BB5;&#x53CD;&#x6620;&#x4E8B;&#x52A1;&#x7684;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x3002;
+</code></pre><p>db.transactions.save({source: &quot;A&quot;, destination: &quot;B&quot;, value: 100, state: &quot;initial&quot;})
+&#x9A8C;&#x8BC1;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#xFF0C;&#x4F7F;&#x7528;find()&#xFF1A;</p>
+<p>db.transactions.find()
+&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x6587;&#x6863;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;), &quot;source&quot; : &quot;A&quot;, &quot;destination&quot; : &quot;B&quot;, &quot;value&quot; : 100, &quot;state&quot; : &quot;initial&quot; }
+&#x5207;&#x6362;&#x4E8B;&#x52A1;&#x5230;Pending&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code>&#x5728;&#x4FEE;&#x6539;accounts&#x96C6;&#x5408;&#x8BB0;&#x5F55;&#x4E4B;&#x524D;&#xFF0C;&#x5C06;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4ECE;initial&#x8BBE;&#x7F6E;&#x4E3A;pending&#x3002;&#x4F7F;&#x7528;findOne()&#x65B9;&#x6CD5;&#x5C06;transaction&#x6587;&#x6863;&#x8D4B;&#x503C;&#x7ED9;shell&#x4F1A;&#x8BDD;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;t&#xFF1A;
+</code></pre><p>t = db.transactions.findOne({state: &quot;initial&quot;})
+&#x53D8;&#x91CF;t&#x521B;&#x5EFA;&#x540E;&#xFF0C;shell&#x5C06;&#x8FD4;&#x56DE;&#x5B83;&#x7684;&#x503C;&#xFF0C;&#x5C06;&#x4F1A;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x7684;&#x8F93;&#x51FA;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;), &quot;source&quot; : &quot;A&quot;, &quot;destination&quot; : &quot;B&quot;, &quot;value&quot; : 100, &quot;state&quot; : &quot;initial&quot; }
+&#x4F7F;&#x7528;update()&#x6539;&#x53D8;state&#x7684;&#x503C;&#x4E3A;pending&#xFF1A;</p>
+<p>db.transactions.update({_id: t._id}, {$set: {state: &quot;pending&quot;}})
+db.transactions.find()
+find()&#x64CD;&#x4F5C;&#x5C06;&#x8FD4;&#x56DE;transaction&#x96C6;&#x5408;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;), &quot;source&quot; : &quot;A&quot;, &quot;destination&quot; : &quot;B&quot;, &quot;value&quot; : 100, &quot;state&quot; : &quot;pending&quot; }
+&#x5C06;&#x4E8B;&#x52A1;&#x5E94;&#x7528;&#x5230;&#x4E24;&#x4E2A;&#x8D26;&#x6237;&#xFF1A;</p>
+<pre><code>&#x4F7F;&#x7528;update()&#x65B9;&#x6CD5;&#x5E94;&#x7528;&#x4E8B;&#x52A1;&#x5230;&#x4E24;&#x4E2A;&#x8D26;&#x6237;&#x3002;&#x5728;update()&#x67E5;&#x8BE2;&#x4E2D;&#xFF0C;&#x6761;&#x4EF6;pendingTransactions:{$ne:t._id}&#x963B;&#x6B62;&#x4E8B;&#x52A1;&#x66F4;&#x65B0;&#x8D26;&#x6237;&#xFF0C;&#x5982;&#x679C;&#x8D26;&#x6237;&#x7684;pendingTransaction&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x4E8B;&#x52A1;t&#x7684;_id&#xFF1A;
+</code></pre><p>db.accounts.update(
+    { name: t.source, pendingTransactions: { $ne: t._id } },
+    { $inc: { balance: -t.value }, $push: { pendingTransactions: t._id } }
+)
+db.accounts.update(
+    { name: t.destination, pendingTransactions: { $ne: t._id } },
+    { $inc: { balance: t.value }, $push: { pendingTransactions: t._id } }
+)
+db.accounts.find()
+find()&#x64CD;&#x4F5C;&#x5C06;&#x8FD4;&#x56DE;accounts&#x96C6;&#x5408;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x73B0;&#x5728;&#x5E94;&#x8BE5;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc97fb8a04f5126961523&quot;), &quot;balance&quot; : 900, &quot;name&quot; : &quot;A&quot;, &quot;pendingTransactions&quot; : [ ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;) ] }
+{ &quot;_id&quot; : ObjectId(&quot;4d7bc984b8a04f5126961524&quot;), &quot;balance&quot; : 1100, &quot;name&quot; : &quot;B&quot;, &quot;pendingTransactions&quot; : [ ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;) ] }
+&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4E3A;committed&#xFF1A;</p>
+<pre><code>&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;update()&#x64CD;&#x4F5C;&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x7684;&#x72B6;&#x6001;&#x4E3A;committed&#xFF1A;
+</code></pre><p>db.transactions.update({_id: t._id}, {$set: {state: &quot;committed&quot;}})
+db.transactions.find()
+find()&#x64CD;&#x4F5C;&#x53D1;&#x56DE;transactions&#x96C6;&#x5408;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x73B0;&#x5728;&#x5E94;&#x8BE5;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;), &quot;destination&quot; : &quot;B&quot;, &quot;source&quot; : &quot;A&quot;, &quot;state&quot; : &quot;committed&quot;, &quot;value&quot; : 100 }
+&#x79FB;&#x9664;pending&#x4E8B;&#x52A1;&#xFF1A;</p>
+<pre><code>&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;update()&#x64CD;&#x4F5C;&#x4ECE;accounts&#x96C6;&#x5408;&#x4E2D;&#x79FB;&#x9664;pending&#x4E8B;&#x52A1;&#xFF1A;
+</code></pre><p>db.accounts.update({name: t.source}, {$pull: {pendingTransactions: t._id}})
+db.accounts.update({name: t.destination}, {$pull: {pendingTransactions: t._id}})
+db.accounts.find()
+find()&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;accounts&#x96C6;&#x5408;&#x5185;&#x5BB9;&#xFF0C;&#x73B0;&#x5728;&#x5E94;&#x8BE5;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc97fb8a04f5126961523&quot;), &quot;balance&quot; : 900, &quot;name&quot; : &quot;A&quot;, &quot;pendingTransactions&quot; : [ ] }
+{ &quot;_id&quot; : ObjectId(&quot;4d7bc984b8a04f5126961524&quot;), &quot;balance&quot; : 1100, &quot;name&quot; : &quot;B&quot;, &quot;pendingTransactions&quot; : [ ] }
+&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4E3A;done&#xFF1A;</p>
+<pre><code>&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;transaction&#x6587;&#x6863;&#x7684;state&#x4E3A;done&#x5B8C;&#x6210;&#x4E8B;&#x52A1;&#xFF1A;
+</code></pre><p>db.transactions.update({_id: t._id}, {$set: {state: &quot;done&quot;}})
+db.transactions.find()
+find()&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;transaction&#x96C6;&#x5408;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6B64;&#x65F6;&#x5E94;&#x8BE5;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc7a8b8a04f5126961522&quot;), &quot;destination&quot; : &quot;B&quot;, &quot;source&quot; : &quot;A&quot;, &quot;state&quot; : &quot;done&quot;, &quot;value&quot; : 100 }
+&#x4ECE;&#x5931;&#x8D25;&#x573A;&#x666F;&#x4E2D;&#x6062;&#x590D;&#xFF1A;
+    &#x6700;&#x91CD;&#x8981;&#x7684;&#x90E8;&#x5206;&#x4E0D;&#x662F;&#x4E0A;&#x9762;&#x7684;&#x5178;&#x578B;&#x4F8B;&#x5B50;&#xFF0C;&#x800C;&#x662F;&#x4ECE;&#x5404;&#x79CD;&#x5931;&#x8D25;&#x573A;&#x666F;&#x4E2D;&#x6062;&#x590D;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x4E8B;&#x52A1;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x5C06;&#x6982;&#x8FF0;&#x53EF;&#x80FD;&#x7684;&#x5931;&#x8D25;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x65B9;&#x6CD5;&#x4ECE;&#x8FD9;&#x4E9B;&#x4E8B;&#x4EF6;&#x4E2D;&#x6062;&#x590D;&#x4E8B;&#x52A1;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x5931;&#x8D25;&#xFF1A;</p>
+<p>1&#x3001;&#x6240;&#x6709;&#x53D1;&#x751F;&#x5728;&#x7B2C;&#x4E00;&#x6B65;&#xFF08;&#x5373;&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x7684;&#x521D;&#x59CB;&#x72B6;&#x6001;initial&#xFF09;&#x4E4B;&#x540E;&#xFF0C;&#x4F46;&#x5728;&#x7B2C;&#x4E09;&#x6B65;&#xFF08;&#x5373;&#x5E94;&#x7528;&#x4E8B;&#x52A1;&#x5230;&#x4E24;&#x4E2A;&#x8D26;&#x6237;&#xFF09;&#x4E4B;&#x524D;&#x7684;&#x5931;&#x8D25;&#x3002;&#x4E3A;&#x4E86;&#x8FD8;&#x539F;&#x4E8B;&#x52A1;&#xFF0C;&#x5E94;&#x7528;&#x5E94;&#x8BE5;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;pending&#x72B6;&#x6001;&#x7684;transaction&#x5217;&#x8868;&#x5E76;&#x4E14;&#x4ECE;&#x7B2C;&#x4E8C;&#x6B65;&#xFF08;&#x5373;&#x5207;&#x6362;&#x4E8B;&#x52A1;&#x5230;pending&#x72B6;&#x6001;&#xFF09;&#x4E2D;&#x6062;&#x590D;&#x3002;</p>
+<p>2&#x3001;&#x6240;&#x6709;&#x53D1;&#x751F;&#x5728;&#x7B2C;&#x4E09;&#x6B65;&#x4E4B;&#x540E;&#xFF08;&#x5373;&#x5E94;&#x7528;&#x4E8B;&#x52A1;&#x5230;&#x4E24;&#x4E2A;&#x8D26;&#x6237;&#xFF09;&#x4F46;&#x5728;&#x7B2C;&#x4E94;&#x6B65;(&#x5373;&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4E3A;done)&#x4E4B;&#x524D;&#x7684;&#x5931;&#x8D25;&#x3002;&#x4E3A;&#x4E86;&#x8FD8;&#x539F;&#x4E8B;&#x52A1;&#xFF0C;&#x5E94;&#x7528;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;committed&#x72B6;&#x6001;&#x7684;&#x4E8B;&#x52A1;&#x5217;&#x8868;&#xFF0C;&#x5E76;&#x4E14;&#x4ECE;&#x7B2C;&#x56DB;&#x6B65;&#xFF08;&#x5373;&#x79FB;&#x9664;pending&#x4E8B;&#x52A1;&#xFF09;&#x6062;&#x590D;&#x3002;</p>
+<pre><code>&#x56E0;&#x6B64;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x603B;&#x662F;&#x80FD;&#x591F;&#x6062;&#x590D;&#x4E8B;&#x52A1;&#xFF0C;&#x6700;&#x7EC8;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x4E00;&#x81F4;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x6355;&#x83B7;&#x5230;&#x6BCF;&#x4E2A;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x4E8B;&#x52A1;&#x65F6;&#x8FD0;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x6062;&#x590D;&#x64CD;&#x4F5C;&#x3002;&#x4F60;&#x53EF;&#x80FD;&#x8FD8;&#x5E0C;&#x671B;&#x5B9A;&#x671F;&#x8FD0;&#x884C;&#x6062;&#x590D;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x5904;&#x4E8E;&#x4E00;&#x81F4;&#x72B6;&#x6001;&#x3002;&#x8FBE;&#x6210;&#x4E00;&#x81F4;&#x72B6;&#x6001;&#x6240;&#x9700;&#x8981;&#x7684;&#x65F6;&#x95F4;&#x53D6;&#x51B3;&#x4E8E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x591A;&#x957F;&#x65F6;&#x95F4;&#x6062;&#x590D;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x3002;
+</code></pre><p>&#x56DE;&#x6EDA;&#xFF1A;
+     &#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x201C;&#x56DE;&#x6EDA;&#x201D;&#x6216;&#x201C;&#x64A4;&#x6D88;&#x201D;&#x4E8B;&#x52A1;&#xFF0C;&#x5F53;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x201C;&#x53D6;&#x6D88;&#x201D;&#x8BE5;&#x4E8B;&#x52A1;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x6C38;&#x8FDC;&#x9700;&#x8981;&#x6062;&#x590D;&#x5F53;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x5E10;&#x6237;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6216;&#x505C;&#x6B62;&#x73B0;&#x6709;&#x7684;&#x4E8B;&#x52A1;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x79CD;&#x53EF;&#x80FD;&#x7684;&#x56DE;&#x6EDA;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>1&#x3001;&#x5E94;&#x7528;&#x4E8B;&#x52A1;&#xFF08;&#x5373;&#x7B2C;&#x4E09;&#x6B65;&#xFF09;&#x4E4B;&#x540E;&#xFF0C;&#x4F60;&#x5DF2;&#x7ECF;&#x5B8C;&#x5168;&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#xFF0C;&#x4F60;&#x4E0D;&#x5E94;&#x8BE5;&#x56DE;&#x6EDA;&#x4E8B;&#x52A1;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x5207;&#x6362;&#x6E90;(&#x6E90;)&#x548C;&#x76EE;&#x6807;(destination)&#x7684;&#x503C;&#x3002;</p>
+<p>2&#x3001;&#x521B;&#x5EFA;&#x4E8B;&#x52A1;&#xFF08;&#x5373;&#x7B2C;&#x4E00;&#x6B65;&#xFF09;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x4E8B;&#x52A1;&#xFF08;&#x5373;&#x7B2C;&#x4E09;&#x6B65;&#xFF09;&#x4E4B;&#x524D;&#xFF0C;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<p>&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4E3A;canceling&#xFF1A;</p>
+<pre><code>&#x9996;&#x5148;&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4E3A;canceling&#xFF0C;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;update()&#x64CD;&#x4F5C;&#xFF1A;
+</code></pre><p>db.transactions.update({_id: t._id}, {$set: {state: &quot;canceling&quot;}})
+&#x64A4;&#x9500;&#x4E8B;&#x52A1;&#xFF1A;
+    &#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x987A;&#x5E8F;&#x4ECE;&#x4E24;&#x4E2A;&#x8D26;&#x6237;&#x4E2D;&#x64A4;&#x9500;&#x4E8B;&#x52A1;&#xFF1A;</p>
+<p>db.accounts.update({name: t.source, pendingTransactions: t._id}, {$inc: {balance: t.value}, $pull: {pendingTransactions: t._id}})
+db.accounts.update({name: t.destination, pendingTransactions: t._id}, {$inc: {balance: -t.value}, $pull: {pendingTransactions: t._id}})
+db.accounts.find()
+find()&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;acounts&#x96C6;&#x5408;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5E94;&#x8BE5;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#xFF1A;</p>
+<p>{ &quot;_id&quot; : ObjectId(&quot;4d7bc97fb8a04f5126961523&quot;), &quot;balance&quot; : 1000, &quot;name&quot; : &quot;A&quot;, &quot;pendingTransactions&quot; : [ ] }
+{ &quot;_id&quot; : ObjectId(&quot;4d7bc984b8a04f5126961524&quot;), &quot;balance&quot; : 1000, &quot;name&quot; : &quot;B&quot;, &quot;pendingTransactions&quot; : [ ] }
+&#x8BBE;&#x7F6E;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x4E3A;canceled&#xFF1A;</p>
+<pre><code> &#x6700;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;update()&#x72B6;&#x6001;&#x5C06;&#x4E8B;&#x52A1;&#x72B6;&#x6001;&#x8BBE;&#x7F6E;&#x4E3A;canceled&#xFF1A;
+</code></pre><p>db.transactions.update({_id: t._id}, {$set: {state: &quot;canceled&quot;}})
+&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;<a href="http://docs.mongodb.org/manual/tutorial/perform-two-phase-commits/" target="_blank">http://docs.mongodb.org/manual/tutorial/perform-two-phase-commits/</a>
+&#x6807;&#x7B7E;:&#x6570;&#x636E;&#x5E93;MongoDBNoSQL</p>
+<p><a href="https://www.tuicool.com/articles/f6ZBjm" target="_blank">https://www.tuicool.com/articles/f6ZBjm</a></p>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="koa&#x6D0B;&#x8471;&#x6A21;&#x578B;">koa&#x6D0B;&#x8471;&#x6A21;&#x578B;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;koa&#x6D0B;&#x8471;&#x6A21;&#x578B;&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A;koa&#x6D0B;&#x8471;&#x6A21;&#x578B;&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compose</span> (<span class="hljs-params">middleware</span>) </span>{
+<span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Array</span>.isArray(middleware)) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;middleware must be array&apos;</span>);
+}
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> middleware) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> middleware[i] !== <span class="hljs-string">&apos;function&apos;</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;middlewares are not a function&apos;</span>);
+    }
+}
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">context, next</span>) </span>{
+    <span class="hljs-keyword">let</span> index = <span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">return</span> dispatch(<span class="hljs-number">0</span>);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dispatch</span> (<span class="hljs-params">i</span>) </span>{
+        <span class="hljs-keyword">if</span> (i &lt;= index) {
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject();
+        }
+        index = i;
+        fn = middleware[i];
+        <span class="hljs-keyword">if</span> (i === middleware.length) {
+            fn = next;
+        }
+        <span class="hljs-keyword">if</span> (!fn) {
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve();
+        }
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(fn(context, dispatch.bind(<span class="hljs-literal">null</span>, i + <span class="hljs-number">1</span>)))
+        } <span class="hljs-keyword">catch</span> () {
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject();
+        }
+    }
+}
+}
+</code></pre>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;">&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x6709;&#x7528;&#x8FC7;eggjs&#x5417;">&#x6709;&#x7528;&#x8FC7;eggjs&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x6709;&#x7528;&#x8FC7;eggjs&#x5417;&#xFF08;&#x4E2A;&#x63A8;&#x4E00;&#x9762;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x6709;&#x7528;&#x8FC7;egg.js&#x5417;&#xFF08;&#x4E2A;&#x63A8;&#x4E00;&#x9762;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="koa&#x539F;&#x7406;&#x6E05;&#x695A;&#x5417;">koa&#x539F;&#x7406;&#x6E05;&#x695A;&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-koa&#x539F;&#x7406;&#x6E05;&#x695A;&#x5417;&#xFF08;&#x4E2A;&#x63A8;&#x4E00;&#x9762;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; koa&#x539F;&#x7406;&#x6E05;&#x695A;&#x5417;&#xFF08;&#x4E2A;&#x63A8;&#x4E00;&#x9762;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id=""> </h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;">&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;">&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;">&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;">&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<ol>
+<li><h4 id="&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;">&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;</h4>
+<h5 id="&#x9898;&#x76EE;&#xFF1A;-&#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;eventemitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2;-&#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;">&#x9898;&#x76EE;&#xFF1A; &#x7528;&#x8FC7;nodejs&#x4E2D;&#x7684;EventEmitter&#x5417;&#xFF1F;&#x8BE6;&#x7EC6;&#x8BB2;&#x8BB2; &#xFF08;&#x5B57;&#x8282;&#x8DF3;&#x52A8;&#xFF09;</h5>
+</li>
+</ol>
+<hr>
+<p><a href="#awsome-knowledge-front-end">[&#x2191;] &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../vue/" class="navigation navigation-prev " aria-label="Previous page: Vue.js">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../webpack/" class="navigation navigation-next " aria-label="Next page: Webpack">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Node.js","level":"1.6","depth":1,"next":{"title":"Webpack","level":"1.7","depth":1,"path":"webpack/README.md","ref":"./webpack/README.md","articles":[]},"previous":{"title":"Vue.js","level":"1.5","depth":1,"path":"vue/README.md","ref":"./vue/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"node/README.md","mtime":"2021-11-09T14:36:50.294Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-09T14:37:25.422Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

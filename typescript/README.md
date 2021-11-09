@@ -579,3 +579,80 @@ console.log(Student.xiaoming);
 console.log(Student[2]);
 // xiaohuang
 ```
+#### 46.解释相对模块
+非相对|相对
+--|--
+非相对导入可以相对于baseUrl解析，也可以通过路径映射解析。换句话说，我们在导入任何外部依赖项时使用非相对路径。 例子: import * as $ from “jquery”; import { Component } from “@angular/core”;|相对导入可以用于我们自己的模块，这些模块保证在运行时维护它们的相对位置。相对导入以/、./或../开头。 例子: import Entry from “./components/Entry”; import {DefaultHeaders} from “../constants/http”;
+
+#### 47.什么是匿名函数？
+匿名函数是声明时没有任何命名标识符的函数。这些函数是在运行时动态声明的。与标准函数一样，匿名函数可以接受输入和返回输出。匿名函数在初始创建之后通常是不可访问的。
+
+例子
+```ts
+let myAdd=function(x:number,y:number):number{
+    return x+y
+}
+console.log(myAdd())
+```
+
+#### 48.什么是声明合并？
+声明合并是编译器随后合并两个或多个独立声明的过程。将具有相同名称的声明声明为单个定义。这个合并的定义具有两个原始声明的特性。
+
+最简单也是最常见的声明合并类型是接口合并。在最基本的层次上，merge将两个声明的成员机械地连接到一个具有相同名称的接口中。
+
+```ts
+interface Cloner{
+    clone(animal:Animal):Animal
+}
+interface Cloner{
+    clone(animal:Sheep):Sheep
+}
+interface Cloner{
+    clone(animal:Dog):Dog
+    clone(animal:Cat):Cat
+}
+```
+这三个接口将合并为一个单独的声明
+```ts
+interface Cloner{
+    clone(animal:Dog):Dog
+    clone(animal:Cat):Cat
+    clone(animal:Sheep):Sheep
+    clone(animal:Animal):Animal
+}
+```
+注: 在TypeScript中不是所有的合并都允许。目前，类不能与其他类或变量合并。
+
+#### 49.TypeScript中的方法重写是什么?
+如果子类(子类)具有与父类中声明的相同的方法，则称为方法覆盖。换句话说，在派生类或子类中重新定义基类方法。
+
+方法重写的规则
+- 该方法必须具有与父类相同的名称
+- 该方法必须具有与父类相同的参数。
+- 必须有一个IS-A关系(继承)。
+
+```ts
+class NewPrinter extends Printer{
+    doPrint():any{
+        super.doPrint()
+        console.log('Called Child class.')
+    }
+    doInkJetPrint():any{
+          console.log("Called doInkJetPrint().");  
+    }
+}
+let printer:new()=>NewPrinter
+printer.doPrint()
+printer.doInkJetPrint()
+```
+
+#### 50.Lambda/箭头函数是什么？
+ES6版本的TypeScript提供了定义匿名函数的简写语法，也就是用于函数表达式。这些箭头函数也称为Lambda函数。lambda函数是没有名称的函数，箭头函数省略了function关键字。
+```ts
+let sum = (a: number, b: number): number => {    
+            return a + b;    
+}    
+console.log(sum(20, 30)); //returns 50    
+```
+在上面，?=>?是一个lambda操作符，(a + b)是函数的主体，(a: number, b: number)是内联参数。
+

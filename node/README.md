@@ -435,20 +435,22 @@ Node.js 的 child_process.fork() 在 Unix 上的实现最终调用了 POSIX fork
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 22. #### cluster是如何保证负载均衡的
-
-<details><summary><b>答案</b></summary>
-</details>
+[Node.js 集群（cluster）：扩展你的 Node.js 应用](https://zhuanlan.zhihu.com/p/36728299)
+	
+[NodeJS集群Cluster模式,负载均衡策略设置](https://blog.csdn.net/wenwst/article/details/104916279)
+	
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 23. #### 什么是守护进程如何实现守护进程
-
-<details><summary><b>答案</b></summary>
-</details>
-
-
+守护进程是一个在后台运行并且不受任何终端控制的进程。Unix操作系统有很多典型的守护进程(其数目根据需要或20—50不等)，它们在后台运行，执行不同的管理任务。
+用户使守护进程独立于所有终端是因为，在守护进程从一个终端启动的情况下，这同一个终端可能被其他的用户使用。例如，用户从一个终端启动守护进程后退出，然后另外一个人也登录到这个终端。用户不希望后者在使用该终端的过程中，接收到守护进程的任何错误信息。同样，由终端键入的任何信号(例如中断信号)也不应该影响先前在该终端启动的任何守护进程的运行。虽然让服务器后台运行很容易(只要shell命令行以&结尾即可)，但用户还应该做些工作，让程序本身能够自动进入后台，且不依赖于任何终端。
+守护进程没有控制终端，因此当某些情况发生时，不管是一般的报告性信息，还是需由管理员处理的紧急信息，都需要以某种方式输出。Syslog 函数就是输出这些信息的标准方法，它把信息发送给 syslogd 守护进程。
+	
+pm2\forever实现守护进程	
+	
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
@@ -636,25 +638,15 @@ function compose (middleware) {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-27.  #### 用过nodejs中的EventEmitter吗
-##### 题目： 用过nodejs中的EventEmitter吗？详细讲讲 （字节跳动）
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-28.  #### 有用过eggjs吗
-##### 题目： 有用过egg.js吗（个推一面）
-
+28.  #### 有用过egg.js吗（个推一面）
+[有用过egg](https://eggjs.org/zh-cn/)
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-28.  #### koa原理清楚吗
-##### 题目： koa原理清楚吗（个推一面）
-
+28.  #### koa原理清楚吗（个推一面）
+[浅谈koa中间件的实现原理](浅谈koa中间件的实现原理)
 
 ---
 

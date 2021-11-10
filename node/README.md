@@ -319,11 +319,8 @@ emitter.emit('myEvent');
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-14. #### nextTicksetTimeout以及setImmediate三者有什么区别
-nextTick, setTimeout 以及 setImmediate 三者有什么区别?
-<details><summary><b>答案</b></summary>
-
-</details>
+14. #### nextTick, setTimeout 以及 setImmediate 三者有什么区别
+[详解 setTimeout、setImmediate、process.nextTick 的区别](https://www.cnblogs.com/onepixel/articles/7605465.html)
 
 ---
 

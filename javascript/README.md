@@ -6115,38 +6115,6 @@ D: 总是undefined
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-114. #### <a id="hasName_true_params"></a>  哪个选项是将hasName设置为true的方法，前提是不能将true作为参数传递
-```js
-fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res))
-A: fetch方法的结果
-B: 第二次调用fetch方法的结果
-C: 前一个.then()中回调方法返回的结果
-D: 总是undefined
-
-```
-<details><summary><b>答案</b></summary>
-<p>
-
- 答案: A
-
-</p>
-使用逻辑非运算符!，将返回一个布尔值，使用!! name，我们可以确定name的值是真的还是假的。 如果name是真实的，那么!name返回false。 !false返回true。
-
-通过将hasName设置为name，可以将hasName设置为等于传递给getName函数的值，而不是布尔值true。
-
-new Boolean（true）返回一个对象包装器，而不是布尔值本身。
-```
-new Boolean('212121')
-Boolean {true}
-```
-name.length返回传递的参数的长度，而不是布尔值true。
-</details>
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
 
 115. ####  实现一个函数判断输入是不是回文字符串
 ##### 题目：实现一个函数，判断输入是不是回文字符串。

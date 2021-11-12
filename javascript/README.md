@@ -6731,10 +6731,23 @@ PostMessage函数将一个消息放入与创建这个窗口的消息队列相关
 
 
 128. ####  实现拖拽功能比如把5个兄弟节点中的最后一个节点拖拽到节点1和节点2之间
-<details><summary><b>答案</b></summary>
+拖拽功能的实现：
+使用html5提供的拖拽API（Drag 和 drop）
 
-</details>
+拖拽功能涉及的基本事件：
 
+dragstart:在开始拖放元素时触发。（事件源：被拖拽的元素）
+
+这一步需要做的是获取被拖拽元素的id。拖拽事件对象中的dataTransfer属性是专门用来存储拖动过程中的数据的。ev.dataTransfer.setData("key",value)
+dragover：在被拖放在某元素内移动时触发。（事件源：目标元素）
+
+阻止dragover的默认事件（不允许被拖拽）
+drop：目标元素完全接受被拖放元素时触发。（事件源：目标元素）
+
+阻止drop的默认事件（以链接的形式打开），然后获取之前保存的元素的id ev.dataTransfer.getData("key")，然后将该元素添加到目标元素中。
+————————————————
+版权声明：本文为CSDN博主「qq_41800649」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_41800649/article/details/108983069
 
 ---
 

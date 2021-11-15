@@ -4373,15 +4373,8 @@ Vue.js 最显著的功能就是响应式系统，它是一个典型的 MVVM 框�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-126. #### vuerouter的钩子
-##### 题目： vue-router的钩子（海康）
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-127. #### 讲下MVVM和MVC区别什么场景下适合用
-##### 题目： 讲下 MVVM 和 MVC区别，什么场景下适合用(字节跳动)
+127. #### 讲下 MVVM 和 MVC区别，什么场景下适合用(字节跳动)
+https://blog.csdn.net/victoryzn/article/details/78392128
 
 ---
 

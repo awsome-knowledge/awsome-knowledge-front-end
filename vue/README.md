@@ -4380,9 +4380,10 @@ https://blog.csdn.net/victoryzn/article/details/78392128
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-128. #### new一个构造函数如果构造函数返回会出现什么情况
-##### 题目：new 一个构造函数，如果构造函数返回 return {}、return null，会出现什么情况(字节跳动)
+128. #### new 一个构造函数，如果构造函数返回 return {}、return null，会出现什么情况(字节跳动)
 关键词：还可以试试 return 1; return true; 会出现什么情况
+
+https://www.cnblogs.com/yzhihao/p/9306511.html
 
 ---
 

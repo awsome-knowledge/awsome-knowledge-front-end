@@ -7671,11 +7671,8 @@ console.log(res6)
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-144.   #### 如何实现一个倒计时功能类似于蘑菇街中的秒杀
-如何实现一个倒计时功能，类似于蘑菇街中的秒杀（蘑菇街）
-<details><summary><b>答案</b></summary>
-
-</details>
+144.   #### 如何实现一个倒计时功能，类似于蘑菇街中的秒杀（蘑菇街）
+使用setInterval()或setTimeout设计定时功能，变量按时递减
 
 ---
 

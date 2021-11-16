@@ -8508,18 +8508,18 @@ test1()
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-164. #### 原型如何实现继承Class如何实现继承Class本质是什么
-##### 题目：原型如何实现继承？Class 如何实现继承？Class 本质是什么？
-<details><summary><b>答案</b></summary>
-首先先来讲下 class，其实在 JS 中并不存在类，class 只是语法糖，本质还是函数。
+164. #### 原型如何实现继承？Class 如何实现继承？Class 本质是什么？
 
+首先先来讲下 class，其实在 JS 中并不存在类，class 只是语法糖，本质还是函数。
+```
 class Person {}
 Person instanceof Function // true
+```
 在上一章节中我们讲解了原型的知识点，在这一小节中我们将会分别使用原型和 class 的方式来实现继承。
 
 组合继承
 组合继承是最常用的继承方式，
-
+```
 function Parent(value) {
   this.val = value
 }
@@ -8535,6 +8535,7 @@ const child = new Child(1)
 
 child.getValue() // 1
 child instanceof Parent // true
+```
 以上继承的方式核心是在子类的构造函数中通过 Parent.call(this) 继承父类的属性，然后改变子类的原型为 new Parent() 来继承父类的函数。
 
 这种继承方式优点在于构造函数可以传参，不会与父类引用属性共享，可以复用父类的函数，但是也存在一个缺点就是在继承父类函数的时候调用了父类构造函数，导致子类的原型上多了不需要的父类属性，存在内存上的浪费。
@@ -8542,7 +8543,7 @@ child instanceof Parent // true
 
 寄生组合继承
 这种继承方式对组合继承进行了优化，组合继承缺点在于继承父类函数时调用了构造函数，我们只需要优化掉这点就行了。
-
+```
 function Parent(value) {
   this.val = value
 }
@@ -8566,12 +8567,13 @@ const child = new Child(1)
 
 child.getValue() // 1
 child instanceof Parent // true
+```
 以上继承实现的核心就是将父类的原型赋值给了子类，并且将构造函数设置为子类，这样既解决了无用的父类属性问题，还能正确的找到子类的构造函数。
 
 
 Class 继承
 以上两种继承方式都是通过原型去解决的，在 ES6 中，我们可以使用 class 去实现继承，并且实现起来很简单
-
+```
 class Parent {
   constructor(value) {
     this.val = value
@@ -8588,34 +8590,34 @@ class Child extends Parent {
 let child = new Child(1)
 child.getValue() // 1
 child instanceof Parent // true
+```
 class 实现继承的核心在于使用 extends 表明继承自哪个父类，并且在子类构造函数中必须调用 super，因为这段代码可以看成 Parent.call(this, value)。
 
 当然了，之前也说了在 JS 中并不存在类，class 的本质就是函数。
-
-</details>
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-165. #### 为什么要使用模块化都有哪几种方式可以实现模块化各有什么特点
-##### 题目：为什么要使用模块化？都有哪几种方式可以实现模块化，各有什么特点？
-<details><summary><b>答案</b></summary>
+165. #### 为什么要使用模块化？都有哪几种方式可以实现模块化，各有什么特点？
+
 使用一个技术肯定是有原因的，那么使用模块化可以给我们带来以下好处
 
-解决命名冲突
-提供复用性
-提高代码可维护性
-立即执行函数
-在早期，使用立即执行函数实现模块化是常见的手段，通过函数作用域解决了命名冲突、污染全局作用域的问题
+- 解决命名冲突
+- 提供复用性
+- 提高代码可维护性
+- 立即执行函数
 
+在早期，使用立即执行函数实现模块化是常见的手段，通过函数作用域解决了命名冲突、污染全局作用域的问题
+```
 (function(globalVariable){
    globalVariable.test = function() {}
    // ... 声明各种变量、函数都不会污染全局作用域
 })(globalVariable)
+```
 AMD 和 CMD
 鉴于目前这两种实现方式已经很少见到，所以不再对具体特性细聊，只需要了解这两者是如何使用的。
-
+```
 // AMD
 define(['./a', './b'], function(a, b) {
   // 加载模块完毕可以使用
@@ -8629,9 +8631,10 @@ define(function(require, exports, module) {
   var a = require('./a')
   a.doSomething()
 })
+```
 CommonJS
 CommonJS 最早是 Node 在使用，目前也仍然广泛使用，比如在 Webpack 中你就能见到它，当然目前在 Node 中的模块管理已经和 CommonJS 有一些区别了。
-
+```
 // a.js
 module.exports = {
     a: 1
@@ -8642,10 +8645,11 @@ exports.a = 1
 // b.js
 var module = require('./a.js')
 module.a // -> log 1
+```
 因为 CommonJS 还是会使用到的，所以这里会对一些疑难点进行解析
 
 先说 require 吧
-
+```
 var module = require('./a.js')
 module.a 
 // 这里其实就是包装了一层立即执行函数，这样就不会污染全局变量了，
@@ -8666,6 +8670,7 @@ var load = function (module) {
     module.exports = a
     return module.exports
 };
+```
 // 然后当我 require 的时候去找到独特的
 // id，然后将要使用的东西用立即执行函数包装下，over
 另外虽然 exports 和 module.exports 用法相似，但是不能对 exports 直接赋值。因为 var exports = module.exports 这句代码表明了 exports 和 module.exports 享有相同地址，通过改变对象的属性值会对两者都起效，但是如果直接对 exports 赋值就会导致两者不再指向同一个内存地址，修改并不会对 module.exports 起效。
@@ -8676,6 +8681,7 @@ ES Module 是原生实现的模块化方案，与 CommonJS 有以下几个区别
 CommonJS 支持动态导入，也就是 require(${path}/xx.js)，后者目前不支持，但是已有提案
 CommonJS 是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大。而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用同步导入会对渲染有很大影响
 CommonJS 在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次。但是 ES Module 采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化
+```
 ES Module 会编译成 require/exports 来执行的
 // 引入模块 API
 import XXX from './a.js'
@@ -8683,23 +8689,22 @@ import { XXX } from './a.js'
 // 导出模块 API
 export function a() {}
 export default function() {}
-</details>
+```
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-166. #### Proxy可以实现什么功能
-##### 题目：Proxy 可以实现什么功能？
+166. #### Proxy 可以实现什么功能？
 
-<details><summary><b>答案</b></summary>
 如果你平时有关注 Vue 的进展的话，可能已经知道了在 Vue3.0 中将会通过 Proxy 来替换原本的 Object.defineProperty 来实现数据响应式。 Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作。
-
+```
 let p = new Proxy(target, handler)
+```
 target 代表需要添加代理的对象，handler 用来自定义对象中的操作，比如可以用来自定义 set 或者 get 函数。
 
 接下来我们通过 Proxy 来实现一个数据响应式
-
+```
 let onWatch = (obj, setBind, getLogger) => {
   let handler = {
     get(target, property, receiver) {
@@ -8726,12 +8731,13 @@ let p = onWatch(
 )
 p.a = 2 // 监听到属性a改变
 p.a // 'a' = 2
+```
 在上述代码中，我们通过自定义 set 和 get 函数的方式，在原本的逻辑中插入了我们的函数逻辑，实现了在对对象任何属性进行读写时发出通知。
 
 当然这是简单版的响应式实现，如果需要实现一个 Vue 中的响应式，需要我们在 get 中收集依赖，在 set 派发更新，之所以 Vue3.0 要使用 Proxy 替换原本的 API 原因在于 Proxy 无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，但是 Proxy 可以完美监听到任何方式的数据改变，唯一缺陷可能就是浏览器的兼容性不好了。
 
 更新：评论中有同学对于 Proxy 无需一层层递归为每个属性添加代理有疑问，以下是实现代码。
-
+```
 get(target, property, receiver) {
     getLogger(target, property)
     // 这句判断代码是新增的
@@ -8741,46 +8747,50 @@ get(target, property, receiver) {
         return Reflect.get(target, property);
     }
 }
-</details>
+```
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-167. #### mapfilterreduce各自有什么作用
-##### 题目：map, filter, reduce 各自有什么作用？
-<details><summary><b>答案</b></summary>
+167. #### map, filter, reduce 各自有什么作用？
+
 map 作用是生成一个新数组，遍历原数组，将每个元素拿出来做一些变换然后放入到新的数组中。
-
+```
 [1, 2, 3].map(v => v + 1) // -> [2, 3, 4]
+```
 另外 map 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
-
+```
 ['1','2','3'].map(parseInt)
 第一轮遍历 parseInt('1', 0) -> 1
 第二轮遍历 parseInt('2', 1) -> NaN
 第三轮遍历 parseInt('3', 2) -> NaN
+```
 filter 的作用也是生成一个新数组，在遍历数组的时候将返回值为 true 的元素放入新数组，我们可以利用这个函数删除一些不需要的元素
-
+```
 let array = [1, 2, 4, 6]
 let newArray = array.filter(item => item !== 6)
 console.log(newArray) // [1, 2, 4]
+```
 和 map 一样，filter 的回调函数也接受三个参数，用处也相同。
 
 最后我们来讲解 reduce 这块的内容，同时也是最难理解的一块内容。reduce 可以将数组中的元素通过回调函数最终转换为一个值。
 
 如果我们想实现一个功能将函数里的元素全部相加得到一个值，可能会这样写代码
-
+```
 const arr = [1, 2, 3]
 let total = 0
 for (let i = 0; i < arr.length; i++) {
   total += arr[i]
 }
 console.log(total) //6 
+```
 但是如果我们使用 reduce 的话就可以将遍历部分的代码优化为一行代码
-
+```
 const arr = [1, 2, 3]
 const sum = arr.reduce((acc, current) => acc + current, 0)
 console.log(sum)
+```
 对于 reduce 来说，它接受两个参数，分别是回调函数和初始值，接下来我们来分解上述代码中 reduce 的过程
 
 首先初始值为 0，该值会在执行第一次回调函数时作为第一个参数传入
@@ -8788,7 +8798,7 @@ console.log(sum)
 在一次执行回调函数时，当前值和初始值相加得出结果 1，该结果会在第二次执行回调函数时当做第一个参数传入
 所以在第二次执行回调函数时，相加的值就分别是 1 和 2，以此类推，循环结束后得到结果 6
 想必通过以上的解析大家应该明白 reduce 是如何通过回调函数将所有元素最终转换为一个值的，当然 reduce 还可以实现很多功能，接下来我们就通过 reduce 来实现 map 函数
-
+```
 const arr = [1, 2, 3]
 const mapArray = arr.map(value => value * 2)
 const reduceArray = arr.reduce((acc, current) => {
@@ -8796,8 +8806,8 @@ const reduceArray = arr.reduce((acc, current) => {
   return acc
 }, [])
 console.log(mapArray, reduceArray) // [2, 4, 6]
+```
 如果你对这个实现还有困惑的话，可以根据上一步的解析步骤来分析过程。
-</details>
 
 ---
 
@@ -8817,16 +8827,15 @@ console.log(mapArray, reduceArray) // [2, 4, 6]
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-169. #### 什么是回调函数回调函数有什么缺点如何解决回调地狱问题
-##### 题目：什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？
-<details><summary><b>答案</b></summary>
+169. #### 什么是回调函数？回调函数有什么缺点？如何解决回调地狱问题？
 回调函数应该是大家经常使用到的，以下代码就是一个回调函数的例子：
-
+```
 ajax(url, () => {
     // 处理逻辑
 })
+```
 但是回调函数有一个致命的弱点，就是容易写出回调地狱（Callback hell）。假设多个请求存在依赖性，你可能就会写出如下代码：
-
+```
 ajax(url, () => {
     // 处理逻辑
     ajax(url1, () => {
@@ -8836,8 +8845,9 @@ ajax(url, () => {
         })
     })
 })
+```
 以上代码看起来不利于阅读和维护，当然，你可能会想说解决这个问题还不简单，把函数分开来写不就得了
-
+```
 function firstAjax() {
   ajax(url1, () => {
     // 处理逻辑
@@ -8853,6 +8863,7 @@ ajax(url, () => {
   // 处理逻辑
   firstAjax()
 })
+```
 以上的代码虽然看上去利于阅读了，但是还是没有解决根本问题。
 
 回调地狱的根本问题就是：
@@ -8860,7 +8871,7 @@ ajax(url, () => {
 嵌套函数存在耦合性，一旦有所改动，就会牵一发而动全身
 嵌套函数一多，就很难处理错误
 当然，回调函数还存在着别的几个缺点，比如不能使用 try catch 捕获错误，不能直接 return。在接下来的几小节中，我们将来学习通过别的技术解决这些问题。
-</details>
+
 
 ---
 
@@ -8868,9 +8879,8 @@ ajax(url, () => {
 
 170. #### 你理解的Generator是什么
 
-<details><summary><b>答案</b></summary>
 Generator 算是 ES6 中难理解的概念之一了，Generator 最大的特点就是可以控制函数的执行。在这一小节中我们不会去讲什么是 Generator，而是把重点放在 Generator 的一些容易困惑的地方。
-
+```
 function *foo(x) {
   let y = 2 * (yield (x + 1))
   let z = yield (y / 3)
@@ -8880,7 +8890,7 @@ let it = foo(5)
 console.log(it.next())   // => {value: 6, done: false}
 console.log(it.next(12)) // => {value: 8, done: false}
 console.log(it.next(13)) // => {value: 42, done: true}
-
+```
 你也许会疑惑为什么会产生与你预想不同的值，接下来就让我为你逐行代码分析原因
 
 首先 Generator 函数调用和普通函数不同，它会返回一个迭代器
@@ -8888,7 +8898,7 @@ console.log(it.next(13)) // => {value: 42, done: true}
 当执行第二次 next 时，传入的参数等于上一个 yield 的返回值，如果你不传参，yield 永远返回 undefined。此时 let y = 2 * 12，所以第二个 yield 等于 2 * 12 / 3 = 8
 当执行第三次 next 时，传入的参数会传递给 z，所以 z = 13, x = 5, y = 24，相加等于 42
 Generator 函数一般见到的不多，其实也于他有点绕有关系，并且一般会配合 co 库去使用。当然，我们可以通过 Generator 函数解决回调地狱的问题，可以把之前的回调地狱例子改写为如下代码：
-
+```
 function *fetch() {
     yield ajax(url, () => {})
     yield ajax(url1, () => {})
@@ -8898,29 +8908,28 @@ let it = fetch()
 let result1 = it.next()
 let result2 = it.next()
 let result3 = it.next()
-
-</details>
+```
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-172. #### async及await的特点它们的优点和缺点分别是什么await原理是什么
- async 及 await 的特点，它们的优点和缺点分别是什么？await 原理是什么？
-<details><summary><b>答案</b></summary>
+172. #### async 及 await 的特点，它们的优点和缺点分别是什么？await 原理是什么？
 一个函数如果加上 async ，那么该函数就会返回一个 Promise
-
+```
 async function test() {
   return "1"
 }
 console.log(test()) // -> Promise {<resolved>: "1"}
+```
 async 就是将函数返回值使用 Promise.resolve() 包裹了下，和 then 中处理返回值一样，并且 await 只能配套 async 使用
-
+```
 async function test() {
   let value = await sleep()
 }
+```
 async 和 await 可以说是异步终极解决方案了，相比直接使用 Promise 来说，优势在于处理 then 的调用链，能够更清晰准确的写出代码，毕竟写一大堆 then 也很恶心，并且也能优雅地解决回调地狱问题。当然也存在一些缺点，因为 await 将异步代码改造成了同步代码，如果多个异步代码没有依赖性却使用了 await 会导致性能上的降低。
-
+```
 async function test() {
   // 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式
   // 如果有依赖性的话，其实就是解决回调地狱的例子了
@@ -8938,26 +8947,24 @@ let b = async () => {
 b()
 a++
 console.log('1', a) // -> '1' 1
+```
 对于以上代码你可能会有疑惑，让我来解释下原因
 
 首先函数 b 先执行，在执行到 await 10 之前变量 a 还是 0，因为 await 内部实现了 generator ，generator 会保留堆栈中东西，所以这时候 a = 0 被保存了下来
 因为 await 是异步操作，后来的表达式不返回 Promise 的话，就会包装成 Promise.reslove(返回值)，然后会去执行函数外的同步代码
 同步代码执行完毕后开始执行异步代码，将保存下来的值拿出来使用，这时候 a = 0 + 10
 上述解释中提到了 await 内部实现了 generator，其实 await 就是 generator 加上 Promise 的语法糖，且内部实现了自动执行 generator。如果你熟悉 co 的话，其实自己就可以实现这样的语法糖。
-</details>
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-173. #### setTimeoutsetIntervalrequestAnimationFrame各有什么特点
-##### 题目：setTimeout、setInterval、requestAnimationFrame 各有什么特点？
+173. #### setTimeout、setInterval、requestAnimationFrame 各有什么特点？
 
-<details><summary><b>答案</b></summary>
 异步编程当然少不了定时器了，常见的定时器函数有 setTimeout、setInterval、requestAnimationFrame。我们先来讲讲最常用的setTimeout，很多人认为 setTimeout 是延时多久，那就应该是多久后执行。
 
 其实这个观点是错误的，因为 JS 是单线程执行的，如果前面的代码影响了性能，就会导致 setTimeout 不会按期执行。当然了，我们可以通过代码去修正 setTimeout，从而使定时器相对准确
-
+```
 let period = 60 * 1000 * 60 * 2
 let startTime = new Date().getTime()
 let count = 0
@@ -8985,10 +8992,11 @@ function loop() {
 }
 
 setTimeout(loop, currentInterval)
+```
 接下来我们来看 setInterval，其实这个函数作用和 setTimeout 基本一致，只是该函数是每隔一段时间执行一次回调函数。
 
 通常来说不建议使用 setInterval。第一，它和 setTimeout 一样，不能保证在预期的时间执行任务。第二，它存在执行累积的问题，请看以下伪代码
-
+```
 function demo() {
   setInterval(function(){
     console.log(2)
@@ -8996,10 +9004,11 @@ function demo() {
   sleep(2000)
 }
 demo()
+```
 以上代码在浏览器环境中，如果定时器执行过程中出现了耗时操作，多个回调函数会在耗时操作结束以后同时执行，这样可能就会带来性能上的问题。
 
 如果你有循环定时器的需求，其实完全可以通过 requestAnimationFrame 来实现
-
+```
 function setInterval(callback, interval) {
   let timer
   const now = Date.now
@@ -9023,8 +9032,8 @@ setInterval(timer => {
   a++
   if (a === 3) cancelAnimationFrame(timer)
 }, 1000)
+```
 首先 requestAnimationFrame 自带函数节流功能，基本可以保证在 16.6 毫秒内只执行一次（不掉帧的情况下），并且该函数的延时效果是精确的，没有其他定时器时间不准的问题，当然你也可以通过该函数来实现 setTimeout。
-</details>
 
 ---
 

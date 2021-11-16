@@ -8117,10 +8117,7 @@ for (var i = 0; i < 5; i++) {
       console.log(i);
     })(i), i * 1000);
   }
-  // _.pluck(list, propertyName)
-  _.pluck = function (obj, key) {
-    return _.map(obj, _.property(key));
-  };
+
 ```
 <details><summary><b>答案</b></summary>
 答案

@@ -4431,65 +4431,29 @@ https://www.cnblogs.com/yzhihao/p/9306511.html
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-129. #### data为什么是一个function而不是对象
-##### 题目：data为什么是一个function，而不是对象(个推一面)
+129. #### data为什么是一个function，而不是对象(个推一面)
+data是函数的话，产生闭包，每一个组件都有自己的作用域，具有隔离性
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-129. #### 修饰符lazy的使用场景
-##### 题目：修饰符lazy的使用场景(个推一面)
+129. #### 修饰符lazy的使用场景(个推一面)
+https://cloud.tencent.com/developer/article/1794268
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-129. #### v-model绑定在哪一个事件上
-##### 题目：v-model绑定在哪一个事件上(个推一面)
+129. #### v-model绑定在哪一个事件上(个推一面)
+给组件添加 v-model 属性时，默认会把 value 作为组件的属性，然后把 'input' 值作为给组件绑定事件时的事件名
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-129. #### computed和methods定义一个东西有什么区别吗
-##### 题目：computed和methods定义一个东西，有什么区别吗(个推一面)
+129. #### computed和methods定义一个东西，有什么区别吗(个推一面)
 计算属性的特性，惰性计算
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-129. #### computed和watch的区别
-##### 题目：computed和watch的区别(个推一面)
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-129. #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-129. #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-129. #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-129. #### 讲一讲VueRouter路由懒加载
-##### 题目：路由懒加载
 
 ---
 
@@ -4497,13 +4461,41 @@ https://www.cnblogs.com/yzhihao/p/9306511.html
 
 
 130. ####  vue如何解析模板
-<details><summary><b>答案</b></summary>
+
 简单来说，模板解析分位三步
 
 - 模板就是一段字符串，非结构化的数据，没法分析。因此，第一步是将非结构化的模板字符串，转变成结构化的 JS 对象，抽象语法树，即 AST 。其实就是一个 JS 对象，这样就结构化了。
 - 第二步，将 AST 转换成一个 render 函数，步骤是先转换为一段函数体的字符串，然后再用new Function(...)生成函数。
-- 第三部，渲染时执行 render 函数，返回虚拟 DOM 对象，然后执行虚拟 DOM 的patch方法，渲染成真正的 html 。
-</details>
+- 第三步，渲染时执行 render 函数，返回虚拟 DOM 对象，然后执行虚拟 DOM 的 patch 方法，渲染成真正的 html 。
+
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+129. #### 讲一讲VueRouter路由懒加载
+##### 题目：路由懒加载
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+129. #### 讲一讲VueRouter路由懒加载
+##### 题目：路由懒加载
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+129. #### 讲一讲VueRouter路由懒加载
+##### 题目：路由懒加载
+
+---
+
+[[↑] 回到顶部](#awsome-knowledge-front-end)
+
+129. #### 讲一讲VueRouter路由懒加载
+##### 题目：路由懒加载
 
 ---
 

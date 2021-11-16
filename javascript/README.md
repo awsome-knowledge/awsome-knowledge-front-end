@@ -8066,11 +8066,8 @@ function extractIds(data) {
 var data = { id: 1, items: [ { id: 2 }, { item: 3, id: [ { id: 4 }, { id: 5 } ]} ] }; 
 extractIds(data); // should return [ 1, 2, 4, 5 ]
 ```
-<details><summary><b>答案</b></summary>
-<pre>
-解题
-
-function getId(data){ 
+```js
+function extractIds(data){ 
  let stack = [ data ] ,ret = [];
  while(stack.length > 0){
   let cur = stack.pop();
@@ -8081,10 +8078,10 @@ function getId(data){
        if(key === "id") ret.push(cur[key]);
       }
   }
+  }
 return ret ;
 }
-</pre>
-</details>
+```
 
 ---
 

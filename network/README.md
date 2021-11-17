@@ -909,8 +909,7 @@ HTTP/2 中所有加强性能的核心点在于此。在之前的 HTTP 版本中�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-29. #### http2和http3的区别
-##### 题目： HTTP/2和HTTP/3的区别（个推一面）
+29. #### HTTP/2和HTTP/3的区别（个推一面）
 HTTP/2 通过多路复用、二进制流、Header 压缩等等技术，极大地提高了性能，但是还是存在着问题的
 QUIC 基于 UDP 实现，是 HTTP/3 中的底层支撑协议，该协议基于 UDP，又取了 TCP 中的精华，实现了即快又可靠的协议
 
@@ -920,16 +919,23 @@ QUIC 基于 UDP 实现，是 HTTP/3 中的底层支撑协议，该协议基于 U
 
 30.  #### V8内存回收机制
 ##### 题目： V8 内存回收机制(字节跳动)
-<details><summary><b>答案</b></summary>
-关键词：信道复用，server push
-</details>
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management#%E7%AE%80%E4%BB%8B
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-31. #### https的加密方式
-##### 题目： https的加密方式（个推一面）
+31. #### https的加密方式（个推一面）
+HTTPS （安全的HTTP）是 HTTP 协议的加密版本。它通常使用 SSL (en-US) 或者 TLS 来加密客户端和服务器之间所有的通信 。这安全的链接允许客户端与服务器安全地交换敏感的数据，例如网上银行或者在线商城等涉及金钱的操作。
+
+SSL
+  
+安全套接字层(Secure Sockets Layer，简称SSL)是一种老式的标准安全技术，用于在服务器和客户端之间创建加密的网络链接，确保所传递的所有数据都是私有的和安全的。目前的SSL版本是3.0，由Netscape于1996年发布，并已被传输层安全(TLS)协议所取代。
+ 
+TLS
+传输层安全性协议 (Transport Layer Security，缩写作TLS)，它的前身是安全套接层(Secure Sockets Layer，缩写作SSL)，是一个被应用程序用来在网络中安全通信的 protocol （通讯协议），防止电子邮件、网页、消息以及其他协议被篡改或是窃听。
+
+所有现代浏览器都支持TLS协议, 它们都要求服务器提供一个有效的digital certificate（数字证书） 来确认身份以建立安全连接。如果客户端和服务器都能提供自己的数字证书，则它们可以互相认证。
 
 ---
 

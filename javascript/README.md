@@ -9147,6 +9147,9 @@ new MyPromise((resolve, reject) => {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 175. #### 异步代码执行顺序？解释一下什么是 Event Loop ？(坚果云)
+https://html.spec.whatwg.org/multipage/webappapis.html#event-loops
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop
 
 Event Loop即事件循环，是指浏览器或Node的一种解决javaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。
 

@@ -9146,9 +9146,7 @@ new MyPromise((resolve, reject) => {
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-175. #### 异步代码执行顺序解释一下什么是EventLoop坚果云
-##### 题目：异步代码执行顺序？解释一下什么是 Event Loop ？(坚果云)
-<details><summary><b>答案</b></summary>
+175. #### 异步代码执行顺序？解释一下什么是 Event Loop ？(坚果云)
 
 Event Loop即事件循环，是指浏览器或Node的一种解决javaScript单线程运行时不会阻塞的一种机制，也就是我们经常使用异步的原理。
 
@@ -9216,7 +9214,7 @@ close callbacks: 执行close事件的callback，例如socket.on('close'[,fn])或
 
 事件循环
 不同的任务源会被分配到不同的 Task 队列中，任务源可以分为 微任务（microtask） 和 宏任务（macrotask）。在 ES6 规范中，microtask 称为 jobs，macrotask 称为 task。下面来看以下代码的执行顺序：
-
+```
 console.log('script start')
 
 async function async1() {
@@ -9245,6 +9243,7 @@ new Promise(resolve => {
 
 console.log('script end')
 // script start => async2 end => Promise => script end => promise1 => promise2 => async1 end => setTimeout
+```
 注意：新的浏览器中不是如上打印的，因为 await 变快了，具体内容可以往下看
 
 首先先来解释下上述代码的 async 和 await 的执行顺序。当我们调用 async1 函数时，会马上输出 async2 end，并且函数返回一个 Promise，接下来在遇到 await的时候会就让出线程开始执行 async1 外的代码，所以我们完全可以把 await 看成是让出线程的标志。
@@ -9252,7 +9251,7 @@ console.log('script end')
 然后当同步代码全部执行完毕以后，就会去执行所有的异步代码，那么又会回到 await 的位置执行返回的 Promise 的 resolve 函数，这又会把 resolve 丢到微任务队列中，接下来去执行 then 中的回调，当两个 then 中的回调全部执行完毕以后，又会回到 await 的位置处理返回值，这时候你可以看成是 Promise.resolve(返回值).then()，然后 await 后的代码全部被包裹进了 then 的回调中，所以 console.log('async1 end') 会优先执行于 setTimeout。
 
 如果你觉得上面这段解释还是有点绕，那么我把 async 的这两个函数改造成你一定能理解的代码
-
+```
 new Promise((resolve, reject) => {
   console.log('async2 end')
   // Promise.resolve() 将代码插入微任务队列尾部
@@ -9261,6 +9260,7 @@ new Promise((resolve, reject) => {
 }).then(() => {
   console.log('async1 end')
 })
+```
 也就是说，如果 await 后面跟着 Promise 的话，async1 end 需要等待三个 tick 才能执行到。那么其实这个性能相对来说还是略慢的，所以 V8 团队借鉴了 Node 8 中的一个 Bug，在引擎底层将三次 tick 减少到了二次 tick。但是这种做法其实是违法了规范的，当然规范也是可以更改的，这是 V8 团队的一个 PR，目前已被同意这种做法。
 
 所以 Event Loop 执行顺序如下所示：
@@ -9277,9 +9277,6 @@ new Promise((resolve, reject) => {
 宏任务包括 script ， setTimeout ，setInterval ，setImmediate ，I/O ，UI rendering。
 
 这里很多人会有个误区，认为微任务快于宏任务，其实是错误的。因为宏任务中包括了 script ，浏览器会先执行一个宏任务，接下来有异步代码的话才会先执行微任务。
-
-
-</details>
 
 ---
 
@@ -9304,16 +9301,13 @@ new Promise((resolve, reject) => {
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 177. #### 什么是执行栈
-
-<details><summary><b>答案</b></summary>
 可以把执行栈认为是一个存储函数调用的栈结构，遵循先进后出的原则。
-
 
 执行栈可视化
 当开始执行 JS 代码时，首先会执行一个 main 函数，然后执行我们的代码。根据先进后出的原则，后执行的函数会先弹出栈，在图中我们也可以发现，foo 函数后执行，当执行完毕后就从栈中弹出了。
 
 平时在开发中，大家也可以在报错中找到执行栈的痕迹
-
+```
 function foo() {
   throw new Error('error')
 }
@@ -9321,21 +9315,22 @@ function bar() {
   foo()
 }
 bar()
+```
 ![avatar](https://user-gold-cdn.xitu.io/2018/11/13/1670c0e21540090c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
 函数执行顺序
 大家可以在上图清晰的看到报错在 foo 函数，foo 函数又是在 bar 函数中调用的。
 
 当我们使用递归的时候，因为栈可存放的函数是有限制的，一旦存放了过多的函数且没有得到释放的话，就会出现爆栈的问题
-
+```
 function bar() {
   bar()
 }
 bar()
-
+```
 爆栈
 ![avatar](https://user-gold-cdn.xitu.io/2018/11/13/1670c128acce975f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
-</details>
 
 ---
 

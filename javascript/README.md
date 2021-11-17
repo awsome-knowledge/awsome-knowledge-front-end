@@ -9339,9 +9339,7 @@ bar()
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-178. #### Node中的EventLoop和浏览器中的有什么区别processnexttick执行顺序
- Node 中的 Event Loop 和浏览器中的有什么区别？process.nexttick 执行顺序？
-<details><summary><b>答案</b></summary>
+178. #### Node 中的 Event Loop 和浏览器中的有什么区别？process.nexttick 执行顺序？
 Node 中的 Event Loop 和浏览器中的是完全不相同的东西。
 
 Node 的 Event Loop 分为 6 个阶段，它们会按照顺序反复运行。每当进入某一个阶段的时候，都会从对应的回调队列中取出函数去执行。当队列为空或者执行的回调函数数量到达系统设定的阈值，就会进入下一阶段。
@@ -9378,20 +9376,21 @@ close callbacks 阶段执行 close 事件
 在以上的内容中，我们了解了 Node 中的 Event Loop 的执行顺序，接下来我们将会通过代码的方式来深入理解这块内容。
 
 首先在有些情况下，定时器的执行顺序其实是随机的
-
+```
 setTimeout(() => {
     console.log('setTimeout')
 }, 0)
 setImmediate(() => {
     console.log('setImmediate')
 })
+```
 对于以上代码来说，setTimeout 可能执行在前，也可能执行在后
 
 首先 setTimeout(fn, 0) === setTimeout(fn, 1)，这是由源码决定的
 进入事件循环也是需要成本的，如果在准备时候花费了大于 1ms 的时间，那么在 timer 阶段就会直接执行 setTimeout 回调
 那么如果准备时间花费小于 1ms，那么就是 setImmediate 回调先执行了
 当然在某些情况下，他们的执行顺序一定是固定的，比如以下代码：
-
+```
 const fs = require('fs')
 
 fs.readFile(__filename, () => {
@@ -9402,9 +9401,11 @@ fs.readFile(__filename, () => {
         console.log('immediate')
     })
 })
+```
 在上述代码中，setImmediate 永远先执行。因为两个代码写在 IO 回调中，IO 回调是在 poll 阶段执行，当回调执行完毕后队列为空，发现存在 setImmediate 回调，所以就直接跳转到 check 阶段去执行回调了。
 
 上面介绍的都是 macrotask 的执行情况，对于 microtask 来说，它会在以上每个阶段完成前清空 microtask 队列，下图中的 Tick 就代表了 microtask
+```
 setTimeout(() => {
   console.log('timer21')
 }, 0)
@@ -9412,10 +9413,11 @@ setTimeout(() => {
 Promise.resolve().then(function() {
   console.log('promise1')
 })
+```
 对于以上代码来说，其实和浏览器中的输出是一样的，microtask 永远执行在 macrotask 前面。
 
 最后我们来讲讲 Node 中的 process.nextTick，这个函数其实是独立于 Event Loop 之外的，它有一个自己的队列，当每个阶段完成后，如果存在 nextTick 队列，就会清空队列中的所有回调函数，并且优先于其他 microtask 执行。
-
+```
 setTimeout(() => {
  console.log('timer1')
 
@@ -9436,10 +9438,12 @@ process.nextTick(() => {
    })
  })
 })
+```
 对于以上代码，大家可以发现无论如何，永远都是先把 nextTick 全部打印出来。
 https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-11
 
-</details>
+https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop
+
 
 ---
 

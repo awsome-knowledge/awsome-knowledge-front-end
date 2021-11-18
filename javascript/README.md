@@ -10011,22 +10011,8 @@ typescript优点：
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 执行结果
-##### 题目：let {...a}=[1,2,3](个推一面)
-##### 答案：{0: 1, 1: 2, 2: 3}
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-192. #### 执行结果
 ##### 题目：let {...a}={a:1,a:2,a:3}(个推一面)
 ##### 答案：{a: 3}
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-192. #### 类数组
-##### 题目：类数组(个推一面)
-
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
@@ -10046,48 +10032,21 @@ a可以重新赋值吗
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 判断两个嵌套对象是否相等(个推一面)
-```js
-//a.js
-const a=13
-export a 
-//b.js
-import {a} from 'a.js'
-```
-a可以重新赋值吗
+https://blog.csdn.net/weixin_28900307/article/details/88659931
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 192. #### 遍历对象的方法(个推一面)
-```js
-//a.js
-const a=13
-export a 
-//b.js
-import {a} from 'a.js'
-```
-a可以重新赋值吗
+https://blog.csdn.net/weixin_38788947/article/details/81840087
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-key
 
-nexttick
-
-change() {
-    this.a  = 2
-    console.log(this.a)
-    console.log(div.innerText)
-}
-
-sum(1)(2)(3) == 6
-
-
-
-2. #### <div id="reference-valuePropagation"></div>js中什么类型是引用传递什么类型是值传递如何将值类型的变量以引用的方式传递
+2. #### <div id="reference-valuePropagation"></div>js中什么类型是引用传递？什么类型是值传递？如何将值类型的变量以引用的方式传递
 对象是引用传递，基础类型是值传递，通过将基础类型包装（`boxing`）可以以引用的方式传递
 
 面试写代码的话, 可以通过 如何编写一个 `json 对象的拷贝函数 `等类似的问题来考察对引用的了解

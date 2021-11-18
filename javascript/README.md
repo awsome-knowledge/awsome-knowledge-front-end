@@ -9747,11 +9747,17 @@ var getName = function () {
 function getName () {
     console.log(5);
 }
+<!-- //执行Byte的静态属性 -->
 Byte.getName();
+<!-- //执行全局上下文window的属性 -->
 getName();
+<!-- //这个就是window.getName()   Byte()==>window对象 -->
 Byte().getName();
+<!-- 被第三个例子覆盖 -->
 getName();
+<!-- 执行Byte静态属性getName的构造函数 -->
 new Byte.getName();
+<!-- 实例原型上的getName函数 -->
 new Byte().getName();
 // 2 4 1 1 2 3
 ```
@@ -9760,16 +9766,7 @@ new Byte().getName();
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-188. #### _.get()实现
-##### 题目：_.get()实现(字节跳动)
-
-
----
-
-[[↑] 回到顶部](#awsome-knowledge-front-end)
-
-189. #### lodash 的 深克隆实现
-##### 题目：lodash 的 深克隆实现(字节跳动)
+189. #### 题目：lodash 的 深克隆实现(字节跳动)
 ```js
 深克隆
 对象类型判断
@@ -9865,13 +9862,11 @@ parent2.h = parent2;
 child2 = cloneDeep(parent2);
 ```
 
-
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-190. #### ts和js的区别，为什么要选择使用ts？
-##### 题目：ts和js的区别，为什么要选择使用ts？(字节跳动)
+190. #### ts和js的区别，为什么要选择使用ts？(字节跳动)
 javascript和typescript的区别一：概念对比
 
 JavaScript 是一种轻量级的解释性脚本语言，无需编译，可嵌入到 HTML 页面中，在浏览器端执行，能够实现浏览器端丰富的交互功能，为用户带来流畅多样的用户体验。

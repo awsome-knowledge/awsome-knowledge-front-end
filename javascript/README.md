@@ -9449,39 +9449,72 @@ https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/#what-is-the
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-179. #### 使用正则表达式验证邮箱格式
-##### 题目：使用正则表达式验证邮箱格式(大搜车)
-<details><summary><b>答案</b></summary>
+179. #### 使用正则表达式验证邮箱格式(大搜车)
+```
+^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$
+```
 
-</details>
+需满足的验证逻辑:
+- @之前必须有内容且只能是字母（大小写）、数字、下划线(_)、减号（-）、点（.）
+
+- @和最后一个点（.）之间必须有内容且只能是字母（大小写）、数字、点（.）、减号（-），且两个点不能挨着
+
+- 最后一个点（.）之后必须有内容且内容只能是字母（大小写）、数字且长度为大于等于2个字节，小于等于6个字节
+
+测试例子:
+
+不满足校验逻辑:
+
+441030517@QQ..com
+
+119941779@qq,com
+
+5579001QQ@.COM
+
+1107531656@q?q?.com
+
+654088115@@qq.com
+
+495456580@qq@139.com
+
+279985462@qq。com.cn
+
+chen@foxmail.com)m
+
+2990814514@?￡QQ.COM
+
+xxxxxxxxx@_.com.cn (严格版校验不通过)
+
+xxxxxxxxx@wwew_163sadasdf.com.cn (严格版校验不通过)
+
+满足逻辑的:
+
+xxxxxxx@163.com
+
+xxxxxxxxx@wwew-163.com.cn
+
+hjkjhk@645654.2121-6878.com.wcn
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-180. #### 判断数组
-##### 题目：判断数组(大搜车)
-<details><summary><b>答案</b></summary>
-
-</details>
+180. #### 判断数组(大搜车)
+https://zhuanlan.zhihu.com/p/350927330
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-181. #### 实现indexof
-实现indexof(大搜车)
-<details><summary><b>答案</b></summary>
-
-</details>
+181. #### 实现indexof(大搜车)
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
 
-182. #### promiseall如果三个请求中第一个发生错误是会继续执行吗
-##### 题目：promise.all 如果三个请求中第一个发生错误是会继续执行吗（海康）
+182. #### promise.all 如果三个请求中第一个发生错误是会继续执行吗（海康）
 
 Promise.all(iterable) 方法返回一个 Promise 实例，此实例在 iterable 参数内所有的 promise 都“完成（resolved）”或参数中不包含 promise 时回调完成（resolve）；如果参数中  promise 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 promise 的结果。
 
@@ -9505,7 +9538,7 @@ Promise.all 在任意一个传入的 promise 失败时返回失败。例如，�
 
 为Promise插上可取消的翅膀
 Promise是React Native开发过程中用于异步操作的最常用的API，但Promise没有提供用于取消异步操作的方法。为了实现可取消的异步操作，我们可以为Promise包裹一层可取消的外衣。
-
+```
 const makeCancelable = (promise) => {
   let hasCanceled_ = false;
   const wrappedPromise = new Promise((resolve, reject) => {
@@ -9523,8 +9556,9 @@ const makeCancelable = (promise) => {
     },
   };
 };  
+```
 然后可以这样使用取消操作：
-
+```
 const somePromise = new Promise(r => setTimeout(r, 1000));//创建一个异步操作
 const cancelable = makeCancelable(somePromise);//为异步操作添加可取消的功能
 cancelable
@@ -9533,9 +9567,10 @@ cancelable
   .catch(({isCanceled, ...error}) => console.log('isCanceled', isCanceled));
 // 取消异步操作
 cancelable.cancel();   
+```
 上述方法，可以为异步操作添加可取消的功能，但是使用还是不够方便：在每个使用makeCancelable的页面都需要复制粘贴上述代码。
 下面我们做一下改进，将上述代码抽离到一个文件中。
-
+```
 /**
 * Cancelable
 * GitHub:https://github.com/crazycodeboy
@@ -9562,8 +9597,9 @@ export default function makeCancelable(promise){
        },
    };
 }
+```
 这样在使用的时候只需要将makeCancelable导入到你的相应js文件中就可以了。
-
+```
 import makeCancelable from '../util/Cancelable'
 可取消的网络请求fetch
 fetch是React Native开发过程中最常用的网络请求API，和Promis一样，fetch也没有提供用于取消已发出的网络请求的API。因为fetch返回的是一个Promise，所以我们可以借助上述方法，�来取消fetch所发出的网络请求。
@@ -9579,13 +9615,14 @@ this.cancelable = makeCancelable(fetch('url')));
 取消网络请求：
 
 this.cancelable.cancel();
-
+```
 在项目中的使用
 为了提高React Native应用的性能，我们需要在组件卸载的时候不仅要主动释放掉所持有的资源，也要取消所发出的一些异步请求操作。
-
+```
 componentWillUnmount() {      
   this.cancelable.cancel();
 }
+```
 
 ---
 

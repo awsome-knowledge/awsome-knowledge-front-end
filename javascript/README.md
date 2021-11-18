@@ -9710,22 +9710,23 @@ C|JS、业务逻辑、HTTP请求交互（AJAX, JSONP, WEBSOCKET)|HTTP请求路�
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-185. #### 简单讲讲适配器模式
-##### 题目：简单讲讲适配器模式(海康二面)
+185. #### 简单讲讲适配器模式(海康二面)
+https://juejin.cn/post/6844904032826294286#heading-15
+
+https://www.w3cschool.cn/zobyhd/lpsj6ozt.html
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-186. #### rustful接口原则
-##### 题目：rustful接口原则(海康二面)
+186. #### rustful接口原则(海康二面)
+https://www.runoob.com/w3cnote/restful-architecture.html
 
 ---
 
 [[↑] 回到顶部](#awsome-knowledge-front-end)
 
-187. #### 执行上下文变量声明和函数声明
-##### 题目：执行上下文，变量声明和函数声明(字节跳动)
+187. #### 执行上下文，变量声明和函数声明(字节跳动)
 
 ```js
 function Byte () {

@@ -1202,6 +1202,9 @@ function dom2Json(domtree) {
 那么这个问题就类似 Vue 的模板编译原理 我们可以利用正则 匹配 html 字符串 遇到开始标签 结束标签和文本 解析完毕之后生成对应的 ast 并建立相应的父子关联 不断的 advance 截取剩余的字符串 直到 html 全部解析完毕 感兴趣的可以看这里
 ## 27 类数组转化为数组的方法
 题目描述:类数组拥有 length 属性 可以使用下标来访问元素 但是不能使用数组的方法 如何把类数组转化为数组?
+
+知识：类数组是一个普通对象，而真实的数组是Array类型。 常见的类数组有: 函数的参数 arguments, DOM 对象列表 (比如通过 document.querySelectorAll 得到的列表), jQuery 对象 (比如 $ (“div”))。
+
 实现代码如下:
 ```js
 const arrayLike=document.querySelectorAll('div')

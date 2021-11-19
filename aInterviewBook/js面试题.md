@@ -1087,6 +1087,8 @@ wrapPro.promise.then((res) => {
 });
 wrapPro.resolve("被拦截了");
 ```
+
+https://github.com/awsome-knowledge/awsome-knowledge-front-end/tree/master/javascript#%E5%8F%96%E6%B6%88promise
 ## 24 实现一个 add 方法
 题目描述:实现一个 add 方法 使计算结果能够满足如下预期：
 ```js

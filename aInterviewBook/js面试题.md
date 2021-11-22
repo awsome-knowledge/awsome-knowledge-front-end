@@ -1379,6 +1379,7 @@ function render(template, data) {
   return computed;
 }
 ```
+[replace](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
 ## 33 实现一个对象的 flatten 方法
 题目描述:
 ```js

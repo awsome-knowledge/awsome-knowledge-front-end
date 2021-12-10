@@ -980,6 +980,10 @@ for (let [key, value] of map.entries()) {
 1. CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
 2. CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
 3. CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。
+
+
+https://es6.ruanyifeng.com/#docs/module-loader#ES6-%E6%A8%A1%E5%9D%97%E4%B8%8E-CommonJS-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%AE%E5%BC%82
+
 ## 小结
 
 本小节主要总结了 ES 基础语法中面试经常考查的知识点，包括之前就考查较多的原型、异步、作用域，以及 ES6 的一些新内容，这些知识点希望大家都要掌握。

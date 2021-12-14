@@ -62,20 +62,47 @@ vuex 状态管理
 
 
 ### 4 Vue 的生命周期方法有哪些 一般在哪一步发请求
-beforeCreate 在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。在当前阶段 data、methods、computed 以及 watch 上的数据和方法都不能被访问
-created 实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。这里没有$el,如果非要想与 Dom 进行交互，可以通过 vm.$nextTick 来访问 Dom
-beforeMount 在挂载开始之前被调用：相关的 render 函数首次被调用。
-mounted 在挂载完成后发生，在当前阶段，真实的 Dom 挂载完毕，数据完成双向绑定，可以访问到 Dom 节点
-beforeUpdate 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁（patch）之前。可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程
-updated 发生在更新完成之后，当前阶段组件 Dom 已完成更新。要注意的是避免在此期间更改数据，因为这可能会导致无限循环的更新，该钩子在服务器端渲染期间不被调用。
-beforeDestroy 实例销毁之前调用。在这一步，实例仍然完全可用。我们可以在这时进行善后收尾工作，比如清除计时器。
-destroyed Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。
+
+1. beforeCreate 
+
+在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。在当前阶段 data、methods、computed 以及 watch 上的数据和方法都不能被访问
+
+2. created 
+
+实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。这里没有$el,如果非要想与 Dom 进行交互，可以通过 vm.$nextTick 来访问 Dom
+
+3. beforeMount
+
+在挂载开始之前被调用：相关的 render 函数首次被调用。
+
+4. mounted
+
+在挂载完成后发生，在当前阶段，真实的 Dom 挂载完毕，数据完成双向绑定，可以访问到 Dom 节点
+
+5. beforeUpdate 
+
+数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁（patch）之前。可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程
+
+6. updated 
+
+发生在更新完成之后，当前阶段组件 Dom 已完成更新。要注意的是避免在此期间更改数据，因为这可能会导致无限循环的更新，该钩子在服务器端渲染期间不被调用。
+
+7. beforeDestroy 
+
+实例销毁之前调用。在这一步，实例仍然完全可用。我们可以在这时进行善后收尾工作，比如清除计时器。
+
+8. destroyed 
+
+Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。
+
 activated keep-alive 专属，组件被激活时调用
+
 deactivated keep-alive 专属，组件被销毁时调用
 
 异步请求在哪一步发起？
 
 可以在钩子函数 created、beforeMount、mounted 中进行异步请求，因为在这三个钩子函数中，data 已经创建，可以将服务端端返回的数据进行赋值。
+
 如果异步请求不需要依赖 Dom 推荐在 created 钩子函数中调用异步请求，因为在 created 钩子函数中调用异步请求有以下优点：
 
 能更快获取到服务端数据，减少页面  loading 时间；
@@ -83,9 +110,13 @@ ssr  不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有
 
 ### 5 v-if 和 v-show 的区别
 v-if 在编译过程中会被转化成三元表达式,条件不满足时不渲染此节点。
+
 v-show 会被编译成指令，条件不满足时控制样式将对应节点隐藏 （display:none）
+
 使用场景
+
 v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景
+
 v-show 适用于需要非常频繁切换条件的场景
 
 扩展补充：display:none、visibility:hidden 和 opacity:0 之间的区别？
@@ -103,16 +134,21 @@ v-show 适用于需要非常频繁切换条件的场景
 如果实在要改变父组件的 prop 值 可以再 data 里面定义一个变量 并用 prop 的值初始化它 之后用$emit 通知父组件去修改
 ### 8 computed 和 watch 的区别和运用的场景
 computed 是计算属性，依赖其他属性计算值，并且 computed 的值有缓存，只有当计算值变化才会返回内容，它可以设置 getter 和 setter。
+
 watch 监听到值的变化就会执行回调，在回调中可以进行一些逻辑操作。
+
 计算属性一般用在模板渲染中，某个值是依赖了其它的响应式对象甚至是计算属性计算而来；而侦听属性适用于观测某个值的变化去完成一段复杂的业务逻辑
+
 计算属性原理详解 传送门
 侦听属性原理详解 传送门
 ### 9 v-if 与 v-for 为什么不建议一起使用
-v-for 和 v-if 不要在同一个标签中使用,因为vue源码解析时先解析 v-for 再解析 v-if。如果遇到需要同时使用时可以考虑写成计算属性的方式。先用computed进行判断筛选出列表，最后进行v-for遍历。
+v-for 和 v-if 不要在同一个标签中使用,因为vue源码解析时先解析 v-for 再解析 v-if。如果遇到需要同时使用时可以考虑写成计算属性的方式。
+
+先用computed进行判断筛选出列表，最后进行v-for遍历。
 
 ## 中等
 ### 10 Vue2.0 响应式数据的原理
-整体思路是数据劫持+观察者模式
+整体思路是 数据劫持 + 观察者模式
 
 对象内部通过 defineReactive 方法，使用 Object.defineProperty 将属性进行劫持（只会劫持已经存在的属性），数组则是通过重写数组方法来实现。当页面使用对应属性时，每个属性都拥有自己的 dep 属性，存放他所依赖的 watcher（依赖收集），当属性变化后会通知自己对应的 watcher 去更新(派发更新)。
 相关代码如下
@@ -358,9 +394,13 @@ Vue.component('currency-input', {
 复制代码
 ### 17 v-for 为什么要加 key
 如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试就地修改/复用相同类型元素的算法。key 是为 Vue 中 vnode 的唯一标记，通过这个 key，我们的 diff 操作可以更准确、更快速
+
 更准确：因为带 key 就不是就地复用了，在 sameNode 函数 a.key === b.key 对比中可以避免就地复用的情况。所以会更加准确。
+
 更快速：利用 key 的唯一性生成 map 对象来获取对应节点，比遍历方式更快
+
 相关代码如下
+```js
 // 判断两个vnode的标签和key是否相同 如果相同 就可以认为是同一节点就地复用
 function isSameVnode(oldVnode, newVnode) {
   return oldVnode.tag === newVnode.tag && oldVnode.key === newVnode.key;
@@ -376,31 +416,50 @@ function makeIndexByKey(children) {
 }
 // 生成的映射表
 let map = makeIndexByKey(oldCh);
-复制代码
+```
+
 diff 算法详解 传送门
 ### 18 Vue 事件绑定原理
-原生事件绑定是通过 addEventListener 绑定给真实元素的，组件事件绑定是通过 Vue 自定义的$on 实现的。如果要在组件上使用原生事件，需要加.native 修饰符，这样就相当于在父组件中把子组件当做普通 html 标签，然后加上原生事件。
+原生事件绑定是通过 addEventListener 绑定给真实元素的，组件事件绑定是通过 Vue 自定义的$on 实现的。
+
+如果要在组件上使用原生事件，需要加.native 修饰符，这样就相当于在父组件中把子组件当做普通 html 标签，然后加上原生事件。
+
 $on、$emit 是基于发布订阅模式的，维护一个事件中心，on 的时候将事件按名称存在事件中心里，称之为订阅者，然后 emit 将对应的事件进行发布，去执行事件中心里的对应的监听器
+
 手写发布订阅原理 传送门
 ### 19 vue-router 路由钩子函数是什么 执行顺序是什么
 路由钩子的执行流程, 钩子函数种类有:全局守卫、路由守卫、组件守卫
+
 完整的导航解析流程:
 
 导航被触发。
+
 在失活的组件里调用 beforeRouteLeave 守卫。
+
 调用全局的 beforeEach 守卫。
+
 在重用的组件里调用 beforeRouteUpdate 守卫 (2.2+)。
+
 在路由配置里调用 beforeEnter。
+
 解析异步路由组件。
+
 在被激活的组件里调用 beforeRouteEnter。
+
 调用全局的 beforeResolve 守卫 (2.5+)。
+
 导航被确认。
+
 调用全局的 afterEach 钩子。
+
 触发 DOM 更新。
+
 调用 beforeRouteEnter 守卫中传给 next 的回调函数，创建好的组件实例会作为回调函数的参数传入。
 
 ### 20 vue-router 动态路由是什么 有什么问题
-我们经常需要把某种模式匹配到的所有路由，全都映射到同个组件。例如，我们有一个 User 组件，对于所有 ID 各不相同的用户，都要使用这个组件来渲染。那么，我们可以在 vue-router 的路由路径中使用“动态路径参数”(dynamic segment) 来达到这个效果：
+我们经常需要把某种模式匹配到的所有路由，全都映射到同个组件。例如，我们有一个 User 组件，对于所有 ID 各不相同的用户，都要使用这个组件来渲染。
+
+那么，我们可以在 vue-router 的路由路径中使用“动态路径参数”(dynamic segment) 来达到这个效果：
 ```js
 const User = {
   template: "<div>User</div>",
@@ -922,7 +981,7 @@ window.addEventListener("hashchange", funcRef, false);
 
 2. `history` 模式
 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。
-这两个方法应用于浏览器的历史记录站，在当前已有的 `back、forward、go` 的基础之上，它们提供了对历史记录进行修改的功能。这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前 `URL` 改变了，但浏览器不会刷新页面，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础。
+这两个方法应用于浏览器的历史记录栈，在当前已有的 `back、forward、go` 的基础之上，它们提供了对历史记录进行修改的功能。这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前 `URL` 改变了，但浏览器不会刷新页面，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础。
 
 特点：虽然美观，但是刷新会出现 `404` 需要后端进行配置
 
@@ -937,7 +996,11 @@ window.addEventListener("hashchange", funcRef, false);
 4. Store这个类拥有commit，dispatch这些方法，Store类里将用户传入的state包装成data，作为new Vue的参数，从而实现了state 值的响应式。
 
 ### 40 Vuex与Redux的主要区别
-`Vuex` 其实是一个针对 `Vue` 特化的 `Flux`，主要是为了配合 `Vue` 本身的响应式机制。当然吸取了一些 `Redux` 的特点，比如单状态树和便于测试和热重载的 `API`，但是也选择性的放弃了一些在 `Vue` 的场景下并不契合的特性，比如强制的 `immutability`（在保证了每一次状态变化都能追踪的情况下强制的 `immutability` 带来的收益就很有限了）、为了同构而设计得较为繁琐的 `API`、必须依赖第三方库才能相对高效率地获得状态树的局部状态等等（相比之下 `Vuex` 直接用 `Vue` 本身的计算属性就可以）所以 `Vue + Vuex` 会更简洁，也不需要考虑性能问题，代价就是 `Vuex` 只能和 `Vue` 配合。`Vue + Redux` 也不是不可以，但是 `Redux` 作为一个泛用的实现和 `Vue` 的契合度肯定不如 `Vuex`。
+`Vuex` 其实是一个针对 `Vue` 特化的 `Flux`，主要是为了配合 `Vue` 本身的响应式机制。
+
+当然吸取了一些 `Redux` 的特点，比如单状态树和便于测试和热重载的 `API`，但是也选择性的放弃了一些在 `Vue` 的场景下并不契合的特性，比如强制的 `immutability`（在保证了每一次状态变化都能追踪的情况下强制的 `immutability` 带来的收益就很有限了）、为了同构而设计得较为繁琐的 `API`、必须依赖第三方库才能相对高效率地获得状态树的局部状态等等（相比之下 `Vuex` 直接用 `Vue` 本身的计算属性就可以）所以 `Vue + Vuex` 会更简洁，也不需要考虑性能问题，代价就是 `Vuex` 只能和 `Vue` 配合。
+
+`Vue + Redux` 也不是不可以，但是 `Redux` 作为一个泛用的实现和 `Vue` 的契合度肯定不如 `Vuex`。
 
 ### 41 ast
 ```js

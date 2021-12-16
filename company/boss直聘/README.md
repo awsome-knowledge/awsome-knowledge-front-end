@@ -1,20 +1,20 @@
-# 小商品公司
+# boss直聘
 ## 面试官
 1. 自我介绍
-2. electron是什么
-3. electron如何通讯
-4. electron如何优化
-5. electron卡顿怎么解决
-6. manis前端开发人数
-7. manis中你的定位
-8. manis项目难点
-9. hikke中做了什么
-10. hikke中的技术难点
-11. 遍历列表为何需要加上key
-12. vue原理
-13. object.defineproperty方法不能使用的情况
-14. 数组重写push这个方法在底层逻辑
-15. vue使用最多的设计模式
+2. electron 是什么
+3. electron 如何通讯
+4. electron 如何优化
+5. electron 卡顿怎么解决
+6. manis 前端开发人数
+7. manis 中你的定位
+8. manis 项目难点
+9. hikke 中做了什么
+10. hikke 中的技术难点
+11. 遍历列表为何需要加上 key
+12. vue 原理
+13. object.defineproperty 方法不能使用的情况
+14. 数组重写 push 这个方法在底层逻辑
+15. vue 使用最多的设计模式
 16. 观察者模式和发布订阅模式的区别
 17. 事件循环
 18. BFC

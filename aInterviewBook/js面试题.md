@@ -78,6 +78,7 @@ const mySetTimeout = (fn, time) => {
 3. setInterval 不保证执行间隔
 ## 3 发布订阅模式
 题目描述:实现一个发布订阅模式拥有 `on` `emit` `once` `off` 方法
+
 实现代码如下:
 ```js
 class EventEmitter {
@@ -143,6 +144,7 @@ function uniqueArr(arr) {
 ```
 ## 5 数组扁平化
 题目描述:实现一个方法使多维数组变成一维数组
+
 最常见的递归版本如下：
 
 ```js
@@ -281,6 +283,7 @@ scheduler.taskStart();
 ```
 ## 8 new 操作符
 题目描述:手写 `new` 操作符实现
+
 实现代码如下:
 ```js
 function myNew(fn, ...args) {
@@ -309,6 +312,7 @@ function myNew(fn, ...args) {
 ```
 ## 9 call apply bind
 题目描述:手写 `call` `apply` `bind` 实现
+
 实现代码如下:
 ```js
 Function.prototype.myCall = function (context, ...args) {
@@ -362,7 +366,7 @@ Function.prototype.myBind = function (context, ...args) {
     }
   };
   // 如果绑定的是构造函数 那么需要继承构造函数原型属性和方法
-  // 实现继承的方式: 使用Object.create
+  // 实现继承的方式: 使用 Object.create
   result.prototype = Object.create(this.prototype);
   return result;
 };
@@ -402,6 +406,7 @@ Function.prototype.myBind = function (context, ...args) {
 ```
 ## 10 深拷贝（考虑到复制 Symbol 类型）
 题目描述:手写 `new` 操作符实现
+
 实现代码如下:
 ```js
 function isObject(val) {
@@ -687,9 +692,9 @@ function search(arr, target, start, end) {
 ## 19 实现 LazyMan
 题目描述:
 
-这是典型的JavaScript流程控制，问题的关键是如何实现任务的顺序执行。
+这是典型的 JavaScript 流程控制，问题的关键是如何实现任务的顺序执行。
 
-实现一个LazyMan，可以按照以下方式调用:
+实现一个 LazyMan，可以按照以下方式调用:
 ```js
 LazyMan(“Hank”)输出:
 Hi! This is Hank!
@@ -978,7 +983,7 @@ class Mypromise {
     let count = 0;
     return new Mypromise((resolve, reject) => {
       for (let i = 0; i < promiseArr.length; i++) {
-      //这里用 Promise.resolve包装一下 防止不是Promise类型传进来
+      //这里用 Promise.resolve 包装一下 防止不是Promise类型传进来
         Promise.resolve(promiseArr[i]).then(
           (res) => {
             //这里不能直接push数组  因为要控制顺序一一对应(感谢评论区指正)
@@ -1060,7 +1065,7 @@ class Mypromise {
 
 扩展思考:如何取消 promise
 
-Promise.race()方法可以用来竞争 Promise
+Promise.race() 方法可以用来竞争 Promise
 可以借助这个特性 自己包装一个 空的 Promise 与要发起的 Promise 来实现
 ```js
 function wrap(pro) {
@@ -1096,6 +1101,7 @@ add(1)(2)(3)()=6
 add(1,2,3)(4)()=10
 ```
 其实就是考函数柯里化
+
 实现代码如下:
 ```js
 function add(...args) {
@@ -1165,7 +1171,7 @@ const coinChange = function (coins, amount) {
   </span>
 </div>
 ```
-把上诉dom结构转成下面的JSON格式
+把上诉 dom 结构转成下面的 JSON 格式
 ```js
 {
   tag: 'DIV',
@@ -1203,7 +1209,7 @@ function dom2Json(domtree) {
 ## 27 类数组转化为数组的方法
 题目描述:类数组拥有 length 属性 可以使用下标来访问元素 但是不能使用数组的方法 如何把类数组转化为数组?
 
-知识：类数组是一个普通对象，而真实的数组是Array类型。 常见的类数组有: 函数的参数 arguments, DOM 对象列表 (比如通过 document.querySelectorAll 得到的列表), jQuery 对象 (比如 $ (“div”))。
+知识：类数组是一个普通对象，而真实的数组是 Array 类型。 常见的类数组有: 函数的参数 arguments, DOM 对象列表 (比如通过 document.querySelectorAll 得到的列表), jQuery 对象 (比如 $("div"))。
 
 实现代码如下:
 ```js
@@ -1222,6 +1228,7 @@ Array.prototype.concat.apply([], arrayLike)
 ```
 ## 28 Object.is 实现
 题目描述:
+
 Object.is不会转换被比较的两个值的类型，这点和===更为相似，他们之间也存在一些区别。
     1. NaN在===中是不相等的，而在Object.is中是相等的
     2. +0和-0在===中是相等的，而在Object.is中是不相等的
@@ -1264,6 +1271,7 @@ const getJSON = function (url) {
 ```
 ## 30 分片思想解决大数据量渲染问题
 题目描述:渲染百万条结构简单的大数据时 怎么使用分片思想优化渲染
+
 实现代码如下:
 ```js
 let ul = document.getElementById("container");

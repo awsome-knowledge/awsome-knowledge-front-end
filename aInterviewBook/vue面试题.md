@@ -368,10 +368,12 @@ select 字段将 value 作为 prop 并将 change 作为事件。
 注意:对于需要使用输入法 (如中文、日文、韩文等) 的语言，你会发现 v-model 不会在输入法组合文字过程中得到更新。
 
 在普通标签上
+```
     <input v-model="sth" />  //这一行等于下一行
     <input v-bind:value="sth" v-on:input="sth = $event.target.value" />
-复制代码
+```
 在组件上
+```
 <currency-input v-model="price"></currentcy-input>
 <!--上行代码是下行的语法糖
  <currency-input :value="price" @input="price = arguments[0]"></currency-input>
@@ -390,8 +392,7 @@ Vue.component('currency-input', {
  `,
  props: ['value'],
 })
-
-复制代码
+```
 ### 17 v-for 为什么要加 key
 如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试就地修改/复用相同类型元素的算法。key 是为 Vue 中 vnode 的唯一标记，通过这个 key，我们的 diff 操作可以更准确、更快速
 
@@ -478,12 +479,12 @@ const router = new VueRouter({
 解决方法：
 1.通过 watch 监听路由参数再发请求
 watch: { //通过watch来监听路由变化
-
+```
  "$route": function(){
  this.getData(this.$route.params.xxx);
  }
 }
-复制代码
+```
 2.用 :key 来阻止“复用”
 ```js
 <router-view :key="$route.fullPath" />
@@ -506,12 +507,22 @@ Module：允许将单一的 Store 拆分为多个 store 且同时保存在单一
 需要做 vuex 数据持久化 一般使用本地存储的方案来保存数据 可以自己设计存储方案 也可以使用第三方插件
 推荐使用 vuex-persist 插件，它就是为 Vuex 持久化存储而生的一个插件。不需要你手动存取 storage ，而是直接将状态保存至 cookie 或者 localStorage 中
 ### 23 Vuex 为什么要分模块并且加命名空间
-模块:由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块。
+模块:由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
+
+为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。
+
+每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块。
+
+
 命名空间：默认情况下，模块内部的 action、mutation 和 getter 是注册在全局命名空间的——这样使得多个模块能够对同一 mutation 或 action 作出响应。如果希望你的模块具有更高的封装度和复用性，你可以通过添加 namespaced: true 的方式使其成为带命名空间的模块。当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。
 ### 24 使用过 Vue SSR 吗？说说 SSR
 SSR 也就是服务端渲染，也就是将 Vue 在客户端把标签渲染成 HTML 的工作放在服务端完成，然后再把 html 直接返回给客户端。
+
+
 优点：
 SSR 有着更好的 SEO、并且首屏加载速度更快
+
+
 缺点：
 开发条件会受到限制，服务器端渲染只支持 beforeCreate 和 created 两个钩子，当我们需要一些外部扩展库时需要特殊处理，服务端渲染应用程序也需要处于 Node.js 的运行环境。
 服务器会有更大的负载需求

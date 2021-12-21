@@ -36,40 +36,44 @@ MVVM 与 MVC 最大的区别就是：它实现了 View 和 Model 的自动同步
 
 
 ### 2 为什么 data 是一个函数
-组件中的 data 写成一个函数，数据以函数返回值形式定义，这样每复用一次组件，就会返回一份新的 data，类似于给每个组件实例创建一个私有的数据空间，让各个组件实例维护各自的数据。而单纯的写成对象形式，就使得所有组件实例共用了一份 data，就会造成一个变了全都会变的结果
+组件中的 data 写成一个函数，数据以函数返回值形式定义，这样每复用一次组件，就会返回一份新的 data，类似于给每个组件实例创建一个私有的数据空间，让各个组件实例维护各自的数据。而单纯的写成对象形式，就使得所有组件实例共用了一份 data，就会造成一个变了全都会变的结果。
+
+隔离性，单个页面的操作不污染其他数据。
 ### 3 Vue 组件通讯有哪几种方式
+- props 和 $emit 
+父组件向子组件传递数据是通过 prop 传递的，子组件传递数据给父组件是通过 $emit 触发事件来做到的
 
+- $parent,$children
 
-props 和$emit 父组件向子组件传递数据是通过 prop 传递的，子组件传递数据给父组件是通过$emit 触发事件来做到的
+获取当前组件的父组件和当前组件的子组件
 
+- $attrs 和 $listeners
 
-$parent,$children 获取当前组件的父组件和当前组件的子组件
+A->B->C。Vue 2.4 开始提供了$attrs 和$listeners 来解决这个问题
 
-
-$attrs 和$listeners A->B->C。Vue 2.4 开始提供了$attrs 和$listeners 来解决这个问题
-
+- provide 和 inject
 
 父组件中通过 provide 来提供变量，然后在子组件中通过 inject 来注入变量。(官方不推荐在实际业务中使用，但是写组件库时很常用)
 
+- $refs 
 
-$refs 获取组件实例
+获取组件实例
 
+- envetBus 
 
-envetBus 兄弟组件数据传递 这种情况下可以使用事件总线的方式
+兄弟组件数据传递 这种情况下可以使用事件总线的方式
 
-
-vuex 状态管理
-
+- vuex
+集中式状态管理
 
 ### 4 Vue 的生命周期方法有哪些 一般在哪一步发请求
-
 1. beforeCreate 
 
 在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。在当前阶段 data、methods、computed 以及 watch 上的数据和方法都不能被访问
 
 2. created 
 
-实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。这里没有$el,如果非要想与 Dom 进行交互，可以通过 vm.$nextTick 来访问 Dom
+实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。这里没有 $el,如果非要想与 Dom 进行交互，可以通过 vm.$nextTick 来访问 Dom
 
 3. beforeMount
 
@@ -77,11 +81,11 @@ vuex 状态管理
 
 4. mounted
 
-在挂载完成后发生，在当前阶段，真实的 Dom 挂载完毕，数据完成双向绑定，可以访问到 Dom 节点
+在挂载完成后发生，在当前阶段，真实的 Dom 挂载完毕，数据完成双向绑定，可以访问到 Dom 节点。
 
 5. beforeUpdate 
 
-数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁（patch）之前。可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程
+数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁（patch）之前。可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
 
 6. updated 
 
@@ -95,25 +99,28 @@ vuex 状态管理
 
 Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。
 
-activated keep-alive 专属，组件被激活时调用
+9. activated 
 
-deactivated keep-alive 专属，组件被销毁时调用
+keep-alive 专属，组件被激活时调用
+
+10. deactivated 
+
+keep-alive 专属，组件被销毁时调用
 
 异步请求在哪一步发起？
 
-可以在钩子函数 created、beforeMount、mounted 中进行异步请求，因为在这三个钩子函数中，data 已经创建，可以将服务端端返回的数据进行赋值。
+可以在钩子函数 created、beforeMount、mounted 中进行异步请求，因为在这三个钩子函数中，data 已经创建，可以将服务端返回的数据进行赋值。
 
 如果异步请求不需要依赖 Dom 推荐在 created 钩子函数中调用异步请求，因为在 created 钩子函数中调用异步请求有以下优点：
 
-能更快获取到服务端数据，减少页面  loading 时间；
-ssr  不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性；
-
+- 能更快获取到服务端数据，减少页面  loading 时间；
+- ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性；
 ### 5 v-if 和 v-show 的区别
 v-if 在编译过程中会被转化成三元表达式,条件不满足时不渲染此节点。
 
 v-show 会被编译成指令，条件不满足时控制样式将对应节点隐藏 （display:none）
 
-使用场景
+> 使用场景
 
 v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景
 

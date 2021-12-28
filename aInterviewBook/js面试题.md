@@ -442,7 +442,7 @@ function deepClone(obj, hash = new WeakMap()) {
 ```js
 /*
     实现深拷贝
-    1。 判断循环引用
+    1. 判断循环引用
     2. 判断正则对象
     3. 判断日期对象
     4. 属性对象直接进行递归拷贝

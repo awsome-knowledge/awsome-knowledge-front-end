@@ -1,0 +1,68 @@
+node.js
+	- node是一款对ES标准实现的JS引擎
+	- 通过node可以使js在服务器中运行
+	- node就是一款使用js编写的web服务器
+	- node底层是使用c++的编写的
+	- node的中js引擎使用的chrome的v8引擎
+	- node的特点：
+		1.非阻塞、异步的I/O
+		2.事件和回调函数
+		3.单线程（主线程单线程，后台I/O线程池）
+		4.跨平台
+		
+	- 模块化
+		- ES5中没有原生支持模块化，我们只能通过script标签引入js文件来实现模块化
+		- 在node中为了对模块管理，引入了CommonJS规范
+			
+			- 模块的引用
+				- 使用 require()函数来引入一个模块
+				- 例子：
+					var 变量 = require("模块的标识");
+				
+			- 模块的定义
+				- 在node中一个js文件就是一个模块
+				- 默认情况下在js文件中编写的内容，都是运行在一个独立的函数中，
+					外部的模块无法访问
+				- 导出变量和函数
+					- 使用 exports 
+						- 例子：
+							exports.属性 = 属性值;
+							exports.方法 = 函数;
+							
+					- 使用module.exports
+						- 例子：
+							module.exports.属性 = 属性值;
+							module.exports.方法 = 函数;
+							module.exports = {};
+			
+			- 模块的标识
+				- 模块的标识就是模块的名字或路径
+					我们node通过模块的标识来寻找模块的
+					对于核心模块（npm中下载的模块），直接使用模块的名字对其进行引入
+						var fs = require("fs");
+						var express = require("express");
+						
+					对于自定义的文件模块，需要通过文件的路径来对模块进行引入
+						路径可以是绝对路径，如果是相对路径必须以./或 ../开头
+						var router = require("./router");
+						
+						
+		- npm的命令
+			- npm -v 查看npm的版本
+			- npm version 查看所有模块的版本
+			- npm search 包名 搜索包
+			- npm install / i 包名 安装包
+			- npm remove / r 包名 删除包
+			- npm install 包名 --save 安装包并添加到依赖中 *****
+			- npm install 下载当前项目所依赖的包
+			- npm install 包名 -g 全局安装包（全局安装的包一般都是一些工具）
+			
+			
+			
+			
+			
+			
+			
+		
+		
+		

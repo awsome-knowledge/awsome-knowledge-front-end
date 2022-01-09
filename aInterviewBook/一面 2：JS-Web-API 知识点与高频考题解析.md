@@ -482,7 +482,7 @@ url 哪些地方不同算作跨域？
 
 但是请注意，所有的跨域请求方式，最终都需要信息提供方来做出相应的支持和改动，也就是要经过信息提供方的同意才行，否则接收方是无法得到它们的信息的，浏览器是不允许的。
 
-### 解决跨域 - JSONP
+#### 解决跨域 - JSONP
 
 首先，有一个概念你要明白，例如访问`http://coding.m.juejin.com/classindex.html`的时候，服务器端就一定有一个`classindex.html`文件吗？—— 不一定，服务器可以拿到这个请求，动态生成一个文件，然后返回。 同理，`<script src="http://coding.m.juejin.com/api.js">`也不一定加载一个服务器端的静态文件，服务器也可以动态生成文件并返回。OK，接下来正式开始。
 
@@ -507,7 +507,7 @@ callback({x:100, y:200})
 
 最后我们在页面中加入`<script src="http://coding.m.juejin.com/api.js"></script>`，那么这个js加载之后，就会执行内容，我们就得到内容了。
 
-### 解决跨域 - 服务器端设置 http header
+#### 解决跨域 - 服务器端设置 http header
 
 这是需要在服务器端设置的，作为前端工程师我们不用详细掌握，但是要知道有这么个解决方案。而且，现在推崇的跨域解决方案是这一种，比 JSONP 简单许多。
 
@@ -520,9 +520,9 @@ response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"
 response.setHeader("Access-Control-Allow-Credentials", "true");
 
 ```
-### 解决跨域 - postMessage 跨域
+#### 解决跨域 - postMessage 跨域
 
-### nginx代理
+#### nginx代理
 * * *
 
 ## 存储

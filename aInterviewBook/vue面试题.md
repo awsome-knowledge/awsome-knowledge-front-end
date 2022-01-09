@@ -10,14 +10,17 @@ MVC 全名是 Model View Controller，是模型(model)－视图(view)－控制�
 
 ![mvc](./public/mvc.png)
 
-MVC 的思想：一句话描述就是 Controller 负责将 Model 的数据用 View 显示出来，换句话说就是在 Controller 里面把 Model 的数据赋值给 View。
+MVC 的思想：就是 Controller 负责将 Model 的数据用 View 显示出来
+
 - MVVM
 
 MVVM 新增了 VM 类
 
 1. ViewModel 层：做了两件事达到了数据的双向绑定 
 
-一是将【模型】转化成【视图】，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将【视图】转化成【模型】，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。
+一是将【模型】转化成【视图】，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。
+
+二是将【视图】转化成【模型】，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。
 
 ![mvvm](./public/mvvm.png)
 
@@ -30,7 +33,6 @@ MVVM 与 MVC 最大的区别就是：它实现了 View 和 Model 的自动同步
 ![vue](./public/vue.png)
 
 那么问题来了 为什么官方要说 Vue 没有完全遵循 MVVM 思想呢？
-
 
 严格的 MVVM 要求 View 不能和 Model 直接通信，而 Vue 提供了$refs 这个属性，让 Model 可以直接操作 View，违反了这一规定，所以说 Vue 没有完全遵循 MVVM。
 
@@ -46,6 +48,10 @@ MVVM 与 MVC 最大的区别就是：它实现了 View 和 Model 的自动同步
 - $parent,$children
 
 获取当前组件的父组件和当前组件的子组件
+
+- $dispatch 和 $broadcast 
+
+Vue 1.0 中主要用来实现基于组件树结构的事件流通信 —— 通过向上或向下以冒泡的形式传递事件流，以实现嵌套父子组件的通信。但是由于其显功能缺陷，在 Vue 2.0 中就被移除了。
 
 - $attrs 和 $listeners
 
@@ -116,7 +122,7 @@ keep-alive 专属，组件被销毁时调用
 - 能更快获取到服务端数据，减少页面  loading 时间；
 - ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性；
 ### 5 v-if 和 v-show 的区别
-v-if 在编译过程中会被转化成三元表达式,条件不满足时不渲染此节点。
+v-if 在编译过程中会被转化成三元表达式，条件不满足时不渲染此节点。
 
 v-show 会被编译成指令，条件不满足时控制样式将对应节点隐藏 （display:none）
 
@@ -144,20 +150,23 @@ computed 是计算属性，依赖其他属性计算值，并且 computed 的值�
 
 watch 监听到值的变化就会执行回调，在回调中可以进行一些逻辑操作。
 
+场景：
+
 计算属性一般用在模板渲染中，某个值是依赖了其它的响应式对象甚至是计算属性计算而来；而侦听属性适用于观测某个值的变化去完成一段复杂的业务逻辑
 
 计算属性原理详解 传送门
 侦听属性原理详解 传送门
 ### 9 v-if 与 v-for 为什么不建议一起使用
-v-for 和 v-if 不要在同一个标签中使用,因为vue源码解析时先解析 v-for 再解析 v-if。如果遇到需要同时使用时可以考虑写成计算属性的方式。
+v-for 和 v-if 不要在同一个标签中使用，因为vue源码解析时先解析 v-for 再解析 v-if。如果遇到需要同时使用时可以考虑写成计算属性的方式。
 
-先用computed进行判断筛选出列表，最后进行v-for遍历。
+先用 computed 进行判断筛选出列表，最后进行v-for遍历。
 
 ## 中等
 ### 10 Vue2.0 响应式数据的原理
 整体思路是 数据劫持 + 观察者模式
 
 对象内部通过 defineReactive 方法，使用 Object.defineProperty 将属性进行劫持（只会劫持已经存在的属性），数组则是通过重写数组方法来实现。当页面使用对应属性时，每个属性都拥有自己的 dep 属性，存放他所依赖的 watcher（依赖收集），当属性变化后会通知自己对应的 watcher 去更新(派发更新)。
+
 相关代码如下
 ```js
 class Observer {
@@ -262,25 +271,26 @@ Vue3.x 使用 Proxy 取代 Vue2.x 版本的 Object.defineProperty
 
 
 2. 组件选项声明方式
-Vue3.x 使用 Composition API
-setup 是 Vue3.x 新增的一个选项， 他是组件内使用 Composition API 的入口。
+Vue3.x 使用 Composition API setup， 他是组件内使用 Composition API 的入口。
 
 
 3. 模板语法变化
 slot 具名插槽语法
+
 自定义指令
+
 v-model 升级
 
 
 4. 其它方面的更改
-Suspense
-支持 Fragment（多个根节点）和 Protal（在 dom 其他部分渲染组件内容）组件，针对一些特殊的场景做了处理。
-基于 treeshaking 优化，提供了更多的内置功能。
+Suspense 支持 Fragment（多个根节点）和 Protal（在 dom 其他部分渲染组件内容）组件，针对一些特殊的场景做了处理。
 
+基于 treeshaking 优化，提供了更多的内置功能。
 
 Vue3.0 新特性以及使用经验总结 传送门
 ### 13 Vue3.0 和 2.0 的响应式原理区别
 Vue3.x 改用 Proxy 替代 Object.defineProperty。因为 Proxy 可以直接监听对象和数组的变化，并且有多达 13 种拦截方法。
+
 相关代码如下
 ```js
 import { mutableHandlers } from "./baseHandlers"; // 代理相关逻辑
@@ -349,7 +359,9 @@ export const mutableHandlers = {
 
 父 beforeDestroy->子 beforeDestroy->子 destroyed->父 destroyed
 ### 15 虚拟 DOM 是什么 有什么优缺点
-由于在浏览器中操作 DOM 是很昂贵的。频繁的操作 DOM，会产生一定的性能问题。这就是虚拟 Dom 的产生原因。Vue2 的 Virtual DOM 借鉴了开源库 snabbdom 的实现。Virtual DOM 本质就是用一个原生的 JS 对象去描述一个 DOM 节点，是对真实 DOM 的一层抽象。
+由于在浏览器中操作 DOM 是很昂贵的。频繁的操作 DOM，会产生一定的性能问题。这就是虚拟 Dom 的产生原因。
+
+Vue2 的 Virtual DOM 借鉴了开源库 snabbdom 的实现。Virtual DOM 本质就是用一个原生的 JS 对象去描述一个 DOM 节点，是对真实 DOM 的一层抽象。
 
 优点：
 1. 保证性能下限： 框架的虚拟 DOM 需要适配任何上层 API 可能产生的操作，它的一些 DOM 操作的实现必须是普适的，所以它的性能并不是最优的；但是比起粗暴的 DOM 操作性能要好很多，因此框架的虚拟 DOM 至少可以保证在你不需要手动优化的情况下，依然可以提供还不错的性能，即保证性能的下限；
@@ -361,16 +373,16 @@ export const mutableHandlers = {
 
 1. 无法进行极致优化： 虽然虚拟 DOM + 合理的优化，足以应对绝大部分应用的性能需求，但在一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化。
 2. 首次渲染大量 DOM 时，由于多了一层虚拟 DOM 的计算，会比 innerHTML 插入慢。
-
-
 ### 16 v-model 原理
 v-model 只是语法糖而已
+
 v-model 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：
 
 text 和 textarea 元素使用 value property 和 input 事件；
-checkbox 和 radio 使用 checked property 和 change 事件；
-select 字段将 value 作为 prop 并将 change 作为事件。
 
+checkbox 和 radio 使用 checked property 和 change 事件；
+
+select 字段将 value 作为 prop 并将 change 作为事件。
 
 注意:对于需要使用输入法 (如中文、日文、韩文等) 的语言，你会发现 v-model 不会在输入法组合文字过程中得到更新。
 
@@ -401,7 +413,9 @@ Vue.component('currency-input', {
 })
 ```
 ### 17 v-for 为什么要加 key
-如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试就地修改/复用相同类型元素的算法。key 是为 Vue 中 vnode 的唯一标记，通过这个 key，我们的 diff 操作可以更准确、更快速
+如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试就地修改/复用相同类型元素的算法。
+
+key 是为 Vue 中 vnode 的唯一标记，通过这个 key，我们的 diff 操作可以更准确、更快速
 
 更准确：因为带 key 就不是就地复用了，在 sameNode 函数 a.key === b.key 对比中可以避免就地复用的情况。所以会更加准确。
 
@@ -430,10 +444,9 @@ diff 算法详解 传送门
 ### 18 Vue 事件绑定原理
 原生事件绑定是通过 addEventListener 绑定给真实元素的，组件事件绑定是通过 Vue 自定义的$on 实现的。
 
-如果要在组件上使用原生事件，需要加.native 修饰符，这样就相当于在父组件中把子组件当做普通 html 标签，然后加上原生事件。
+如果要在组件上使用原生事件，需要加 .native 修饰符，这样就相当于在父组件中把子组件当做普通 html 标签，然后加上原生事件。
 
-$on、$emit 是基于发布订阅模式的，维护一个事件中心，on 的时候将事件按名称存在事件中心里，称之为订阅者，然后 emit 将对应的事件进行发布，去执行事件中心里的对应的监听器
-
+$on、$emit 是基于**发布订阅模式**的，维护一个事件中心，on 的时候将事件按名称存在事件中心里，称之为订阅者，然后 emit 将对应的事件进行发布，去执行事件中心里的对应的监听器
 手写发布订阅原理 传送门
 ### 19 vue-router 路由钩子函数是什么 执行顺序是什么
 路由钩子的执行流程, 钩子函数种类有:全局守卫、路由守卫、组件守卫
@@ -505,14 +518,18 @@ vuex 是专门为 vue 提供的全局状态管理系统，用于多个组件中�
 主要包括以下几个模块：
 
 State：定义了应用状态的数据结构，可以在这里设置默认的初始状态。
+
 Getter：允许组件从 Store 中获取数据，mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性。
+
 Mutation：是唯一更改 store 中状态的方法，且必须是同步函数。
+
 Action：用于提交 mutation，而不是直接变更状态，可以包含任意异步操作。
+
 Module：允许将单一的 Store 拆分为多个 store 且同时保存在单一的状态树中。
 
 ### 22 Vuex 页面刷新数据丢失怎么解决
 需要做 vuex 数据持久化 一般使用本地存储的方案来保存数据 可以自己设计存储方案 也可以使用第三方插件
-推荐使用 vuex-persist 插件，它就是为 Vuex 持久化存储而生的一个插件。不需要你手动存取 storage ，而是直接将状态保存至 cookie 或者 localStorage 中
+推荐使用 vuex-persist（持久） 插件，它就是为 Vuex 持久化存储而生的一个插件。不需要你手动存取 storage ，而是直接将状态保存至 cookie 或者 localStorage 中
 ### 23 Vuex 为什么要分模块并且加命名空间
 模块:由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
 
@@ -520,17 +537,16 @@ Module：允许将单一的 Store 拆分为多个 store 且同时保存在单一
 
 每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块。
 
-
 命名空间：默认情况下，模块内部的 action、mutation 和 getter 是注册在全局命名空间的——这样使得多个模块能够对同一 mutation 或 action 作出响应。如果希望你的模块具有更高的封装度和复用性，你可以通过添加 namespaced: true 的方式使其成为带命名空间的模块。当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。
 ### 24 使用过 Vue SSR 吗？说说 SSR
 SSR 也就是服务端渲染，也就是将 Vue 在客户端把标签渲染成 HTML 的工作放在服务端完成，然后再把 html 直接返回给客户端。
 
-
 优点：
+
 SSR 有着更好的 SEO、并且首屏加载速度更快
 
-
 缺点：
+
 开发条件会受到限制，服务器端渲染只支持 beforeCreate 和 created 两个钩子，当我们需要一些外部扩展库时需要特殊处理，服务端渲染应用程序也需要处于 Node.js 的运行环境。
 服务器会有更大的负载需求
 ### 25 vue 中使用了哪些设计模式
@@ -615,7 +631,9 @@ export function mergeOptions(parent, child) {
 ```
 Vue.mixin 原理详解 传送门
 ### 28 nextTick 使用场景和原理
-`nextTick` 中的回调是在下次 `DOM` 更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的 `DOM`。主要思路就是采用微任务优先的方式调用异步方法去执行 `nextTick` 包装的方法
+`nextTick` 中的回调是在下次 `DOM` 更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的 `DOM`。
+
+主要思路就是采用微任务优先的方式调用异步方法去执行 `nextTick` 包装的方法
 
 相关代码如下
 ```js
@@ -779,7 +797,7 @@ export default {
 
 `Vue.set` 或者说是 `$set` 原理如下
 
-因为响应式数据 我们给对象和数组本身都增加了 `__ob__` 属性，代表的是 `Observer` 实例。当给对象新增不存在的属性 首先会把新的属性进行响应式跟踪 然后会触发对象 `__ob__` 的 `dep` 收集到的 `watcher` 去更新，当修改数组索引时我们调用数组本身的 `splice` 方法去更新数组
+因为响应式数据给对象和数组本身都增加了 `__ob__` 属性，代表的是 `Observer` 实例。当给对象新增不存在的属性 首先会把新的属性进行响应式跟踪 然后会触发对象 `__ob__` 的 `dep` 收集到的 `watcher` 去更新，当修改数组索引时我们调用数组本身的 `splice` 方法去更新数组
 
 相关代码如下
 ```js
@@ -986,7 +1004,7 @@ installComponentHooks(data); // 安装组件相关钩子 （函数式组件没�
 1. `hash` 模式
 
 
-`location.hash` 的值实际就是 `URL` 中#后面的东西 它的特点在于：hash 虽然出现 `URL` 中，但不会被包含在 `HTTP` 请求中，对后端完全没有影响，因此改变 `hash` 不会重新加载页面。
+`location.hash` 的值实际就是 `URL` 中 # 后面的东西 它的特点在于：hash 虽然出现 `URL` 中，但不会被包含在 `HTTP` 请求中，对后端完全没有影响，因此改变 `hash` 不会重新加载页面。
 
 
 可以为 `hash` 的改变添加监听事件
@@ -999,7 +1017,10 @@ window.addEventListener("hashchange", funcRef, false);
 
 2. `history` 模式
 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。
-这两个方法应用于浏览器的历史记录栈，在当前已有的 `back、forward、go` 的基础之上，它们提供了对历史记录进行修改的功能。这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前 `URL` 改变了，但浏览器不会刷新页面，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础。
+
+这两个方法应用于浏览器的历史记录栈，在当前已有的 `back、forward、go` 的基础之上，它们提供了对历史记录进行修改的功能。
+
+这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前 `URL` 改变了，但浏览器不会刷新页面，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础。
 
 特点：虽然美观，但是刷新会出现 `404` 需要后端进行配置
 

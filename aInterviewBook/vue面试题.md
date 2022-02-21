@@ -1002,8 +1002,6 @@ installComponentHooks(data); // 安装组件相关钩子 （函数式组件没�
 ```
 ### 37 能说下 vue-router 中常用的路由模式实现原理吗
 1. `hash` 模式
-
-
 `location.hash` 的值实际就是 `URL` 中 # 后面的东西 它的特点在于：hash 虽然出现 `URL` 中，但不会被包含在 `HTTP` 请求中，对后端完全没有影响，因此改变 `hash` 不会重新加载页面。
 
 

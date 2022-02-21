@@ -350,6 +350,31 @@ a.fn.call({name: 'B'})  // this === {name: 'B'}
 var fn1 = a.fn
 fn1()  // this === window
 
+
+var name='aaa' 
+var obj1={
+    name:'bbb',
+    fn1:function(){
+        console.log(this.name)
+    },
+    fn2:()=>{
+        console.log(this.name)
+    },
+    fn3:function(){
+        return function(){
+        console.log(this.name)
+        }
+    },
+    fn4:()=>{
+        return function(){
+        console.log(this.name)
+        }
+    }
+}
+    obj1.fn1()
+    obj1.fn2()
+    obj1.fn3()()
+    obj1.fn4()()
 ```
 
 `this`执行会有不同，主要集中在这几个场景中
